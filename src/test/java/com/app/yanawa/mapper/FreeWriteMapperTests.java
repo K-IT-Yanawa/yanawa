@@ -24,11 +24,11 @@ public class FreeWriteMapperTests {
         freewriteDTO.setPostContent("테스트다 글 내용 6");
         freewriteDTO.setPostReadCount(0);
         freewriteDTO.setReplyCount(0);
-        freewriteDTO.setUserId(21L);  // 유효한 USER_ID 설정
+        freewriteDTO.setUserId(21L); 
 
-        log.info("삽입할 데이터: {}", freewriteDTO);  // 삽입할 데이터를 출력
-        freewriteMapper.insert(freewriteDTO.toVO());  // 데이터 삽입 후 ID 반환
-        log.info("게시글 삽입 완료, ID = {}", freewriteDTO.getId());  // 자동 생성된 ID 출력
+        log.info("삽입할 데이터: {}", freewriteDTO);
+        freewriteMapper.insert(freewriteDTO.toVO());
+        log.info("게시글 삽입 완료, ID = {}", freewriteDTO.getId());
     }
 
 }

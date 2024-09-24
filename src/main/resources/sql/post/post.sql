@@ -23,4 +23,3 @@ INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, CREATED_DATE, UPDATED_DATE, 
 VALUES (8, 'Freewrite 게시글 3', '세 번째 Freewrite 게시글 내용', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
 
 -- 추가로 원하는 만큼 삽입 가능
-dddd

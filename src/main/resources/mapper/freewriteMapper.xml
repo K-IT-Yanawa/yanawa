@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.freewrite.FreewriteMapper">
+
+
+
     <insert id="insert">
         INSERT INTO TBL_FREEWRITE(POST_ID, POST_READ_COUNT, REPLY_COUNT, USER_ID, CREATED_DATE, UPDATED_DATE)
         VALUES(SEQ_FREEWRITE.NEXTVAL, #{postReadCount}, #{replyCount}, #{userId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)

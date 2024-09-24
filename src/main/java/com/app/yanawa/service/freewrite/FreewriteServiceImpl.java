@@ -18,7 +18,7 @@ public class FreewriteServiceImpl implements FreewriteService {
     @Override
     public Long write(FreewriteVO freewriteVO) {
         freewriteDAO.save(freewriteVO);
-        return freewriteVO.getId();
+        return freewriteVO.getId();     //postId를 받고 read할 때, 상세페이지로 이동 할 때, postId로 이동하기 위해. 했음
     }
 
     @Override
@@ -30,6 +30,7 @@ public class FreewriteServiceImpl implements FreewriteService {
     public List<FreewriteDTO> getList(Pagination pagination, String order){
         return freewriteDAO.findAll(pagination, order);
     }
+
     @Override
     public int getTotal(){return freewriteDAO.getTotal();}
 }
