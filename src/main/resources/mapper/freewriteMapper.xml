@@ -68,4 +68,9 @@
         INSERT INTO TBL_ATTACHMENT (ID, ATTACHMENT_PATH, ATTACHMENT_SIZE, POST_ID, CREATED_DATE, UPDATED_DATE)
         VALUES (SEQ_ATTACHMENT.NEXTVAL, #{attachmentPath}, #{attachmentSize}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
+
+    <select id="selectNextSeqVal" resultType="long">
+        SELECT SEQ_FREEWRITE.NEXTVAL FROM DUAL
+    </select>
+
 </mapper>

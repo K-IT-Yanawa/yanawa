@@ -16,19 +16,27 @@ public class FreeWriteMapperTests {
     @Autowired
     private FreewriteMapper freewriteMapper;
 
+
+
     @Test
-    @Rollback(false)
+@Rollback(false)
     public void freewriteInsertTest() {
         FreewriteDTO freewriteDTO = new FreewriteDTO();
+
+        // 시퀀스 값을 가져와 ID로 설정
+        Long nextPostId = freewriteMapper.selectNextSeqVal();
+        freewriteDTO.setId(nextPostId);
+
         freewriteDTO.setPostTitle("게시글 제목 테스트 6");
         freewriteDTO.setPostContent("테스트다 글 내용 6");
         freewriteDTO.setPostReadCount(0);
         freewriteDTO.setReplyCount(0);
-        freewriteDTO.setUserId(21L); 
+        freewriteDTO.setUserId(1L);  // 유효한 USER_ID 설정
 
         log.info("삽입할 데이터: {}", freewriteDTO);
-        freewriteMapper.insert(freewriteDTO.toVO());
+        freewriteMapper.insert(freewriteDTO.toVO());  // 데이터 삽입
         log.info("게시글 삽입 완료, ID = {}", freewriteDTO.getId());
     }
+
 
 }

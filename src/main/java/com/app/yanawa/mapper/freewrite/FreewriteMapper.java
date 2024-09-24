@@ -21,4 +21,7 @@ public interface FreewriteMapper {
 
     // 게시글 ID로 게시글 조회
     FreewriteDTO selectById(@Param("id") Long id);
+
+    // 시퀀스 값을 가져오는 메서드
+    Long selectNextSeqVal();
 }
