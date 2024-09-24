@@ -1,4 +1,30 @@
 package com.app.yanawa.service.matching;
 
-public class MatchingServiceImpl {
+import com.app.yanawa.domain.matching.MatchingDTO;
+import com.app.yanawa.domain.matching.MatchingVO;
+import com.app.yanawa.repository.matching.MatchingDAO;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class MatchingServiceImpl implements MatchingService {
+    private final MatchingDAO matchingDAO;
+
+
+    @Override
+    public void write(MatchingVO matchingVO) {matchingDAO.save(matchingVO);}
+
+    @Override
+    public List<MatchingDTO> getListMatching() {
+        return List.of();
+    }
+
+    @Override
+    public int getTotalMatching() {
+        return 0;
+    }
 }
