@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="/static/css/admin_page/notice_css/notice_list.css"
+        />
+        <title>공지사항-목록</title>
+    </head>
+    <body>
+        <!-- 모든 a태그에 href 뺐음! 나중에 필요하면 추가해야함 -->
+        <div id="wrap">
+            <div class="page">
+                <div class="content">
+                    <div class="content-header">
+                        <h3 class="header-text">
+                            공지사항
+                            <small class="small-text"
+                                >야나와의 새로운 소식을 확인할 수
+                                있습니다.</small
+                            >
+                        </h3>
+                    </div>
+                    <div class="content-inner">
+                        <section class="news-center">
+                            <div class="news-center-search-box-container">
+                                <div class="news-center-search-box">
+                                    <form
+                                        method="GET"
+                                        name=""
+                                        class="has-validation-callback"
+                                    >
+                                        <input
+                                            class="news-center-search"
+                                            id="news-center-search-id"
+                                            name="q"
+                                            type="text"
+                                            placeholder="검색"
+                                            style="font-size: 16px"
+                                        /><span
+                                            class="news-center-search-add-on"
+                                            id="news-center-search-submit"
+                                            >검색</span
+                                        >
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div
+                                    class="tab-pane active"
+                                    id="notice"
+                                    role="tabpanel"
+                                >
+                                    <table
+                                        class="news-center-table"
+                                        style="
+                                            margin-top: 0;
+                                            margin-bottom: 20px;
+                                        "
+                                    >
+                                        <colgroup>
+                                            <col style="width: 62px" />
+                                            <col style="width: 130px" />
+                                            <col style="width: 730px" />
+                                            <col style="width: 110px" />
+                                        </colgroup>
+                                        <thead class="news-center-table-head">
+                                            <tr>
+                                                <th>번호</th>
+                                                <th>구분</th>
+                                                <th>제목</th>
+                                                <th>등록일</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="news-center-table-body">
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="1"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    58
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353">
+                                                        <span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 야나와
+                                                            이용약관 및 개인정보
+                                                            처리방침 일부 개정
+                                                            안내</span
+                                                        >
+                                                    </a>
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2024.03.14.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="2"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    57
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 2024년
+                                                            설 연휴 야나와 휴무
+                                                            안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2024.02.07.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="3"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    56
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 2023년
+                                                            설 연휴 야나와 휴무
+                                                            안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2023.09.26.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="4"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    55
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 2023년
+                                                            설 연휴 야나와 휴무
+                                                            안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2023.01.19.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="5"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    54
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 2022년
+                                                            추석 연휴 야나와
+                                                            휴무 안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2022.09.01.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="6"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    53
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[업데이트] 야나와
+                                                            통합회원 계정으로
+                                                            야나와의 다양한
+                                                            서비스를 간편하게
+                                                            이용해보세요!</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2022.08.12.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="7"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    52
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 20대
+                                                            대통령선거일 야나와
+                                                            휴무 안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2022.03.08.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="8"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    51
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 2022년
+                                                            설 연휴 야나와 휴무
+                                                            안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2022.01.28.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="9"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    50
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 한글날
+                                                            대체공휴일 야나와
+                                                            휴무 안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2021.10.08.
+                                                </td>
+                                            </tr>
+                                            <tr
+                                                class="news-data-rows"
+                                                data-forloop="10"
+                                            >
+                                                <td
+                                                    class="news-center-table-body-number"
+                                                >
+                                                    49
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-category"
+                                                >
+                                                    공지사항
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-title"
+                                                >
+                                                    <a style="color: #535353"
+                                                        ><span
+                                                            style="
+                                                                cursor: pointer;
+                                                            "
+                                                            >[공지사항] 개천절
+                                                            대체공휴일 야나와
+                                                            휴무 안내</span
+                                                        ></a
+                                                    >
+                                                </td>
+                                                <td
+                                                    class="news-center-table-body-date"
+                                                >
+                                                    2021.09.29.
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div
+                                    class="pagination-wrapper"
+                                    style="clear: both"
+                                >
+                                    <ul class="pagination" id="pagination-box">
+                                        <li>
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                class="prev"
+                                                ><i class="fa fa-arrow-left"></i
+                                            ></a>
+                                        </li>
+                                        <li id="page-1" class="active">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >1</a
+                                            >
+                                        </li>
+                                        <li class="page-2">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >2</a
+                                            >
+                                        </li>
+                                        <li class="page-3">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >3</a
+                                            >
+                                        </li>
+                                        <li class="page-4">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >4</a
+                                            >
+                                        </li>
+                                        <li class="page-5">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >5</a
+                                            >
+                                        </li>
+                                        <li class="page-6">
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                >6</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                style="cursor: pointer"
+                                                onclick=""
+                                                class="next"
+                                                ><i
+                                                    class="fa fa-arrow-right"
+                                                ></i
+                                            ></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="/static/js/adminPage/notice_js/notice_list.js"></script>
+</html>

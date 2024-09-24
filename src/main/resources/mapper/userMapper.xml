@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.user.UserMapper">
+    <insert id="insert">
+        INSERT INTO TBL_USER(
+            ID, USER_NAME, USER_EMAIL, USER_NICKNAME, USER_PHONE, USER_PASSWORD, USER_GENDER, USER_POINT, USER_BIRTH, CREATED_DATE, UPDATED_DATE,
+            USER_INTRODUCE, USER_SPORT_KIND, USER_SPORT_HISTORY
+        )
+        VALUES (
+                   SEQ_USER.NEXTVAL, #{userName}, #{userEmail}, #{userNickName}, #{userPhone}, #{userPassword}, #{userGender}, #{userPoint}, #{userBirth},
+                   SYSDATE, SYSDATE, #{userIntroduce}, #{userSportKind}, #{userSportHistory}
+               )
+    </insert>
+</mapper>

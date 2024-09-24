@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" th:href="@{/css/login_page/sign_up.css}" />
+        <title>Yanawa Login</title>
+    </head>
+    <body>
+        <div id="login-page">
+            <main class="main">
+                <header class="header">
+                    <div class="header-div">
+                        <button type="button">
+                            <span class="header-span">
+                                <div class="yanawa-logo">
+                                    <img
+                                        class="yanawa-logo-img"
+                                        src="/images/yanawa_logo/yanawa_logo.jpg"
+                                    />
+                                </div>
+                                <div class="header-loginPageName">
+                                    <span class="header-loginPageName-1"
+                                        > 통합 로그인</span
+                                    >
+                                </div>
+                            </span>
+                        </button>
+                    </div>
+                </header>
+                <section class="section">
+                    <div class="section-1">
+                        <button type="button" class="back-button">
+                            <span class="back-arrow">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    color="rgba(55, 56, 60, 0.61)"
+                                    class="back-arrow-svg"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        fill="rgba(55, 56, 60, 0.61)"
+                                        d="M2.8637 11.3635C2.51223 11.715 2.51223 12.2848 2.8637 12.6363L9.8637 19.6363C10.2152 19.9878 10.785 19.9878 11.1365 19.6363C11.488 19.2848 11.488 18.715 11.1365 18.3635L5.67289 12.8999H20.5001C20.9972 12.8999 21.4001 12.497 21.4001 11.9999C21.4001 11.5028 20.9972 11.0999 20.5001 11.0999L5.67289 11.0999L11.1365 5.6363C11.488 5.28483 11.488 4.71498 11.1365 4.36351C10.785 4.01203 10.2152 4.01203 9.8637 4.36351L2.8637 11.3635Z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <p class="back-p">취소하고 돌아가기</p>
+                        </button>
+                    </div>
+                    <div class="section-2">
+                        <!-- 회원가입 title -->
+                        <div class="title-div">
+                            <div class="title-div-1">
+                                <p class="title-p">회원가입</p>
+                            </div>
+                        </div>
+                        <!-- 회원가입 title 아래 모든 것 -->
+                        <div class="sign-up-wrapper">
+                            <form class="sign-up-form" th:action="@{/user/join}" id="signupForm">
+                                <div>
+                                    <!-- 이메일-1 -->
+                                    <div class="email">
+                                        <div class="email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                        for="email"
+                                                        class="label-style"
+                                                >이메일</label
+                                                >
+                                            </div>
+                                            <input
+                                                    id="email-1"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autocomplete="off"
+                                                    class="input-style"
+                                                    value=""
+                                            />
+                                        </div>
+                                        <button
+                                                type="button"
+                                                id="duplicate-check-button-email"
+                                                class="duplicate-check-button"
+                                                disabled
+                                        >
+                                            <span
+                                                    id="duplicate-check-email"
+                                                    class="duplicate-check-span"
+                                            >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <!-- 이메일-2 (오류 시: 오류 메시지) -->
+                                    <div class="email">
+                                        <div class="email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                        for="email"
+                                                        class="label-style"
+                                                >이메일</label
+                                                >
+                                            </div>
+                                            <input
+                                                    id="email-2"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autocomplete="off"
+                                                    class="input-style error-style"
+                                                    value=""
+                                            />
+                                        </div>
+                                        <button
+                                                type="button"
+                                                class="duplicate-check-button"
+                                                disabled
+                                        >
+                                            <span class="duplicate-check-span"
+                                            >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="error">
+                                        <p class="error-message">
+                                            올바른 이메일을 입력해주세요.
+                                        </p>
+                                    </div>
+                                    <!-- 이메일-3 (중복 확인 메시지) -->
+                                    <div class="email">
+                                        <div class="email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                        for="email"
+                                                        class="label-style"
+                                                >이메일</label
+                                                >
+                                            </div>
+                                            <input
+                                                    id="email-3"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autocomplete="off"
+                                                    class="input-style error-style"
+                                                    value=""
+                                            />
+                                        </div>
+                                        <button
+                                                type="button"
+                                                class="duplicate-check-button"
+                                        >
+                                            <span
+                                                    class="duplicate-check-span duplicate-check-blue"
+                                            >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="error">
+                                        <p class="error-message">
+                                            중복 확인 후 계속해주세요.
+                                        </p>
+                                    </div>
+                                    <!-- 이메일-4 (가입 가능 메시지) -->
+                                    <div class="email">
+                                        <div class="email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                        for="email"
+                                                        class="label-style"
+                                                >이메일</label
+                                                >
+                                            </div>
+                                            <input
+                                                    id="email-4"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autocomplete="off"
+                                                    class="input-style"
+                                                    value=""
+                                            />
+                                        </div>
+                                        <button
+                                                type="button"
+                                                class="duplicate-check-button"
+                                                disabled
+                                        >
+                                            <span class="duplicate-check-span"
+                                            >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="available">
+                                        <p class="available-message">
+                                            가입이 가능한 이메일입니다.
+                                        </p>
+                                    </div>
+                                    <!--  -->
+                                </div>
+                                <div class="name wrapper-8px">
+                                    <div class="margin-bottom">
+                                        <label
+                                            for="username"
+                                            class="label-style"
+                                            >이름</label
+                                        >
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder="이름을 입력해주세요."
+                                        name="username"
+                                        autocomplete="off"
+                                        id="name-input"
+                                        class="input-style"
+                                        value=""
+                                    />
+                                </div>
+                                <!-- 닉네임(중복확인) -->
+                                <div>
+                                    <!-- 닉네임-1 -->
+                                    <div class="nickname-wrapper email">
+                                        <div class="nickname-div email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="nickname"
+                                                    class="label-style"
+                                                    >닉네임</label
+                                                >
+                                            </div>
+                                            <input
+                                                id="nickname-1"
+                                                type="text"
+                                                placeholder="닉네임을 입력해주세요."
+                                                name="nickname"
+                                                autocomplete="off"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <button
+                                            type="button"
+                                            id="duplicate-check-button-nickname"
+                                            class="duplicate-check-button"
+                                            disabled
+                                        >
+                                            <span
+                                                id="duplicate-check-nickname"
+                                                class="duplicate-check-span"
+                                                >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <!-- 닉네임-2 (중복 확인 메시지) -->
+                                    <div class="nickname-wrapper email">
+                                        <div class="nickname-div email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="nickname"
+                                                    class="label-style"
+                                                    >닉네임</label
+                                                >
+                                            </div>
+                                            <input
+                                                id="nickname-2"
+                                                type="text"
+                                                placeholder="닉네임을 입력해주세요."
+                                                name="nickname"
+                                                autocomplete="off"
+                                                class="input-style error-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="duplicate-check-button"
+                                        >
+                                            <span
+                                                class="duplicate-check-span duplicate-check-blue"
+                                                >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="error">
+                                        <p class="error-message">
+                                            중복 확인 후 계속해주세요.
+                                        </p>
+                                    </div>
+                                    <!-- 닉네임-3 (가입 가능 메시지) -->
+                                    <div class="nickname-wrapper email">
+                                        <div class="nickname-div email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="nickname"
+                                                    class="label-style"
+                                                    >닉네임</label
+                                                >
+                                            </div>
+                                            <input
+                                                id="nickname-3"
+                                                type="text"
+                                                placeholder="닉네임을 입력해주세요."
+                                                name="email"
+                                                autocomplete="off"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <button
+                                            type="button"
+                                            class="duplicate-check-button"
+                                            disabled
+                                        >
+                                            <span class="duplicate-check-span"
+                                                >중복 확인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <div class="available">
+                                        <p class="available-message">
+                                            사용이 가능한 닉네임입니다.
+                                        </p>
+                                    </div>
+                                    <!--  -->
+                                </div>
+                                <!-- 휴대폰 번호 -->
+                                <div>
+                                    <div class="margin-bottom">
+                                        <label for="mobile" class="label-style"
+                                            >휴대폰 번호</label
+                                        >
+                                    </div>
+                                    <!-- 휴대폰 번호 입력칸(3개) div -->
+                                    <div class="phone-div-three">
+                                        <div class="select-div">
+                                            <select class="select">
+                                                <option value="" disabled="">
+                                                    선택하기
+                                                </option>
+                                                <option value="KR">
+                                                    South Korea +82
+                                                </option>
+                                                <option value="JP">
+                                                    Japan +81
+                                                </option>
+                                                <option value="TW">
+                                                    Taiwan +886
+                                                </option>
+                                                <option value="HK">
+                                                    Hong Kong +852
+                                                </option>
+                                                <option value="SG">
+                                                    Singapore +65
+                                                </option>
+                                                <option value="AF">
+                                                    Afghanistan +93
+                                                </option>
+                                                <option value="AL">
+                                                    Albania +355
+                                                </option>
+                                                <option value="DZ">
+                                                    Algeria +213
+                                                </option>
+                                                <option value="AO">
+                                                    Angola +244
+                                                </option>
+                                                <option value="AR">
+                                                    Argentina +54
+                                                </option>
+                                                <option value="AM">
+                                                    Armenia +374
+                                                </option>
+                                                <option value="AW">
+                                                    Aruba +297
+                                                </option>
+                                                <option value="AU">
+                                                    Australia +61
+                                                </option>
+                                                <option value="AT">
+                                                    Austria +43
+                                                </option>
+                                                <option value="AZ">
+                                                    Azerbaijan +994
+                                                </option>
+                                                <option value="BH">
+                                                    Bahrain +973
+                                                </option>
+                                                <option value="BD">
+                                                    Bangladesh +880
+                                                </option>
+                                                <option value="BY">
+                                                    Belarus +375
+                                                </option>
+                                                <option value="BE">
+                                                    Belgium +32
+                                                </option>
+                                                <option value="BZ">
+                                                    Belize +501
+                                                </option>
+                                                <option value="BJ">
+                                                    Benin +229
+                                                </option>
+                                                <option value="BT">
+                                                    Bhutan +975
+                                                </option>
+                                                <option value="BO">
+                                                    Bolivia +591
+                                                </option>
+                                                <option value="BW">
+                                                    Botswana +267
+                                                </option>
+                                                <option value="BR">
+                                                    Brazil +55
+                                                </option>
+                                                <option value="BN">
+                                                    Brunei +673
+                                                </option>
+                                                <option value="BG">
+                                                    Bulgaria +359
+                                                </option>
+                                                <option value="BF">
+                                                    Burkina Faso +226
+                                                </option>
+                                                <option value="KH">
+                                                    Cambodia +855
+                                                </option>
+                                                <option value="CM">
+                                                    Cameroon +237
+                                                </option>
+                                                <option value="CA">
+                                                    Canada +1
+                                                </option>
+                                                <option value="CL">
+                                                    Chile +56
+                                                </option>
+                                                <option value="CN">
+                                                    China +86
+                                                </option>
+                                                <option value="CX">
+                                                    Christmas Island +61
+                                                </option>
+                                                <option value="CC">
+                                                    Cocos Islands +61
+                                                </option>
+                                                <option value="CO">
+                                                    Colombia +57
+                                                </option>
+                                                <option value="KM">
+                                                    Comoros +269
+                                                </option>
+                                                <option value="CR">
+                                                    Costa Rica +506
+                                                </option>
+                                                <option value="HR">
+                                                    Croatia +385
+                                                </option>
+                                                <option value="CU">
+                                                    Cuba +53
+                                                </option>
+                                                <option value="CW">
+                                                    Curacao +599
+                                                </option>
+                                                <option value="CY">
+                                                    Cyprus +357
+                                                </option>
+                                                <option value="CZ">
+                                                    Czech Republic +420
+                                                </option>
+                                                <option value="DK">
+                                                    Denmark +45
+                                                </option>
+                                                <option value="DJ">
+                                                    Djibouti +253
+                                                </option>
+                                                <option value="EC">
+                                                    Ecuador +593
+                                                </option>
+                                                <option value="EG">
+                                                    Egypt +20
+                                                </option>
+                                                <option value="SV">
+                                                    El Salvador +503
+                                                </option>
+                                                <option value="GQ">
+                                                    Equatorial Guinea +240
+                                                </option>
+                                                <option value="EE">
+                                                    Estonia +372
+                                                </option>
+                                                <option value="ET">
+                                                    Ethiopia +251
+                                                </option>
+                                                <option value="FO">
+                                                    Faroe Islands +298
+                                                </option>
+                                                <option value="FJ">
+                                                    Fiji +679
+                                                </option>
+                                                <option value="FI">
+                                                    Finland +358
+                                                </option>
+                                                <option value="FR">
+                                                    France +33
+                                                </option>
+                                                <option value="PF">
+                                                    French Polynesia +689
+                                                </option>
+                                                <option value="GM">
+                                                    Gambia +220
+                                                </option>
+                                                <option value="GE">
+                                                    Georgia +995
+                                                </option>
+                                                <option value="DE">
+                                                    Germany +49
+                                                </option>
+                                                <option value="GH">
+                                                    Ghana +233
+                                                </option>
+                                                <option value="GR">
+                                                    Greece +30
+                                                </option>
+                                                <option value="GL">
+                                                    Greenland +299
+                                                </option>
+                                                <option value="GT">
+                                                    Guatemala +502
+                                                </option>
+                                                <option value="GN">
+                                                    Guinea +224
+                                                </option>
+                                                <option value="GY">
+                                                    Guyana +592
+                                                </option>
+                                                <option value="HT">
+                                                    Haiti +509
+                                                </option>
+                                                <option value="HN">
+                                                    Honduras +504
+                                                </option>
+                                                <option value="HU">
+                                                    Hungary +36
+                                                </option>
+                                                <option value="IS">
+                                                    Iceland +354
+                                                </option>
+                                                <option value="IN">
+                                                    India +91
+                                                </option>
+                                                <option value="ID">
+                                                    Indonesia +62
+                                                </option>
+                                                <option value="IR">
+                                                    Iran +98
+                                                </option>
+                                                <option value="IQ">
+                                                    Iraq +964
+                                                </option>
+                                                <option value="IE">
+                                                    Ireland +353
+                                                </option>
+                                                <option value="IL">
+                                                    Israel +972
+                                                </option>
+                                                <option value="IT">
+                                                    Italy +39
+                                                </option>
+                                                <option value="JO">
+                                                    Jordan +962
+                                                </option>
+                                                <option value="KZ">
+                                                    Kazakhstan +7
+                                                </option>
+                                                <option value="KE">
+                                                    Kenya +254
+                                                </option>
+                                                <option value="XK">
+                                                    Kosovo +383
+                                                </option>
+                                                <option value="KW">
+                                                    Kuwait +965
+                                                </option>
+                                                <option value="KG">
+                                                    Kyrgyzstan +996
+                                                </option>
+                                                <option value="LA">
+                                                    Laos +856
+                                                </option>
+                                                <option value="LV">
+                                                    Latvia +371
+                                                </option>
+                                                <option value="LB">
+                                                    Lebanon +961
+                                                </option>
+                                                <option value="LY">
+                                                    Libya +218
+                                                </option>
+                                                <option value="LI">
+                                                    Liechtenstein +423
+                                                </option>
+                                                <option value="LT">
+                                                    Lithuania +370
+                                                </option>
+                                                <option value="LU">
+                                                    Luxembourg +352
+                                                </option>
+                                                <option value="MO">
+                                                    Macau +853
+                                                </option>
+                                                <option value="MK">
+                                                    Macedonia +389
+                                                </option>
+                                                <option value="MG">
+                                                    Madagascar +261
+                                                </option>
+                                                <option value="MW">
+                                                    Malawi +265
+                                                </option>
+                                                <option value="MY">
+                                                    Malaysia +60
+                                                </option>
+                                                <option value="MV">
+                                                    Maldives +960
+                                                </option>
+                                                <option value="ML">
+                                                    Mali +223
+                                                </option>
+                                                <option value="MT">
+                                                    Malta +356
+                                                </option>
+                                                <option value="MH">
+                                                    Marshall Islands +692
+                                                </option>
+                                                <option value="MR">
+                                                    Mauritania +222
+                                                </option>
+                                                <option value="MU">
+                                                    Mauritius +230
+                                                </option>
+                                                <option value="MX">
+                                                    Mexico +52
+                                                </option>
+                                                <option value="MD">
+                                                    Moldova +373
+                                                </option>
+                                                <option value="MN">
+                                                    Mongolia +976
+                                                </option>
+                                                <option value="ME">
+                                                    Montenegro +382
+                                                </option>
+                                                <option value="MA">
+                                                    Morocco +212
+                                                </option>
+                                                <option value="MZ">
+                                                    Mozambique +258
+                                                </option>
+                                                <option value="MM">
+                                                    Myanmar +95
+                                                </option>
+                                                <option value="NA">
+                                                    Namibia +264
+                                                </option>
+                                                <option value="NP">
+                                                    Nepal +977
+                                                </option>
+                                                <option value="NL">
+                                                    Netherlands +31
+                                                </option>
+                                                <option value="NC">
+                                                    New Caledonia +687
+                                                </option>
+                                                <option value="NZ">
+                                                    New Zealand +64
+                                                </option>
+                                                <option value="NI">
+                                                    Nicaragua +505
+                                                </option>
+                                                <option value="NE">
+                                                    Niger +227
+                                                </option>
+                                                <option value="NG">
+                                                    Nigeria +234
+                                                </option>
+                                                <option value="NO">
+                                                    Norway +47
+                                                </option>
+                                                <option value="OM">
+                                                    Oman +968
+                                                </option>
+                                                <option value="PK">
+                                                    Pakistan +92
+                                                </option>
+                                                <option value="PW">
+                                                    Palau +680
+                                                </option>
+                                                <option value="PS">
+                                                    Palestine +970
+                                                </option>
+                                                <option value="PA">
+                                                    Panama +507
+                                                </option>
+                                                <option value="PG">
+                                                    Papua New Guinea +675
+                                                </option>
+                                                <option value="PY">
+                                                    Paraguay +595
+                                                </option>
+                                                <option value="PE">
+                                                    Peru +51
+                                                </option>
+                                                <option value="PH">
+                                                    Philippines +63
+                                                </option>
+                                                <option value="PL">
+                                                    Poland +48
+                                                </option>
+                                                <option value="PT">
+                                                    Portugal +351
+                                                </option>
+                                                <option value="QA">
+                                                    Qatar +974
+                                                </option>
+                                                <option value="RE">
+                                                    Reunion +262
+                                                </option>
+                                                <option value="RO">
+                                                    Romania +40
+                                                </option>
+                                                <option value="RU">
+                                                    Russia +7
+                                                </option>
+                                                <option value="RW">
+                                                    Rwanda +250
+                                                </option>
+                                                <option value="WS">
+                                                    Samoa +685
+                                                </option>
+                                                <option value="SA">
+                                                    Saudi Arabia +966
+                                                </option>
+                                                <option value="SN">
+                                                    Senegal +221
+                                                </option>
+                                                <option value="RS">
+                                                    Serbia +381
+                                                </option>
+                                                <option value="SC">
+                                                    Seychelles +248
+                                                </option>
+                                                <option value="SL">
+                                                    Sierra Leone +232
+                                                </option>
+                                                <option value="SK">
+                                                    Slovakia +421
+                                                </option>
+                                                <option value="SI">
+                                                    Slovenia +386
+                                                </option>
+                                                <option value="SB">
+                                                    Solomon Islands +677
+                                                </option>
+                                                <option value="SO">
+                                                    Somalia +252
+                                                </option>
+                                                <option value="ZA">
+                                                    South Africa +27
+                                                </option>
+                                                <option value="SS">
+                                                    South Sudan +211
+                                                </option>
+                                                <option value="ES">
+                                                    Spain +34
+                                                </option>
+                                                <option value="LK">
+                                                    Sri Lanka +94
+                                                </option>
+                                                <option value="SD">
+                                                    Sudan +249
+                                                </option>
+                                                <option value="SR">
+                                                    Suriname +597
+                                                </option>
+                                                <option value="SE">
+                                                    Sweden +46
+                                                </option>
+                                                <option value="CH">
+                                                    Switzerland +41
+                                                </option>
+                                                <option value="SY">
+                                                    Syria +963
+                                                </option>
+                                                <option value="TJ">
+                                                    Tajikistan +992
+                                                </option>
+                                                <option value="TZ">
+                                                    Tanzania +255
+                                                </option>
+                                                <option value="TH">
+                                                    Thailand +66
+                                                </option>
+                                                <option value="TG">
+                                                    Togo +228
+                                                </option>
+                                                <option value="TO">
+                                                    Tonga +676
+                                                </option>
+                                                <option value="TN">
+                                                    Tunisia +216
+                                                </option>
+                                                <option value="TR">
+                                                    Turkey +90
+                                                </option>
+                                                <option value="TM">
+                                                    Turkmenistan +993
+                                                </option>
+                                                <option value="UG">
+                                                    Uganda +256
+                                                </option>
+                                                <option value="UA">
+                                                    Ukraine +380
+                                                </option>
+                                                <option value="AE">
+                                                    United Arab Emirates +971
+                                                </option>
+                                                <option value="GB">
+                                                    United Kingdom +44
+                                                </option>
+                                                <option value="US">
+                                                    United States +1
+                                                </option>
+                                                <option value="UY">
+                                                    Uruguay +598
+                                                </option>
+                                                <option value="UZ">
+                                                    Uzbekistan +998
+                                                </option>
+                                                <option value="VU">
+                                                    Vanuatu +678
+                                                </option>
+                                                <option value="VE">
+                                                    Venezuela +58
+                                                </option>
+                                                <option value="VN">
+                                                    Vietnam +84
+                                                </option>
+                                                <option value="YE">
+                                                    Yemen +967
+                                                </option>
+                                                <option value="ZM">
+                                                    Zambia +260
+                                                </option>
+                                                <option value="ZW">
+                                                    Zimbabwe +263
+                                                </option>
+                                            </select>
+                                            <div class="select-arrow">
+                                                <span class="select-arrow-span"
+                                                    ><svg
+                                                        viewBox="0 0 24 24"
+                                                        class="select-arrow-svg"
+                                                    >
+                                                        <path
+                                                            fill="rgba(55, 56, 60, 0.61)"
+                                                            d="M3.08071 7.58071C3.58839 7.07303 4.41151 7.07303 4.91919 7.58071L12 14.6615L19.0807 7.58071C19.5884 7.07303 20.4115 7.07303 20.9192 7.58071C21.4269 8.08839 21.4269 8.91151 20.9192 9.41919L12.9192 17.4192C12.4115 17.9269 11.5884 17.9269 11.0807 17.4192L3.08071 9.41919C2.57303 8.91151 2.57303 8.08839 3.08071 7.58071Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- 인증번호 받기 -->
+                                        <div class="get-code-div">
+                                            <input
+                                                type="number"
+                                                placeholder="(예시)01013245768"
+                                                id="mobile-input"
+                                                name="moblie"
+                                                autocomplete="on"
+                                                pattern="[0-9]*"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                            <button
+                                                type="button"
+                                                id="get-code-button"
+                                                class="get-code-button"
+                                                disabled
+                                            >
+                                                <span
+                                                    id="get-code-span"
+                                                    class="button-span"
+                                                    >인증번호 받기</span
+                                                >
+                                            </button>
+                                        </div>
+                                        <!-- 인증번호 받기-2 (올바르지 않게 입력 시 메시지) -->
+                                        <div class="get-code-div">
+                                            <input
+                                                type="number"
+                                                placeholder="(예시)01013245768"
+                                                name="moblie"
+                                                autocomplete="on"
+                                                pattern="[0-9]*"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                            <button
+                                                type="button"
+                                                class="get-code-button"
+                                                disabled
+                                            >
+                                                <span class="button-span"
+                                                    >인증번호 받기</span
+                                                >
+                                            </button>
+                                        </div>
+                                        <p class="error-message">
+                                            올바른 전화번호를 입력해주세요.
+                                        </p>
+                                        <!-- 인증번호 입력-1 -->
+                                        <div class="get-code-div">
+                                            <input
+                                                type="number"
+                                                placeholder="인증번호를 입력해주세요."
+                                                name="authCode"
+                                                readonly
+                                                autocomplete="on"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <!-- 인증번호 입력-2 (입력칸 활성화) -->
+                                        <div class="get-code-div">
+                                            <input
+                                                type="number"
+                                                placeholder="인증번호를 입력해주세요."
+                                                name="authCode"
+                                                id="get-code-input"
+                                                autocomplete="on"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <div class="request-code-div">
+                                            <p class="request-code-message">
+                                                인증번호가 요청되었습니다.
+                                            </p>
+                                            <p class="request-code-message">
+                                                유효시간 03:16
+                                            </p>
+                                        </div>
+                                        <!-- 인증번호 입력-3 (입력칸 활성화/인증 시간 만료) -->
+                                        <div class="get-code-div">
+                                            <input
+                                                type="number"
+                                                placeholder="인증번호를 입력해주세요."
+                                                name="authCode"
+                                                autocomplete="on"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                        <div class="time-out-div">
+                                            <p class="time-out-message">
+                                                인증 시간이 만료되었습니다. 다시
+                                                시도해 주세요.
+                                            </p>
+                                            <p class="time-out-message">
+                                                유효시간 00:00
+                                            </p>
+                                        </div>
+                                        <div class="black-gap-4px"></div>
+                                    </div>
+                                </div>
+                                <!-- 생년월일(만19세 이상 확인) -->
+                                <div>
+                                    <!-- 생년월일-1 -->
+                                    <div class="birth-wrapper email">
+                                        <div class="birth-div email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="birth"
+                                                    class="label-style"
+                                                    >생년월일</label
+                                                >
+                                            </div>
+                                            <input
+                                                id="birth-1"
+                                                type="number"
+                                                placeholder="8자리로 입력해주세요"
+                                                name="birth"
+                                                autocomplete="off"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <!-- 생년월일-2 (만 19세 미만 시: 오류 메시지) -->
+                                    <div class="birth-wrapper email">
+                                        <div class="birth-div email-1">
+                                            <div class="margin-bottom"></div>
+                                            <input
+                                                id="birth-2"
+                                                type="number"
+                                                placeholder="8자리로 입력해주세요"
+                                                name="birth"
+                                                autocomplete="off"
+                                                class="input-style error-style"
+                                                value=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="error">
+                                        <p class="error-message">
+                                            만 19세 미만이므로 가입이
+                                            불가능합니다.
+                                        </p>
+                                    </div>
+                                    <!-- 생년월일-3 (가입 가능 메시지) -->
+                                    <div class="birth-wrapper email">
+                                        <div class="birth-div email-1">
+                                            <div class="margin-bottom"></div>
+                                            <input
+                                                id="birth-3"
+                                                type="number"
+                                                placeholder="8자리로 입력해주세요"
+                                                name="birth"
+                                                autocomplete="off"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="available">
+                                        <p class="available-message">
+                                            만 19세 이상이므로 가입이
+                                            가능합니다.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- 성별 선택 -->
+                                <div>
+                                    <div class="gender-wrapper email">
+                                        <div class="gender-div email-1">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="gender"
+                                                    class="label-style"
+                                                    >성별</label
+                                                >
+                                            </div>
+                                            <input
+                                                id="gender"
+                                                type="text"
+                                                placeholder="성별을 입력해주세요."
+                                                name="gender"
+                                                class="input-style"
+                                                value=""
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom"></div>
+                                    <div class="request-code-div">
+                                        <p class="request-code-message">
+                                            '남' 또는 '여' 한 글자만
+                                            입력해주세요.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- 비밀번호 -->
+                                <div class="password wrapper-8px">
+                                    <div class="margin-bottom">
+                                        <label
+                                            for="password"
+                                            class="label-style"
+                                            >비밀번호</label
+                                        >
+                                    </div>
+                                    <!-- 비밀번호-1 -->
+                                    <div class="password-div">
+                                        <input
+                                            type="password"
+                                            placeholder="비밀번호를 입력해주세요."
+                                            name="password"
+                                            autocomplete="on"
+                                            id="password-input"
+                                            class="input-style"
+                                            value=""
+                                        />
+                                    </div>
+                                    <!-- 비밀번호-2 (잘못 입력 시 - 메시지)-->
+                                    <div class="password-div">
+                                        <input
+                                            type="password"
+                                            placeholder="비밀번호를 입력해주세요."
+                                            name="password"
+                                            autocomplete="on"
+                                            class="input-style error-style"
+                                            value=""
+                                        />
+                                    </div>
+                                    <p class="error-message">
+                                        올바르지 않은 비밀번호입니다.
+                                    </p>
+                                    <!-- 비밀번호 다시 입력-1 -->
+                                    <input
+                                        type="password"
+                                        placeholder="비밀번호를 다시 한번 입력해주세요."
+                                        name="passwordConfirm"
+                                        autocomplete="on"
+                                        id="pw-onemore-input"
+                                        class="input-style"
+                                        value=""
+                                    />
+                                    <!-- 비밀번호 다시 입력-2 (일치하지 않게 입력 시 - 메시지)-->
+                                    <input
+                                        type="password"
+                                        placeholder="비밀번호를 다시 한번 입력해주세요."
+                                        name="passwordConfirm"
+                                        autocomplete="on"
+                                        class="input-style error-style"
+                                        value=""
+                                    />
+                                    <p class="error-message">
+                                        비밀번호가 서로 일치하지 않습니다.
+                                    </p>
+                                    <p class="password-rules">
+                                        영문 대소문자, 숫자, 특수문자를 3가지
+                                        이상으로 조합해 8자 이상 16자 이하로
+                                        입력해주세요.
+                                    </p>
+                                </div>
+                                <!-- 동의 -->
+                                <div class="agree-wrapper">
+                                    <div class="agree-div">
+                                        <div class="agree-checkbox check-style">
+                                            <span class="check-icon">
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    class="check-icon-1"
+                                                >
+                                                    <path
+                                                        fill="#ffffff"
+                                                        d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                    ></path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <input
+                                            type="checkbox"
+                                            name="is_agree_all"
+                                            class="input-agree input-check input-agree-all"
+                                            value="전체 동의"
+                                        />
+                                        <div class="agree-title-div-1">
+                                            <p class="agree-title-p">
+                                                전체 동의
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <hr class="line" />
+                                    <div class="agree-div-five">
+                                        <div class="agree-div">
+                                            <div
+                                                class="agree-checkbox check-style checkbox5-style"
+                                            >
+                                                <span class="check-icon">
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        class="check-icon-1"
+                                                    >
+                                                        <path
+                                                            fill="#ffffff"
+                                                            d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+
+                                            <input
+                                                type="checkbox"
+                                                name="is_above_14"
+                                                class="input-agree input-check input-checkbox input-required"
+                                                value="만 18세 이상입니다. (필수)"
+                                            />
+                                            <div class="agree-p-div">
+                                                <p class="agree-p">
+                                                    만 18세 이상입니다. (필수)
+                                                    만 19세 이상입니다. (필수)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="agree-div">
+                                            <div
+                                                class="agree-checkbox check-style checkbox5-style"
+                                            >
+                                                <span class="check-icon">
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        class="check-icon-1"
+                                                    >
+                                                        <path
+                                                            fill="#ffffff"
+                                                            d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+
+                                            <input
+                                                type="checkbox"
+                                                name="is_terms_conditions"
+                                                class="input-agree input-check input-checkbox input-required"
+                                                value="야나와 이용약관 동의 (필수)"
+                                            />
+                                            <div class="agree-p-div">
+                                                <p class="agree-p">
+                                                    야나와 이용약관 동의 (필수)
+                                                </p>
+                                            </div>
+                                            <a href="">
+                                                <span class="agree-arrow">
+                                                    <svg
+                                                        viewBox="0 0 12 24"
+                                                        color="rgba(55, 56, 60, 0.28)"
+                                                        class="agree-arrow-svg"
+                                                    >
+                                                        <path
+                                                            fill="rgba(55, 56, 60, 0.28)"
+                                                            d="M2.86395 4.86346C2.51247 5.21493 2.51247 5.78478 2.86395 6.13625L8.72755 11.9999L2.86395 17.8635C2.51247 18.2149 2.51247 18.7848 2.86395 19.1362C3.21542 19.4877 3.78527 19.4877 4.13674 19.1362L10.6367 12.6362C10.9882 12.2848 10.9882 11.7149 10.6367 11.3635L4.13674 4.86346C3.78527 4.51199 3.21542 4.51199 2.86395 4.86346Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="agree-div">
+                                            <div
+                                                class="agree-checkbox check-style checkbox5-style"
+                                            >
+                                                <span class="check-icon">
+                                                    <svg
+                                                        viewBox="0 0 24 24"
+                                                        class="check-icon-1"
+                                                    >
+                                                        <path
+                                                            fill="#ffffff"
+                                                            d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+
+                                            <input
+                                                type="checkbox"
+                                                name="is_collect_information"
+                                                class="input-agree input-check input-checkbox input-required"
+                                                value="야나와 개인정보 수집 및 이용 동의 (필수)"
+                                            />
+                                            <div class="agree-p-div">
+                                                <p class="agree-p">
+                                                    야나와 개인정보 수집 및 이용
+                                                    동의 (필수)
+                                                </p>
+                                            </div>
+                                            <a href="">
+                                                <span class="agree-arrow">
+                                                    <svg
+                                                        viewBox="0 0 12 24"
+                                                        color="rgba(55, 56, 60, 0.28)"
+                                                        class="agree-arrow-svg"
+                                                    >
+                                                        <path
+                                                            fill="rgba(55, 56, 60, 0.28)"
+                                                            d="M2.86395 4.86346C2.51247 5.21493 2.51247 5.78478 2.86395 6.13625L8.72755 11.9999L2.86395 17.8635C2.51247 18.2149 2.51247 18.7848 2.86395 19.1362C3.21542 19.4877 3.78527 19.4877 4.13674 19.1362L10.6367 12.6362C10.9882 12.2848 10.9882 11.7149 10.6367 11.3635L4.13674 4.86346C3.78527 4.51199 3.21542 4.51199 2.86395 4.86346Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        </div>
+                                        <div class="agree-select-div">
+                                            <div class="agree-div">
+                                                <div
+                                                    class="agree-checkbox check-style checkbox5-style"
+                                                >
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-1"
+                                                        >
+                                                            <path
+                                                                fill="#ffffff"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+
+                                                <input
+                                                    type="checkbox"
+                                                    name="is_accept_event_all"
+                                                    class="input-agree input-check input-checkbox input-select input-agree-choice-1"
+                                                    value="매칭 소식, 스포츠 콘텐츠, 이벤트 등 야나와 맞춤
+                                                정보 받기"
+                                                />
+                                                <div class="agree-p-div">
+                                                    <p class="agree-p">
+                                                        매칭 소식, 스포츠
+                                                        콘텐츠, 이벤트 등 야나와
+                                                        맞춤 정보 받기
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="agree-select-1">
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_marketing_email"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="1-이메일"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        이메일
+                                                    </p>
+                                                </label>
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_marketing_push"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="1-앱 푸시"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        앱 푸시
+                                                    </p>
+                                                </label>
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_marketing_sms"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="1-문자 메시지"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        문자 메시지
+                                                    </p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="agree-select-div">
+                                            <div class="agree-div">
+                                                <div
+                                                    class="agree-checkbox check-style checkbox5-style"
+                                                >
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-1"
+                                                        >
+                                                            <path
+                                                                fill="#ffffff"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+
+                                                <input
+                                                    type="checkbox"
+                                                    name="is_accept_recruit_all"
+                                                    class="input-agree input-check input-checkbox input-select input-agree-choice-2"
+                                                    value="맞춤 추천 포지션 정보 받기"
+                                                />
+                                                <div class="agree-p-div">
+                                                    <p class="agree-p">
+                                                        맞춤 추천 포지션 정보
+                                                        받기
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="agree-select-2">
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_recruit_email"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="2-이메일"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        이메일
+                                                    </p>
+                                                </label>
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_recruit_push"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="2-앱 푸시"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        앱 푸시
+                                                    </p>
+                                                </label>
+                                                <label
+                                                    class="agree-select-label"
+                                                >
+                                                    <input
+                                                        name="accept_recruit_sms"
+                                                        type="checkbox"
+                                                        class="input-check-icon input-check"
+                                                        value="2-문자 메시지"
+                                                    />
+                                                    <span class="check-icon">
+                                                        <svg
+                                                            viewBox="0 0 24 24"
+                                                            class="check-icon-svg check-style"
+                                                        >
+                                                            <path
+                                                                fill="rgba(55, 56, 60, 0.28)"
+                                                                d="M19.6694 6.58096C20.1771 7.08864 20.1771 7.91175 19.6694 8.41943L10.6694 17.4194C10.1618 17.9271 9.33864 17.9271 8.83096 17.4194L4.33096 12.9194C3.82327 12.4118 3.82327 11.5886 4.33096 11.081C4.83864 10.5733 5.66175 10.5733 6.16943 11.081L9.7502 14.6617L17.831 6.58096C18.3386 6.07327 19.1618 6.07327 19.6694 6.58096Z"
+                                                            ></path>
+                                                        </svg>
+                                                    </span>
+                                                    <p class="select-p">
+                                                        문자 메시지
+                                                    </p>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 가입하기 -->
+                                <div class="sign-up-button-wrapper">
+                                    <button
+                                        type="submit"
+                                        disabled
+                                        id="final-button"
+                                        class="final-button"
+                                    >
+                                        <span class="button-span"
+                                            >가입하기</span
+                                        >
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <footer class="footer"></footer>
+            </main>
+        </div>
+    </body>
+    <script th:src="@{/js/login_page/sign_up.js}"></script>
+</html>

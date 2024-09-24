@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        
+        <link rel="stylesheet" href="/static/css/admin_page/amdin_main/sub_main.css">
+        <link rel="stylesheet" href="/static/css/admin_page/amdin_main/common_main.css" />
+        <link rel="stylesheet" href="/static/css/admin_page/admin_banner/banner.css">
+    </head>
+    <body>
+        <noscript>#</noscript>
+        <div id="root">
+            <div id="AppLayot_Container" class="AppLayout_container">
+                <div class="AppGNBNavbar_container">
+                    <div class="AppGNBNavbar_flex">
+                        <div class="StudioLogo_container">
+                            <button
+                                class="StudioLogo_logo"
+                                type="button"
+                                aria-label="로고버튼"
+                            ></button>
+                            <div class="Admin_page_logo">관리자 페이지</div>
+                        </div>
+                        <!-- <div class="StudioStatus_stateBox">
+                            <span class="StudioStatus_state">작업 중</span>
+                        </div> -->
+                    </div>
+                    <div class="AppGNBNavbar_flex AppGNBNavbar_rightBox_1">
+                        <div class="ProjectInfo_container">
+                            <button
+                                class="ProjectInfo_infoButton"
+                                type="button"
+                                aria-controls="project-info-box"
+                                aria-expanded="true"
+                            >
+                                관리자 ID:
+                                <span class="ProjectInfo_emphasis">Yanawa</span>
+                                <!-- <span class="ProjectInfo_text_info">정보</span> -->
+                                <!-- <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    focusable="false"
+                                    role="presentation"
+                                    class="withIcon_icon"
+                                    aria-hidden="true"
+                                    style="height: 12px"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"
+                                    ></path>
+                                </svg> -->
+                            </button>
+                            <!-- <div
+                                class="ProjectInfo_infoBox"
+                                role="region"
+                                aria-labelledby="project-info"
+                            >
+                                <dl>
+                                   
+                                    <dd class="ProjectInfo_content">
+                                        
+                                        <span
+                                            class="Avatar_avatar Avatar_img_admin ProjectInfo_profileImage_admin"
+                                        >
+                                            <span class="Avatar_inner">
+                                                <img
+                                                    src="https://static.wadiz.kr/studio/funding/static/media/default-zingugi.de76a099.svg"
+                                                    alt=""
+                                                />
+                                            </span>
+                                        </span>
+                                       
+                                        <span class="ProjectInfo_makerName">
+                                            관리자: "이름"
+                                        </span>
+                                    </dd>
+                                    
+                                    <dt class="BlindText_textHidden">상태</dt>
+                                    <dd
+                                        class="ProjectInfo_content ProjectInfo_stateBox_1"
+                                    >
+                                       
+                                        <span class="ProjectInfo_state-1"
+                                            >작업 중</span
+                                        >
+                                    </dd>
+                                </dl>
+                                
+                            </div> -->
+                        </div>
+                        <!-- <div class="AnnouncementButton_container_1-1">
+                           
+                            <img
+                                class="AnnouncementButton_icon"
+                                src="https://static.wadiz.kr/studio/funding/static/media/announcement.56f4b8e3.svg"
+                                alt=""
+                                aria-hidden="true"
+                            />
+                            <span
+                                class="Badge_container AnnouncementButton_badge"
+                            ></span>
+                        </div> -->
+                        <!-- 미리보기/로그아웃 버튼/ 로그아웃 버튼은 로그아웃 버튼으로 변경 /미리보기 미정-->
+                        <div class="PreviewExitButtons_container">
+                            <!-- <button class="Button_button PreviewExitButtons_button" type="button"><span><span class="Button_children">미리보기</span></span></button> -->
+                            <button
+                                class="Button_button PreviewExitButtons_button"
+                                type="button"
+                            >
+                                <span
+                                    ><span class="Button_children"
+                                        >로그아웃</span
+                                    ></span
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>    
+                <!-- 메인컨텐츠 영역 -->
+                <div class="AppLayout_main_1">
+                    <!-- 사이드바 영역 -->
+                    <div class="AppSidebarLayout_container">
+                        <div class="AppSidebarLayout_content">
+                            <!-- 관리자페이지 서비스 기능 카테고리 -->
+                            <div class="MenuItems_section">
+
+                                <!-- 대카테고리 -->
+                                <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        회원 관리
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <a class="MenuItems_submenu" href="">회원 목록 조회</a>
+                                    
+                                    
+                                </div>
+
+
+                                <!-- 대카테고리 -->
+                                <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        고객 지원
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <!-- <a class="MenuItems_submenu" href="">문의 답변</a> -->
+                                    <a class="MenuItems_submenu" href="">공지 사항</a>
+                                </div>
+                                
+                                 <!-- 대카테고리 -->
+                                 <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        게시판 관리
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <a class="MenuItems_submenu" href="">게시판 목록 조회</a>
+                                    <a class="MenuItems_submenu" href="">게시글 작성</a>
+                                    <!-- <a class="MenuItems_submenu" href="">게시판 수정</a>
+                                    <a class="MenuItems_submenu" href="">댓글 수정</a> -->
+                                    
+                                </div>
+
+                                 <!-- 대카테고리 -->
+                                 <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        결제 관리
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <a class="MenuItems_submenu" href="">결제 관리</a>
+                                    
+                                </div>
+
+                                 <!-- 대카테고리 -->
+                                 <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        배너 관리
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <a class="MenuItems_submenu" href="">메인 배너 이미지 변경</a>
+                                </div>
+
+                               
+                                <!-- 서비스 대카테고리 -->
+                                <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                   <span class="MenuItems_label">
+                                       <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                           <!-- 이미지 -->
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                           </path>
+                                       </svg>
+                                       <!-- 기획안 대로 카테고리 변경 -->
+                                       팀 관리
+                                       <!-- 클릭이벤트 이미지 -->
+                                       <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                           <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                       </svg>
+                                   </span>
+                               </a>
+                               <!-- 서비스 중카테고리 -->
+                               <div class="MenuItems_submenuContainer ">
+                                   <a class="MenuItems_submenu" href="">팀 목록 조회</a>
+                                   <a class="MenuItems_submenu" href="">팀 활동 내역 조회</a>
+                               </div>
+
+                                 <!-- 서비스 대카테고리 -->
+                                 <a aria-current="page" class="MenuItems_menu MenuItems_hasSubmenu MenuItems_active" href="">
+                                    <span class="MenuItems_label">
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true">
+                                            <!-- 이미지 -->
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.656 3.944a1.4 1.4 0 0 1 .92-.344h9.448c.375 0 .735.15.998.417l2.84 2.883H3.258l3.398-2.956zM2.6 8.1V19A1.4 1.4 0 0 0 4 20.4h16a1.4 1.4 0 0 0 1.4-1.4V8.1H2.6zm4.976-5.7a2.6 2.6 0 0 0-1.706.638L2.293 6.15a2.6 2.6 0 0 0-.894 1.962V19A2.6 2.6 0 0 0 4 21.6h16a2.6 2.6 0 0 0 2.6-2.6V8.02a2.6 2.6 0 0 0-.747-1.825l-2.976-3.02a2.6 2.6 0 0 0-1.852-.775h-9.45zM9.4 12a.6.6 0 0 1 .6-.6h4a.6.6 0 1 1 0 1.2h-4a.6.6 0 0 1-.6-.6z">
+                                            </path>
+                                        </svg>
+                                        <!-- 기획안 대로 카테고리 변경 -->
+                                        서비스 관리
+                                        <!-- 클릭이벤트 이미지 -->
+                                        <svg viewBox="0 0 24 24" fill="none" focusable="false" role="presentation" class="withIcon_icon MenuItems_downIcon MenuItems_open_1" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.576 7.924l.848-.848L12 15.652l8.576-8.576.848.848L12 17.35 2.576 7.924z"></path>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <!-- 서비스 중카테고리 -->
+                                <div class="MenuItems_submenuContainer ">
+                                    <a class="MenuItems_submenu" href="">경기 매칭 게시판</a>
+                                    <a class="MenuItems_submenu" href="">모아모아 모집 게시판</a>
+                                    <a class="MenuItems_submenu" href="">장소 대여 게시판</a>
+                                    
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div id="AppLayout_Contents" class="AppLayout_contents_mainContent">
+                        <section class="Page_container">
+                            <h2 class="Page_title">배너 관리</h2>
+                            <div class="Page_description">변경할 배너 이미지를 올려주세요.</div>
+                            <div class="BannerPage_content">
+                                <form action="">
+                                    <div class="StroyForm_content">
+                                        <section class="Section_container spacing-9">
+                                            <div style="max-width: 800px;">
+                                                <div class="Section_header">
+                                                    <h3 class="Section_title Section_isRequired">
+                                                        대표 이미지
+                                                        <span class="BlindText_textHidden">
+                                                            필수
+                                                        </span>
+                                                    </h3>
+                                                </div>
+                                                <div class="Section_description">
+                                                    <p class="spacing-4">
+                                                        야나와 메인 페이지에 노출할 배너 이미지를 등록해 주세요.
+                                                    </p>
+                                                    <div color="primary" class="MessageBox_messageBox MessageBox_primary MessageBox_vertical">
+                                                        <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon MessageBox_icon" aria-hidden="true">
+                                                            <path fill="none" d="M0 0h40v40H0z">
+
+                                                            </path>
+                                                            <path d="M20 1a19 19 0 1 0 19 19A19.06 19.06 0 0 0 20 1zm1 28.6h-2v-13h2zm-1-15.84A1.8 1.8 0 1 1 21.8 12a1.8 1.8 0 0 1-1.8 1.76z">
+
+                                                            </path>
+                                                        </svg>
+                                                        <div class="MessageBox_content">
+                                                            <p class="MessageBox_title">
+                                                                배너 이미지 등록 가이드
+                                                            </p>
+                                                            <div class="MessageBox_description">
+                                                                <ul>
+                                                                    <li>10MB 이하의 JPG, JPEG, PNG 파일</li>
+                                                                    <li>해상도 1200x675 픽셀 이상</li>
+                                                                    <li>사진을 선택하면 이미지를 자르거나 회전할 수 있어요.</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="Section_content">
+                                                    <div class="spacing-5" label="대표 이미지">
+                                                        <div class="PopperRenew_container ImageFieldContent_popper">
+                                                            <div aria-describedby="Popper_30">
+                                                                <div class="ImageUploader_container StoryImageField_imageUploader">
+                                                                    <div class="ImageUploadButton_container">
+                                                                        <div class="ImageUploadButton_imageUploadContent">
+                                                                            <svg viewBox="0 0 32 32" focusable="false" role="presentation" class="withIcon_icon ImageUploadButton_cameraIcon" aria-hidden="true" style="width: 24px; height: 24px;">
+                                                                                <path d="M20.8 16.8a4.8 4.8 0 1 1-9.6 0 4.8 4.8 0 0 1 9.6 0z">
+
+                                                                                </path>
+                                                                                <path d="M22.4 6.4L20 3.2h-8L9.6 6.4h-8v20.8h28.8V6.4zM16 23.2c-3.535 0-6.4-2.865-6.4-6.4s2.865-6.4 6.4-6.4 6.4 2.865 6.4 6.4-2.865 6.4-6.4 6.4z">
+
+                                                                                </path>
+                                                                            </svg>
+                                                                            <div class="ImageUploadButton_count">
+                                                                                <dl>
+                                                                                    <dt class="ImageUploadButton_blindText">업로드 된 이미지 수</dt>
+                                                                                    <dd>0</dd>
+                                                                                </dl>/<dl>
+                                                                                    <dt class="ImageUploadButton_blindText">업로드 가능한 최대 이미지 수</dt>
+                                                                                    <dd>6</dd>
+                                                                                </dl>
+                                                                            </div>
+                                                                        </div>
+                                                                        <label class="ImageUploadButton_uploadLabel" for="baseImage">
+                                                                            <span class="ImageUploadButton_blindText">
+                                                                                이미지 업로드하기
+                                                                            </span>
+                                                                        </label>
+                                                                        <input type="file" hidden="" id="baseImage" accept="image/jpeg, image/jpg, image/png" multiple>
+                                                                    </div>
+
+
+                                                                    <ul class="UploadedImageList_container" style="display: flex;">
+                                                                        <!-- <li class="UploadedImageList_listItem" tabindex="0" role="button" aria-describedby="rbd-hidden-text-0-hidden-text-0"  draggable="false" style="">
+                                                                            <div class="UploadedImage_container" style="background-image: url(&quot;&quot;);">
+                                                                                <button class="UploadedImage_editButton" type="button" aria-label="이미지 편집하기">
+                                                                                    편집
+                                                                                </button>
+                                                                                <button class="UploadedImage_removeButton" aria-label="이미지 제거하기" type="button">
+                                                                                    <svg viewBox="0 0 40 40" focusable="false" role="presentation" class="withIcon_icon" aria-hidden="true" style="width: 18px; height: 18px;">
+                                                                                        <path d="M33.4 8L32 6.6l-12 12-12-12L6.6 8l12 12-12 12L8 33.4l12-12 12 12 1.4-1.4-12-12 12-12z">
+
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </button>
+                                                                            </div>
+                                                                        </li> -->
+                                                                   
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Modal Structure -->
+                                                            <div id="imageEditModal" class="modal">
+                                                                <div class="modal-content">
+                                                                  <h4>이미지 편집</h4>
+                                                                  <div>
+                                                                      <img id="imageToEdit" src="" alt="Image to edit" style="max-width: 100%;">
+                                                                      <canvas id="cropCanvas" style="position: absolute; top: 0; left: 0;"></canvas>
+                                                                  </div>
+                                                                  <!-- Move modal-footer inside modal-content and below the image -->
+                                                                  <div class="modal-footer">
+                                                                    <div class="left-actions">
+                                                                        
+                                                                        <div role="button" tabindex="0" class="ImageEditor_tool ImageEditor_crop_1"></div>
+                                                                        <div role="button" tabindex="0" class="ImageEditor_tool ImageEditor_crop_2"></div>
+                                                                        
+                                                                      </div>
+                                                                    <div class="right-actions">
+                                                                      <button id="saveChanges">확인</button>
+                                                                      <button id="cancelEdit">취소</button>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            
+        </div>
+    </body>
+    <script src="/static/js/adminPage/admin_page/admin.js"></script>
+    <script src="/static/js/adminPage/admin_banner/admin_banner.js"></script>
+    
+</html>

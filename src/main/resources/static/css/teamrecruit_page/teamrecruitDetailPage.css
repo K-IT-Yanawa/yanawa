@@ -1,0 +1,834 @@
+body * {
+    font-family: "Pretendard";
+}
+body,
+body * {
+    font-family: Pretendard !important;
+}
+body {
+    line-height: normal;
+    background-color: rgb(247, 248, 250);
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+button,
+video,
+select {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    background-repeat: no-repeat;
+    appearance: none;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+* {
+    box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+#match-team-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.team-info-main {
+    margin: 0px auto;
+    max-width: 1080px;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.main-div {
+    padding: 30px 0px 100px;
+}
+.main-div .container {
+    max-width: 1080px;
+    padding: 0px 20px;
+    margin: 0px auto;
+}
+.main-div .team-detail-layout > .content {
+    width: 59%;
+}
+.main-div .team-detail-layout > div {
+    float: left;
+}
+.left-content .team-wrapper {
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    text-align: left;
+    padding: 30px;
+}
+.team-wrapper-top {
+    clear: both;
+    border-bottom: 1px solid rgb(220, 220, 220);
+    padding-bottom: 30px;
+}
+.title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.title h5 {
+    font-size: 20px;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    padding-right: 20px;
+    word-break: break-all;
+}
+.title-h5 {
+    line-height: 26px;
+    letter-spacing: -0.002em;
+}
+.title-none {
+    position: relative;
+    display: none;
+}
+.color-icon span {
+    font-size: 13px;
+}
+.color-icon {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 6px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.color-icon {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 6px;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.email-icon {
+    color: rgb(243, 72, 163);
+    background-color: rgb(255, 240, 248);
+    margin-right: 4px;
+}
+.project-icons span {
+    font-size: 13px;
+}
+.icon {
+    display: inline-block;
+    min-width: max-content;
+    height: fit-content;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 14.4px;
+}
+.phone-icon {
+    color: rgb(8, 186, 156);
+    background-color: rgb(228, 244, 236);
+    margin-right: 0px;
+}
+.match-doing-icon {
+    margin-left: 4px;
+    color: white;
+    background-color: rgb(115, 125, 255);
+}
+.match-complete-icon {
+    margin-left: 4px;
+    color: white;
+    background-color: rgb(151, 157, 164);
+}
+.match-new-icon {
+    color: white;
+    background-color: rgb(97, 180, 255);
+    margin-left: 4px;
+}
+.game-content-detail {
+    margin: 16px 0px 0px 7px;
+    color: rgb(115, 125, 255);
+    font-size: 13px;
+    font-weight: 500;
+}
+.row-info {
+    margin-top: 14px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+.team-wrapper-top .team-info {
+    list-style: none;
+    padding-left: 0px;
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+}
+.info-item {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.team-info .info-item ul {
+    display: flex;
+}
+ul {
+    list-style: none;
+}
+.tit.date {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-calendar.svg");
+}
+.team-info .tit {
+    padding-left: 22px;
+    width: 104px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 20px;
+    color: rgb(109, 114, 120);
+}
+.team-info li {
+    text-align: left;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    width: 100%;
+    line-height: 23px;
+}
+.team-info .con {
+    padding-left: 20px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+}
+.span-1 {
+    margin-left: 4px;
+    background-color: white;
+}
+.span-2.possible {
+    display: inline-block;
+    min-width: max-content;
+    height: fit-content;
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: 1px solid rgb(147, 147, 147);
+    font-size: 10px;
+    line-height: 12px;
+    color: rgb(147, 147, 147);
+}
+.span-2.impossible {
+    display: inline-block;
+    min-width: max-content;
+    height: fit-content;
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: 1px solid red;
+    font-size: 10px;
+    line-height: 12px;
+    color: red;
+}
+.tit.sports {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-job-group.svg");
+}
+.tit.time {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-date-range.svg");
+}
+.tit.place {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-location.svg");
+}
+.tit.game-time {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-time.svg");
+}
+.tit.tuning {
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-consultation.svg");
+}
+.etc {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.etc li {
+    margin-top: 10px;
+    border-radius: 14px;
+    background-color: rgb(242, 244, 247);
+    padding: 6px 12px;
+    margin-right: 6px;
+    color: rgb(102, 102, 102);
+    font-size: 13px;
+    white-space: nowrap;
+}
+.team-wrapper-bottom {
+    padding: 34px 0px 10px;
+    color: rgb(51, 51, 51);
+}
+.requirements-title {
+    font-weight: 700;
+    word-break: break-all;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.0056em;
+    color: rgb(51, 51, 51);
+}
+.requirements-content {
+    padding-top: 30px;
+    font-size: 14px;
+    word-break: break-all;
+    white-space: normal;
+    line-height: 22px !important;
+}
+.requirements-content dl {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+dt {
+    font-weight: bold;
+}
+.requirements-content dl dt::before {
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    content: "";
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+}
+.requirements-content dl dd {
+    padding-top: 8px;
+}
+.p {
+    text-align: left;
+    /* p안에 택스트 엔터없애기 */
+    /* white-space: pre-wrap; */
+    font-weight: 400;
+}
+.requirements-content dl dd p {
+    line-height: 22px;
+}
+.p {
+    word-break: break-all;
+    font-size: 14px;
+    letter-spacing: 0.0145em;
+    color: rgb(51, 51, 51);
+}
+.wrapper-btn-back {
+    margin-top: 20px;
+}
+button {
+    cursor: pointer;
+}
+.back-button {
+    position: relative;
+    width: auto;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 32px;
+    padding: 7px 14px;
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid rgb(225, 226, 228);
+    color: rgb(23, 23, 23) !important;
+}
+.back-icon {
+    margin-right: 4px;
+    display: inline-block;
+}
+.wrapper-btn-back.back-button img {
+    position: relative;
+    top: -2px;
+    margin-right: 4px;
+}
+.main-back {
+    text-align: center;
+    white-space: normal;
+    font-weight: 600;
+    word-break: break-all;
+    font-size: 13px;
+    letter-spacing: 0.0192em;
+}
+.team-detail-layout .sider-1 {
+    width: 39%;
+    margin-left: 2%;
+}
+.sider-section {
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    text-align: left;
+    height: 100%;
+}
+.wrapper-div {
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 219px;
+    justify-content: space-between;
+}
+.context-area {
+    line-height: 20px;
+}
+.confirm-title {
+    font-size: 20px;
+    line-height: 30px;
+    color: rgb(51, 51, 51);
+    word-break: break-all;
+    font-weight: bold;
+}
+.wrapper-div .confirm-descript.gap {
+    padding-top: 12px;
+}
+.wrapper-div .confirm-descript {
+    font-size: 14px;
+    color: rgb(109, 114, 120);
+}
+.side-btn-area {
+    padding-top: 30px;
+}
+.side-btn-area button {
+    padding: 0px;
+    cursor: pointer;
+}
+.side-match-btn {
+    position: relative;
+    width: 100%;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(51, 102, 255);
+    color: white !important;
+}
+.span-text {
+    font-weight: 600;
+}
+.side-match-btn span {
+    color: inherit;
+}
+.span-text {
+    word-break: break-all;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.0056em;
+}
+.span-span {
+    overflow: hidden;
+    position: absolute;
+    z-index: 0;
+    inset: 0px;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.2s;
+    will-change: opacity;
+    cursor: inherit;
+    background-color: rgb(23, 23, 23);
+}
+.similar-section {
+    position: relative;
+    margin-top: 40px;
+    padding: 0px;
+    border-radius: 5px;
+    background-color: rgb(247, 248, 250);
+}
+.similar-h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(51, 51, 51);
+}
+.similar-h2 em {
+    color: rgb(51, 102, 255);
+}
+.similar-section > ul > li {
+    margin-bottom: 20px;
+}
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.similar-team {
+    position: relative;
+    padding: 20px 58px 20px 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    transition: 0.2s ease-in-out;
+}
+.similar-h3 {
+    white-space: normal;
+    color: rgb(51, 51, 51);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.0236em;
+}
+.similar-ul {
+    margin: 14px 0px 22px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+}
+.similar-date {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(151, 157, 164);
+}
+.similar-date label {
+    margin-right: 3px;
+    padding-left: 20px;
+    background-image: url("https://www.wanted.co.kr/gigs/images/icons/icon-20x20-calendar.svg");
+    background-size: 20px 20px;
+    background-position: left -3px;
+}
+.similar-date strong {
+    font-weight: 500;
+    color: rgb(102, 102, 102);
+}
+/* 여기 부분이 div바뀌는 부분 */
+.sider-2 {
+    display: none;
+}
+.sider-3 {
+    display: none;
+}
+.team-detail-layout .sider-2 {
+    width: 39%;
+    margin-left: 2%;
+}
+.apply-section {
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    text-align: left;
+    height: 100%;
+}
+.apply-title {
+    background-color: white;
+}
+.apply-container {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+    border-bottom: 1px solid rgb(242, 244, 247);
+    position: relative;
+    padding: 28px 24px !important;
+}
+.apply-close-btn {
+    position: absolute;
+    right: 7%;
+    top: 27px;
+}
+img {
+    vertical-align: middle;
+}
+.apply-form {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+}
+.apply-form .apply-wrapper {
+    padding: 40px 24px 30px;
+}
+.apply-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 219px;
+    justify-content: space-between;
+}
+.apply-item {
+    padding-bottom: 40px;
+}
+.item-wrapper {
+    position: relative;
+}
+.form-item {
+    position: relative;
+    padding-bottom: 0px;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 14px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    vertical-align: top;
+}
+.item-container {
+    margin-bottom: 0px !important;
+}
+.form-item-label {
+    padding-bottom: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgb(51, 51, 51);
+}
+.form-item-label > label {
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    height: fit-content !important;
+    font-size: 16px !important;
+}
+.form-item-label label .essential {
+    color: rgb(255, 77, 79);
+    font-size: 14px;
+}
+.form-item-control-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.form-item-control-input-content {
+    flex: auto;
+}
+.item-input {
+    border: 1px solid rgb(225, 227, 232);
+    box-shadow: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 11px;
+    list-style: none;
+    line-height: 1.5714285714285714;
+}
+.form-item-explain {
+    color: rgb(151, 157, 164);
+    font-size: 14px;
+    padding-top: 10px;
+}
+.item-input.input-error {
+    border: 1px solid red;
+}
+.explain-error {
+    color: red;
+}
+.choice-radio-group {
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 15px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    display: inline-block;
+}
+.radio-wrapper {
+    color: rgb(151, 157, 164);
+    line-height: 0;
+    margin-inline-end: 8px;
+    cursor: pointer;
+}
+.apply-item.addcontent {
+    padding-top: 40px;
+    border-top: 1px solid rgb(192, 192, 192);
+}
+.check-area {
+    height: 44px;
+    padding-top: 14px;
+    background-color: rgb(245, 247, 255);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 13px;
+    color: rgb(51, 51, 51);
+    line-height: 1.47;
+}
+.check-area strong {
+    color: rgb(51, 102, 255);
+}
+.textarea {
+    position: relative;
+}
+.form-item-control {
+    width: 100%;
+}
+.item-input.addcontent-input {
+    height: 120px;
+    padding: 10px 10px;
+    resize: none;
+    line-height: 20px;
+    font-size: 13px !important;
+}
+.apply-complete-btn {
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    background-color: rgb(51, 102, 255);
+    color: white !important;
+}
+.apply-span {
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+}
+.team-detail-layout .sider-3 {
+    width: 39%;
+    margin-left: 2%;
+}
+.side-match-btn.complete {
+    pointer-events: none;
+}
+.team-detail-layout .sider-0 {
+    width: 39%;
+    margin-left: 2%;
+}
+.sider-section-team-info {
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    text-align: left;
+    height: 100%;
+}
+.sider-section-team-info .wrapper-div {
+    margin-bottom: 30px;
+}
+.team-info-img {
+    display: flex;
+    position: relative;
+    margin-left: 10px;
+    height: 36px;
+    margin-top: 25px;
+}
+.team-leader {
+    position: relative;
+    width: 40px;
+    margin-right: 40px;
+}
+.avatar-leader {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 36px;
+    height: 36px;
+}
+.avatar-leader-image {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.leader-icon {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    transform: translate(-3px, -17px);
+}
+.team-member {
+    position: relative;
+    width: 40px;
+    margin-right: 3px;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.avatar-member {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 36px;
+    height: 36px;
+}
+.avatar-member-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

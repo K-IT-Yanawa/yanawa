@@ -1,0 +1,1624 @@
+@font-face{
+    font-family: "pretendard";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff/Pretendard-Black.woff")
+    format("woff");
+}
+@font-face{
+    font-family: "pretendardvariable";
+    src: url("/fonts/Pretendard-1.3.9/web/variable/woff2/PretendardVariable.woff2")  
+    format("woff2");
+}
+* {
+    box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+}
+:root {
+    --nav-height: 60px;
+}
+body {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    background-color: #fefefe;
+    line-height: 1.42857143;
+    font-family:"Pretendard Variable,Pretendard JP Variable,-apple-system,system-ui,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,Apple SD Gothic Neo,Nanum Gothic,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif";
+    overflow-y: visible;
+    display: block;
+    min-height: 1000px;
+    min-width: 1000px;
+}
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: inherit
+}
+button, div, h1, h2, h3, h4, h5, h6, input, p, select, span, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+   
+}
+a {
+    font-family: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+a, a:active, a:hover, a:visited {
+    color: inherit;
+}
+img {
+    vertical-align: middle;
+}
+ol, ul {
+    list-style: none;
+}
+
+
+
+
+
+
+/* 헤더 */
+.main_heder_mark{
+    width: 112;
+    height: 32;
+}
+.main_heder_all {
+    width: 100%;
+<<<<<<< HEAD
+   
+    top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    z-index: 800;
+
+=======
+    top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    z-index: 800;
+>>>>>>> 7f318cfe218b61a06e15c2301ab7f94d75b427d3
+}
+.main_heder_all_1 {
+    position: absolute;
+    z-index: -1;
+    background: hsla(0, 0%, 100%, .88);
+    backdrop-filter: saturate(150%) blur(32px);
+    height: 100%;
+    width: 100%;
+   
+}
+.main_heder_all_2 {
+    height: 60px;
+    width: 1060px;
+    margin: 0 auto;
+    
+}
+
+.main_heder_all_3 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+.main_heder_mark {
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 170px;
+    min-width: 152px;
+    width: 12.1428571429%;
+}
+.main_heder_mark a, .main_heder_menu_all {
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.main_heder_menu_all {
+    /* 채용 메뉴바 */
+    height: 100%;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+<<<<<<< HEAD
+  
+   
+=======
+>>>>>>> 7f318cfe218b61a06e15c2301ab7f94d75b427d3
+}
+.logo_img{
+    width: 100px;
+    height: 59px;
+}
+
+ .main_heder_menu_bar {
+        /* 헤더바 버튼 */
+        margin-right: 40px;
+        flex-shrink: 0;
+        transition: color .2s;
+    
+    }
+   
+
+   
+    .main_heder_menu_bar_1_a>span {
+       
+        display: flex;
+      
+        align-items: center;
+    }
+    .main_categoryIcon {
+        margin: 0 4px 0 0;
+    }
+
+
+
+    .main_svg_root_icon {
+        display: flex;
+        align-items: inherit;
+        justify-content: inherit;
+        flex-direction: column;
+
+    }
+
+    .main_svg_Icon {
+        user-select: none;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        fill: currentColor;
+        flex-shrink: 0;
+        font-size: inherit;
+
+    }
+    .main_categoryIcon svg {
+        width: 25px;
+        height: 24px;
+    }
+
+
+    .main_svg_Icon path {
+        transition: fill .2s;
+    }
+
+    .main_heder_menu_1_all {
+      /* 채용 전체 버튼 */
+        position: relative;
+        top: -100%;
+        z-index: -1;
+        height: 100%;
+       
+       
+    }
+ 
+    .main_svg_Icon {
+     
+        user-select: none;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        fill: currentColor;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        font-size: inherit; 
+    }
+
+
+    /* 메뉴바 내려왔을때 */
+    /* 채용 */
+    .main_heder_menu_1_menubar {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(23, 23, 25, .52);
+        z-index: -1;
+        pointer-events: none;
+        
+    }
+/* ================================================================================= */
+ /* 매칭 메뉴의 하위 메뉴와 자유게시판 메뉴를 초기에는 숨김 */
+
+ .main_heder_menu_1_all {
+    display: none;
+    position: absolute; /* 하위 메뉴가 부모 요소 아래에 나타나도록 설정 */
+    background-color: #fff; /* 배경색을 설정합니다 */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    z-index: 1; /* 다른 요소 위에 표시되도록 설정 */
+  }
+  
+  
+  /* 하위 메뉴 스타일 */
+  .main_heder_menu_1_all,
+  .main_heder_menu_1_menubar_1 {
+    display: none; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .main_heder_menu_1_menubar {
+    padding: 10px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .main_heder_menu_bar.show .main_heder_menu_1_all,
+  .main_heder_menu_bar.show .main_heder_menu_1_menubar_1 {
+    display: block; /* 하위 메뉴를 보이도록 설정 */
+    opacity: 1;
+    visibility: visible;
+  }
+
+/* --=================================================================================== */
+
+/* 매칭 옆 사이드 (matchMani.css) */
+.match-team {
+ 
+    margin-right: 1px;
+    background-color: white;
+    padding: 10px 15px;
+    padding-bottom: 0px;
+    padding-bottom: 5px;
+    position: relative;
+   border-bottom: 0.1px solid  #d3d2d2;;
+}
+
+.match-team-title {
+    display: flex;
+}
+
+.match-team .gap {
+    margin-top: 16px;
+}
+.match-team .category {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.match-team .category .detail {
+    border-radius: 14px;
+    background-color: rgb(242, 244, 247);
+    height: 28px;
+    line-height: 28px;
+    padding: 0px 12px;
+    color: rgb(102, 102, 102);
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.detail {
+    margin-right: 6px;
+}
+
+
+.match-team .game-time {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 6px;
+    line-height: normal;
+    font-size: 14px;
+    letter-spacing: -0.39px;
+    color: rgb(118, 118, 118);
+}
+
+
+.game-time-detail {
+    color: firebrick;
+}
+.unit {
+    margin-left: 5px;
+    padding: 0px 4px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 2px;
+    font-size: 13px;
+    letter-spacing: 0.031em;
+    color: rgb(147, 147, 147);
+}
+.category-list {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.match-team
+.geulssi_RdAI1.geulssi__hNiv5.geulssi__jzmck{
+    display: none; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.match-team
+.geulssi_RdAI1.geulssi__hNiv5.geulssi__jzmck.show{
+    display: block; 
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-icons span {
+    font-size: 13px;
+}
+.icon {
+    display: inline-block;
+    min-width: max-content;
+    height: fit-content;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    line-height: 14.4px;
+}
+.email-icon {
+    color: rgb(243, 72, 163);
+    background-color: rgb(255, 240, 248);
+    margin-right: 4px;
+}
+
+.phone-icon {
+    color: rgb(8, 186, 156);
+    background-color: rgb(228, 244, 236);
+    margin-right: 0px;
+}
+
+
+.match-doing-icon {
+    margin-left: 4px;
+    color: white;
+    background-color: rgb(115, 125, 255);
+}
+
+.match-complete-icon {
+    margin-left: 4px;
+    color: white;
+    background-color: rgb(151, 157, 164);
+}
+
+.match-new-icon {
+    color: white;
+    background-color: rgb(97, 180, 255);
+    margin-left: 4px;
+}
+
+/*======================================================================================================================== */
+
+
+.main_heder_menu_1_menubar_1 {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        max-height: 456px;
+        overflow: auto;
+        height: calc(100vh - 60px - 20px);
+        border-top: 1px solid rgba(0, 0, 0, .12);
+        z-index: 1000;
+    }
+    .main_heder_menu_1_menubar_1_left {
+        display: flex;
+        max-width: 1060px;
+        height: 100%;
+        margin: 0 auto;
+        align-items: stretch;
+    }
+
+    .main_heder_menu_1_menubar_1_1_1_1_img{
+        display: grid;
+        width: 100%;
+        padding: 25px 0;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 20px;
+        grid-gap: 18px 0;
+        overflow: auto;
+    }
+
+  
+
+    .main_heder_menu_1_menubar_1_1{
+        display: flex;
+        flex-direction: column;
+        width: 224px;
+        margin-left: -4px;
+        padding: 25px 0 25px 4px;
+        overflow: auto;
+        flex-shrink: 0;
+    }
+    .main_heder_menu_1_menubar_1_1_1 {
+        margin-bottom: 18px;
+    }
+    .main_heder_menu_1_menubar_1_1_1 a {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 142.9%;
+        letter-spacing: .203px;
+    }
+    .main_heder_menu_1_menubar_1_1_1_1 {
+        height: 20px;
+        margin-bottom: 18px;
+    }
+
+    .main_heder_menu_1_menubar_1_1_1_1>a {
+        width: 100%;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 142.9%;
+        letter-spacing: .203px;
+        transition: font-weight 0.2s ease-in-out;
+    }
+
+    .main_heder_menu_1_menubar_1_1_1_1 a:hover {
+        font-weight: bold;
+    }
+
+
+
+    .main_heder_menu_1_menubar_1_1_1>a{
+        color: #171719;
+        font-weight: 600;
+    }
+
+    .main_heder_menu_1_menubar_1_1_1_1_button {
+        position: relative;
+        top: 2px;
+        pointer-events: none;
+    }
+    .main_heder_menu_1_menubar_1_1_1_1_button>span {
+        opacity: 0;
+    }
+    .main_heder_menu_1_menubar_1_1_1_1_side {
+        width: 1px;
+        background: rgba(0, 0, 0, .12);
+        margin-left: 6px;
+    }
+
+    .main_heder_menu_1_menubar_1_1_1_1_side_1 {
+        width: 100%;
+        height: 100%;
+        display: column;
+        align-items: center;
+        justify-content: center;
+        color: rgba(55, 56, 60, .61);
+        margin-right: -96px;
+    }
+
+    
+    
+    /* 자유게시판, 공지사항.. */
+    .main_heder_menu_bar.main_heder_menu_bar__zwZYy {
+        color: #868382;
+        transition: color 0.3s ease-in-out;
+    }
+ 
+
+    .Typography_Typography__heading1__N9Asv {
+        font-size: 22px;
+        letter-spacing: -.0194em;
+        line-height: 30px;
+    }
+    .Typography_Typography__headline2__vR7L_ {
+        font-size: 17px;
+        letter-spacing: 0;
+        line-height: 24px;
+    }
+
+    .main_heder_login_job_all {
+        margin-left: auto;
+    }
+    .main_heder_login_job_al_1 {
+      display: flex;
+        align-items: center;
+    }
+    .main_heder_login_job_al_1>li {
+        flex-shrink: 0;
+    }
+   .main_heder_login_job_dodbogi {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition: background-color .15s ease;
+    }
+    .main_heder_login_job_dodbogi svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    
+    .Typography_Typography__displayBlock__A3AK8 {
+        display: block;
+    }
+    
+    .Typography_Typography__caption1__P91eH {
+        font-size: 12px;
+        letter-spacing: .0252em;
+        line-height: 16px;
+    }
+    .Typography_Typography__weightMedium__GXnOM {
+        font-weight: 500;
+    }
+
+    .main_heder_padding{
+        height: 60px;
+    }
+    
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+    
+    /* geulssi class--------------------------------------------------------- */
+    .geulssi__AA {
+        font-size: 13px;
+        letter-spacing: .0194em;
+        line-height: 18px;
+    }
+    .geulssi_font__body2__1 {
+        font-size: 15px;
+        letter-spacing: .0096em;
+        line-height: 22px;
+    }
+    .geulssi_font_weight {
+        font-weight: 600;
+    }
+    .geulssi_RdAI1 {
+        margin: 0;
+    }
+    .geulssi__hNiv5 {
+        font-size: 14px;
+        letter-spacing: .0145em;
+        line-height: 20px;
+    }
+    .geulssi__jzmck {
+        font-weight: 400;
+    }
+    
+    
+    /* 버튼-------------------------------------------------------------------------- */
+    .main_heder_menu_1_button {
+        position: absolute;
+        top: 18px;
+        right: -12px;
+        height: 22px;
+        pointer-events: none;
+        opacity: 0;
+        
+    }
+    .main_heder_menu_bar>a, .main_heder_menu_bar>button {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: .0096em;
+        height: 100%;
+      
+        display: flex;
+     
+        align-items: center;
+    }
+    .Aside_menuButton__uYQn0 {
+        display: none;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .Aside_menuButton__uYQn0 svg {
+        width: 24px;
+        height: 24px;
+    }
+    .Button_Button__root__login {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        box-sizing: border-box;
+        line-height: normal;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+    .Button_Button__outlinedAssistive_gieob {
+        --button-color: #171719;
+        color: var(--button-color);
+        font-weight: 500;
+        -webkit-box-shadow: inset 0 0 0 1px hsla(225, 5%, 46%, .16);
+        box-shadow: inset 0 0 0 1px hsla(225, 5%, 46%, .16);
+    }
+
+
+    .Button_Button__outlined__login {
+        background-color: #fff;
+    }
+    .Button_Button__outlinedPrimary__8mJWi, .Button_Button__outlined__login {
+        color: var(--button-color);
+        box-shadow: 0 0 0 1px var(--button-color) inset;
+    }
+    .Button_Button__outlinedAssistive__login{
+        color: var(--button-color);
+        font-weight: 500;
+        box-shadow: inset 0 0 0 1px hsla(225, 5%, 46%, .16);
+    }
+    .Button_Button__containedSizeSmall__login, 
+    .Button_Button__outlinedSizeSmall_longin {
+        padding: 0 14px;
+        min-width: 48px;
+        height: 32px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+    .main_heder_login_job_login_button {
+        margin-left: 12px;
+        margin-right: 8px;
+        color: #06f;
+    }
+    .Aside_dashboardButton__rXAZo,  .main_heder_login_job_login_button {
+        box-shadow: 0 0 0 1px rgba(23, 23, 25, .12);
+    }
+
+    .Button_Button__interval__font {
+        width: 100%;
+        font-size: inherit;
+        font-weight: inherit;
+        display: inherit;
+        align-items: inherit;
+        justify-content: inherit;
+        color: inherit;
+    }
+   
+    .Button_Button__interaction__rounder {
+        overflow: hidden;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: inherit;
+        opacity: 0;
+        background-color: var(--button-color);
+        transition: opacity .2s ease;
+        will-change: opacity;
+    }
+    
+    
+    /* ----------------------------------------------------------------------------------------------- */
+    /* 메인 */
+    .main_background_All {
+        overflow-x: hidden;
+        background-color: #fff;
+    }
+    /* 메인 전체 */
+    .main_section_All {
+        /* max-width: 1060px; */
+        display: flex;
+        flex-direction: column;
+        gap: 72px;
+        padding: 40px 0 144px;
+        /* width: 1060px; */
+        margin: 0 auto;
+    }
+    /* 메인 첫 배너 */
+    .main_section_section_1 {
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        margin-bottom: -32px;
+    }
+    .main_section_section_1_banner_1 b{
+        color: #06f;
+    }
+
+    
+    
+    .Button_Button__textPrimary__dAN0P, .Button_Button__text__tIDdK {
+        --button-color: #06f;
+        
+    }
+    
+    .Button_Button__textAssistive__AQpOp {
+        --button-color: rgba(55, 56, 60, .61);
+        color: var(--button-color);
+    }
+
+    
+    .Button_Button__textSizeMedium__uBHGm {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .main_section_section_1_banner_1 {
+        /* 첫번째 전체 배너 사이즈 */
+        display: flex;
+        height: 58px;
+        align-items: center;
+        padding: 8px 16px;
+        margin: 0 20px;
+        overflow: hidden;
+        background: hsla(225, 5%, 46%, .04);
+        border-radius: 16px;
+        max-width: 500px;
+        /* opacity: 0; */
+        color: #171719;
+    }
+    
+    
+    
+    
+    
+    .main_section_section_1_banner_2 {
+        animation: ActionBarArea_bannerAnimation__cmZsT .6s cubic-bezier(.63,-.06,0,.69) forwards;
+    }
+    .main_section_section_1_img {
+        width: 70px;
+        margin-right: 15px;
+    }
+    .ActionBarArea_ActionBarArea__bar__text__jHshz {
+        flex: 1 1;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .ActionBarArea_ActionBarArea__bar__icon__v1b6j {
+        font-size: 20px;
+        margin-left: 5px;
+        color: rgba(55, 56, 60, .28);
+    }
+
+          
+    
+
+        
+        /* 슬라이드 1*/
+        section.main_section_container_1{
+            position: relative;
+            width: 1000px;
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius:15px;
+        }
+        .container_slide_banner_1{
+            width: 8000px;
+            display: flex;
+          
+        }
+        
+        .main_article_banner_img{
+            width: 100%;
+        }
+        .containner_slide_banner_1_button{
+            width: 1200px;
+            position: absolute;
+            text-align: left;
+            bottom:3%;
+            margin-left:13px;
+
+        }
+        .containner_slide_banner_1_button button{
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+       
+
+
+    
+
+
+    /* 카드배너1  */
+
+
+     .main_section_banner_cardBanner_1{
+        position: relative;
+        width: 1300px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .main_section_container_cardBanner_1 {
+        overflow: hidden;
+        width: 100%; /* 배너 컨테이너의 너비를 설정 */
+    }
+
+
+    .main_section_container_cardBanner1_banner_1 {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: max-content; /* 모든 카드들이 가로로 나열될 수 있도록 설정 */
+   
+    }
+ 
+    .main_section_cardBanner_1_img {
+        min-width: 300px; /* 카드 하나의 최소 너비 */
+        margin: 10px;
+        box-sizing: border-box;
+       
+    }
+
+    .CarouselNavigation_CarouselNavigation__Llibu {
+        display: flex;
+        align-items: center;
+      
+    }
+
+    .main_section_banner_cardBanner_hader_name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .main_section_banner_cardBanner_hader_more {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        height: 100%;
+    }
+    .SvgIcon_SvgIcon__root__OHiSO{
+        display: flex;
+        align-items: inherit;
+         justify-content: inherit;
+    }
+    .button_legt1{
+       
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+    }
+
+    .CarouselNavigation_CarouselNavigation__left__ZzsPB svg {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+
+.IconButton_IconButton__label__o4AtY{
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    color: inherit;
+}
+
+.main_section_banner_cardBanner_2 {
+    position: relative;
+    width: 1290px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.main_section_container_cardBanner_2 {
+    overflow: hidden;
+    width: 100%; /* 배너 컨테이너의 너비를 설정 */
+}
+.main_section_container_cardBanner2_banner_2 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: max-content; /* 모든 카드들이 가로로 나열될 수 있도록 설정 */
+}
+
+
+
+.main_section_section_2_img {
+    min-width: 303px; /* 카드 하나의 최소 너비 */
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+
+/* 카드 배너 3 */
+
+.main_section_banner_3_banner_1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: max-content; /* 모든 카드들이 가로로 나열될 수 있도록 설정 */
+}
+
+
+
+
+
+/* 4번째 배너 */
+.main_section_container_4 {
+    position: relative;
+    width: 1300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.main_section_container_4_banner {
+    overflow: hidden;
+    width: 100%; /* 배너 컨테이너의 너비를 설정 */
+}
+.main_section_banner_4_banner_1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: max-content; /* 모든 카드들이 가로로 나열될 수 있도록 설정 */
+}
+
+.main_section_section_4_img  {
+    flex: 0 0 20%;
+    max-width: 13%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.custom-image{
+    width: 100%;  /* 부모 요소의 너비에 맞게 조절 */
+    height: 200px; /* 이미지 비율을 유지하면서 높이를 자동으로 조절 */
+    max-width: 100%; /* 이미지가 부모 요소를 넘지 않도록 제한 */
+    object-fit: cover;
+    border-radius:8px;
+}
+
+/* 5번째 배너 */
+.main_section_container_5 {
+    position: relative;
+    width: 1300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.main_section_container_5_banner {
+    overflow: hidden;
+    width: 100%; /* 배너 컨테이너의 너비를 설정 */
+}
+
+
+.main_section_banner_5_banner_1 {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: max-content; /* 모든 카드들이 가로로 나열될 수 있도록 설정 */
+    
+}
+.main_section_section_5_img {
+    flex: 0 0 20%;
+    max-width: 13%;
+    box-sizing: border-box;
+    padding: 10px;
+    
+}
+
+
+
+
+
+    .Typography_Typography__display1__weightBold__Kcrek, .Typography_Typography__display2__weightBold__rh2RV, .Typography_Typography__title1__weightBold__VE6AD, .Typography_Typography__title2__weightBold__RpDK_, .Typography_Typography__title3__weightBold__xwZk7 {
+        font-weight: 700;
+    }
+    .Typography_Typography__display1__weightBold__Kcrek, .Typography_Typography__display2__weightBold__rh2RV, .Typography_Typography__title1__weightBold__VE6AD, .Typography_Typography__title2__weightBold__RpDK_, .Typography_Typography__title3__weightBold__xwZk7 {
+        font-weight: 700;
+    }
+    .BannerItem_BannerItem__info__title__todNv {
+        font-size: clamp(17px, 2.18181818vw, 24px);
+        line-height: clamp(26px, 2.90909091vw, 32px);
+    }
+    .BannerItem_BannerItem__info__desc__pNpL7 {
+        margin-top: clamp(4px, .54545455vw, 6px);
+        font-size: clamp(12px, 1.36363636vw, 15px);
+        line-height: clamp(16px, 2vw, 22px);
+    }
+
+  
+    .TopBannerArea_MainBannerArea__dots__tIsvd {
+        position: absolute;
+        left: clamp(16px, 2.545454545vw, 28px);
+        bottom: clamp(16px, 2.545454545vw, 28px);
+    }
+  
+    .SliderContainer_pagination__inner__3dPMY>li {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #000;
+        cursor: pointer;
+        -webkit-transition: width .25s ease, height .25s ease, margin .25s ease, opacity .25s ease, -webkit-transform .15s ease;
+        transition: width .25s ease, height .25s ease, margin .25s ease, opacity .25s ease, -webkit-transform .15s ease;
+        transition: width .25s ease, height .25s ease, margin .25s ease, opacity .25s ease, transform .15s ease;
+        transition: width .25s ease, height .25s ease, margin .25s ease, opacity .25s ease, transform .15s ease, -webkit-transform .15s ease;
+        position: relative;
+        opacity: .22;
+        will-change: auto;
+    }
+    .SliderContainer_pagination__light__3odRX .SliderContainer_pagination__inner__3dPMY>li {
+        background-color: #fff;
+    }.SliderContainer_pagination__inner__3dPMY>li>button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 0;
+        cursor: pointer;
+        color: transparent;
+        line-height: 0;
+        border: 0;
+        outline: none;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+    }
+
+
+   
+    .CarouselHeader_CarouselHeader__title__O_txS {
+        overflow: hidden;
+        display: -webkit-box;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+   
+    .CarouselHeader_CarouselHeader__link__2mjNY {
+        color: rgba(55, 56, 60, .61) !important;
+        position: relative;
+        padding: 4px 0;
+        height: 100%;
+       
+        display: flex;
+      
+        justify-content: center;
+       
+        align-items: center;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+  
+ 
+
+    .IconButton_IconButton__root__IJlt6 {
+        position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    overflow: hidden;
+    }
+    .IconButton_IconButton__root__IJlt6:hover {
+        background-color: #e0e0e0;
+    }
+
+    .CarouselNavigation_CarouselNavigation__left__ZzsPB{
+        width: 31px;
+    height: 28px;
+    border: 1px solid hsla(225, 5%, 46%, .22) !important;
+    border-right: none !important;
+    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    }
+
+
+    .CarouselNavigation_CarouselNavigation__right__lB17m {
+        width: 31px;
+        height: 28px;
+        border: 1px solid hsla(225, 5%, 46%, .22) !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-top-right-radius: 6px !important;
+        border-bottom-right-radius: 6px !important;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+
+    .IconButton_IconButton__disabled__6qJ2Q, .IconButton_IconButton__loading__hlErq {
+        pointer-events: none;
+    }
+    .IconButton_IconButton__normalDisabled__lpQXR {
+        color: rgba(55, 56, 60, .16);
+    }
+ 
+    .main_section_banner_2_1_botton_button svg {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    .IconButton_IconButton__interaction__7RjPt {
+        overflow: hidden;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background-color: #171719;
+        -webkit-transition: opacity .2s ease;
+        transition: opacity .2s ease;
+        will-change: opacity;
+    }
+
+    .CarouselContainer_CarouselContainer__slider__dWB5h {
+        width: 100%;
+    }
+    .Card_TagCard__f0zU3 {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+ 
+
+    .Card_TagCard__Container__KHnF3 {
+        position: relative;
+        padding-left: 10px;
+        padding-bottom: 61.8047%;
+        background-size: cover;
+        background-position: 50%;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+   
+    .Card_TagCard__Thumbnail__8I2Qn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .Card_TagCard__Container__KHnF3>img {
+        transition: transform .2s ease, -webkit-transform .2s ease;
+        will-change: auto;
+    }
+    .Card_TagCard__Thumbnail__Gradient__w6P7x {
+        width: 100%;
+    }
+    
+    .Grid_Grid__justify_space-between__xzhoO {
+        justify-content: space-between;
+    }
+    .Grid_Grid__align-items_center__2CxBh {
+        align-items: center;
+    }
+    .Grid_Grid__wrap_nowrap__lW8k0 {
+        flex-wrap: nowrap;
+    }
+    .Card_TagCard__Contents__M_tzb {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        width: calc(100% - 32px) !important;
+        gap: 10px;
+    }
+    .Card_TagCard__Contents__Company__r5cl6 {
+        gap: 10px;
+        overflow: hidden;
+    }
+    .Card_TagCard__Contents__Company__LogoWrapper__UFbjb {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+    }
+    .Card_TagCard__Contents__Company__LogoWrapper__Logo__xrSQo {
+        width: 100%;
+        height: 100%;
+        outline: 1px solid rgba(23, 23, 25, .05);
+        outline-offset: -1px;
+        border-radius: 8px;
+        background: #fff;
+        object-fit: contain;
+    }
+    .Card_TagCard__Contents__Company__Information__qZRcd {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        overflow: hidden;
+        padding: 2px 0;
+    }
+    .Card_TagCard__Contents__Company__Information_companyName__5QkN7 {
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+        color: #fff;
+    }
+    .Card_TagCard__Contents__Company__Information_industryName__nECyd {
+        color: #fff;
+    }
+    .Card_TagCard__Contents__Company__Button__oHyuc {
+        flex-shrink: 0;
+        color: #fff;
+        background: transparent;
+        padding: 7px 14px;
+        border: 1px solid #fff;
+    }
+    .Card_TagCard__Contents__Company__Button__oHyuc>span:first-of-type {
+        width: inherit;
+    }
+    .Card_TagCard__Container__KHnF3:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        outline: 1px solid rgba(23, 23, 25, .05);
+        border-radius: 12px;
+        outline-offset: -1px;
+    }
+
+    .CardThumbnail_CardThumbnail__nfAhz {
+        overflow: hidden;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        outline: 1px solid hsla(225, 5%, 46%, .04);
+        outline-offset: -1px;
+    }
+    .CardThumbnail_CardThumbnail__Image__3u_wA {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        max-height: 125px;
+        aspect-ratio: 2 / 1;
+    }
+    .CardContent_CardContent__HeC2E {
+        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 12px;
+        padding: 16px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 4px;
+    }
+    .CardContent_CardContent__title__aQynq {
+        color: #fff;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .CardContent_CardContent__count__jxvlt {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .CardContent_CardContent__count__jxvlt span {
+        color: #fff;
+        opacity: .8;
+    }
+    .ThemeCard_ThemeCard__7Ogb4 {
+        position: relative;
+    }
+    .ThemeCard_ThemeCard__Link__zGS0k {
+        width: inherit;
+    }
+    .Thumbnail_Thumbnail__ZsGxf {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px 12px 0 0;
+    }
+    .Thumbnail_Thumbnail__ZsGxf>img {
+        width: 100%;
+        height: 57.6923076923%;
+        max-height: 196.15px;
+        object-fit: cover;
+        aspect-ratio: 25 / 16;
+    }
+    .ThemeCard_ThemeCard__7Ogb4 [class*=Thumbnail] img {
+        transition: transform .2s ease, -webkit-transform .2s ease;
+        will-change: auto;
+    }
+    .Thumbnail_Thumbnail__Title__CXFZF {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: calc(100% - 40px);
+        color: #fff;
+        text-shadow: 0 0 16px rgba(0, 0, 0, .35);
+    }
+    .Contents_Contents__7EiPB {
+        padding: 20px;
+        gap: 10px;
+    }
+    .Contents_Contents__CompanyLogoList__a2Y02 {
+        max-height: 32px;
+    }
+    .AvatarGroup_AvatarGroup__root__2veen {
+      
+        display: flex;
+    }
+    /* 요즘뜨는 포지션 */
+    .JobCard_JobCard__Tb7pI {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+    .JobCard_JobCard__Tb7pI a {
+        appearance: none;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    .JobCard_JobCard__thumb__WU1ax {
+        position: relative;
+        margin-bottom: 12px;
+        overflow: hidden;
+        padding-bottom: 67%;
+        background-size: cover;
+        background-position: 50%;
+        border-radius: 12px;
+    }
+    .JobCard_JobCard__thumb__WU1ax:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 12px;
+        z-index: 1;
+        box-sizing: border-box;
+        outline: 1px solid rgba(23, 23, 25, .05);
+        outline-offset: -1px;
+    }
+    .JobCard_JobCard__thumb__reward__6_Xx_ {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        color: #fff;
+        z-index: 1;
+        margin-right: 44px;
+    }
+    .JobCard_JobCard__thumb__reward__text__i15UM {
+        text-shadow: 0 0 12px rgba(0, 0, 0, .16);
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+    }
+    .JobCard_JobCard__thumb__WU1ax>img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: transform .2s ease, -webkit-transform .2s ease;
+        will-change: auto;
+        object-fit: cover;
+    }
+    .IconButton_IconButton__disableGutters__F_K1l {
+        padding: 8px;
+    }
+    .IconButton_IconButton__normal__Twwsf {
+        border: none;
+    }
+    .JobCard_JobCard__thumb__WU1ax>button {
+        position: absolute;
+    }
+    .JobCard_JobCard__thumb__WU1ax .bookmarkBtn {
+        background: none;
+        width: 40px;
+        height: 40px;
+        top: 6px;
+        right: 6px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .JobCard_JobCard__thumb__WU1ax .bookmarkBtn>span {
+        font-size: 24px;
+    }
+    .JobCard_JobCard__thumb__WU1ax:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 52px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background: linear-gradient(0deg, transparent, rgba(0, 0, 0, .35));
+    }
+    .JobCard_JobCard__body__position__CyaGY {
+        margin-bottom: 4px;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+    }
+    .JobCard_JobCard__body__company__AUj_B {
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        color: rgba(55, 56, 60, .61);
+    }
+    .JobCard_JobCard__body__badge__atLen {
+        margin-top: 8px;
+        display: flex;
+        gap: 6px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*footer*/
+    .Footer_footerClass__1m1n1 {
+        width: 100%;
+        padding: 40px 0 16px;
+        background-color: #fff;
+        border-top: 1px solid rgba(0, 0, 0, .08);
+    }
+    .Footer_rowClass__hVFpN {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 1060px;
+        margin: 0 auto;
+    }
+  
+    .footer_logo_img{
+        width: 112px;
+        height: 40px;
+    }
+
+    .BrandNewNavLinks_BrandNewNavLinks___ndTt, .BrandNewNavLinks_BrandNewNavLinks__logo__PVLJM {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .BrandNewNavLinks_BrandNewNavLinks__links__V6A0u {
+        display: -ms-flexbox;
+        display: flex;
+        gap: 32px;
+    }
+    .Typography_Typography__body1-reading__3pEGb {
+        font-size: 16px;
+        letter-spacing: .0057em;
+        line-height: 26px;
+    }
+    .BrandNewNavLinks_BrandNewNavLinks__links__V6A0u>a {
+        color: #171719;
+        white-space: nowrap;
+    }
+    .Footer_footerText__WK_1o {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 28px;
+    }
+    .Footer_footerText__WK_1o>p {
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 138.5%;
+        letter-spacing: .25px;
+        color: rgba(55, 56, 60, .61);
+    }
+    .Footer_footerText__WK_1o>p span+span:before {
+        content: "|";
+        margin: 0 8px;
+        color: hsla(225, 5%, 46%, .22);
+    }
+    .Footer_footerText__WK_1o>p span {
+        word-wrap: break-word;
+        word-break: keep-all;
+        text-rendering: optimizeLegibility;
+    }
+    .AskLinks_AskLinks__ZBwcR {
+        display: -ms-flexbox;
+        display: flex;
+        gap: 8px 20px;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 24px 0 28px;
+    }
+
+    .AskLinks_AskLinks__link__ujSVA {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        color: rgba(23, 23, 25, .61);
+    }
+    .AskLinks_AskLinks__link__ujSVA:active, .AskLinks_AskLinks__link__ujSVA:hover, .AskLinks_AskLinks__link__ujSVA:visited {
+        color: rgba(23, 23, 25, .61);
+    }
+    .Footer_Divider__fijsw {
+        height: 1px;
+        width: 100%;
+        background-color: #000;
+        opacity: .05;
+        border: none;
+    }
+    .Footer_socialClass__LNZhe {
+        height: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-top: 12px;
+    }
+    .Footer_socialClass__LNZhe>span {
+        color: rgba(55, 56, 60, .61);
+    }
+    .SocialLinks_BrandNewSocialLinks__kfuHM {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        height: 100%;
+    }
+    .SocialLinks_BrandNewSocialLinks__kfuHM a {
+        min-width: 32px;
+        height: 36px;
+    }
+    .SocialLinks_BrandNewSocialLinks__kfuHM a span {
+        font-size: 19px;
+        border-radius: 1000px;
+    }

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="/static/css/teamrecruit_page/teamrecruitList.css"
+        />
+        <title>팀 목록(팀원구함)</title>
+    </head>
+    <body style="overflow: auto">
+        <div id="__next">
+            <div class="sc-6e4a9a26-0 jvGWFl">
+                <h1
+                    data-testid="Typography"
+                    color="gray900"
+                    class="sc-8f16e3f5-0-h1 dwQBYt"
+                >   
+                    모아모아 <br />
+                    목록
+                </h1>
+                <p
+                    data-testid="Typography"
+                    color="gray900"
+                    class="sc-8f16e3f5-0-p khSKuy"
+                >
+                자신과 맞는 팀을 찾고<br />즐겁게 경기해보세요
+                </p>
+                <ul class="sc-227412f9-0 nOBlS">
+                    <li class="sc-227412f9-2 liwpqf">
+                        <div>
+                            <div
+                                class="sc-31c8ace3-1 jQKJcA sc-227412f9-1 MeFJX combobox-item"
+                            >
+                                <div class="label-container">
+                                    <span class="label">지역:</span
+                                    ><span class="selected-value">전체</span
+                                    ><img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA4IDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDggNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikdyb3VwIj4KCQk8ZyBpZD0iRmlsbC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTQuMDAwMDAwLCAtMy4wMDAwMDApICI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik0zLjQsNS43TDAuMiwxLjRDLTAuMiwwLjgsMC4xLDAsMC44LDBoNi40YzAuNywwLDEsMC44LDAuNiwxLjRMNC42LDUuNwoJCQkJQzQuMyw2LjEsMy43LDYuMSwzLjQsNS43Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo="
+                                        class="rotate"
+                                        width="8px"
+                                        height="6px"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sc-8482e18-0 lmEuWa">
+                            <div class="content">
+                                <div class="sc-9a32d941-0 sc-2337e0fe-0 eMOaGK dALmOq">
+                                    <ul class="header">
+                                        <li class="refresh">
+                                            <button>초기화</button>
+                                        </li>
+                                        <li class="title">지역 검색</li>
+                                        <li class="header-close">
+                                            <button>닫기</button>
+                                        </li>
+                                    </ul>
+                                    <div class="middle"><div class="sc-ab072062-0 dgJnWd">
+                                        <div>
+                                            <div class="sc-31c8ace3-1 jQKJcA sc-2f90fd29-0 eCYVLr jobs-select">
+                                                <div class="label-container">
+                                                    <span class="selected-value placeholder">
+                                                        지역을 선택해주세요
+                                                    </span>
+                                                    
+                                                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA4IDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDggNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikdyb3VwIj4KCQk8ZyBpZD0iRmlsbC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTQuMDAwMDAwLCAtMy4wMDAwMDApICI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik0zLjQsNS43TDAuMiwxLjRDLTAuMiwwLjgsMC4xLDAsMC44LDBoNi40YzAuNywwLDEsMC44LDAuNiwxLjRMNC42LDUuNwoJCQkJQzQuMyw2LjEsMy43LDYuMSwzLjQsNS43Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=" class="rotate" width="8px" height="6px">
+                                                
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="scroll-area">
+                                        <div class="selected-skill-area" style="display: none;">
+                                            <span class="selected-skill">지역 이름
+                                                <button type="button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" enable-background="new 0 0 12 12" width="12" height="12" fill="#979da4">
+                                                        <!-- SVG 내용 -->
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bottom"><button data-testid="Button" type="button" data-attribute-id="gigs__premium__filter__update" data-job-role="" color="primary" class="sc-563f0eef-0-button xVimo"><span data-testid="Typography" color="gray900" class="sc-8f16e3f5-0-span gSLdjW">확인</span><span data-testid="Button-interaction" color="primary" class="sc-563f0eef-1 corjuz"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg">
+                                    
+                                </div>
+                           
+                        </div>
+                        <div class="sc-227412f9-4 emLcak"></div>
+                    </li>
+                    <li class="sc-227412f9-2 liwpqf">
+                        <div>
+                            <div
+                                class="sc-31c8ace3-1 jQKJcA sc-227412f9-1 MeFJX combobox-item"
+                            >
+                                <div class="label-container" id="sportsoption">
+                                    <span class="label">스포츠 종목</span
+                                    ><span class="selected-value" id="sportsall">전체</span
+                                    ><img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA4IDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDggNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikdyb3VwIj4KCQk8ZyBpZD0iRmlsbC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTQuMDAwMDAwLCAtMy4wMDAwMDApICI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik0zLjQsNS43TDAuMiwxLjRDLTAuMiwwLjgsMC4xLDAsMC44LDBoNi40YzAuNywwLDEsMC44LDAuNiwxLjRMNC42LDUuNwoJCQkJQzQuMyw2LjEsMy43LDYuMSwzLjQsNS43Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo="
+                                        class="rotate"
+                                        width="8px"
+                                        height="6px"
+                                    />
+                                </div>
+                                <div class="sc-fb018217-0 cgjrfs combobox-option-list" 
+                                id="optionList"
+                                style="display: none;top: 41px;
+                                        left: 0px;">
+                                    <ul class="con-area list">
+                                        <li class="" data-work-type="soccer">축구</li>
+                                        <li class="" data-work-type="basketball">농구</li>
+                                        <li class="" data-work-type="baseball">야구</li>
+                                        <li class="" data-work-type="badminton">배드민턴</li>
+                                        <li class="" data-work-type="jokgu">족구</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="sc-227412f9-3 eaVqYz">
+                        <div class="sc-71269144-0 eAfGhI">
+                            <div class="ant-form-item css-1qhpsh8">
+                                <div
+                                    class="ant-row ant-form-item-row css-1qhpsh8"
+                                >
+                                    <div
+                                        class="ant-col ant-form-item-control css-1qhpsh8"
+                                    >
+                                        <div
+                                            class="ant-form-item-control-input"
+                                        >
+                                            <div
+                                                class="ant-form-item-control-input-content"
+                                            >
+                                                <input
+                                                    placeholder="프로젝트, 근무 이력 검색"
+                                                    class="ant-input css-1qhpsh8 ant-input-outlined"
+                                                    type="text"
+                                                    value=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button">검색</button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="sc-b9450c6-0 jsoliK">
+                    <div>
+                        <div class="sc-31c8ace3-1 jQKJcA sc-b9450c6-1 kzVFDp combobox-item">
+                            <div class="label-container" id="labelContainer2">
+                                <span class="selected-value">최신 업데이트 순</span>
+                               
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA4IDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDggNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikdyb3VwIj4KCQk8ZyBpZD0iRmlsbC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTQuMDAwMDAwLCAtMy4wMDAwMDApICI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik0zLjQsNS43TDAuMiwxLjRDLTAuMiwwLjgsMC4xLDAsMC44LDBoNi40YzAuNywwLDEsMC44LDAuNiwxLjRMNC42LDUuNwoJCQkJQzQuMyw2LjEsMy43LDYuMSwzLjQsNS43Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=" class="rotate" width="8px" height="6px" class="rotate" width="8px" height="6px" />
+                         
+                            </div>
+                               <!-- 추가된 버튼 -->
+                <button id="customButton" class="custom-button">글 쓰기</button>
+                            <div class="sc-fb018217-0 fNjQrO combobox-option-list" id="optionList2">
+                                <ul class="con-area list">
+                                    <li class="selected" data-attribute-id="gigs__premium__sort__update" data-sort-kind="latest">
+                                        최신 업데이트 순
+                                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMiAxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIgMTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDogIzMzNjZmZn0KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQoJLnN0MXtmaWx0ZXI6dXJsKCNBZG9iZV9PcGFjaXR5TWFza0ZpbHRlcik7fQoJLnN0MntmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQoJLnN0M3ttYXNrOnVybCgjbWFzay0yXzFfKTt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikljb24tX3gyRl8tRml0LV94MkZfLXNlbGVjdGVkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMi4wMDAwMDApIj4KCQk8ZyBpZD0iaWNvbl9zZWxlY3RlZCI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik01LDhDNC43LDgsNC41LDcuOSw0LjMsNy43bC00LTMuOWMtMC40LTAuNC0wLjQtMSwwLTEuNGMwLjQtMC40LDEtMC40LDEuNCwwTDUsNS42bDUuMy01LjMKCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCTwvZz4KCQk8ZGVmcz4KCQkJPGZpbHRlciBpZD0iQWRvYmVfT3BhY2l0eU1hc2tGaWx0ZXIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCQk8ZmVDb2xvck1hdHJpeCAgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMCAgMCAxIDAgMCAwICAwIDAgMSAwIDAgIDAgMCAwIDEgMCIvPgoJCQk8L2ZpbHRlcj4KCQk8L2RlZnM+CgkJPG1hc2ttYXNrIHVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgaWQ9Im1hc2stMl8xXyI+CgkJCTxnIGNsYXNzPSJzdDEiPgoJCQkJPHBhdGggaWQ9InBhdGgtMV8yXyIgY2xhc3M9InN0MiIgZD0iTTUsOEM0LjcsOCw0LjUsNy45LDQuMyw3LjdsLTQtMy45Yy0wLjQtMC40LTAuNC0xLDAtMS40YzAuNC0wLjQsMS0wLjQsMS40LDBMNSw1LjZsNS4zLTUuMwoJCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCQk8L2c+CgkJPC9tYXNrPgoJCTxnIGlkPSJHcm91cCIgY2xhc3M9InN0MyI+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=" class="check-icon" width="12px" height="12px" />
+                                    </li>
+                                    <li class="" data-attribute-id="gigs__premium__sort__update" data-sort-kind="project">
+                                        조회수 많은 순
+                                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMiAxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIgMTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDogIzMzNjZmZn0KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQoJLnN0MXtmaWx0ZXI6dXJsKCNBZG9iZV9PcGFjaXR5TWFza0ZpbHRlcik7fQoJLnN0MntmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQoJLnN0M3ttYXNrOnVybCgjbWFzay0yXzFfKTt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikljb24tX3gyRl8tRml0LV94MkZfLXNlbGVjdGVkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMi4wMDAwMDApIj4KCQk8ZyBpZD0iaWNvbl9zZWxlY3RlZCI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik01LDhDNC43LDgsNC41LDcuOSw0LjMsNy43bC00LTMuOWMtMC40LTAuNC0wLjQtMSwwLTEuNGMwLjQtMC40LDEtMC40LDEuNCwwTDUsNS42bDUuMy01LjMKCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCTwvZz4KCQk8ZGVmcz4KCQkJPGZpbHRlciBpZD0iQWRvYmVfT3BhY2l0eU1hc2tGaWx0ZXIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCQk8ZmVDb2xvck1hdHJpeCAgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMCAgMCAxIDAgMCAwICAwIDAgMSAwIDAgIDAgMCAwIDEgMCIvPgoJCQk8L2ZpbHRlcj4KCQk8L2RlZnM+CgkJPG1hc2ttYXNrIHVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgaWQ9Im1hc2stMl8xXyI+CgkJCTxnIGNsYXNzPSJzdDEiPgoJCQkJPHBhdGggaWQ9InBhdGgtMV8yXyIgY2xhc3M9InN0MiIgZD0iTTUsOEM0LjcsOCw0LjUsNy45LDQuMyw3LjdsLTQtMy45Yy0wLjQtMC40LTAuNC0xLDAtMS40YzAuNC0wLjQsMS0wLjQsMS40LDBMNSw1LjZsNS4zLTUuMwoJCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCQk8L2c+CgkJPC9tYXNrPgoJCTxnIGlkPSJHcm91cCIgY2xhc3M9InN0MyI+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=" class="check-icon" width="12px" height="12px" />
+                                    </li>
+                                    <li class="" data-attribute-id="gigs__premium__sort__update" data-sort-kind="experience">
+                                        팀원 많은 순
+                                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMiAxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIgMTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDogIzMzNjZmZn0KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQoJLnN0MXtmaWx0ZXI6dXJsKCNBZG9iZV9PcGFjaXR5TWFza0ZpbHRlcik7fQoJLnN0MntmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7fQoJLnN0M3ttYXNrOnVybCgjbWFzay0yXzFfKTt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikljb24tX3gyRl8tRml0LV94MkZfLXNlbGVjdGVkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMi4wMDAwMDApIj4KCQk8ZyBpZD0iaWNvbl9zZWxlY3RlZCI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik01LDhDNC43LDgsNC41LDcuOSw0LjMsNy43bC00LTMuOWMtMC40LTAuNC0wLjQtMSwwLTEuNGMwLjQtMC40LDEtMC40LDEuNCwwTDUsNS42bDUuMy01LjMKCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCTwvZz4KCQk8ZGVmcz4KCQkJPGZpbHRlciBpZD0iQWRvYmVfT3BhY2l0eU1hc2tGaWx0ZXIiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CgkJCQk8ZmVDb2xvck1hdHJpeCAgdHlwZT0ibWF0cml4IiB2YWx1ZXM9IjEgMCAwIDAgMCAgMCAxIDAgMCAwICAwIDAgMSAwIDAgIDAgMCAwIDEgMCIvPgoJCQk8L2ZpbHRlcj4KCQk8L2RlZnM+CgkJPG1hc2ttYXNrIHVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgaWQ9Im1hc2stMl8xXyI+CgkJCTxnIGNsYXNzPSJzdDEiPgoJCQkJPHBhdGggaWQ9InBhdGgtMV8yXyIgY2xhc3M9InN0MiIgZD0iTTUsOEM0LjcsOCw0LjUsNy45LDQuMyw3LjdsLTQtMy45Yy0wLjQtMC40LTAuNC0xLDAtMS40YzAuNC0wLjQsMS0wLjQsMS40LDBMNSw1LjZsNS4zLTUuMwoJCQkJCWMwLjQtMC40LDEtMC40LDEuNCwwYzAuNCwwLjQsMC40LDEsMCwxLjRsLTYsNkM1LjUsNy45LDUuMiw4LDUsOCIvPgoJCQk8L2c+CgkJPC9tYXNrPgoJCTxnIGlkPSJHcm91cCIgY2xhc3M9InN0MyI+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo=" class="check-icon" width="12px" height="12px" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="sc-feb7f6d4-0 eIxfiH">
+                    <div class="sc-feb7f6d4-1 hmGgGA">
+                        <div class="sc-a53a24bd-0 fzeCgZ">
+                            <a
+                                
+                                ><div class="sc-a53a24bd-1 bheWmv">
+                                    <div class="sc-a53a24bd-2 dHXAvf">
+                                        <div
+                                            class="sc-30bc66ec-1 eFBHfh profile-grade"
+                                        >
+                                            <img
+                                                src="https://static.wanted.co.kr/oneid-user/A8JBbGBqoiYofKn9d5zojx/7dae1b43686f0e8c69db4cbcaf1b29311456c328e9be0aedcc4caad26acf639e"
+                                                alt="진**"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="sc-a53a24bd-3 bpryLp">
+                                        <div
+                                            class="sc-a53a24bd-6 sc-a53a24bd-8 bzBOjz hnlORa"
+                                        >
+                                            <span
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-span jGpfLO"
+                                                >전북현대모터스</span
+                                            ><span
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-span hlsHPn"
+                                                >경기도 안성시</span
+                                            >
+                                            <div
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-div dSSDgn"
+                                            >
+                                                29.5세(평균연령)
+                                            </div>
+                                            <div class="sc-a01a0de2-0 cDobbN">
+                                                <div
+                                                    class="sc-a01a0de2-1 hsbqVK"
+                                                >
+                                                    <img
+                                                        src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/35.Alarm-Clock-512.png"
+                                                        width="18"
+                                                        height="18"
+                                                        viewBox="0 0 20 20"
+                                                        fill="none"
+                                                    />
+
+                                                    <div
+                                                        data-testid="Typography"
+                                                        color="blue400"
+                                                        class="sc-8f16e3f5-0-div haIZFt"
+                                                    >
+                                                        마감 3일 전
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="sc-a53a24bd-6 bzBOjz middle"
+                                        >
+                                            <div class="sc-a53a24bd-7 dClEJW">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span fDTyMo"
+                                                    >창립 연차</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span jtEbUp"
+                                                    >17년</span
+                                                >
+                                            </div>
+                                            <div class="sc-f719bd9b-0 dFMHTS">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span fHqioa"
+                                                    ><strong>guswnsdldl@naver.com
+                                                        </strong
+                                                    ></span
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="sc-a53a24bd-6 bzBOjz">
+                                            <div class="sc-b05a0be6-0 evIjez">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >마르세유턴</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >덩크</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름 </span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray800"
+                                                    class="sc-8f16e3f5-0-span gZghLk"
+                                                    >+10개</span
+                                                >
+                                            </div>
+                                        </div>
+                                        <div id="remainingtime" style="margin-top: 15px;">남은 시간: </div>
+
+                                        <div class="sc-a53a24bd-6 bzBOjz">
+                                            <div class="sc-f251e783-0 cLbiKU">
+                                                <img
+                                                src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/35.Alarm-Clock-512.png"
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 20 20"
+                                                fill="none"
+                                            />
+                                                   
+                                                </svg>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div bwPcgG"
+                                                >
+                                                    종료일
+                                                    :
+                                                    
+                                                    2024년 9월 10일
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sc-a53a24bd-4 eqibch">
+                                    <div class="sc-68b5db7c-0 gufwkw">
+                                        <ul class="sc-68b5db7c-1 jzzeZw">
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    29
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >지원자 수</label
+                                                >
+                                            </li>
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    7
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >현재 팀원 수</label
+                                                >
+                                            </li>
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    1
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >모집 글 수</label
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p
+                                            data-testid="Typography"
+                                            color="gray700"
+                                            class="sc-8f16e3f5-0-p jVvtJX"
+                                        >
+                                            우린 화목한 팀을 지향하고 팀원은
+                                            대략 20~30대였으면 좋겠고, 회비는
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기ㅍ뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                        </p>
+                                    </div>
+                                </div></a
+                            >
+                        </div>
+                    </div>
+                </div>
+                <div class="sc-feb7f6d4-0 eIxfiH">
+                    <div class="sc-feb7f6d4-1 hmGgGA">
+                        <div class="sc-a53a24bd-0 fzeCgZ">
+                            <a
+                               
+                                ><div class="sc-a53a24bd-1 bheWmv">
+                                    <div class="sc-a53a24bd-2 dHXAvf">
+                                        <div
+                                            class="sc-30bc66ec-1 eFBHfh profile-grade"
+                                        >
+                                            <img
+                                                src="https://static.wanted.co.kr/oneid-user/A8JBbGBqoiYofKn9d5zojx/7dae1b43686f0e8c69db4cbcaf1b29311456c328e9be0aedcc4caad26acf639e"
+                                                alt="진**"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="sc-a53a24bd-3 bpryLp">
+                                        <div
+                                            class="sc-a53a24bd-6 sc-a53a24bd-8 bzBOjz hnlORa"
+                                        >
+                                            <span
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-span jGpfLO"
+                                                >전북현대모터스</span
+                                            ><span
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-span hlsHPn"
+                                                >경기도 안성시</span
+                                            >
+                                            <div
+                                                data-testid="Typography"
+                                                color="gray900"
+                                                class="sc-8f16e3f5-0-div dSSDgn"
+                                            >
+                                                29.5세(평균연령)
+                                            </div>
+                                            <div class="sc-a01a0de2-0 cDobbN">
+                                                <div
+                                                    class="sc-a01a0de2-1 hsbqVK"
+                                                >
+                                                    <img
+                                                        src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/35.Alarm-Clock-512.png"
+                                                        width="18"
+                                                        height="18"
+                                                        viewBox="0 0 20 20"
+                                                        fill="none"
+                                                    />
+
+                                                    <div
+                                                        data-testid="Typography"
+                                                        color="blue400"
+                                                        class="sc-8f16e3f5-0-div haIZFt"
+                                                    >
+                                                        마감 3일 전
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="sc-a53a24bd-6 bzBOjz middle"
+                                        >
+                                            <div class="sc-a53a24bd-7 dClEJW">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span fDTyMo"
+                                                    >창립 연차</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span jtEbUp"
+                                                    >17년</span
+                                                >
+                                            </div>
+                                            <div class="sc-f719bd9b-0 dFMHTS">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span fHqioa"
+                                                    ><strong>guswnsdldl@naver.com
+                                                        </strong
+                                                    ></span
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="sc-a53a24bd-6 bzBOjz">
+                                            <div class="sc-b05a0be6-0 evIjez">
+                                                <span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >마르세유턴</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >덩크</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름 </span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-span cGstqx"
+                                                    >기술 이름</span
+                                                ><span
+                                                    data-testid="Typography"
+                                                    color="gray800"
+                                                    class="sc-8f16e3f5-0-span gZghLk"
+                                                    >+10개</span
+                                                >
+                                            </div>
+                                        </div>
+                                        <div id="remainingtime" style="margin-top: 15px;">남은 시간: </div>
+
+                                        <div class="sc-a53a24bd-6 bzBOjz">
+                                            <div class="sc-f251e783-0 cLbiKU">
+                                                <img
+                                                src="https://cdn4.iconfinder.com/data/icons/48-bubbles/48/35.Alarm-Clock-512.png"
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 20 20"
+                                                fill="none"
+                                            />
+                                                   
+                                                </svg>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div bwPcgG"
+                                                >
+                                                    종료일
+                                                    :
+                                                    
+                                                    2024년 9월 10일
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sc-a53a24bd-4 eqibch">
+                                    <div class="sc-68b5db7c-0 gufwkw">
+                                        <ul class="sc-68b5db7c-1 jzzeZw">
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    29
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >지원자 수</label
+                                                >
+                                            </li>
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    7
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >현재 팀원 수</label
+                                                >
+                                            </li>
+                                            <li>
+                                                <div
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-div iUIOpb"
+                                                >
+                                                    1
+                                                </div>
+                                                <label
+                                                    data-testid="Typography"
+                                                    color="gray900"
+                                                    class="sc-8f16e3f5-0-label dzmQsv"
+                                                    >모집 글 수</label
+                                                >
+                                            </li>
+                                        </ul>
+                                        <p
+                                            data-testid="Typography"
+                                            color="gray700"
+                                            class="sc-8f16e3f5-0-p jVvtJX"
+                                        >
+                                            우린 화목한 팀을 지향하고 팀원은
+                                            대략 20~30대였으면 좋겠고, 회비는
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기ㅍ뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                            뭐시기뭐시기뭐시기뭐시기뭐시기뭐시기
+                                        </p>
+                                    </div>
+                                </div></a
+                            >
+                        </div>
+                        <ul class="ant-pagination sc-77a5d337-0 gfTpws css-1qhpsh8"><li title="Previous Page" class="ant-pagination-prev ant-pagination-disabled" aria-disabled="true"><a class="pagenation-custom_prev" disabled=""></a></li><li title="1" class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active" tabindex="0"><a rel="nofollow">1</a></li><li title="2" class="ant-pagination-item ant-pagination-item-2" tabindex="0"><a rel="nofollow">2</a></li><li title="3" class="ant-pagination-item ant-pagination-item-3" tabindex="0"><a rel="nofollow">3</a></li><li title="4" class="ant-pagination-item ant-pagination-item-4" tabindex="0"><a rel="nofollow">4</a></li><li title="5" class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next" tabindex="0"><a rel="nofollow">5</a></li><li title="Next 5 Pages" tabindex="0" class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"><a class="ant-pagination-item-link"><div class="ant-pagination-item-container"><span role="img" aria-label="double-right" class="anticon anticon-double-right ant-pagination-item-link-icon"><svg viewBox="64 64 896 896" focusable="false" data-icon="double-right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"></path></svg></span><span class="ant-pagination-item-ellipsis">•••</span></div></a></li><li title="24" class="ant-pagination-item ant-pagination-item-24" tabindex="0"><a rel="nofollow">24</a></li><li title="Next Page" tabindex="0" class="ant-pagination-next" aria-disabled="false"><a class="pagenation-custom_next"></a></li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" opacity="1" class="sc-5d3411f1-0 gwJuUk">
+            <svg
+                width="24"
+                height="21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="m11.75 3.81 7.97 7.97a.75.75 0 1 0 1.06-1.06l-8.5-8.5a.75.75 0 0 0-1.06 0l-8.5 8.5a.75.75 0 1 0 1.06 1.06l7.97-7.97Z"
+                    fill="#333"
+                ></path>
+                <rect
+                    x="11"
+                    y="3"
+                    width="1.5"
+                    height="20"
+                    rx="0.75"
+                    fill="#333"
+                ></rect>
+            </svg>
+        </button>
+    </body>
+    <script src="/static/js/teamrecruit_page/teamrecruitList.js"></script>
+</html>

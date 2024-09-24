@@ -1,0 +1,792 @@
+@font-face {
+    font-family:"Pretendard-Black";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Black.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-Bold";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-ExtraBold";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-ExtraLight";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-ExtraLight.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-Light";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-Medium";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-Regular";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-SemiBold";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"Pretendard-Thin";
+    src: url("/fonts/Pretendard-1.3.9/web/static/woff2/Pretendard-Thin.woff2") format("woff2");
+}
+
+@font-face {
+    font-family:"PretendardVariable";
+    src: url("/fonts/Pretendard-1.3.9/web/variable/woff2/PretendardVariable.woff2") format("woff2");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #login-page {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* Main */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 60px;
+    min-height: 60px;
+    border-bottom: 1px solid #0000000d;
+}
+
+.header-div {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+
+.header-div >button {
+    height: 35px;
+    width: 210px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.header-span {
+    height: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.header-svg {
+    user-select: none;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+    height: 32px;
+    width: 156px;
+}
+
+.header-loginPageName {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #171719;
+    font-family: "Pretendard-ExtraBold";
+}
+
+.header-loginPageName-1 {
+    letter-spacing: -0.002em;
+    line-height: 26px;
+}
+
+
+.yanawa-logo-img {
+    width: 90px;
+}
+
+
+/* Section */
+.section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto 80px auto;
+} 
+
+.section-1 {
+    width: 100%;
+    max-width: 1060px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 6px;
+    cursor: pointer;
+    height: 32px;
+    padding: 4px 7px;
+}
+
+.back-button >span {
+    font-size: 20px;
+}
+
+.back-arrow {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+} 
+
+.back-arrow-svg {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+}
+
+.back-p {
+    color: rgba(55, 56, 60, 0.61);
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.0056em;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Pretendard-Bold";
+}
+
+.section-2 {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+}
+
+.title-div {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px 20px;
+}
+
+.title-div-1 {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #171719;
+    font-family: "Pretendard-Bold";
+}
+
+.title-p {
+    text-align: center;
+    letter-spacing: -0.002em;
+    line-height: 26px;
+}
+
+.sign-up-wrapper {
+    margin-top: 56px;
+    scrollbar-width: none;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* 이메일 */
+.email {
+    position: relative; 
+}
+
+.email-1 {
+    position: relative;
+}
+
+.margin-bottom {
+    margin-bottom: 8px;
+}
+
+.label-style {
+    color: rgba(55, 56, 60, 0.61);
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.0145em;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Pretendard-SemiBold";
+}
+
+.email input {
+    padding-right: 22%;
+}
+
+.email .birth-div input {
+    padding-right: 5%;
+}
+
+.input-style {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0px 16px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid rgba(112, 115, 124, 0.22);
+    color: rgb(23, 23, 25);
+    border-radius: 10px;
+    font-family: "Pretendard-Light";
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.error-style {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    padding: 0px 16px;
+    outline: none;
+    background-color: transparent;
+    color: rgb(23, 23, 25);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid rgb(255, 66, 66) !important;
+}
+
+input::placeholder {
+    color: rgb(199 200 201);
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance:none;
+  margin: 0;
+}
+
+.input-style:focus {
+    border: 1px solid #0066ff; 
+}
+
+.email >button:disabled {
+    background-color: transparent;
+}
+
+.duplicate-check-button:disabled {
+    color: rgba(55, 56, 60, 0.16);
+    border: none;
+    cursor: default;
+}
+
+.email >button {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-15%);
+    width: fit-content;
+    height: fit-content;
+    min-height: initial;
+    padding: 10px;
+    background-color: transparent;
+    font-family: "Pretendard-SemiBold";
+}
+
+.duplicate-check-button {
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+.duplicate-check-button:disabled span {
+    color: rgba(55, 56, 60, 0.16);
+}
+
+.duplicate-check-button >span {
+    display: inline-block;
+}
+
+#duplicate-check-email.active {
+    color: #0066ff;
+}
+
+#duplicate-check-nickname.active {
+    color: #0066ff;
+}
+
+.duplicate-check-span {
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.0145em;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.duplicate-check-blue {
+    color: #0066ff;
+}
+.error p {
+    margin-top: 8px;
+}
+
+
+.error-message {
+    color: rgb(255, 66, 66);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0192em;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: "Pretendard-Medium";
+}
+
+.available p {
+    margin-top: 8px;
+}
+
+.available-message {
+    color: rgb(0, 191, 64);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0192em;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: "Pretendard-Medium";
+}
+/* 이름 */
+
+.wrapper-8px {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wrapper-8px >div {
+    margin: 0;
+}
+/* 휴대폰 번호 */
+.phone-div-three {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.select-div {
+    height: 50px;
+    min-height: 50px;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid rgba(112, 115, 124, 0.22);
+    background-color: #ffffff;
+    position: relative;
+}
+
+.select {
+    padding-left: 12px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    appearance: none;
+    height: 100%;
+    border: none;
+    background: none;
+    z-index: 1;
+    font-size: 16px;
+    color: rgba(46, 47, 51, 0.88);
+    font-weight: 400;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.select-arrow-span {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.select-arrow-svg {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+}
+
+.get-code-div {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: 10px;
+}
+
+
+.get-code-button:disabled {
+    border: 1px solid #F4F4F5;
+    color: rgba(55, 56, 60, 0.16);
+    background-color: #F4F4F5;
+    cursor: default;
+}
+
+.get-code-button {
+    height: 48px;
+    min-height: 48px;
+    font-size: 16px;
+    padding: 0 15px;
+    width: auto;
+    flex: none;
+    border-radius: 10px;
+}
+
+.get-code-button:disabled  {
+    color: rgba(55, 56, 60, 0.16);
+}
+.get-code-button.active {
+    color: #0066ff;
+    background-color: #ffffff;
+    cursor: pointer;
+    border: 1px solid rgba(112, 115, 124, 0.22);
+}
+
+.get-code-button >span {
+    display: inline-block;
+}
+
+.button-span {
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.0056em;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: "Pretendard-SemiBold";
+}
+
+.input-style:read-only {
+    color: rgba(55, 56, 60, 0.28);
+    background-color: #F4F4F5;
+    opacity: 1;
+}
+
+.black-gap-4px {
+    display: flex; 
+    flex-direction: row;
+    gap: 4px;
+}
+
+/* 인증번호 입력-2 (입력칸 활성화) */
+.request-code-div {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.request-code-message {
+    color: rgb(138, 138, 138);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0192em;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Pretendard-Medium";
+}
+
+
+/* 인증번호 입력-3 (입력칸 활성화/인증 시간 만료) */
+.time-out-div {
+    display: flex;
+    gap: 4px;
+    flex-direction: column; 
+}
+
+.time-out-message {
+    color: rgb(255, 66, 66);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0192em;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: "Pretendard-Medium";
+}
+
+/* 비밀번호 */
+.password-rules {
+    color: rgba(55, 56, 60, 0.61);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0192em;
+    font-size: 13px;
+    line-height: 18px;
+    font-family: "Pretendard-Regular";
+}
+/* 동의 */
+.agree-wrapper {
+    font-family: "Pretendard-Regular";
+}
+
+.agree-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    min-height: 25px;
+    width: 100%;
+}
+
+.check-icon-1 {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+}
+
+.agree-checkbox {
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: 1.5px solid rgba(112, 115, 124, 0.22);
+    margin-top: 2px;
+}
+
+.agree-checkbox.on {
+    background-color: #0066ff;
+    border: none; 
+}
+
+.check-icon {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit; 
+}
+
+.input-agree {
+    opacity: 0;
+    width: calc(100% - 90px);
+    height: 100%;
+    position: absolute;
+    cursor: pointer; 
+}
+
+.agree-title-div-1 {
+    display: flex;
+    flex: 1; 
+}
+
+.agree-wrapper p {
+    font-size: 15px;
+}
+
+.agree-title-p {
+    color: #171719;
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.0096em;
+    line-height: 22px;
+    margin: 0px 0px 0px 8px;
+    word-break: keep-all;
+}
+
+.agree-wrapper hr {
+    margin: 15px 0;
+}
+
+.line {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(112, 115, 124, 0.22);  
+}
+
+.agree-div-five {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.agree-p-div {
+    display: flex;
+    flex: 1;
+}
+
+.agree-p {
+    color: rgba(55, 56, 60, 0.61);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0096em;
+    line-height: 22px;
+    margin: 0px 0px 0px 8px;
+    word-break: keep-all;
+}
+
+.agree-arrow {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+
+}
+
+.agree-arrow-svg {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+    font-size: inherit;
+}
+
+.agree-select-div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.agree-select-1, .agree-select-2 {
+    display: flex;
+    margin-left: 28px;
+}
+
+.agree-select-label {
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+    cursor: pointer;
+}
+
+.agree-select-label input[type='checkbox'] {
+    display: none;
+}
+
+.check-icon {
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.agree-select-label svg {
+    color: #888;
+    margin-right: 6px;
+    font-size: 20px;
+}
+
+.check-icon-svg {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.check-icon-svg.on path{
+    fill: #0066ff;
+}
+
+.select-p {
+    color: rgba(55, 56, 60, 0.61);
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.0056em;
+    line-height: 24px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* 가입하기 */
+.sign-up-button-wrapper {
+    position: relative;
+}
+
+.final-button:disabled {
+    color: rgba(55, 56, 60, 0.16);
+    background-color: #F4F4F5;
+    border: none;
+    cursor: default;
+}
+
+.final-button {
+    width: 100%;
+    height: 48px;
+    min-height: 48px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#final-button.active {
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #0066ff;
+    border: none;
+}
+
+/* footer */
+.footer {
+    padding-top: 32px;
+}

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="/static/css/freewrite_page/freewrite_list.css"
+        />
+        <title>자유게시판 목록페이지</title>
+        <style>
+            /* wrap11의 기본적으로 12개 보이게 */
+            .wrap11:nth-child(n + 13) {
+                display: none;
+            }
+
+            /* a.content16 좌우반전 */
+            .content16 {
+                transform: scaleX(-1);
+            }
+
+            /* span.content23 숨김 (기본 상태) */
+            .content23 {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="__next">
+            <div class="wrap1">
+                <h1 data-testid="Typography" color="gray900" class="content1">
+                    자유게시판<br />목록
+                </h1>
+                <p data-testid="Typography" color="gray900" class="content2">
+                    1. 욕설, 비방을 삼가주세요<br />
+                    2. 사이트의 목적과 맞지않는 광고를 삼가주세요<br
+                        class="content3"
+                    />3. 궁금한 점은 관리자에게 물어봐주세요
+                </p>
+                <ul class="wrap2">
+                    <li class="content4">
+                        <div class="wrap3">
+                            <div class="content5">
+                                <div class="wrap4">
+                                    <div class="wrap5">
+                                        <div class="wrap6">
+                                            <div class="content6">
+                                                <input
+                                                    placeholder="게시글제목, 닉네임 검색"
+                                                    class="content7"
+                                                    type="text"
+                                                    value=""
+                                                    style="
+                                                        background-color: white;
+                                                    "
+                                                />
+                                                <button type="button"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- 게시글 목록 및 페이지네이션 -->
+                <div class="wrap9" style="padding-top: 80px">
+                    <div class="background" style="background-color: white">
+                        <div class="list-bordered">
+                            <div class="bg-white" id="page-container">
+                                <div class="FAQ_container align-items-center">
+                                    <div
+                                        class="articlelist row"
+                                        id="section-anchor-25448181617305"
+                                        style="display: flex"
+                                    >
+                                        <div class="section_container">
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <span
+                                                            style="
+                                                                color: #666;
+                                                                font-size: 12px;
+                                                            "
+                                                            >(질문)</span
+                                                        >
+
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            안녕하세요
+                                                            오현준입니다
+                                                            안녕하세요
+                                                            오현준입니다
+                                                            안녕하세요
+                                                            오현준입니다
+                                                            안녕하세요
+                                                            오현준입니다
+                                                            안녕하세요
+                                                            오현준입니다
+                                                            안녕하세요
+                                                            오현준입니다
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wrap7">
+                                                <div>
+                                                    <div class="wrap8 content8">
+                                                        <div class="content9">
+                                                            <span
+                                                                class="selected-value"
+                                                                >최신 업데이트
+                                                                순</span
+                                                            >
+                                                            <img
+                                                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA4IDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDggNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDt9Cjwvc3R5bGU+CjxnIGlkPSJfeDJEX2ljb24iPgoJPGcgaWQ9Ikdyb3VwIj4KCQk8ZyBpZD0iRmlsbC0xIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIHNjYWxlKDEsIC0xKSB0cmFuc2xhdGUoLTQuMDAwMDAwLCAtMy4wMDAwMDApICI+CgkJCTxwYXRoIGlkPSJwYXRoLTFfMV8iIGNsYXNzPSJzdDAiIGQ9Ik0zLjQsNS43TDAuMiwxLjRDLTAuMiwwLjgsMC4xLDAsMC44LDBoNi40YzAuNywwLDEsMC44LDAuNiwxLjRMNC42LDUuNwoJCQkJQzQuMyw2LjEsMy43LDYuMSwzLjQsNS43Ii8+CgkJPC9nPgoJPC9nPgo8L2c+Cjwvc3ZnPgo="
+                                                                class="rotate"
+                                                                width="8px"
+                                                                height="6px"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <a href="#"
+                                                        >최신 업데이트 순</a
+                                                    >
+                                                    <a href="#"
+                                                        >조회수 높은 순</a
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex">
+                                                <div
+                                                    class="ydsfooter_munu_bar section_document"
+                                                    href="/hc/ko/articles/17845227566745-%EC%95%8C%EB%A6%BC-%EC%8B%A0%EC%B2%AD%ED%95%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%8A%94-%EC%96%B4%EB%94%94%EC%84%9C-%ED%99%95%EC%9D%B8%ED%95%98%EB%82%98%EC%9A%94"
+                                                >
+                                                    <div
+                                                        style="margin-top: 10px"
+                                                    >
+                                                        <div
+                                                            class="sc-73fafee5-0 ejqkLc"
+                                                        >
+                                                            <img
+                                                                src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="FAQ_card_title"
+                                                        >
+                                                            <div
+                                                                class="font-size-sm font-medium FAQ_card_answers"
+                                                                style="
+                                                                    width: 40px;
+                                                                    text-align: center;
+                                                                    margin-top: 4px;
+                                                                "
+                                                            >
+                                                                닉네임
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="writetitle">
+                                                        글의 제목
+                                                        <div
+                                                            class="writecontent"
+                                                        >
+                                                            글의 내용
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="wrap21">
+                            <li
+                                title="Previous Page"
+                                class="content15"
+                                aria-disabled="true"
+                            >
+                                <a class="content16">
+                                    <svg
+                                        viewBox="64 64 896 896"
+                                        focusable="false"
+                                        data-icon="left"
+                                        width="1em"
+                                        height="1em"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li title="1" class="content17" tabindex="0">
+                                <a rel="nofollow">1</a>
+                            </li>
+                            <li title="2" class="content18" tabindex="0">
+                                <a rel="nofollow">2</a>
+                            </li>
+                            <li title="3" class="content19" tabindex="0">
+                                <a rel="nofollow">3</a>
+                            </li>
+                            <li title="4" class="content20" tabindex="0">
+                                <a rel="nofollow">4</a>
+                            </li>
+                            <li title="5" class="content21" tabindex="0">
+                                <a rel="nofollow">5</a>
+                            </li>
+                            <li class="content22" aria-disabled="true">
+                                <span class="content23">•••</span>
+                            </li>
+                            <li title="24" class="content24" tabindex="0">
+                                <a rel="nofollow">24</a>
+                            </li>
+                            <li
+                                title="Next Page"
+                                tabindex="0"
+                                class="content25"
+                                aria-disabled="false"
+                            >
+                                <a class="content26">
+                                    <svg
+                                        viewBox="64 64 896 896"
+                                        focusable="false"
+                                        data-icon="right"
+                                        width="1em"
+                                        height="1em"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                                        ></path>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button class="floating-button"></button
+            ><button class="floating-button">글 작성하기</button>
+        </div>
+    </body>
+    <script src="/static/js/freewrite_page/freewrite_list.js"></script>
+</html>

@@ -1,0 +1,164 @@
+#match-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+body * {
+    font-family: Pretendard !important;
+}
+body * {
+    font-family: "Pretendard";
+}
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+div {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.matching-main {
+    margin: 0px auto;
+    max-width: 1080px;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+.matching-article {
+    text-align: center;
+    padding: 100px 0px 180px;
+    display: block;
+}
+.matching-article h1 {
+    font-size: 30px;
+    font-weight: 500;
+    color: rgb(51, 51, 51);
+}
+.br-class {
+    display: none;
+}
+.matching-article P {
+    padding-top: 20px;
+    font-size: 15px;
+    color: rgb(118, 118, 118);
+}
+.matching-article ul.ul-main {
+    padding-top: 60px;
+    display: inline-flex;
+    margin: 0px auto;
+    list-style: none;
+}
+.matching-article li {
+    margin-right: 24px;
+}
+.matching-article ul li button.register {
+    background-image: url("https://image.wanted.co.kr/gigs/www/mygigs/add_project.png");
+    background-size: 156px 142px;
+}
+.matching-article ul li button {
+    padding: 28px 30px;
+    color: black;
+    vertical-align: top;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    background-color: ivory;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    height: 300px;
+    cursor: pointer;
+}
+.register:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.matching-article ul li button p {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+}
+.ul {
+    padding-top: 20px;
+    margin-top: 24px;
+    text-align: left;
+    margin: 0px auto;
+    list-style: none;
+}
+.ul li {
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    position: relative;
+    padding-left: 12px;
+    padding-bottom: 10px;
+}
+.ul li::before {
+    position: absolute;
+    left: 0px;
+    top: 6px;
+    transform: initial;
+    width: 3px;
+    height: 3px;
+    content: "";
+    background-color: rgb(51, 51, 51);
+    border-radius: 50%;
+}
+:before {
+    box-sizing: border-box;
+}
+.matching-article ul li button.apply {
+    background-image: url("https://image.wanted.co.kr/gigs/www/mygigs/add_expert.png");
+    background-size: 210px 136px;
+    background-position: right -30px bottom;
+}
+.apply:hover {
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.match-member {
+    margin-top: 70px;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+}
+.login-button {
+    position: relative;
+    width: auto;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 50px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid rgb(225, 226, 228);
+    margin-top: 16px;
+    color: rgb(23, 23, 23) !important;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.login-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    background-color: lightsteelblue;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.login-page-button {
+    opacity: 0;
+}
+.login-page {
+    text-align: center;
+    white-space: normal;
+    font-weight: 500;
+}

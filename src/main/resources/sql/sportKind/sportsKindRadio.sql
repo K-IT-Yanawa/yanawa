@@ -1,0 +1,12 @@
+CREATE TABLE TBL_SPORTS_KIND_RADIO(
+<<<<<<< HEAD
+                                      ID NUMBER PRIMARY KEY,
+                                      SPORTS_KIND_VALUE NUMBER NOT NULL-- 사용자가 선택한 값 (1~5)
+=======
+    ID NUMBER PRIMARY KEY,
+    SPORTS_KIND_VALUE NUMBER NOT NULL
+>>>>>>> 7f318cfe218b61a06e15c2301ab7f94d75b427d3
+);
+
+CREATE SEQUENCE SEQ_SPORTS_KIND_RADIO;
+

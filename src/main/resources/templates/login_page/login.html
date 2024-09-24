@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/static/css/login_page/email_login.css" />
+        <title>Yanawa Login</title>
+    </head>
+    <body>
+        <div id="login-page">
+            <!-- Main -->
+            <main class="main">
+                <!-- Header -->
+                <header class="header">
+                    <div class="header-div">
+                        <button type="button">
+                            <span class="header-span">
+                                <div class="yanawa-logo">
+                                    <img
+                                        class="yanawa-logo-img"
+                                        src="/static/images/yanawa_logo/yanawa_logo.jpg"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="header-loginPageName">
+                                    <span class="header-loginPageName-1"
+                                        >야나와 통합 로그인</span
+                                    >
+                                </div>
+                            </span>
+                        </button>
+                    </div>
+                </header>
+                <!-- Section -->
+                <section class="section">
+                    <!-- 회원가입 전체 div -->
+                    <div class="login-section-1">
+                        <!-- 회원가입 div -->
+                        <div class="login-section-2">
+                            <!-- '이메일로 로그인' 빈공간 포함 div-->
+                            <div class="login-withEmail-text">
+                                <!-- 빈 공간(좌) -->
+                                <div class="login-withEmail-left">
+                                    <button
+                                        type="button"
+                                        class="login-withEmail-left-1"
+                                    >
+                                        <span class="login-withEmail-left-2">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                class="login-withEmail-left-3"
+                                            >
+                                                <path
+                                                    fill="#171719"
+                                                    d="M16.1363 3.36297C16.4877 3.71444 16.4877 4.28429 16.1363 4.63576L8.77265 11.9994L16.1362 19.363C16.4877 19.7144 16.4877 20.2843 16.1362 20.6358C15.7848 20.9872 15.2149 20.9872 14.8635 20.6358L6.86346 12.6358C6.51199 12.2843 6.51199 11.7144 6.86346 11.363L14.8635 3.36297C15.2149 3.0115 15.7848 3.0115 16.1363 3.36297Z"
+                                                ></path>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                                <!-- '이메일로 로그인' div-->
+                                <div class="login-withEmail-middle">
+                                    <p class="login-withEmail-middle-1">
+                                        이메일로 로그인
+                                    </p>
+                                </div>
+                                <!-- 빈 공간(우) -->
+                                <div class="login-withEmail-right"></div>
+                            </div>
+                            <!-- '이메일로 로그인' text 외 div -->
+                            <div class="login-withEmail-div">
+                                <!-- '이메일로 로그인' text 외 form -->
+                                <form class="login-withEmail-form">
+                                    <!-- 이메일, 비밀번호, 로그인 div -->
+                                    <div>
+                                        <div class="email">
+                                            <!-- 이메일-1 -->
+                                            <div class="email-1">
+                                                <div class="margin-bottom">
+                                                    <label
+                                                        for="email"
+                                                        class="label-style"
+                                                        >이메일</label
+                                                    >
+                                                </div>
+                                                <input
+                                                    id="email-1"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autofocus=""
+                                                    autocomplete="on"
+                                                    class="input-style"
+                                                />
+                                            </div>
+                                            <!-- 이메일-2 (오류 시: 오류 메시지) -->
+                                            <div class="email-2">
+                                                <div class="margin-bottom">
+                                                    <label
+                                                        for="email"
+                                                        class="label-style"
+                                                        >이메일</label
+                                                    >
+                                                </div>
+                                                <input
+                                                    id="email-2"
+                                                    type="text"
+                                                    placeholder="이메일을 입력해주세요."
+                                                    name="email"
+                                                    autofocus=""
+                                                    autocomplete="on"
+                                                    class="input-style"
+                                                />
+                                            </div>
+                                            <span
+                                                id="email-error"
+                                                class="message"
+                                            >
+                                                올바른 이메일을 입력해주세요.
+                                            </span>
+                                        </div>
+                                        <div class="password">
+                                            <div class="margin-bottom">
+                                                <label
+                                                    for="email"
+                                                    class="label-style"
+                                                    >비밀번호</label
+                                                >
+                                            </div>
+                                            <input
+                                                type="password"
+                                                placeholder="비밀번호를 입력해주세요."
+                                                name="password"
+                                                autocomplete="on"
+                                                class="input-style"
+                                                value=""
+                                                id="password"
+                                            />
+                                            <div class="stay-login">
+                                                <input
+                                                    type="checkbox"
+                                                    id="login_session"
+                                                />
+                                                <div class="margin-bottom">
+                                                    <label
+                                                        for="login_session"
+                                                        class="label-style"
+                                                        >로그인 유지</label
+                                                    >
+                                                </div>
+                                            </div>
+                                            <!-- 로그인 실패 시 오류메시지 -->
+                                            <p class="login-failed">
+                                                이메일 또는 비밀번호가 올바르지
+                                                않습니다.<br />
+                                                입력한 내용을 다시 확인해
+                                                주세요.
+                                            </p>
+                                            <button
+                                                type="button"
+                                                class="toggle-icon"
+                                                id="togglePassword"
+                                            >
+                                                <span class="toggle-icon-1">
+                                                    <svg
+                                                        id="eye-icon"
+                                                        viewBox="0 0 24 24"
+                                                        color="rgba(55, 56, 60, 0.61)"
+                                                        class="toggle-icon-2"
+                                                    >
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            fill="rgba(55, 56, 60, 0.61)"
+                                                            d="M3.52351 11.9996C5.13652 8.96552 8.32982 6.89961 12.0056 6.89961C15.6814 6.89961 18.8747 8.96552 20.4878 11.9996C18.8747 15.0336 15.6814 17.0996 12.0056 17.0996C8.32982 17.0996 5.13652 15.0336 3.52351 11.9996ZM22.3057 12.3914C22.4236 12.1435 22.4236 11.8557 22.3057 11.6078C20.4748 7.75959 16.5508 5.09961 12.0056 5.09961C7.46042 5.09961 3.53648 7.75959 1.70559 11.6078C1.58764 11.8557 1.58764 12.1435 1.70559 12.3914C3.53648 16.2396 7.46042 18.8996 12.0056 18.8996C16.5508 18.8996 20.4748 16.2396 22.3057 12.3914ZM9.90563 11.9996C9.90563 10.8398 10.8458 9.89961 12.0056 9.89961C13.1654 9.89961 14.1056 10.8398 14.1056 11.9996C14.1056 13.1594 13.1654 14.0996 12.0056 14.0996C10.8458 14.0996 9.90563 13.1594 9.90563 11.9996ZM12.0056 8.09961C9.85172 8.09961 8.10563 9.8457 8.10563 11.9996C8.10563 14.1535 9.85172 15.8996 12.0056 15.8996C14.1595 15.8996 15.9056 14.1535 15.9056 11.9996C15.9056 9.8457 14.1595 8.09961 12.0056 8.09961Z"
+                                                        ></path>
+                                                    </svg>
+                                                    <svg
+                                                        id="eye-slash-icon"
+                                                        viewBox="0 0 24 24"
+                                                        color="rgba(55, 56, 60, 0.61)"
+                                                        class="toggle-icon-3 hidden"
+                                                    >
+                                                        <path
+                                                            fill-rule="evenodd"
+                                                            clip-rule="evenodd"
+                                                            fill="rgba(55, 56, 60, 0.61)"
+                                                            d="M14.7117 16.712L13.5708 15.5711C13.0902 15.7828 12.5588 15.9003 12 15.9003C9.84611 15.9003 8.10002 14.1542 8.10002 12.0003C8.10002 11.4415 8.21755 10.9101 8.42925 10.4296L6.57722 8.57754C5.3016 9.45232 4.24791 10.6272 3.51789 12.0003C5.13091 15.0344 8.3242 17.1003 12 17.1003C12.9417 17.1003 13.8518 16.9647 14.7117 16.712ZM16.5181 15.9728L8.21892 7.67365C9.37925 7.17594 10.6575 6.90034 12 6.90034C15.6758 6.90034 18.8691 8.96625 20.4821 12.0003C19.5859 13.6861 18.2018 15.0731 16.5181 15.9728ZM17.8388 17.2936C19.7685 16.1406 21.3288 14.4336 22.3001 12.3921C22.418 12.1442 22.418 11.8564 22.3001 11.6085C20.4692 7.76032 16.5452 5.10034 12 5.10034C10.1528 5.10034 8.40812 5.53971 6.8649 6.31964L3.77281 3.22754L2.50002 4.50033L5.28595 7.28626C3.7591 8.40074 2.51974 9.88553 1.69998 11.6085C1.58202 11.8564 1.58202 12.1442 1.69998 12.3921C3.53087 16.2403 7.45481 18.9003 12 18.9003C13.4563 18.9003 14.8488 18.6272 16.1292 18.1295L18.7635 20.7638L20.0363 19.491L17.8388 17.2936ZM9.90225 11.9026L12.0978 14.0981C12.0654 14.0996 12.0328 14.1003 12 14.1003C10.8402 14.1003 9.90002 13.1601 9.90002 12.0003C9.90002 11.9675 9.90077 11.935 9.90225 11.9026ZM15.8226 12.7772C15.8734 12.5262 15.9 12.2663 15.9 12.0003C15.9 9.8464 14.1539 8.10031 12 8.10031C11.734 8.10031 11.4742 8.12694 11.2231 8.1777L15.8226 12.7772Z"
+                                                        ></path>
+                                                    </svg>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            class="login-button"
+                                            id="final-button"
+                                            disabled
+                                        >
+                                            <span class="button-span"
+                                                >로그인</span
+                                            >
+                                        </button>
+                                    </div>
+                                    <!-- '이메일로 회원가입, 비밀번호 재설정' div -->
+                                    <div class="signup-and-reset">
+                                        <p class="or-text">또는</p>
+                                        <div>
+                                            <button
+                                                type="button"
+                                                class="signup-button"
+                                            >
+                                                <span class="span-button"
+                                                    >이메일로 회원가입</span
+                                                >
+                                            </button>
+                                            <button
+                                                type="button"
+                                                class="reset-button"
+                                            >
+                                                <span class="reset-button-span"
+                                                    >비밀번호 재설정</span
+                                                >
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer class="footer"></footer>
+            </main>
+        </div>
+    </body>
+    <script src="/static/js/login_page/email_login.js"></script>
+</html>

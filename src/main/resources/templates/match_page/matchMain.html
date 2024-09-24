@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"
+        />
+        <link rel="stylesheet" href="/static/css/match_page/matchMain.css" />
+        <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
+        <title>매칭 메인페이지</title>
+    </head>
+    <body>
+        <div id="match-main">
+            <header></header>
+            <div></div>
+            <div>
+                <article></article>
+                <div class="main-1">
+                    <div class="filter-container">
+                        <div class="search-area">
+                            <form id="teamForm" action="">
+                                <div class="search-div">
+                                    <div class="ant-form-item">
+                                        <div class="ant-row ant-form-item-row">
+                                            <div
+                                                class="ant-col ant-form-item-control"
+                                            >
+                                                <div
+                                                    class="ant-form-item-control-input"
+                                                >
+                                                    <div
+                                                        class="ant-form-item-control-input-content"
+                                                    >
+                                                        <input
+                                                            placeholder="팀명 검색"
+                                                            class="ant-input css-1qhpsh8 ant-input-outlined"
+                                                            type="text"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        class="team-search"
+                                    ></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mobile-overflow">
+                            <form id="searchForm" action="">
+                                <ul class="filters">
+                                    <li>
+                                        <div>
+                                            <div class="area-div combobox-item">
+                                                <div class="label-container">
+                                                    <select
+                                                        name="sports"
+                                                        class="select-input"
+                                                    >
+                                                        <option
+                                                            value=""
+                                                            disabled
+                                                            selected
+                                                        >
+                                                            매칭 종목 선택
+                                                        </option>
+                                                        <option value="축구">
+                                                            축구
+                                                        </option>
+                                                        <option value="농구">
+                                                            족구
+                                                        </option>
+                                                        <option value="풋살">
+                                                            농구
+                                                        </option>
+                                                        <option value="테니스">
+                                                            야구
+                                                        </option>
+                                                        <option
+                                                            value="배드민턴"
+                                                        >
+                                                            배드민턴
+                                                        </option>
+                                                        <!-- 추가옵션 여기에 -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div class="area-div combobox-item">
+                                                <div class="label-container">
+                                                    <select
+                                                        name="place"
+                                                        class="select-input"
+                                                    >
+                                                        <option
+                                                            value=""
+                                                            disabled
+                                                            selected
+                                                        >
+                                                            매칭 지역 선택
+                                                        </option>
+                                                        <option
+                                                            value="서울특별시"
+                                                        >
+                                                            서울특별시
+                                                        </option>
+                                                        <option
+                                                            value="부산광역시"
+                                                        >
+                                                            부산광역시
+                                                        </option>
+                                                        <option
+                                                            value="대구광역시"
+                                                        >
+                                                            대구광역시
+                                                        </option>
+                                                        <option
+                                                            value="인천광역시"
+                                                        >
+                                                            인천광역시
+                                                        </option>
+                                                        <option
+                                                            value="광주광역시"
+                                                        >
+                                                            광주광역시
+                                                        </option>
+                                                        <option
+                                                            value="대전광역시"
+                                                        >
+                                                            대전광역시
+                                                        </option>
+                                                        <option
+                                                            value="울산광역시"
+                                                        >
+                                                            울산광역시
+                                                        </option>
+                                                        <option
+                                                            value="세종특별자치시"
+                                                        >
+                                                            세종특별자치시
+                                                        </option>
+                                                        <option value="경기도">
+                                                            경기도
+                                                        </option>
+                                                        <option
+                                                            value="강원특별자치도"
+                                                        >
+                                                            강원특별자치도
+                                                        </option>
+                                                        <option
+                                                            value="충청북도"
+                                                        >
+                                                            충청북도
+                                                        </option>
+                                                        <option
+                                                            value="충청남도"
+                                                        >
+                                                            충청남도
+                                                        </option>
+                                                        <option
+                                                            value="전북특별자치도"
+                                                        >
+                                                            전북특별자치도
+                                                        </option>
+                                                        <option
+                                                            value="전라남도"
+                                                        >
+                                                            전라남도
+                                                        </option>
+                                                        <option
+                                                            value="경상북도"
+                                                        >
+                                                            경상북도
+                                                        </option>
+                                                        <option
+                                                            value="경상남도"
+                                                        >
+                                                            경상남도
+                                                        </option>
+                                                        <option
+                                                            value="제주특별자치도"
+                                                        >
+                                                            제주특별자치도
+                                                        </option>
+                                                        <!-- 추가옵션 여기에 -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div class="area-div combobox-item">
+                                                <div
+                                                    class="label-container time"
+                                                >
+                                                    <!-- 매칭시간 들어가는 곳 -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <div
+                                                class="area-div combobox-item search"
+                                            >
+                                                <div class="label-container">
+                                                    <div class="search-all">
+                                                        조회하기
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-2">
+                    <article class="article-2">
+                        <div class="article-div">
+                            <div class="div-row div-row-middle">
+                                <div class="div-col">
+                                    <div
+                                        class="div-space div-space-align-center"
+                                        style="gap: 6px"
+                                    >
+                                        <div class="div-space-item">
+                                            <img
+                                                src="/static/images/match_page/medal.png"
+                                                width="40px"
+                                                height="40px"
+                                            />
+                                        </div>
+                                        <div class="div-space-item">
+                                            <h1
+                                                id="color-change"
+                                                class="space-item-text"
+                                            >
+                                                적극 구인 중인 팀
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="none"></div>
+                            </div>
+                        </div>
+                        <div class="active-team">
+                            <div class="active-team-title">
+                                <h5>
+                                    <a href=""
+                                        >(강남구/서울 ) 즐겜러 12명
+                                        모여있습니다/아무나 신청해주세요~!</a
+                                    >
+                                </h5>
+                            </div>
+                            <div class="category gap">
+                                <span class="detail"># 축구</span>
+                                <span class="detail"># 매너게임</span>
+                            </div>
+                            <ul class="game-time gap">
+                                <li>
+                                    <span class="game-time-detail"
+                                        >경기시간 : 30분 ~ 1시간</span
+                                    >
+                                    <span class="unit"> 1 경기당 </span>
+                                </li>
+                            </ul>
+                            <div class="category-list">
+                                <div class="project-icons gap">
+                                    <span class="icon email-icon">메일</span>
+                                    <span class="icon phone-icon">전화</span>
+                                    <span class="icon match-doing-icon"
+                                        >매칭중</span
+                                    >
+                                    <span class="icon match-complete-icon"
+                                        >매칭완료</span
+                                    >
+                                    <span class="icon match-new-icon">NEW</span>
+                                </div>
+                                <div class="game-content-detail">
+                                    🏃 아직 많이 확인 안 한 경기예요! 서둘러
+                                    매칭해 보세요 :)
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="main-3">
+                    <span class="project-num"> 매칭대기중 57팀 </span>
+                    <span class="right">
+                        <div id="button-on" class="match-doing-button on">
+                            <div class="circle"></div>
+                        </div>
+                        <div id="button-off" class="match-doing-button off">
+                            <div class="circle"></div>
+                        </div>
+                        매칭중인 팀만 보기
+                    </span>
+                </div>
+                <div class="main-4">
+                    <!-- 요소추가하려면 여기서부터 복붙 -->
+                    <article class="article-3">
+                        <div class="match-team">
+                            <div class="match-team-title">
+                                <h5>
+                                    <a href=""
+                                        >(원주시/강원도 ) 즐겜러 5명
+                                        모여있습니다/빠르게 신청해주세요~!</a
+                                    >
+                                </h5>
+                            </div>
+                            <div class="category gap">
+                                <span class="detail"># 농구</span>
+                                <span class="detail"># 빠른게임</span>
+                            </div>
+                            <ul class="game-time gap">
+                                <li>
+                                    <span class="game-time-detail"
+                                        >경기시간 : 20분 ~ 30분</span
+                                    >
+                                    <span class="unit"> 1 경기당 </span>
+                                </li>
+                            </ul>
+                            <div class="category-list">
+                                <div class="project-icons gap">
+                                    <span class="icon email-icon">메일</span>
+                                    <span class="icon phone-icon">전화</span>
+                                    <span class="icon match-doing-icon"
+                                        >매칭중</span
+                                    >
+                                    <span class="icon match-complete-icon"
+                                        >매칭완료</span
+                                    >
+                                    <span class="icon match-new-icon">NEW</span>
+                                </div>
+                                <div class="game-content-detail">
+                                    🏃 아직 많이 확인 안 한 경기예요! 서둘러
+                                    매칭해 보세요 :)
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="register">
+                        <div class="go-register">
+                            <a href=""
+                                >🏃 원하시는 매칭팀이 없나요? <br />팀을 등록
+                                해보세요 :)</a
+                            >
+                        </div>
+                        <div class="register-div combobox-item register">
+                            <div class="label-container">
+                                <div class="team-register">
+                                    <span>팀 등록하기</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
+            <div></div>
+        </div>
+    </body>
+    <script src="/static/js/match_page/matchMain.js"></script>
+</html>

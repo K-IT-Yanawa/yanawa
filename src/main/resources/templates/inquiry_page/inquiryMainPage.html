@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="/static/css/inquiry_page/inquiryMainPage.css"
+        />
+        <link rel="icon" href="/static/images/inquiry_page/yanawalogo.png" />
+        <title>문의 등록</title>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <section class="breadcrumb"></section>
+            <div class="container breadcrumb-container">
+                <div class="col breadcrumb-container-path" style="float: left">
+                    <ol class="breadcrumbs">
+                        <li title="야 나와 고객센터">
+                            <a href="메인페이지로 이동">야 나와 고객센터 ></a>
+                        </li>
+                        <li title="문의 등록">
+                            <a href="현재페이지">문의 등록</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="container new-req-page">
+                <section class="form-column">
+                    <h2 class="title" style="font-size: 1.5em">문의 등록</h2>
+                    <div class="form" style="margin-bottom: 40px">
+                        <form class="request-form">
+                            <div class="form-field request-email">
+                                <label for="email" class="essential"
+                                    >이메일 주소</label
+                                >
+                                <input
+                                    type="text"
+                                    name="email"
+                                    placeholder="가입하신 이메일 주소를 기입해주세요. (비회원은 수신 가능한 이메일)"
+                                />
+                                <div class="error">
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        placeholder="가입하신 이메일 주소를 기입해주세요. (비회원은 수신 가능한 이메일)"
+                                        class="input-error"
+                                    />
+                                    <div class="input-explain">
+                                        <div class="input-explain-error">
+                                            형식에 맞게 입력해주세요.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inquiry-type">
+                                <label for="inquiry-type" class="essential"
+                                    >문의 유형</label
+                                >
+                                <div class="form-control-input-content">
+                                    <select name="times" class="form-input">
+                                        <option value="" disabled selected>
+                                            문의 유형 선택
+                                        </option>
+                                        <option value="건의사항">
+                                            건의사항
+                                        </option>
+                                        <option value="결제관련">
+                                            결제관련
+                                        </option>
+                                        <option value="환불">환불</option>
+                                        <option value=" 서비스">서비스</option>
+                                        <option value="신고">신고</option>
+                                        <option value="기타">기타</option>
+                                        <!-- 추가옵션 여기에 -->
+                                    </select>
+                                </div>
+                                <div class="option-explain-error">
+                                    문의 유형을 선택해주세요.
+                                </div>
+                            </div>
+                            <div class="form-field request-subject">
+                                <label for="email" class="essential"
+                                    >제목</label
+                                >
+                                <input
+                                    type="text"
+                                    name="subjet"
+                                    placeholder="문의 내용에 해당하는 키워드를 입력하시면 도움말 문서가 자동 검색됩니다."
+                                />
+                                <div class="error">
+                                    <input
+                                        type="text"
+                                        name="subjet"
+                                        placeholder="문의 내용에 해당하는 키워드를 입력하시면 도움말 문서가 자동 검색됩니다."
+                                        class="input-error"
+                                    />
+                                    <div class="input-explain">
+                                        <div class="input-explain-error">
+                                            제목을 입력해주세요.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-field request-description">
+                                <label for="description" class="essential"
+                                    >설명</label
+                                >
+                                <textarea
+                                    name="description"
+                                    id="description"
+                                    placeholder="상세한 문의 사항을 기입해주세요. 저희 관리자가 영업일 기준 1~2일 이내 가능한 빨리 답변 드릴 수 있고록 노력하겠습니다."
+                                ></textarea>
+                                <div class="error">
+                                    <textarea
+                                        name="description"
+                                        id="description"
+                                        placeholder="상세한 문의 사항을 기입해주세요. 저희 관리자가 영업일 기준 1~2일 이내 가능한 빨리 답변 드릴 수 있고록 노력하겠습니다."
+                                        class="textarea-error"
+                                    ></textarea>
+                                    <div class="input-explain">
+                                        <div class="input-explain-error">
+                                            한줄이상의 설명을 입력해주세요.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-field request-phone">
+                                <label for="phone">연락처</label>
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    placeholder="&ldquo; - &rdquo; 없이 번호만 입력"
+                                />
+                            </div>
+                            <div class="form-field form-file">
+                                <label for="file">첨부 파일</label>
+                                <div class="upload-file">
+                                    <input
+                                        type="file"
+                                        class="file-input"
+                                        multiple
+                                    />
+                                    <span>
+                                        <img
+                                            src="/static/images/inquiry_page/file-upload.png"
+                                            class="img-center"
+                                        />
+                                        <a>파일 추가</a> 또는 파일을 여기로
+                                        드래그</span
+                                    >
+                                </div>
+                                <ul class="upload-pool"></ul>
+                            </div>
+                            <div class="form-field">
+                                <p>
+                                    <strong
+                                        >개인정보 수집 및 이용에 대한 동의
+                                        내용</strong
+                                    >
+                                    <br />
+                                    ① 개인정보 수집 항목: 이메일, 연락처
+                                    <br />
+                                    ② 수집목적: 고객식별, 문의 응대, 서비스 품질
+                                    향상
+                                    <br />
+                                    ③ 보유 및 이용기간: 접수일로부터 1년 경과 시
+                                    파기
+                                    <br />
+                                    <br />
+                                    *위 동의는 거부할 수 있으나, 거부 시 해당
+                                    문의를 처리할 수 없습니다.
+                                </p>
+                                <label
+                                    for="check-agree"
+                                    class="essential check-agree-label"
+                                    >동의합니다.</label
+                                >
+                                <input type="checkbox" />
+                            </div>
+                            <footer>
+                                <input type="submit" class="submit-btn" />
+                            </footer>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer></footer>
+    </body>
+    <script src="/static/js/inquiry_page/inquiryMainPage.js"></script>
+</html>

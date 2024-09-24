@@ -1,0 +1,13 @@
+server:
+  port: 10000
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@//52.79.229.179:1521/XE
+    username: scott
+    password: 1234
+
+mybatis:
+  config-location: classpath:/config/config.xml
+  mapper-locations: classpath*:/mapper/*.xml

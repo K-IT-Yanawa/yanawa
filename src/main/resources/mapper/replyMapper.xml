@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.reply.ReplyMapper">
+
+    <!-- 댓글 삽입 -->
+    <insert id="insertReply">
+        INSERT INTO TBL_REPLY(ID, REPLY_CONTENT, USER_ID, POST_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(SEQ_REPLY.NEXTVAL, #{replyContent}, #{userId}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <!-- 게시물에 대한 모든 댓글 조회 -->
+    <select id="selectRepliesByPostId" resultType="replyDTO">
+        SELECT R.ID, R.REPLY_CONTENT, R.USER_ID, U.USER_NICKNAME, R.POST_ID, R.CREATED_DATE, R.UPDATED_DATE
+        FROM TBL_REPLY R
+                 JOIN TBL_USER U ON R.USER_ID = U.ID
+        WHERE R.POST_ID = #{postId}
+        ORDER BY R.CREATED_DATE ASC
+    </select>
+
+    <!-- 댓글 수정 -->
+    <update id="updateReply">
+        UPDATE TBL_REPLY
+        SET REPLY_CONTENT = #{replyContent}, UPDATED_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <!-- 댓글 삭제 -->
+    <delete id="deleteReply">
+        DELETE FROM TBL_REPLY
+        WHERE ID = #{id}
+    </delete>
+
+</mapper>
