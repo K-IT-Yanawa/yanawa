@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.matching.MatchingMapper">
+
+    <!-- 매칭 게시판 데이터 삽입 -->
+    <insert id="insertMatching">
+        INSERT INTO TBL_MATCHING (
+            POST_ID, MATCHING_STATUS, TIME_ID, TEAM_ID, SPORT_KIND_ID,
+            TIME_CORDINATE, DATE_CORDINATE, LOCAL_CITY_ID, LOCAL_CITY_DETAIL,
+            CREATED_DATE, UPDATED_DATE, DATE_NEGOTIABLE, TIME_NEGOTIABLE
+        )
+        VALUES (
+                   SEQ_MATCHING.NEXTVAL, #{matchStatus}, #{timeId}, #{teamId}, #{sportKindId},
+                   #{timeCordinate}, #{dateCordinate}, #{localCityId}, #{localCityDetail},
+                   #{createDate}, #{updateDate}
+               )
+    </insert>
+
+    <!-- 매칭 게시판 데이터 목록 조회 -->
+    <select id="selectAllMatching" resultType="matchingDTO">
+        SELECT M.POST_ID, M.MATCHING_STATUS, M.TIME_ID, M.TEAM_ID, M.SPORT_KIND_ID,
+        M.TIME_CORDINATE, M.DATE_CORDINATE, M.LOCAL_CITY_ID, M.LOCAL_CITY_DETAIL,
+        M.CREATED_DATE, M.UPDATED_DATE, M.DATE_NEGOTIABLE, M.TIME_NEGOTIABLE,
+        T.TEAM_NAME, U.USER_NAME
+        FROM TBL_MATCHING M
+        JOIN TBL_TEAM T ON M.TEAM_ID = T.ID
+        JOIN TBL_USER U ON T.USER_ID = U.ID
+        ORDER BY
+        <choose>
+            <when test="order == 'recent'.toString()">M.POST_ID</when>
+            <otherwise>M.CREATED_DATE</otherwise>
+        </choose>
+        DESC
+        OFFSET #{pagination.startRow} ROWS FETCH NEXT #{pagination.pageSize} ROWS ONLY
+    </select>
+
+    <!-- 특정 매칭 게시물 상세 조회 -->
+    <select id="selectMatchingById" resultType="matchingDTO">
+        SELECT M.POST_ID, M.MATCHING_STATUS, M.TIME_ID, M.TEAM_ID, M.SPORT_KIND_ID,
+               M.TIME_CORDINATE, M.DATE_CORDINATE, M.LOCAL_CITY_ID, M.LOCAL_CITY_DETAIL,
+               M.CREATED_DATE, M.UPDATED_DATE, M.DATE_NEGOTIABLE, M.TIME_NEGOTIABLE,
+               T.TEAM_NAME, U.USER_NAME, U.USER_EMAIL, U.USER_PHONE
+        FROM TBL_MATCHING M
+                 JOIN TBL_TEAM T ON M.TEAM_ID = T.ID
+                 JOIN TBL_USER U ON T.USER_ID = U.ID
+        WHERE M.POST_ID = #{id}
+    </select>
+
+    <!-- 매칭 게시판 데이터 수정 -->
+    <update id="updateMatching">
+        UPDATE TBL_MATCHING
+        SET MATCHING_STATUS = #{matchStatus},
+            TIME_ID = #{timeId},
+            TEAM_ID = #{teamId},
+            SPORT_KIND_ID = #{sportKindId},
+            TIME_CORDINATE = #{timeCordinate},
+            DATE_CORDINATE = #{dateCordinate},
+            LOCAL_CITY_ID = #{localCityId},
+            LOCAL_CITY_DETAIL = #{localCityDetail},
+            UPDATED_DATE = CURRENT_TIMESTAMP,
+            DATE_NEGOTIABLE = #{dateNegotiable},
+            TIME_NEGOTIABLE = #{timeNegotiable}
+        WHERE POST_ID = #{id}
+    </update>
+
+    <!-- 매칭 게시판 데이터 삭제 -->
+    <delete id="deleteMatching">
+        DELETE FROM TBL_MATCHING
+        WHERE POST_ID = #{id}
+    </delete>
+
+    <!-- 총 매칭 게시물 수 조회 -->
+    <select id="selectTotalMatching">
+        SELECT COUNT(*) FROM TBL_MATCHING
+    </select>
+
+</mapper>
