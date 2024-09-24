@@ -24,6 +24,6 @@ public class FreewriteDTO {
     private String userNickname;
 
     public FreewriteVO toVO() {
-        return new FreewriteVO(id, postTitle, postContent, userId, createdDate, updatedDate, postReadCount, replyCount);
+        return new FreewriteVO(id, postTitle, postContent, userId, createdDate, updatedDate, postReadCount, replyCount, userNickname);
     }
 }

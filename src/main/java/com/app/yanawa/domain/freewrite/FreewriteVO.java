@@ -21,4 +21,5 @@ public class FreewriteVO {
     private String updatedDate;
     private int postReadCount;
     private int replyCount;
+    private String userNickname;
 }

@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.freewrite.FreewriteMapper">
-
-    <!-- TBL_FREEWRITE에 데이터 삽입 -->
     <insert id="insert">
         INSERT INTO TBL_FREEWRITE(POST_ID, POST_READ_COUNT, REPLY_COUNT, USER_ID, CREATED_DATE, UPDATED_DATE)
         VALUES(SEQ_FREEWRITE.NEXTVAL, #{postReadCount}, #{replyCount}, #{userId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
-    <!-- TBL_FREEWRITE와 TBL_USER 조인하여 데이터 조회 -->
+
+
     <select id="selectAll" resultType="freewriteDTO">
         SELECT * FROM (
-        SELECT ROWNUM AS rnum, F.POST_ID, U.USER_NICKNAME, F.POST_READ_COUNT, F.REPLY_COUNT, F.USER_ID, F.CREATED_DATE, F.UPDATED_DATE
-        FROM TBL_USER U
-        JOIN TBL_FREEWRITE F ON U.ID = F.USER_ID
-        WHERE F.POST_ID IS NOT NULL
+        SELECT
+        F.POST_ID,
+        U.USER_NICKNAME,
+        F.POST_READ_COUNT,
+        F.REPLY_COUNT,
+        F.USER_ID,
+        F.CREATED_DATE,
+        F.UPDATED_DATE,
+        P.POST_TITLE,
+        P.POST_CONTENT,
+        ROWNUM AS rnum
+        FROM
+        TBL_USER U
+        JOIN
+        TBL_FREEWRITE F ON U.ID = F.USER_ID
+        JOIN
+        TBL_POST P ON F.POST_ID = P.ID
+        WHERE
+        F.POST_ID IS NOT NULL
         ORDER BY
         <choose>
             <when test="order == 'recent'.toString()">F.POST_ID</when>
             <otherwise>F.POST_READ_COUNT</otherwise>
         </choose> DESC
-        ) WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
+        )
+        WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
     </select>
 
 
@@ -28,6 +43,22 @@
     <select id="selectTotal">
         SELECT COUNT(*) FROM TBL_FREEWRITE
     </select>
+
+    <select id="selectById" resultType="freewriteDTO">
+        SELECT
+            f.POST_ID, f.POST_READ_COUNT, f.REPLY_COUNT, f.USER_ID, f.CREATED_DATE, f.UPDATED_DATE,
+            p.POST_TITLE, p.POST_CONTENT, u.USER_NICKNAME
+        FROM
+            TBL_FREEWRITE f
+                JOIN
+            TBL_POST p ON f.POST_ID = p.ID
+                JOIN
+            TBL_USER u ON f.USER_ID = u.ID
+        WHERE
+            f.POST_ID = #{id}
+    </select>
+
+
 
     <!-- 첨부파일 저장 -->
     <insert id="insertAttachment">
