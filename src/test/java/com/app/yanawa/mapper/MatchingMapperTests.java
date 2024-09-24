@@ -16,6 +16,7 @@ public class MatchingMapperTests {
     @Test
     public void testinsertMatching() {
         MatchingDTO matchingDTO = new MatchingDTO();
-        matchingDTO.setPostId();
+        matchingDTO.setType(2);
+        matchingDTO.
     }
 }

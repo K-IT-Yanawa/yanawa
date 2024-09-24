@@ -11,6 +11,8 @@ import lombok.*;
 public class MatchingDTO {
     @EqualsAndHashCode.Include
     private Long postId;
+    private int type;
+
     private Long userId;
     private String userName;
     private String userEmail;
