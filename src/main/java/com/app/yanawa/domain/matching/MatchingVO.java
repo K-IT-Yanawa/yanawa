@@ -21,5 +21,19 @@ public class MatchingVO {
     private String createDate;
     private String updateDate;
 
-
+    public MatchingDTO toDTO() {
+        MatchingDTO matchingDTO = new MatchingDTO();
+        matchingDTO.setPostId(postId);
+        matchingDTO.setMatchStatus(matchStatus);
+        matchingDTO.setTimeId(timeId);
+        matchingDTO.setTeamId(teamId);
+        matchingDTO.setSportKindId(sportKindId);
+        matchingDTO.setTimeCordinate(timeCordinate);
+        matchingDTO.setDateCordinate(dateCordinate);
+        matchingDTO.setLocalCityId(localCityId);
+        matchingDTO.setLocalCityDetail(localCityDetail);
+        matchingDTO.setCreateDate(createDate);
+        matchingDTO.setUpdateDate(updateDate);
+        return matchingDTO;
+    }
 }
