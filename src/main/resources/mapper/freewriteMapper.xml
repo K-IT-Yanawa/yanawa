@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.freewrite.FreewriteMapper">
+
+    <!-- TBL_FREEWRITE에 데이터 삽입 -->
+    <insert id="insert">
+        INSERT INTO TBL_FREEWRITE(POST_ID, POST_READ_COUNT, REPLY_COUNT, USER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(SEQ_FREEWRITE.NEXTVAL, #{postReadCount}, #{replyCount}, #{userId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+
+    <!-- TBL_FREEWRITE와 TBL_USER 조인하여 데이터 조회 -->
+    <select id="selectAll" resultType="freewriteDTO">
+        SELECT * FROM (
+        SELECT ROWNUM AS rnum, F.POST_ID, U.USER_NICKNAME, F.POST_READ_COUNT, F.REPLY_COUNT, F.USER_ID, F.CREATED_DATE, F.UPDATED_DATE
+        FROM TBL_USER U
+        JOIN TBL_FREEWRITE F ON U.ID = F.USER_ID
+        WHERE F.POST_ID IS NOT NULL
+        ORDER BY
+        <choose>
+            <when test="order == 'recent'.toString()">F.POST_ID</when>
+            <otherwise>F.POST_READ_COUNT</otherwise>
+        </choose> DESC
+        ) WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
+    </select>
+
+
+    <!-- 총 게시물 수 조회 -->
+    <select id="selectTotal">
+        SELECT COUNT(*) FROM TBL_FREEWRITE
+    </select>
+
+    <!-- 첨부파일 저장 -->
+    <insert id="insertAttachment">
+        INSERT INTO TBL_ATTACHMENT (ID, ATTACHMENT_PATH, ATTACHMENT_SIZE, POST_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES (SEQ_ATTACHMENT.NEXTVAL, #{attachmentPath}, #{attachmentSize}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+</mapper>

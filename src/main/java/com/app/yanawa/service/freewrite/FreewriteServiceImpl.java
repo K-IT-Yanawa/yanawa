@@ -2,7 +2,7 @@ package com.app.yanawa.service.freewrite;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.FreewriteVO;
-
+import com.app.yanawa.domain.freewrite.Attachment;
 import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.repository.freewrite.FreewriteDAO;
 import lombok.RequiredArgsConstructor;
@@ -21,10 +21,10 @@ public class FreewriteServiceImpl implements FreewriteService {
         return freewriteVO.getId();
     }
 
-//    @Override
-//    public void saveAttachment(Attachment attachment) {
-//        freewriteDAO.insertAttachment(attachment);
-//    }
+    @Override
+    public void saveAttachment(Attachment attachment) {
+        freewriteDAO.insertAttachment(attachment);
+    }
 
     @Override
     public List<FreewriteDTO> getList(Pagination pagination, String order){
