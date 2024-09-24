@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="/static/css/freewrite_page/freewrite.css"
+            href="/css/freewrite/freewrite.css"
         />
         <style>
             body * {
@@ -27,6 +27,10 @@
                             data-testid="CustomForm"
                             class="content2"
                             style="width: 100%; max-width: 900px"
+                            action="/freewrite/write"
+                            method="POST"
+                            enctype="multipart/form-data"
+                            th:action="@{/freewrite/write}"
                         >
                             <ul class="content3">
                                 <li class="content4">
@@ -46,6 +50,7 @@
                                             border-radius: 5px;
                                             margin-top: 8px;
                                         "
+                                        required
                                     >
                                         <option value="질문">질문</option>
                                         <option value="잡담">잡담</option>
@@ -71,7 +76,7 @@
                                                 aria-required="true"
                                                 class="content8"
                                                 type="text"
-                                                value=""
+                                               required
                                                 style="width: 100%"
                                             />
                                             <span
@@ -97,8 +102,7 @@
                                             style="display: block; width: 100%"
                                         >
                                             내용 작성<span class="content12"></span>
-                                                *</span
-                                            >
+
                                         </label>
                                         <div class="wrap8" style="width: 100%">
                                             <textarea
@@ -110,6 +114,7 @@
                                                     width: 100%;
                                                     height: 150px;
                                                 "
+                                                required
                                             ></textarea>
                                         </div>
                                     </div>
@@ -119,6 +124,7 @@
                                         <label
                                             for="file-upload"
                                             class="content16"
+                                            id="fileUpload"
                                             style="display: block; width: 100%"
                                         >
                                             파일 첨부
@@ -206,6 +212,6 @@
         </div>
 
         <!-- JavaScript 적용 -->
-        <script src="/static/js/freewrite_page/freewrite.js"></script>
+        <script src="/js/freewrite/freewrite.js"></script>
     </body>
 </html>

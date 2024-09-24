@@ -2,7 +2,7 @@ package com.app.yanawa.repository.freewrite;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.FreewriteVO;
-
+import com.app.yanawa.domain.freewrite.Attachment;
 import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.mapper.freewrite.FreewriteMapper;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +21,9 @@ public class FreewriteDAO {
         freewriteMapper.insert(freewriteVO);
     }
 
-//    public void insertAttachment(Attachment attachment) {
-//        sqlSession.insert("com.app.yanawa.mapper.freewrite.FreewriteMapper.insertAttachment", attachment);
-//    }
+    public void insertAttachment(Attachment attachment) {
+        sqlSession.insert("com.app.yanawa.mapper.freewrite.FreewriteMapper.insertAttachment", attachment);
+    }
 
     public List<FreewriteDTO> findAll(Pagination pagination, String order) {
         return freewriteMapper.selectAll(pagination, order);
