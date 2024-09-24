@@ -12,6 +12,8 @@
         <typeAlias type="com.app.yanawa.domain.freewrite.ReplyDTO" alias="replyDTO"/>
         <typeAlias type="com.app.yanawa.domain.user.UserDTO" alias="userDTO"/>
         <typeAlias type="com.app.yanawa.domain.user.UserVO" alias="userVO"/>
+        <typeAlias type="com.app.yanawa.domain.matching.MatchingDTO" alias="matchingDTO"/>
+        <typeAlias type="com.app.yanawa.domain.matching.MatchingVO" alias="matchingVO"/>
     </typeAliases>
 
 </configuration>
