@@ -10,8 +10,11 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     private final UserMapper userMapper;
 
-//    회원가입
     public void save(UserVO userVO) {
         userMapper.insert(userVO);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userMapper.countByEmail(email) > 0; // 0보다 크면 중복
     }
 }
