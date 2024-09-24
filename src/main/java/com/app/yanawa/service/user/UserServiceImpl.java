@@ -10,12 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-@Primary
 public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 
     @Override
     public void join(UserVO userVO) {
         userDAO.save(userVO);
+    }
+
+    @Override
+    public boolean isEmailDuplicate(String email) {
+        return userDAO.existsByEmail(email);
     }
 }
