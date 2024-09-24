@@ -991,3 +991,7 @@ body, body * {
 #remainingtime{
     font-weight: 600;
 }
+
+.margin-bottom {
+    margin-bottom: 30px;
+}
