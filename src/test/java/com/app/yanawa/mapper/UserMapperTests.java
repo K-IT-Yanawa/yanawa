@@ -25,6 +25,7 @@ public class UserMapperTests {
         userDTO.setUserPoint(100);
         userDTO.setUserIntroduce("잘부탁드립니다");
         userDTO.setUserSportKind("족구");
+        userDTO.setUserPositionKind("공격수");
         userDTO.setUserSportHistory("2년");
         userDTO.setUserBirth("2000-03-03");
         log.info("{}","회원 가입 성공!!");

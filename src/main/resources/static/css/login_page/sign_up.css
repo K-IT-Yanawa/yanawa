@@ -147,7 +147,7 @@ a {
     justify-content: center;
     align-items: center;
     margin: 24px auto 80px auto;
-} 
+}
 
 .section-1 {
     width: 100%;
@@ -177,7 +177,7 @@ a {
     display: flex;
     align-items: inherit;
     justify-content: inherit;
-} 
+}
 
 .back-arrow-svg {
     user-select: none;
@@ -245,12 +245,13 @@ a {
 
 /* 이메일 */
 .email {
-    position: relative; 
+    position: relative;
 }
 
 .email-1 {
     position: relative;
 }
+
 
 .margin-bottom {
     margin-bottom: 8px;
@@ -308,12 +309,12 @@ input::placeholder {
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance:none;
-  margin: 0;
+    -webkit-appearance:none;
+    margin: 0;
 }
 
 .input-style:focus {
-    border: 1px solid #0066ff; 
+    border: 1px solid #0066ff;
 }
 
 .email >button:disabled {
@@ -338,6 +339,7 @@ input[type="number"]::-webkit-inner-spin-button {
     padding: 10px;
     background-color: transparent;
     font-family: "Pretendard-SemiBold";
+    margin-top: 4px;
 }
 
 .duplicate-check-button {
@@ -523,7 +525,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .black-gap-4px {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     gap: 4px;
 }
@@ -552,7 +554,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .time-out-div {
     display: flex;
     gap: 4px;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .time-out-message {
@@ -615,13 +617,13 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .agree-checkbox.on {
     background-color: #0066ff;
-    border: none; 
+    border: none;
 }
 
 .check-icon {
     display: flex;
     align-items: inherit;
-    justify-content: inherit; 
+    justify-content: inherit;
 }
 
 .input-agree {
@@ -629,12 +631,12 @@ input[type="number"]::-webkit-inner-spin-button {
     width: calc(100% - 90px);
     height: 100%;
     position: absolute;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .agree-title-div-1 {
     display: flex;
-    flex: 1; 
+    flex: 1;
 }
 
 .agree-wrapper p {
@@ -658,7 +660,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .line {
     border: none;
     width: 100%;
-    border-bottom: 1px solid rgba(112, 115, 124, 0.22);  
+    border-bottom: 1px solid rgba(112, 115, 124, 0.22);
 }
 
 .agree-div-five {
@@ -789,4 +791,8 @@ input[type="number"]::-webkit-inner-spin-button {
 /* footer */
 .footer {
     padding-top: 32px;
+}
+
+.duplicate-check-button{
+    cursor: pointer;
 }
