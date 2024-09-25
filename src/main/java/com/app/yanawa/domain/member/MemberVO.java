@@ -17,11 +17,6 @@ public class MemberVO implements Serializable {
     private String memberPhone;
     private String memberPassword;
     private String memberGender;
-    private int memberPoint;
-    private String memberIntroduce;
-    private String memberSportKind;
-    private String memberPositionKind;
-    private String memberSportHistory;
     private String memberBirth;
     private String createdDate;
     private String updatedDate;

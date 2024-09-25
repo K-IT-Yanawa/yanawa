@@ -126,132 +126,6 @@ inputchecks11.forEach((inputCheck) => {
     });
 });
 
-const emailInput = document.getElementById("email-1");
-const duplicateCheckEmail = document.getElementById("duplicate-check-email");
-const duplicateCheckButtonEmail = document.getElementById(
-    "duplicate-check-button-email"
-);
-
-const nicknameInput = document.getElementById("nickname-1");
-const duplicateCheckNickname = document.getElementById(
-    "duplicate-check-nickname"
-);
-const duplicateCheckButtonNickname = document.getElementById(
-    "duplicate-check-button-nickname"
-);
-
-const mobileInput = document.getElementById("mobile-input");
-const getCodeSpan = document.getElementById("get-code-span");
-const getCodeButton = document.getElementById("get-code-button");
-
-const nameInput = document.getElementById("name-input");
-const getCodeInput = document.getElementById("get-code-input");
-const birthInput = document.getElementById("birth-1");
-const genderInput = document.getElementById("gender");
-const passwordInput = document.getElementById("password-input");
-const pwOnemoreInput = document.getElementById("pw-onemore-input");
-const finalButton = document.getElementById("final-button");
-
-// // **이메일 중복 확인 버튼 활성화 기능**
-// (function () {
-//     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-//     function updateDuplicateState() {
-//         if (emailInput.value.trim() !== "") {
-//             // 이메일 입력된 경우
-//             duplicateCheckEmail.classList.add("active");
-//             duplicateCheckEmail.disabled = false; // 버튼 활성화
-//             duplicateCheckButtonEmail.style.cursor = "pointer";
-//         } else {
-//             // 이메일 비어있는 경우
-//             duplicateCheckEmail.classList.remove("active");
-//             duplicateCheckEmail.disabled = true; // 버튼 비활성화
-//             duplicateCheckButtonEmail.style.cursor = "default";
-//         }
-//     }
-//
-//     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-//     emailInput.addEventListener("input", updateDuplicateState);
-// })();
-//
-// // **닉네임 중복 확인 버튼 활성화 기능**
-// (function () {
-//     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-//     function updateDuplicateState() {
-//         if (nicknameInput.value.trim() !== "") {
-//             // 닉네임 입력된 경우
-//             duplicateCheckNickname.classList.add("active");
-//             duplicateCheckNickname.disabled = false; // 버튼 활성화
-//             duplicateCheckButtonNickname.style.cursor = "pointer";
-//         } else {
-//             // 닉네임 비어있는 경우
-//             duplicateCheckNickname.classList.remove("active");
-//             duplicateCheckNickname.disabled = true; // 버튼 비활성화
-//             duplicateCheckButtonNickname.style.cursor = "default";
-//         }
-//     }
-//
-//     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-//     nicknameInput.addEventListener("input", updateDuplicateState);
-// })();
-//
-// // **인증번호 받기 버튼 활성화 기능**
-// (function () {
-//     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-//     function updateCodeState() {
-//         if (mobileInput.value.trim() !== "") {
-//             getCodeButton.classList.add("active");
-//             getCodeButton.disabled = false; // 버튼 활성화
-//         } else {
-//             getCodeButton.classList.remove("active");
-//             getCodeButton.disabled = true; // 버튼 비활성화
-//         }
-//     }
-//
-//     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-//     mobileInput.addEventListener("input", updateCodeState);
-// })();
-//
-//
-// // **가입하기 버튼 활성화 기능**
-// (function () {
-//     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-//     function updateCodeState() {
-//         if (
-//             emailInput.value.trim() !== "" &&
-//             nameInput.value.trim() !== "" &&
-//             nicknameInput.value.trim() !== "" &&
-//             getCodeInput.value.trim() !== "" &&
-//
-//             birthInput.value.trim() !== "" &&
-//             genderInput.value.trim() !== "" &&
-//             passwordInput.value.trim() !== "" &&
-//             pwOnemoreInput.value.trim() !== "" &&
-//             [...requiredChecks][0].checked == true &&
-//             [...requiredChecks][1].checked == true &&
-//             [...requiredChecks][2].checked == true
-//         ) {
-//             finalButton.classList.add("active");
-//             finalButton.disabled = false; // 버튼 활성화
-//         } else {
-//             finalButton.classList.remove("active");
-//             finalButton.disabled = true; // 버튼 비활성화
-//         }
-//     }
-
-//     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-//     emailInput.addEventListener("input", updateCodeState);
-//     nameInput.addEventListener("input", updateCodeState);
-//     nicknameInput.addEventListener("input", updateCodeState);
-//     getCodeInput.addEventListener("input", updateCodeState);
-//     birthInput.addEventListener("input", updateCodeState);
-//     genderInput.addEventListener("input", updateCodeState);
-//
-//     passwordInput.addEventListener("input", updateCodeState);
-//     pwOnemoreInput.addEventListener("input", updateCodeState);
-//     inputchecks.forEach((check) => {
-//         check.addEventListener("input", updateCodeState);
-//     });
-// })();
 
 // 회원가입 이메일 부분
 document.getElementById('duplicate-check-button-email').addEventListener('click', ()=> {
@@ -272,7 +146,7 @@ document.getElementById('duplicate-check-button-email').addEventListener('click'
     }
 
     // 이메일 형식이 올바를 때 중복 검사 진행
-    fetch(`/yanawa/user/check-email-duplicate?email=${email}`)
+    fetch(`/yanawa/member/check-email-duplicate?email=${email}`)
         .then(response => response.json())
         .then(data => {
             if (data.duplicate) {
@@ -283,3 +157,112 @@ document.getElementById('duplicate-check-button-email').addEventListener('click'
         })
 });
 
+// 회원가입 닉네임 부분
+document.getElementById('duplicate-check-button-nickname').addEventListener('click', ()=> {
+    const nickname = document.getElementById('nickname').value;
+    const resultNickNameDiv = document.getElementById('nickname-check-result');
+
+    // 닉네임이 비어있을 때
+    if (!nickname.trim()) {
+        resultNickNameDiv.innerHTML = "<p class='error-message'>닉네임을 입력해주세요.</p>";
+        return;
+    }
+
+    // 닉네임 유효성 검사
+    const nicknamePattern = /^[가-힣a-zA-Z0-9]+$/;
+    if (!nicknamePattern.test(nickname)) {
+        resultNickNameDiv.innerHTML = "<p class='error-message'>한글, 영어, 숫자만 입력해주세요.</p>";
+        return;
+    }
+
+    // 닉네임 형식이 올바를 때 중복 검사 진행
+    fetch(`/yanawa/member/check-nickname-duplicate?nickname=${nickname}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.duplicate) {
+                resultNickNameDiv.innerHTML = "<p class='error-message'>중복된 닉네임입니다.</p>";
+            } else {
+                resultNickNameDiv.innerHTML = "<p class='available-message'>사용 가능한 닉네임입니다.</p>";
+            }
+        })
+});
+
+// 회원가입 생년월일 부분
+document.getElementById('birth').addEventListener('input', function () {
+    const birthInput = document.getElementById('birth').value;
+    const birthErrorDiv = document.getElementById('birth-check-result');
+
+    // 입력한 숫자가 8자리가 아닐때
+    if (birthInput.length < 8) {
+        birthErrorDiv.innerHTML = "<p class='error-message'>8자리로 입력해주세요.</p>";
+        return;
+    }
+
+    // 입력한 생년월일중 앞 4자리만 추출
+    const birthYear = parseInt(birthInput.substring(0, 4));
+    const currentYear = new Date().getFullYear();
+
+    // 2004년생까지 가입되게 유효성검사
+    if (birthYear > currentYear || birthYear > 2004) {
+        birthErrorDiv.innerHTML = "<p class='error-message'>성인만 회원가입이 가능합니다.</p>";
+    } else {
+        // 유효한 입력일 경우 에러 메시지 제거
+        birthErrorDiv.innerHTML = ""; // 에러 메시지 초기화
+    }
+});
+
+//  회원가입중 비밀번호 부분
+document.getElementById('password-input').addEventListener('input', checkPasswordMatch);
+document.getElementById('pw-onemore-input').addEventListener('input', checkPasswordMatch);
+
+function checkPasswordMatch() {
+    const password = document.getElementById('password-input').value;
+    const passwordConfirm = document.getElementById('pw-onemore-input').value;
+    const passwordErrorDiv = document.getElementById('password-check-result');
+
+    // 비밀번호가 일치할 때
+    if (password === passwordConfirm && password.length > 0) {
+        passwordErrorDiv.innerHTML = "<p class='available-message'>비밀번호가 일치합니다.</p>";
+    }
+    // 비밀번호가 일치하지 않을 때
+    else if (passwordConfirm.length > 0) {
+        passwordErrorDiv.innerHTML = "<p class='error-message'>비밀번호가 일치하지 않습니다.</p>";
+    }
+    // 비밀번호 확인란이 비어있을 때
+    else {
+        passwordErrorDiv.innerHTML = "<p class='error-message'>비밀번호를 입력해주세요.</p>"; // 메시지 초기화
+    }
+}
+
+//모든 input태그에 값이 입력되면 가입하기 버튼 활성화
+document.addEventListener('DOMContentLoaded', ()=> {
+    const finalButton = document.getElementById('final-button');
+    const inputFields = document.querySelectorAll('#signupForm input');
+
+    // 모든 input 필드에 값이 입력되었는지 확인하는 함수
+    function checkInputs() {
+        let allFilled = true;
+
+        inputFields.forEach(input => {
+            if (input.value.trim() === "") {
+                allFilled = false;
+            }
+        });
+
+        if (allFilled) {
+            finalButton.classList.add("active");
+            finalButton.disabled = false; // 버튼 활성화
+        } else {
+            finalButton.classList.remove("active");
+            finalButton.disabled = true; // 버튼 비활성화
+        }
+    }
+
+    // 각 input 필드에 입력 이벤트 추가 (input 이벤트)
+    inputFields.forEach(input => {
+        input.addEventListener('input', checkInputs);
+    });
+
+    // 페이지 로드 시 입력 상태를 확인
+    checkInputs();
+});
