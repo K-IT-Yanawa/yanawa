@@ -2,18 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.matching.MatchingMapper">
 
-
-
     <insert id="insert">
         INSERT INTO TBL_MATCHING (
         POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE,
         TIME_REGIST, DATE_REGIST, TIME_CORDINATE, DATE_CORDINATE,
         CITY, LOCAL_CITY, LOCAL_CITY_DETAIL
-        ) VALUES (
-        #{postId}, #{matching.matchStatus}, #{matching.teamId}, #{matching.sportKindValue},
-        #{matching.timeRegister}, #{matching.dateRegister}, #{matching.timeCordinate}, #{matching.dateCordinate},
-        #{matching.city}, #{matching.localCity}, #{matching.localCityDetail}
-        )
+        ) VALUES (#{postId}, #{matchStatus}, TEAM_ID, #{sportKindValue},
+                  #{timeRegister}, #{dateRegister}, #{timeCordinate}, #{dateCordinate},
+                  #{city}, #{localCity}, #{localCityDetail})
+        FROM TEAM
+        WHERE TEAM_ID = #{teamId}
     </insert>
 
 

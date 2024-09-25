@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package com.app.yanawa.service.matching;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
@@ -7,6 +6,7 @@ import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.post.PostVO;
 import com.app.yanawa.repository.matching.MatchingDAO;
 import com.app.yanawa.repository.post.PostDAO;
+import com.app.yanawa.repository.team.TeamDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -23,11 +23,12 @@ public class MatchingServiceImpl implements MatchingService {
     private final MatchingDAO matchingDAO;
     private final PostDAO postDAO;
     private final MatchingVO matchingVO;
-
+    private final TeamDAO teamDAO;
 
     @Override
     public void write(MatchingDTO matchingDTO) {
         PostVO postVO = matchingDTO.toPostVO();
+
 
         postDAO.save(postVO);
         matchingDTO.setPostId(postVO.getId());
@@ -44,4 +45,3 @@ public class MatchingServiceImpl implements MatchingService {
         return 0;
     }
 }
->>>>>>> master
