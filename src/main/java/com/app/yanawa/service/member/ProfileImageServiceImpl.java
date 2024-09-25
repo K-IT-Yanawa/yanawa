@@ -1,4 +1,4 @@
-package com.app.yanawa.service.user;
+package com.app.yanawa.service.member;
 
 public class ProfileImageServiceImpl {
 }

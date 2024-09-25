@@ -1,7 +1,7 @@
-package com.app.yanawa.repository.user;
+package com.app.yanawa.repository.member;
 
-import com.app.yanawa.domain.user.UserVO;
-import com.app.yanawa.mapper.user.UserMapper;
+import com.app.yanawa.domain.member.MemberVO;
+import com.app.yanawa.mapper.member.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 public class UserDAO {
     private final UserMapper userMapper;
 
-    public void save(UserVO userVO) {
-        userMapper.insert(userVO);
+    public void save(MemberVO memberVO) {
+        userMapper.insert(memberVO);
     }
 
     public boolean existsByEmail(String email) {
