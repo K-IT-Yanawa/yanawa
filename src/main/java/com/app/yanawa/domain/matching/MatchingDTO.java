@@ -11,34 +11,38 @@ import lombok.*;
 public class MatchingDTO {
     @EqualsAndHashCode.Include
     private Long postId;
+    private String postTitle;
+    private String postContent;
+    private int type;
+
     private Long userId;
     private String userName;
     private String userEmail;
     private String userPhone;
 
-    private Long sportKindId;
     private int sportKindValue;
-
-    private Long timeId;
-
 
     private Long teamId;
     private String teamName;
 
-    private String timeCordinate;
-    private String dateCordinate;
+    private String timeRegister;
+    private String dateRegister;
+    private int timeCordinate;
+    private int dateCordinate;
 
-    private Long localCityId;
-    private String localCityName;
-    private String cityName;
+
+    private String city;
+    private String localCity;
     private String localCityDetail;
 
     private String matchStatus;
     private String createDate;
     private String updateDate;
 
-    public MatchingVO toVO(){
-        return new MatchingVO(postId, matchStatus, timeId, teamId, sportKindId, timeCordinate, dateCordinate,
-                localCityId, localCityDetail, createDate, updateDate );
+    public MatchingVO toVO() {
+        return new MatchingVO(
+                postId, matchStatus, teamId, sportKindValue,
+                dateRegister, timeRegister, dateCordinate, timeCordinate,
+                city, localCity, localCityDetail, createDate, updateDate);
     }
 }
