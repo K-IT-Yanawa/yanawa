@@ -15,6 +15,6 @@ public class PostVO {
     private String postContent;
     private String createDate;
     private String updateDate;
-    private int type;
+    private int postType;
 
 }
