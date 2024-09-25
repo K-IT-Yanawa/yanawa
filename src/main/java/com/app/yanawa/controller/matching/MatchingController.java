@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequestMapping("/matchPage/")
@@ -30,7 +31,8 @@ public class MatchingController {
 
     }
     @PostMapping("register")
-    public void write(MatchingDTO matchingDTO) {
+    public RedirectView write(MatchingDTO matchingDTO) {
         matchingService.write(matchingDTO);
+        return new RedirectView("matchMain");
     }
 }

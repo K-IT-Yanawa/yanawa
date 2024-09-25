@@ -91,7 +91,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="name"
+                                                                    for="memberName"
                                                                     class="label-name required"
                                                                 >
                                                                     이름
@@ -155,7 +155,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="email"
+                                                                    for="memberEmail"
                                                                     class="label-name required"
                                                                 >
                                                                     이메일
@@ -175,7 +175,7 @@
                                                                             type="text"
                                                                             class="form-input"
                                                                             name="memberEmail" id="memberEmail"
-                                                                            th:value="*{memberEMail}" readonly
+                                                                            th:value="*{memberEmail}" readonly
                                                                         />
                                                                         <div
                                                                             style="
@@ -476,7 +476,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="team"
+                                                                    for="teamName"
                                                                     class="label-name required"
                                                                 >
                                                                     팀명
@@ -1261,11 +1261,12 @@
                 </div>
             </main>
             <form th:action="@{/matchPage/register}" method="post" name="join-form">
-                <input type="hidden" name="">
-                <input type="hidden" name="">
-                <input type="hidden" name="">
-                <input type="hidden" name="">
-                ID, TEAM_ID, END_DATE, INFORMATION
+                <input type="hidden" name="sportKindValue" th:value="*{sportKindValue}">
+                <input type="hidden" name="city" th:value="*{city}">
+                <input type="hidden" name="localCity" th:value="*{localCity}">
+                <input type="hidden" name="localCityDetail" th:value="*{localCityDetail}">
+                <input type="hidden" name="dateRegister" th:value="*{dateRegister}">
+                <input type="hidden" name="timeRegister" th:value="*{timeRegister}">
             </form>
         </div>
     </body>
@@ -1274,7 +1275,7 @@
         const button = document.querySelector("button[type=submit]");
         button.addEventListener("click", (e) => {
             e.preventDefault();
-            //     유효성 검사 진행
+
             document['join-form'].submit();
         })
     </script>
