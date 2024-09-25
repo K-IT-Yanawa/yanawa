@@ -19,7 +19,7 @@ public class FreeWriteMapperTests {
 
 
     @Test
-@Rollback(false)
+
     public void freewriteInsertTest() {
         FreewriteDTO freewriteDTO = new FreewriteDTO();
 
