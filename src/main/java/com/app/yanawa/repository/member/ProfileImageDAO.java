@@ -1,4 +1,4 @@
 package com.app.yanawa.repository.member;
 
-public class MemberDAO {
+public class ProfileImageDAO {
 }

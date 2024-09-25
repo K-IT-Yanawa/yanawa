@@ -1,21 +1,20 @@
-package com.app.yanawa.service.user;
+package com.app.yanawa.service.member;
 
-import com.app.yanawa.domain.user.UserVO;
-import com.app.yanawa.repository.user.UserDAO;
+import com.app.yanawa.domain.member.MemberVO;
+import com.app.yanawa.repository.member.UserDAO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements MemberService {
     private final UserDAO userDAO;
 
     @Override
-    public void join(UserVO userVO) {
-        userDAO.save(userVO);
+    public void join(MemberVO memberVO) {
+        userDAO.save(memberVO);
     }
 
     @Override
