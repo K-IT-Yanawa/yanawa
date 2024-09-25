@@ -2,7 +2,7 @@
 package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
-import com.app.yanawa.domain.post.PostVO;
+
 import com.app.yanawa.mapper.matching.MatchingMapper;
 import com.app.yanawa.service.matching.MatchingService;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +21,7 @@ public class MatchingMapperTests {
         MatchingDTO matchingDTO = new MatchingDTO();
         matchingDTO.setPostTitle("test");
         matchingDTO.setPostContent("test내용");
-        matchingDTO.setPostType(2);
+        matchingDTO.setPostType(2);;
         matchingDTO.setMemberName("tester");
         matchingDTO.setMemberEmail("test@test.com");
         matchingDTO.setMemberPhone("123456789");

@@ -5,37 +5,37 @@
 
 
     <insert id="insert">
-        INSERT INTO TBL_FREEWRITE(POST_ID, FREEWRITE_READ_COUNT, REPLY_COUNT, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
-        VALUES(#{id} #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO TBL_FREEWRITE(ID, FREEWRITE_READ_COUNT, REPLY_COUNT, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES (#{id}, #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
 
 
     <select id="selectAll" resultType="freewriteDTO">
-        SELECT * FROM (
         SELECT
         F.POST_ID,
-        U.USER_NICKNAME,
-        F.POST_READ_COUNT,
+        U.MEMBER_NICKNAME,
+        F.FREEWRITE_READ_COUNT,
         F.REPLY_COUNT,
-        F.USER_ID,
+        F.MEMBER_ID,
         F.CREATED_DATE,
         F.UPDATED_DATE,
         P.POST_TITLE,
         P.POST_CONTENT,
         ROWNUM AS rnum
         FROM
-        TBL_USER U
+        TBL_MEMBER U  <!-- TBL_MEMBER로 조정 -->
         JOIN
-        TBL_FREEWRITE F ON U.ID = F.USER_ID
+        TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
         JOIN
         TBL_POST P ON F.POST_ID = P.ID
         WHERE
         F.POST_ID IS NOT NULL
+
         ORDER BY
         <choose>
             <when test="order == 'recent'.toString()">F.POST_ID</when>
-            <otherwise>F.POST_READ_COUNT</otherwise>
+            <otherwise>F.FREEWRITE_READ_COUNT</otherwise>
         </choose> DESC
         )
         WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
@@ -49,16 +49,15 @@
 
     <select id="selectById" resultType="freewriteDTO">
         SELECT
-            f.POST_ID, f.POST_READ_COUNT, f.REPLY_COUNT, f.USER_ID, f.CREATED_DATE, f.UPDATED_DATE,
-            p.POST_TITLE, p.POST_CONTENT, u.USER_NICKNAME
+            f.POST_ID, f.FREEWRTIE_READ_COUNT, f.REPLY_COUNT, f.MEMBER_ID, f.CREATED_DATE, f.UPDATED_DATE,
+            p.POST_TITLE, p.POST_CONTENT, u.MEMBER_NICKNAME
         FROM
             TBL_FREEWRITE f
-                JOIN
-            TBL_POST p ON f.POST_ID = p.ID
-                JOIN
-            TBL_USER u ON f.USER_ID = u.ID
+                JOIN TBL_POST p ON f.POST_ID = p.ID
+                JOIN TBL_USER u ON f.USER_ID = u.ID
         WHERE
             f.POST_ID = #{id}
+
     </select>
 
 

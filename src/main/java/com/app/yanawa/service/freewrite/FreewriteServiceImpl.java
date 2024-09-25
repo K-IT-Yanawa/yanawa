@@ -8,19 +8,22 @@ import com.app.yanawa.domain.post.PostVO;
 import com.app.yanawa.repository.freewrite.FreewriteDAO;
 import com.app.yanawa.repository.post.PostDAO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Primary
 @RequiredArgsConstructor
+@Transactional(rollbackFor = Exception.class)
 public class FreewriteServiceImpl implements FreewriteService {
     private final FreewriteDAO freewriteDAO;
-    private final FreewriteDTO freewriteDTO;
     private final PostDAO postDAO;
 
     @Override
-    public void write(FreewriteVO freewriteVO) {
+    public void write(FreewriteDTO freewriteDTO) {
         PostVO postVO = freewriteDTO.toPostVO();
 
         postDAO.save(postVO);
