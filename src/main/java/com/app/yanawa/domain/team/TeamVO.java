@@ -1,5 +1,4 @@
 package com.app.yanawa.domain.team;
-
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -12,14 +11,15 @@ public class TeamVO {
     @EqualsAndHashCode.Include
     private Long id;
     private Long memberId;
-    private String teamName;
     private int memberCount;
-    private Long localCityId;
+    private int applicantCount;
+    private String teamName;
+    private String cityName;
+    private String localCityName;
     private String detailedArea;
+    private String teamActivityTime;
     private String ageRange;
-    private int applicantNumber;
-    private String information;
-    private Long sportsKindRadioId;
+    private int sportsKindRadioId;
     private String createdDate;
     private String updatedDate;
 }
