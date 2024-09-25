@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 package com.app.yanawa.service.matching;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
@@ -44,4 +43,4 @@ public class MatchingServiceImpl implements MatchingService {
         return 0;
     }
 }
->>>>>>> master
+
