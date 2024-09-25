@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
@@ -41,3 +43,4 @@ public class MatchingMapperTests {
         log.info("{}","매칭글이 작성되었습니다.");
     }
 }
+>>>>>>> master
