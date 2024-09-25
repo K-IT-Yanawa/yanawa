@@ -28,8 +28,7 @@ public class MemberDTO implements Serializable {
 
     public MemberVO toVO() {
         return new MemberVO(id, memberName,memberEmail,memberNickName,
-                memberPhone,memberPassword,memberGender,memberPoint,memberIntroduce,
-                memberSportKind,memberPositionKind,memberSportHistory,memberBirth,
+                memberPhone,memberPassword,memberGender,memberBirth,
                 createdDate,updatedDate);
     }
 }

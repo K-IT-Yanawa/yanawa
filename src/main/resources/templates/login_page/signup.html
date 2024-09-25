@@ -55,16 +55,19 @@
                         <p class="title-p">회원가입</p>
                     </div>
                 </div>
+                <div th:if="${param.error}" class="error-message">
+                    <p>회원가입에 실패했습니다. 다시 시도해주세요.</p>
+                </div>
                 <!-- 회원가입 title 아래 모든 것 -->
                 <div class="sign-up-wrapper">
-                    <form class="sign-up-form" th:action="@{/user/join}" id="signupForm" th:object="${userDTO}">
+                    <form class="sign-up-form" th:action="@{/yanawa/member/signup}" id="signupForm" th:object="${memberDTO}" method="POST">
                         <div>
                             <div class="email">
                                 <label for="email" class="label-style">이메일</label>
                                 <input
                                         id="email"
                                         type="text"
-                                        th:field="*{userEmail}"
+                                        th:field="*{memberEmail}"
                                         placeholder="이메일을 입력해주세요."
                                         name="email"
                                         autocomplete="off"
@@ -80,16 +83,16 @@
                         <div class="name wrapper-8px">
                             <div class="margin-bottom">
                                 <label
-                                        for="username"
+                                        for="name-input"
                                         class="label-style"
                                 >이름</label
                                 >
                             </div>
                             <input
                                     type="text"
-                                    th:field="*{userName}"
+                                    th:field="*{memberName}"
                                     placeholder="이름을 입력해주세요."
-                                    name="username"
+                                    name="membername"
                                     autocomplete="off"
                                     id="name-input"
                                     class="input-style"
@@ -109,107 +112,25 @@
                                         >
                                     </div>
                                     <input
-                                            id="nickname-1"
+                                            id="nickname"
                                             type="text"
-                                            th:field="*{userNickName}"
+                                            th:field="*{memberNickName}"
                                             placeholder="닉네임을 입력해주세요."
                                             name="nickname"
                                             autocomplete="off"
                                             class="input-style"
-                                            value=""
+                                            style="margin-top: 8px"
+                                            required
                                     />
                                 </div>
-                                <button
-                                        type="button"
-                                        id="duplicate-check-button-nickname"
-                                        class="duplicate-check-button"
-                                        disabled
-                                >
-                                            <span
-                                                    id="duplicate-check-nickname"
-                                                    class="duplicate-check-span"
-                                            >중복 확인</span
-                                            >
-                                </button>
+                                <button type="button" id="duplicate-check-button-nickname" class="duplicate-check-button duplicate-check-span duplicate-check-blue">중복 확인</button>
                             </div>
-                            <!-- 닉네임-2 (중복 확인 메시지) -->
-                            <div class="nickname-wrapper email">
-                                <div class="nickname-div email-1">
-                                    <div class="margin-bottom">
-                                        <label
-                                                for="nickname"
-                                                class="label-style"
-                                        >닉네임</label
-                                        >
-                                    </div>
-                                    <input
-                                            id="nickname-2"
-                                            type="text"
-                                            th:field="*{userNickName}"
-                                            placeholder="닉네임을 입력해주세요."
-                                            name="nickname"
-                                            autocomplete="off"
-                                            class="input-style error-style"
-                                            value=""
-                                    />
-                                </div>
-                                <button
-                                        type="button"
-                                        class="duplicate-check-button"
-                                >
-                                            <span
-                                                    class="duplicate-check-span duplicate-check-blue"
-                                            >중복 확인</span
-                                            >
-                                </button>
-                            </div>
-                            <div class="error">
-                                <p class="error-message">
-                                    중복 확인 후 계속해주세요.
-                                </p>
-                            </div>
-                            <!-- 닉네임-3 (가입 가능 메시지) -->
-                            <div class="nickname-wrapper email">
-                                <div class="nickname-div email-1">
-                                    <div class="margin-bottom">
-                                        <label
-                                                for="nickname"
-                                                class="label-style"
-                                        >닉네임</label
-                                        >
-                                    </div>
-                                    <input
-                                            id="nickname-3"
-                                            type="text"
-                                            th:field="*{userNickName}"
-                                            placeholder="닉네임을 입력해주세요."
-                                            name="email"
-                                            autocomplete="off"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                </div>
-                                <button
-                                        type="button"
-                                        class="duplicate-check-button"
-                                        disabled
-                                >
-                                            <span class="duplicate-check-span"
-                                            >중복 확인</span
-                                            >
-                                </button>
-                            </div>
-                            <div class="available">
-                                <p class="available-message">
-                                    사용이 가능한 닉네임입니다.
-                                </p>
-                            </div>
-                            <!--  -->
+                            <div id="nickname-check-result" class="error"></div>
                         </div>
                         <!-- 휴대폰 번호 -->
                         <div>
                             <div class="margin-bottom">
-                                <label for="mobile" class="label-style"
+                                <label class="label-style"
                                 >휴대폰 번호</label
                                 >
                             </div>
@@ -755,7 +676,7 @@
                                 <div class="get-code-div">
                                     <input
                                             type="number"
-                                            th:field="*{userPhone}"
+                                            th:field="*{memberPhone}"
                                             placeholder="(예시)01013245768"
                                             id="mobile-input"
                                             name="moblie"
@@ -777,84 +698,62 @@
                                                 >
                                     </button>
                                 </div>
-                                <!-- 인증번호 받기-2 (올바르지 않게 입력 시 메시지) -->
-                                <div class="get-code-div">
-                                    <input
-                                            type="number"
-                                            th:field="*{userPhone}"
-                                            placeholder="(예시)01013245768"
-                                            name="moblie"
-                                            autocomplete="on"
-                                            pattern="[0-9]*"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                    <button
-                                            type="button"
-                                            class="get-code-button"
-                                            disabled
-                                    >
-                                                <span class="button-span"
-                                                >인증번호 받기</span
-                                                >
-                                    </button>
-                                </div>
                                 <p class="error-message">
                                     올바른 전화번호를 입력해주세요.
                                 </p>
                                 <!-- 인증번호 입력-1 -->
-                                <div class="get-code-div">
-                                    <input
-                                            type="number"
-                                            placeholder="인증번호를 입력해주세요."
-                                            name="authCode"
-                                            readonly
-                                            autocomplete="on"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                </div>
-                                <!-- 인증번호 입력-2 (입력칸 활성화) -->
-                                <div class="get-code-div">
-                                    <input
-                                            type="number"
-                                            placeholder="인증번호를 입력해주세요."
-                                            name="authCode"
-                                            id="get-code-input"
-                                            autocomplete="on"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                </div>
-                                <div class="request-code-div">
-                                    <p class="request-code-message">
-                                        인증번호가 요청되었습니다.
-                                    </p>
-                                    <p class="request-code-message">
-                                        유효시간 03:00
-                                    </p>
-                                </div>
-                                <!-- 인증번호 입력-3 (입력칸 활성화/인증 시간 만료) -->
-                                <div class="get-code-div">
-                                    <input
-                                            type="number"
-                                            placeholder="인증번호를 입력해주세요."
-                                            name="authCode"
-                                            autocomplete="on"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                </div>
-                                <div class="time-out-div">
-                                    <p class="time-out-message">
-                                        인증 시간이 만료되었습니다. 다시
-                                        시도해 주세요.
-                                    </p>
-                                    <p class="time-out-message">
-                                        유효시간 00:00
-                                    </p>
-                                </div>
-                                <div class="black-gap-4px"></div>
+                                <!--                                <div class="get-code-div">-->
+                                <!--                                    <input-->
+                                <!--                                            type="number"-->
+                                <!--                                            placeholder="인증번호를 입력해주세요."-->
+                                <!--                                            name="authCode"-->
+                                <!--                                            readonly-->
+                                <!--                                            autocomplete="on"-->
+                                <!--                                            class="input-style"-->
+                                <!--                                            value=""-->
+                                <!--                                    />-->
+                                <!--                                </div>-->
+                                <!--                                &lt;!&ndash; 인증번호 입력-2 (입력칸 활성화) &ndash;&gt;-->
+                                <!--                                <div class="get-code-div">-->
+                                <!--                                    <input-->
+                                <!--                                            type="number"-->
+                                <!--                                            placeholder="인증번호를 입력해주세요."-->
+                                <!--                                            name="authCode"-->
+                                <!--                                            id="get-code-input"-->
+                                <!--                                            autocomplete="on"-->
+                                <!--                                            class="input-style"-->
+                                <!--                                            value=""-->
+                                <!--                                    />-->
+                                <!--                                </div>-->
+                                <!--                                <div class="request-code-div">-->
+                                <!--                                    <p class="request-code-message">-->
+                                <!--                                        인증번호가 요청되었습니다.-->
+                                <!--                                    </p>-->
+                                <!--                                    <p class="request-code-message">-->
+                                <!--                                        유효시간 03:00-->
+                                <!--                                    </p>-->
+                                <!--                                </div>-->
+                                <!--                                &lt;!&ndash; 인증번호 입력-3 (입력칸 활성화/인증 시간 만료) &ndash;&gt;-->
+                                <!--                                <div class="get-code-div">-->
+                                <!--                                    <input-->
+                                <!--                                            type="number"-->
+                                <!--                                            placeholder="인증번호를 입력해주세요."-->
+                                <!--                                            name="authCode"-->
+                                <!--                                            autocomplete="on"-->
+                                <!--                                            class="input-style"-->
+                                <!--                                            value=""-->
+                                <!--                                    />-->
+                                <!--                                </div>-->
+                                <!--                                <div class="time-out-div">-->
+                                <!--                                    <p class="time-out-message">-->
+                                <!--                                        인증 시간이 만료되었습니다. 다시-->
+                                <!--                                        시도해 주세요.-->
+                                <!--                                    </p>-->
+                                <!--                                    <p class="time-out-message">-->
+                                <!--                                        유효시간 00:00-->
+                                <!--                                    </p>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="black-gap-4px"></div>-->
                             </div>
                         </div>
                         <!-- 생년월일(만19세 이상 확인) -->
@@ -870,60 +769,18 @@
                                         >
                                     </div>
                                     <input
-                                            id="birth-1"
+                                            id="birth"
                                             type="number"
-                                            th:field="*{userBirth}"
+                                            th:field="*{memberBirth}"
                                             placeholder="8자리로 입력해주세요"
                                             name="birth"
                                             autocomplete="off"
                                             class="input-style"
-                                            value=""
+                                            style="margin-top: 8px"
+                                            required
                                     />
                                 </div>
-                            </div>
-                            <!-- 생년월일-2 (만 19세 미만 시: 오류 메시지) -->
-                            <div class="birth-wrapper email">
-                                <div class="birth-div email-1">
-                                    <div class="margin-bottom"></div>
-                                    <input
-                                            id="birth-2"
-                                            type="number"
-                                            th:field="*{userBirth}"
-                                            placeholder="8자리로 입력해주세요"
-                                            name="birth"
-                                            autocomplete="off"
-                                            class="input-style error-style"
-                                            value=""
-                                    />
-                                </div>
-                            </div>
-                            <div class="error">
-                                <p class="error-message">
-                                    만 19세 미만이므로 가입이
-                                    불가능합니다.
-                                </p>
-                            </div>
-                            <!-- 생년월일-3 (가입 가능 메시지) -->
-                            <div class="birth-wrapper email">
-                                <div class="birth-div email-1">
-                                    <div class="margin-bottom"></div>
-                                    <input
-                                            id="birth-3"
-                                            type="number"
-                                            th:field="*{userBirth}"
-                                            placeholder="8자리로 입력해주세요"
-                                            name="birth"
-                                            autocomplete="off"
-                                            class="input-style"
-                                            value=""
-                                    />
-                                </div>
-                            </div>
-                            <div class="available">
-                                <p class="available-message">
-                                    만 19세 이상이므로 가입이
-                                    가능합니다.
-                                </p>
+                                <div id="birth-check-result" class="error"></div>
                             </div>
                         </div>
                         <!-- 성별 선택 -->
@@ -940,7 +797,7 @@
                                     <input
                                             id="gender"
                                             type="text"
-                                            th:field="*{userGender}"
+                                            th:field="*{memberGender}"
                                             placeholder="성별을 입력해주세요."
                                             name="gender"
                                             class="input-style"
@@ -961,7 +818,7 @@
                         <div class="password wrapper-8px">
                             <div class="margin-bottom">
                                 <label
-                                        for="password"
+                                        for="password-input"
                                         class="label-style"
                                 >비밀번호</label
                                 >
@@ -970,34 +827,20 @@
                             <div class="password-div">
                                 <input
                                         type="password"
-                                        th:field="*{userPassword}"
+                                        th:field="*{memberPassword}"
                                         placeholder="비밀번호를 입력해주세요."
                                         name="password"
                                         autocomplete="on"
                                         id="password-input"
                                         class="input-style"
-                                        value=""
+                                        style="margin-top: 8px"
+                                        required
                                 />
                             </div>
-                            <!-- 비밀번호-2 (잘못 입력 시 - 메시지)-->
-                            <div class="password-div">
-                                <input
-                                        type="password"
-                                        th:field="*{userPassword}"
-                                        placeholder="비밀번호를 입력해주세요."
-                                        name="password"
-                                        autocomplete="on"
-                                        class="input-style error-style"
-                                        value=""
-                                />
-                            </div>
-                            <p class="error-message">
-                                올바르지 않은 비밀번호입니다.
-                            </p>
                             <!-- 비밀번호 다시 입력-1 -->
                             <input
                                     type="password"
-                                    th:field="*{userPassword}"
+                                    th:field="*{memberPassword}"
                                     placeholder="비밀번호를 다시 한번 입력해주세요."
                                     name="passwordConfirm"
                                     autocomplete="on"
@@ -1005,25 +848,8 @@
                                     class="input-style"
                                     value=""
                             />
-                            <!-- 비밀번호 다시 입력-2 (일치하지 않게 입력 시 - 메시지)-->
-                            <input
-                                    type="password"
-                                    th:field="*{userPassword}"
-                                    placeholder="비밀번호를 다시 한번 입력해주세요."
-                                    name="passwordConfirm"
-                                    autocomplete="on"
-                                    class="input-style error-style"
-                                    value=""
-                            />
-                            <p class="error-message">
-                                비밀번호가 서로 일치하지 않습니다.
-                            </p>
-                            <p class="password-rules">
-                                영문 대소문자, 숫자, 특수문자를 3가지
-                                이상으로 조합해 8자 이상 16자 이하로
-                                입력해주세요.
-                            </p>
                         </div>
+                        <div id="password-check-result" class="error" style="margin-top: -20px"></div>
                         <!-- 동의 -->
                         <div class="agree-wrapper">
                             <div class="agree-div">

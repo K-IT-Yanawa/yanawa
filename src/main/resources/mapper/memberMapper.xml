@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.yanawa.mapper.member.UserMapper">
+<mapper namespace="com.app.yanawa.mapper.member.MemberMapper">
     <insert id="insert">
-        INSERT INTO TBL_USER(
-            ID, USER_NAME, USER_EMAIL, USER_NICKNAME, USER_PHONE, USER_PASSWORD, USER_GENDER, USER_POINT, USER_BIRTH, CREATED_DATE, UPDATED_DATE,
-            USER_INTRODUCE, USER_SPORT_KIND, USER_SPORT_HISTORY
+        INSERT INTO TBL_MEMBER (
+            ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PHONE, MEMBER_PASSWORD,
+            MEMBER_GENDER, MEMBER_BIRTH
         )
         VALUES (
-                   SEQ_USER.NEXTVAL, #{userName}, #{userEmail}, #{userNickName}, #{userPhone}, #{userPassword}, #{userGender}, #{userPoint}, #{userBirth},
-                   SYSDATE, SYSDATE, #{userIntroduce}, #{userSportKind}, #{userSportHistory}
+                   SEQ_MEMBER.NEXTVAL, #{memberName}, #{memberEmail}, #{memberNickName}, #{memberPhone},
+                   #{memberPassword}, #{memberGender}, #{memberBirth}
                )
     </insert>
 
     <select id="countByEmail" resultType="int" parameterType="String">
-        SELECT COUNT(*) FROM TBL_USER WHERE USER_EMAIL = #{email}
+        SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{email}
+    </select>
+
+    <select id="countByNickname" resultType="int" parameterType="String">
+        SELECT COUNT(*)
+        FROM TBL_MEMBER
+        WHERE MEMBER_NICKNAME = #{nickname}
     </select>
 </mapper>
