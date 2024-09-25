@@ -1,7 +1,9 @@
 package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
+import com.app.yanawa.domain.freewrite.FreewriteVO;
 import com.app.yanawa.mapper.freewrite.FreewriteMapper;
+import com.app.yanawa.service.freewrite.FreewriteService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,28 +16,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Slf4j
 public class FreeWriteMapperTests {
     @Autowired
-    private FreewriteMapper freewriteMapper;
+    private FreewriteService freewriteService;
 
 
 
     @Test
-
-    public void freewriteInsertTest() {
+    @Rollback(false)
+    public void testInsert() {
+        // 1. FreewriteDTO 객체를 생성하여 필요한 필드를 설정합니다.
         FreewriteDTO freewriteDTO = new FreewriteDTO();
+        freewriteDTO.setPostTitle("테스트 글 제목");  // POST_TITLE 설정
+        freewriteDTO.setPostContent("테스트 글 내용");  // POST_CONTENT 설정
+        freewriteDTO.setFreewriteReadCount(0);  // 초기 조회수
+        freewriteDTO.setReplyCount(0);  // 초기 댓글 수
+        freewriteDTO.setMemberId(1L);  // 적절한 MEMBER_ID 설정
+        freewriteDTO.setPostType(1);  // FREEWRITE는 postType이 1이어야 함
 
-        // 시퀀스 값을 가져와 ID로 설정
-        Long nextPostId = freewriteMapper.selectNextSeqVal();
-        freewriteDTO.setId(nextPostId);
+        freewriteService.write(freewriteDTO.toVO());
 
-        freewriteDTO.setPostTitle("게시글 제목 테스트 6");
-        freewriteDTO.setPostContent("테스트다 글 내용 6");
-        freewriteDTO.setPostReadCount(0);
-        freewriteDTO.setReplyCount(0);
-        freewriteDTO.setUserId(1L);  // 유효한 USER_ID 설정
 
-        log.info("삽입할 데이터: {}", freewriteDTO);
-        freewriteMapper.insert(freewriteDTO.toVO());  // 데이터 삽입
-        log.info("게시글 삽입 완료, ID = {}", freewriteDTO.getId());
+
     }
 
 

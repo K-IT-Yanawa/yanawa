@@ -16,10 +16,10 @@ public class FreewriteVO {
     private Long id;
     private String postTitle;
     private String postContent;
-    private Long userId;
+    private Long memberId;
     private String createdDate;
     private String updatedDate;
-    private int postReadCount;
+    private int freewriteReadCount;
     private int replyCount;
-    private String userNickname;
+    private String memberNickname;
 }

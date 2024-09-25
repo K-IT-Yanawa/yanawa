@@ -5,8 +5,8 @@
 
 
     <insert id="insert">
-        INSERT INTO TBL_FREEWRITE(POST_ID, POST_READ_COUNT, REPLY_COUNT, USER_ID, CREATED_DATE, UPDATED_DATE)
-        VALUES(SEQ_FREEWRITE.NEXTVAL, #{postReadCount}, #{replyCount}, #{userId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO TBL_FREEWRITE(POST_ID, FREEWRITE_READ_COUNT, REPLY_COUNT, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(#{id} #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
 
@@ -69,8 +69,5 @@
         VALUES (SEQ_ATTACHMENT.NEXTVAL, #{attachmentPath}, #{attachmentSize}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
-    <select id="selectNextSeqVal" resultType="long">
-        SELECT SEQ_FREEWRITE.NEXTVAL FROM DUAL
-    </select>
 
 </mapper>

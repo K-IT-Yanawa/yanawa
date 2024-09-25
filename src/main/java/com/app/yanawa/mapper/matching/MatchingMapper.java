@@ -2,7 +2,7 @@ package com.app.yanawa.mapper.matching;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
-import com.app.yanawa.domain.post.PostDTO;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
