@@ -16,7 +16,7 @@ public class MatchingServiceImpl implements MatchingService {
 
 
     @Override
-    public void write(MatchingVO matchingVO) {matchingDAO.save(matchingVO);}
+    public void write(MatchingDTO matchingDTO) {matchingDAO.save(matchingDTO);}
 
     @Override
     public List<MatchingDTO> getListMatching() {

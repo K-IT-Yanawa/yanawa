@@ -7,7 +7,7 @@ import com.app.yanawa.domain.matching.MatchingVO;
 import java.util.List;
 
 public interface MatchingService {
-    public void write(MatchingVO matchingVO);
+    public void write(MatchingDTO matchingDTO);
 
     public List<MatchingDTO> getListMatching();
 

@@ -1,22 +1,39 @@
 CREATE TABLE TBL_MATCHING(
                              POST_ID NUMBER PRIMARY KEY,
                              MATCHING_STATUS VARCHAR2(255) NOT NULL,
-                             TIME_ID NUMBER,
                              TEAM_ID NUMBER,
+                             SPORT_KIND_VALUE NUMBER,
+                             TIME_REGIST VARCHAR2(255) NOT NULL ,
+                             DATE_REGIST VARCHAR2(255) NOT NULL ,
                              TIME_CORDINATE NUMBER DEFAULT 0 NOT NULL,
                              DATE_CORDINATE NUMBER DEFAULT 0 NOT NULL,
-                             LOCAL_CITY_ID NUMBER,
+                             CITY VARCHAR2(255) NOT NULL ,
+                             LOCAL_CITY VARCHAR2(255) NOT NULL ,
                              LOCAL_CITY_DETAIL VARCHAR2(255) NOT NULL,
-                             CREATED_DATE DATE DEFAULT SYSDATE NOT NULL,
-                             UPDATED_DATE DATE NOT NULL,
+                             CREATED_DATE DATE DEFAULT CURRENT_TIMESTAMP,
+                             UPDATED_DATE DATE DEFAULT CURRENT_TIMESTAMP,
                              CONSTRAINT FK_MATCHING_POST FOREIGN KEY(POST_ID)
                                  REFERENCES TBL_POST(ID),
-                             CONSTRAINT FK_MATCHING_TIME FOREIGN KEY(TIME_ID)
-                                 REFERENCES TBL_MATCHING_TIME(ID),
                              CONSTRAINT FK_MATCHING_TEAM FOREIGN KEY(TEAM_ID)
-                                 REFERENCES TBL_TEAM(ID),
-                             CONSTRAINT FK_MATCHING_LOCAL_CITY FOREIGN KEY(LOCAL_CITY_ID)
-                                 REFERENCES TBL_LOCAL_CITY(ID)
+                                 REFERENCES TBL_TEAM(ID)
+
 );
 
 CREATE SEQUENCE SEQ_MATCHING;
+
+ALTER TABLE TBL_MATCHING
+    ADD SPORT_KIND_VALUE NUMBER;
+
+ALTER TABLE TBL_MATCHING
+    ADD CONSTRAINT FK_MATCHING_SPORT_KIND FOREIGN KEY (SPORT_KIND_ID)
+        REFERENCES TBL_SPORTS_KIND_RADIO(ID);
+
+ALTER TABLE TBL_MATCHING
+    ADD CITY VARCHAR2(255);
+
+
+ALTER TABLE TBL_MATCHING
+    DROP CONSTRAINT FK_MATCHING_SPORT_KIND;
+
+ALTER TABLE TBL_MATCHING
+    DROP COLUMN CTIY;

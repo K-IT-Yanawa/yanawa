@@ -14,6 +14,8 @@
         <typeAlias type="com.app.yanawa.domain.user.UserVO" alias="userVO"/>
         <typeAlias type="com.app.yanawa.domain.matching.MatchingDTO" alias="matchingDTO"/>
         <typeAlias type="com.app.yanawa.domain.matching.MatchingVO" alias="matchingVO"/>
+        <typeAlias type="com.app.yanawa.domain.post.PostDTO" alias="postDTO"/>
+        <typeAlias type="com.app.yanawa.domain.post.PostVO" alias="postVO"/>
     </typeAliases>
 
 </configuration>
