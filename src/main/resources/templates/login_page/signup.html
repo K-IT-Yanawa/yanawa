@@ -672,7 +672,6 @@
                                                 </span>
                                     </div>
                                 </div>
-                                <!-- 인증번호 받기 -->
                                 <div class="get-code-div">
                                     <input
                                             type="number"
@@ -685,21 +684,21 @@
                                             class="input-style"
                                             value=""
                                     />
-                                    <button
-                                            type="button"
-                                            id="get-code-button"
-                                            class="get-code-button"
-                                            disabled
-                                    >
-                                                <span
-                                                        id="get-code-span"
-                                                        class="button-span"
-                                                >인증번호 받기</span
-                                                >
-                                    </button>
+<!--                                    <button-->
+<!--                                            type="button"-->
+<!--                                            id="get-code-button"-->
+<!--                                            class="get-code-button"-->
+<!--                                            disabled-->
+<!--                                    >-->
+<!--                                                <span-->
+<!--                                                        id="get-code-span"-->
+<!--                                                        class="button-span"-->
+<!--                                                >인증번호 받기</span-->
+<!--                                                >-->
+<!--                                    </button>-->
                                 </div>
                                 <p class="error-message">
-                                    올바른 전화번호를 입력해주세요.
+                                    - 재외하고 숫자만 입력해주세요.
                                 </p>
                                 <!-- 인증번호 입력-1 -->
                                 <!--                                <div class="get-code-div">-->
@@ -840,9 +839,9 @@
                             <!-- 비밀번호 다시 입력-1 -->
                             <input
                                     type="password"
-                                    th:field="*{memberPassword}"
+                                    th:field="*{confirmPassword}"
                                     placeholder="비밀번호를 다시 한번 입력해주세요."
-                                    name="passwordConfirm"
+                                    name="confirmPassword"
                                     autocomplete="on"
                                     id="pw-onemore-input"
                                     class="input-style"
