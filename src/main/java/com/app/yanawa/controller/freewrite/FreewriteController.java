@@ -32,9 +32,25 @@ public class FreewriteController {
 
     @PostMapping("write")
     public String write(FreewriteDTO freewriteDTO) {
+//        session.setAttribute("member", new MemberVO(
+//                1L,                        // ID
+//                "사용자이름",              // memberName
+//                "사용자이메일",            // memberEmail
+//                "사용자닉네임",            // memberNickName
+//                "010-1234-5678",           // memberPhone
+//                "비밀번호",                // memberPassword
+//                "남성",                    // memberGender (남성/여성)
+//                Date.valueOf("1990-01-01") // memberBirth (DATE)
+//                // 나머지 필드는 default나 nullable로 제외
+//        ));
+
+
+        // 미리 로그인 됐다고 가정함.
         // 사용자 정보 설정
         freewriteDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
         freewriteService.write(freewriteDTO);
+
+
 
         return "redirect:/freewrite/list";
     }
