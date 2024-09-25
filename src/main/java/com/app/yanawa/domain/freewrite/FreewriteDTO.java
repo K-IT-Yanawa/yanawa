@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
+
 
 public class FreewriteDTO {
 

@@ -8,4 +8,5 @@
         INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, POST_TYPE)
         VALUES (#{id}, #{postTitle}, #{postContent}, #{postType})
     </insert>
+
 </mapper>

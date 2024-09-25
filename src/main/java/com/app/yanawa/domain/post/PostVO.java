@@ -5,16 +5,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-@ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostVO {
-    @EqualsAndHashCode.Include
+
     private Long id;
     private String postTitle;
     private String postContent;
     private String createDate;
     private String updateDate;
-    private int type;
+    private int postType;
 
 }

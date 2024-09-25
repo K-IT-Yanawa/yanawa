@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-=======
+
 package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
-import com.app.yanawa.domain.post.PostDTO;
+
 import com.app.yanawa.mapper.matching.MatchingMapper;
 import com.app.yanawa.service.matching.MatchingService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +22,9 @@ public class MatchingMapperTests {
         matchingDTO.setPostTitle("test");
         matchingDTO.setPostContent("test내용");
         matchingDTO.setPostType(2);;
-        matchingDTO.setUserName("tester");
-        matchingDTO.setUserEmail("test@test.com");
-        matchingDTO.setUserPhone("123456789");
+        matchingDTO.setMemberName("tester");
+        matchingDTO.setMemberEmail("test@test.com");
+        matchingDTO.setMemberPhone("123456789");
         matchingDTO.setSportKindValue(1);
         matchingDTO.setTeamId(1L);
         matchingDTO.setTeamName("test팀");
@@ -43,4 +42,4 @@ public class MatchingMapperTests {
         log.info("{}","매칭글이 작성되었습니다.");
     }
 }
->>>>>>> master
+
