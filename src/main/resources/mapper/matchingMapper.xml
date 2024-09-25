@@ -2,33 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.matching.MatchingMapper">
 
-    <!-- 매칭 게시판 데이터 삽입 -->
-<!--    <insert id="insertMatching">-->
-<!--        INSERT INTO TBL_MATCHING (-->
-<!--            POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE,-->
-<!--            TIME_REGIST, DATE_REGIST,TIME_CORDINATE, DATE_CORDINATE,-->
-<!--            CITY, LOCAL_CITY, LOCAL_CITY_DETAIL-->
-<!--        )-->
-<!--        VALUES (-->
-<!--                SEQ_MATCHING.NEXTVAL, #{matchStatus}, #{teamId}, #{sportKindValue},-->
-<!--                #{timeRegister}, #{dateRegister}, #{timeCordinate}, #{dateCordinate},-->
-<!--                #{city}, #{localCity}, #{localCityDetail}-->
-<!--               )-->
-<!--    </insert>-->
 
-    <insert id="insertPostAndMatching">
-        <selectKey keyProperty="postId" resultType="Long" order="BEFORE">
-            SELECT SEQ_POST.NEXTVAL FROM DUAL
-        </selectKey>
 
-        <!-- 1. POST 테이블에 데이터 삽입  -->
-        INSERT INTO TBL_POST (
-        ID, POST_TITLE, POST_CONTENT, TYPE
-        ) VALUES (
-        #{postId}, #{post.postTitle}, #{post.postContent}, #{post.type}
-        )
-
-        <!-- 2. 방금 삽입한 POST의 ID를 사용하여 Matching 테이블에 데이터 삽입 -->
+    <insert id="insert">
         INSERT INTO TBL_MATCHING (
         POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE,
         TIME_REGIST, DATE_REGIST, TIME_CORDINATE, DATE_CORDINATE,

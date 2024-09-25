@@ -3,6 +3,7 @@ package com.app.yanawa.mapper;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.post.PostDTO;
 import com.app.yanawa.mapper.matching.MatchingMapper;
+import com.app.yanawa.service.matching.MatchingService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 @Slf4j
 public class MatchingMapperTests {
     @Autowired
-    private MatchingMapper matchingMapper;
+    private MatchingService matchingService;
 
     @Test
     public void testinsertMatching() {
         MatchingDTO matchingDTO = new MatchingDTO();
         matchingDTO.setPostTitle("test");
         matchingDTO.setPostContent("test내용");
-        matchingDTO.setType(2);
+        matchingDTO.setPostType(2);;
         matchingDTO.setUserName("tester");
         matchingDTO.setUserEmail("test@test.com");
         matchingDTO.setUserPhone("123456789");
@@ -35,13 +36,8 @@ public class MatchingMapperTests {
         matchingDTO.setLocalCityDetail("역삼역");
         matchingDTO.setMatchStatus("매칭중");
 
-        // PostDTO 생성
-        PostDTO postDTO = new PostDTO();
-        postDTO.setPostTitle(matchingDTO.getPostTitle());
-        postDTO.setPostContent(matchingDTO.getPostContent());
-        postDTO.setType(matchingDTO.getType());
+        matchingService.write(matchingDTO);
 
         log.info("{}","매칭글이 작성되었습니다.");
-        matchingMapper.insertPostAndMatching(postDTO, matchingDTO);
     }
 }
