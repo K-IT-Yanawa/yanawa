@@ -11,4 +11,8 @@
                    SYSDATE, SYSDATE, #{userIntroduce}, #{userSportKind}, #{userSportHistory}
                )
     </insert>
+
+    <select id="countByEmail" resultType="int" parameterType="String">
+        SELECT COUNT(*) FROM TBL_USER WHERE USER_EMAIL = #{email}
+    </select>
 </mapper>

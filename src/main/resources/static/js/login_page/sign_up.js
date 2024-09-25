@@ -131,47 +131,47 @@ const duplicateCheckEmail = document.getElementById("duplicate-check-email");
 const duplicateCheckButtonEmail = document.getElementById(
     "duplicate-check-button-email"
 );
-//
-// const nicknameInput = document.getElementById("nickname-1");
-// const duplicateCheckNickname = document.getElementById(
-//     "duplicate-check-nickname"
-// );
-// const duplicateCheckButtonNickname = document.getElementById(
-//     "duplicate-check-button-nickname"
-// );
-//
-// const mobileInput = document.getElementById("mobile-input");
-// const getCodeSpan = document.getElementById("get-code-span");
-// const getCodeButton = document.getElementById("get-code-button");
-//
-// const nameInput = document.getElementById("name-input");
-// const getCodeInput = document.getElementById("get-code-input");
-// const birthInput = document.getElementById("birth-1");
-// const genderInput = document.getElementById("gender");
-// const passwordInput = document.getElementById("password-input");
-// const pwOnemoreInput = document.getElementById("pw-onemore-input");
-// const finalButton = document.getElementById("final-button");
-//
-// **이메일 중복 확인 버튼 활성화 기능**
-(function () {
-    // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-    function updateDuplicateState() {
-        if (emailInput.value.trim() !== "") {
-            // 이메일 입력된 경우
-            duplicateCheckEmail.classList.add("active");
-            duplicateCheckEmail.disabled = false; // 버튼 활성화
-            duplicateCheckButtonEmail.style.cursor = "pointer";
-        } else {
-            // 이메일 비어있는 경우
-            duplicateCheckEmail.classList.remove("active");
-            duplicateCheckEmail.disabled = true; // 버튼 비활성화
-            duplicateCheckButtonEmail.style.cursor = "default";
-        }
-    }
 
-    // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-    emailInput.addEventListener("input", updateDuplicateState);
-})();
+const nicknameInput = document.getElementById("nickname-1");
+const duplicateCheckNickname = document.getElementById(
+    "duplicate-check-nickname"
+);
+const duplicateCheckButtonNickname = document.getElementById(
+    "duplicate-check-button-nickname"
+);
+
+const mobileInput = document.getElementById("mobile-input");
+const getCodeSpan = document.getElementById("get-code-span");
+const getCodeButton = document.getElementById("get-code-button");
+
+const nameInput = document.getElementById("name-input");
+const getCodeInput = document.getElementById("get-code-input");
+const birthInput = document.getElementById("birth-1");
+const genderInput = document.getElementById("gender");
+const passwordInput = document.getElementById("password-input");
+const pwOnemoreInput = document.getElementById("pw-onemore-input");
+const finalButton = document.getElementById("final-button");
+
+// // **이메일 중복 확인 버튼 활성화 기능**
+// (function () {
+//     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
+//     function updateDuplicateState() {
+//         if (emailInput.value.trim() !== "") {
+//             // 이메일 입력된 경우
+//             duplicateCheckEmail.classList.add("active");
+//             duplicateCheckEmail.disabled = false; // 버튼 활성화
+//             duplicateCheckButtonEmail.style.cursor = "pointer";
+//         } else {
+//             // 이메일 비어있는 경우
+//             duplicateCheckEmail.classList.remove("active");
+//             duplicateCheckEmail.disabled = true; // 버튼 비활성화
+//             duplicateCheckButtonEmail.style.cursor = "default";
+//         }
+//     }
+//
+//     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
+//     emailInput.addEventListener("input", updateDuplicateState);
+// })();
 //
 // // **닉네임 중복 확인 버튼 활성화 기능**
 // (function () {
@@ -211,6 +211,7 @@ const duplicateCheckButtonEmail = document.getElementById(
 //     mobileInput.addEventListener("input", updateCodeState);
 // })();
 //
+//
 // // **가입하기 버튼 활성화 기능**
 // (function () {
 //     // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
@@ -236,7 +237,7 @@ const duplicateCheckButtonEmail = document.getElementById(
 //             finalButton.disabled = true; // 버튼 비활성화
 //         }
 //     }
-//
+
 //     // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
 //     emailInput.addEventListener("input", updateCodeState);
 //     nameInput.addEventListener("input", updateCodeState);
@@ -252,35 +253,33 @@ const duplicateCheckButtonEmail = document.getElementById(
 //     });
 // })();
 
+// 회원가입 이메일 부분
+document.getElementById('duplicate-check-button-email').addEventListener('click', ()=> {
+    const email = document.getElementById('email').value;
+    const resultDiv = document.getElementById('email-check-result');
 
-// document.getElementById('email').addEventListener('input', function() {
-//     const emailInput = this.value;
-//     const emailCheckButton = document.getElementById('duplicate-check-button-email');
-//
-//     // 이메일 형식 유효성 검사
-//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     if (emailPattern.test(emailInput)) {
-//         emailCheckButton.disabled = false;
-//         document.getElementById('emailError').style.display = 'none';
-//     } else {
-//         emailCheckButton.disabled = true;
-//         document.getElementById('emailError').style.display = 'block';
-//     }
-// });
-//
-// document.getElementById('duplicate-check-button-email').addEventListener('click', function() {
-//     const emailInput = document.getElementById('email').value;
-//
-//     // AJAX를 사용하여 이메일 중복 확인 (서버와 통신)
-//     fetch('/user/check-email?email=' + encodeURIComponent(emailInput))
-//         .then(response => response.json())
-//         .then(data => {
-//             if (data.available) {
-//                 document.getElementById('emailAvailable').style.display = 'block';
-//                 document.getElementById('duplicateError').style.display = 'none';
-//             } else {
-//                 document.getElementById('duplicateError').style.display = 'block';
-//                 document.getElementById('emailAvailable').style.display = 'none';
-//             }
-//         });
-// });
+    // 이메일이 비어있을 때
+    if (!email.trim()) {
+        resultDiv.innerHTML = "<p class='error-message'>이메일을 입력해주세요.</p>";
+        return;
+    }
+
+    // 이메일 형식 유효성 검사
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        resultDiv.innerHTML = "<p class='error-message'>올바른 이메일 형식으로 입력해 주세요.</p>";
+        return;
+    }
+
+    // 이메일 형식이 올바를 때 중복 검사 진행
+    fetch(`/yanawa/user/check-email-duplicate?email=${email}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.duplicate) {
+                resultDiv.innerHTML = "<p class='error-message'>중복된 이메일입니다.</p>";
+            } else {
+                resultDiv.innerHTML = "<p class='available-message'>가입이 가능한 이메일입니다.</p>";
+            }
+        })
+});
+
