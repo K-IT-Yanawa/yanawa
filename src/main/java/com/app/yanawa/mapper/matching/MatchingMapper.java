@@ -2,7 +2,11 @@ package com.app.yanawa.mapper.matching;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
+<<<<<<< HEAD
 
+=======
+import com.app.yanawa.domain.post.PostVO;
+>>>>>>> master
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface MatchingMapper {
 //    매칭글 작성
-    public void insertPostAndMatching(MatchingDTO matchingDTO);
+    public void insert(MatchingVO matchingVO);
 
 //    매칭글 목록
     public List<MatchingVO> selectMatching(MatchingVO matchingVO);

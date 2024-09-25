@@ -1,5 +1,6 @@
 package com.app.yanawa.domain.matching;
 
+import com.app.yanawa.domain.post.PostVO;
 import lombok.*;
 
 @Getter
@@ -13,12 +14,12 @@ public class MatchingDTO {
     private Long postId;
     private String postTitle;
     private String postContent;
-    private int type;
+    private int postType;
 
-    private Long userId;
-    private String userName;
-    private String userEmail;
-    private String userPhone;
+    private Long memberId;
+    private String memberName;
+    private String memberEmail;
+    private String memberPhone;
 
     private int sportKindValue;
 
@@ -38,6 +39,11 @@ public class MatchingDTO {
     private String matchStatus;
     private String createDate;
     private String updateDate;
+
+
+    public PostVO toPostVO() {
+        return new PostVO(postId, postTitle, postContent, createDate,updateDate, postType);
+    }
 
     public MatchingVO toVO() {
         return new MatchingVO(
