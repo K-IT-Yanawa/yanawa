@@ -42,7 +42,7 @@ public class MatchingDTO {
 
 
     public PostVO toPostVO() {
-        return new PostVO(postId, postTitle, postContent, createDate,updateDate, postType);
+        return new PostVO(postId, postTitle, postContent, createDate, updateDate, postType);
     }
 
     public MatchingVO toVO() {
