@@ -1,20 +1,20 @@
 package com.app.yanawa.repository.member;
 
 import com.app.yanawa.domain.member.MemberVO;
-import com.app.yanawa.mapper.member.UserMapper;
+import com.app.yanawa.mapper.member.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
 public class UserDAO {
-    private final UserMapper userMapper;
+    private final MemberMapper memberMapper;
 
     public void save(MemberVO memberVO) {
-        userMapper.insert(memberVO);
+        memberMapper.insert(memberVO);
     }
 
     public boolean existsByEmail(String email) {
-        return userMapper.countByEmail(email) > 0; // 0보다 크면 중복
+        return memberMapper.countByEmail(email) > 0; // 0보다 크면 중복
     }
 }

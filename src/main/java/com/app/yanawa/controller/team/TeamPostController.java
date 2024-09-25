@@ -26,49 +26,6 @@ public class TeamPostController {
     private final TeamService teamService;
     private final HttpSession session;
 
-    @PostMapping("validatemember")
-    public RedirectView validatememberAndRedirect(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
-        Optional<MemberVO> memberVO = teamPostService.getMemberInformaion(memberDTO.getId());
-
-        if(memberVO.isPresent() &&
-                memberVO.get().getMemberName().equals(memberDTO.getMemberName()) &&
-                memberVO.get().getMemberEmail().equals(memberDTO.getMemberEmail()) &&
-                memberVO.get().getMemberPhone().equals(memberDTO.getMemberPhone())) {
-            session.setAttribute("validatedmember", memberVO.get());
-            return new RedirectView("/teamRecruitPage/teamrecruitwritePage");
-        } else {
-            return new RedirectView("/error");
-        }
-
-    }
-
-    @GetMapping("register")
-    public String teamRecruitWritePage(@RequestParam(value = "teamId", required = false) Long teamId, Model model, HttpSession session) {
-        MemberVO validateMemberVO = (MemberVO) session.getAttribute("validatedMember");
-
-        if(teamId != null) {
-            Optional<TeamVO> teamVO = teamPostService.getTeamInformation(teamId);
-            teamVO.ifPresent(team -> {
-                model.addAttribute("teamName", team.getTeamName());
-                model.addAttribute("sportsKindRadioId", team.getSportsKindRadioId());
-                model.addAttribute("cityName", team.getCityName());
-                model.addAttribute("localCityName", team.getLocalCityName());
-                model.addAttribute("detailedArea", team.getDetailedArea());
-                model.addAttribute("teamActivityTime", team.getTeamActivityTime());
-                model.addAttribute("ageRange", team.getAgeRange());
-            });
-        } else {
-            log.error("teamId is null");
-        }
-
-        if(validateMemberVO != null) {
-            model.addAttribute("memberName", validateMemberVO.getMemberName());
-            model.addAttribute("memberEmail", validateMemberVO.getMemberEmail());
-            model.addAttribute("memberPhone", validateMemberVO.getMemberPhone());
-        }
-        return "teamrecruitwritePage";
-    }
-
 //    @GetMapping("teamrecruitwritePage")
 //    public void getTeamPage(@RequestParam(value = "id", required = false) Long id, Model model) {
 //        if (id != null) {

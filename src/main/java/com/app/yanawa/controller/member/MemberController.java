@@ -12,17 +12,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/yanawa/user")
+@RequestMapping("/yanawa/member")
 @RequiredArgsConstructor
 @Slf4j
 public class MemberController {
-    private final MemberService userService;
+    private final MemberService memberService;
 
     // 이메일 중복 체크
     @GetMapping("check-email-duplicate")
     @ResponseBody
     public Map<String, Boolean> checkEmailDuplicate(@RequestParam String email) {
-        boolean isDuplicate = userService.isEmailDuplicate(email);
+        boolean isDuplicate = memberService.isEmailDuplicate(email);
         Map<String, Boolean> response = new HashMap<>();
         response.put("duplicate", isDuplicate);
         return response;
@@ -37,8 +37,8 @@ public class MemberController {
     // 회원가입 완료페이지로 이동
     @PostMapping("signup")
     public RedirectView signup(MemberDTO memberDTO) {
-        userService.join(memberDTO.toVO());
-        log.info("회원가입 성공: {}", memberDTO.getUserEmail());
+        memberService.join(memberDTO.toVO());
+        log.info("회원가입 성공: {}", memberDTO.getMemberEmail());
         return new RedirectView("/yanawa/login");
     }
 }
