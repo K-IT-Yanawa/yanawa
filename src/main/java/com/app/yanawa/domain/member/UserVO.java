@@ -1,14 +1,14 @@
-package com.app.yanawa.domain.user;
+package com.app.yanawa.domain.member;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
-
 import java.io.Serializable;
 
 @Component
-@Getter
-@Setter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class UserDTO implements Serializable {
+@Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserVO implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
     private String userName;
@@ -25,11 +25,4 @@ public class UserDTO implements Serializable {
     private String userBirth;
     private String createdDate;
     private String updatedDate;
-
-    public UserVO toVO() {
-        return new UserVO(id, userName,userEmail,userNickName,
-                userPhone,userPassword,userGender,userPoint,userIntroduce,
-                userSportKind,userPositionKind,userSportHistory,userBirth,
-                createdDate,updatedDate);
-    }
 }

@@ -1,6 +1,6 @@
 package com.app.yanawa.mapper;
-import com.app.yanawa.domain.user.UserDTO;
-import com.app.yanawa.mapper.user.UserMapper;
+import com.app.yanawa.domain.member.UserDTO;
+import com.app.yanawa.mapper.member.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

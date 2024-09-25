@@ -1,7 +1,7 @@
-package com.app.yanawa.repository.user;
+package com.app.yanawa.repository.member;
 
-import com.app.yanawa.domain.user.UserVO;
-import com.app.yanawa.mapper.user.UserMapper;
+import com.app.yanawa.domain.member.UserVO;
+import com.app.yanawa.mapper.member.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

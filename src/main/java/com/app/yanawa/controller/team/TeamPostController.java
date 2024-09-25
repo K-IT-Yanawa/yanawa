@@ -1,6 +1,12 @@
 package com.app.yanawa.controller.team;
 
 
+import com.app.yanawa.domain.member.MemberVO;
+import com.app.yanawa.domain.team.TeamPostDTO;
+import com.app.yanawa.domain.team.TeamVO;
+import com.app.yanawa.domain.member.MemberDTO;
+import com.app.yanawa.service.team.TeamPostService;
+import com.app.yanawa.service.team.TeamService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,16 +23,18 @@ import java.util.Optional;
 @Slf4j
 public class TeamPostController {
     private final TeamPostService teamPostService;
+    private final TeamService teamService;
+    private final HttpSession session;
 
-    @PostMapping("validateUser")
-    public RedirectView validateUserAndRedirect(@ModelAttribute UserDTO userDTO, HttpSession session) {
-        Optional<UserVO> userVO = teamPostService.getUserInformaion(userDTO.getId());
+    @PostMapping("validatemember")
+    public RedirectView validatememberAndRedirect(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
+        Optional<MemberVO> memberVO = teamPostService.getMemberInformaion(memberDTO.getId());
 
-        if(userVO.isPresent() &&
-                userVO.get().getUserName().equals(userDTO.getUserName()) &&
-                userVO.get().getUserEmail().equals(userDTO.getUserEmail()) &&
-                userVO.get().getUserPhone().equals(userDTO.getUserPhone())) {
-            session.setAttribute("validatedUser", userVO.get());
+        if(memberVO.isPresent() &&
+                memberVO.get().getMemberName().equals(memberDTO.getMemberName()) &&
+                memberVO.get().getMemberEmail().equals(memberDTO.getMemberEmail()) &&
+                memberVO.get().getMemberPhone().equals(memberDTO.getMemberPhone())) {
+            session.setAttribute("validatedmember", memberVO.get());
             return new RedirectView("/teamRecruitPage/teamrecruitwritePage");
         } else {
             return new RedirectView("/error");
@@ -36,7 +44,7 @@ public class TeamPostController {
 
     @GetMapping("register")
     public String teamRecruitWritePage(@RequestParam(value = "teamId", required = false) Long teamId, Model model, HttpSession session) {
-        UserVO validateUserVO = (UserVO) session.getAttribute("validatedUser");
+        MemberVO validateMemberVO = (MemberVO) session.getAttribute("validatedMember");
 
         if(teamId != null) {
             Optional<TeamVO> teamVO = teamPostService.getTeamInformation(teamId);
@@ -53,28 +61,41 @@ public class TeamPostController {
             log.error("teamId is null");
         }
 
-        if(validateUserVO != null) {
-            model.addAttribute("userName", validateUserVO.getUserName());
-            model.addAttribute("userEmail", validateUserVO.getUserEmail());
-            model.addAttribute("userPhone", validateUserVO.getUserPhone());
+        if(validateMemberVO != null) {
+            model.addAttribute("memberName", validateMemberVO.getMemberName());
+            model.addAttribute("memberEmail", validateMemberVO.getMemberEmail());
+            model.addAttribute("memberPhone", validateMemberVO.getMemberPhone());
         }
         return "teamrecruitwritePage";
     }
 
+//    @GetMapping("teamrecruitwritePage")
+//    public void getTeamPage(@RequestParam(value = "id", required = false) Long id, Model model) {
+//        if (id != null) {
+//            // TEAM 테이블에서 teamId에 맞는 팀 정보를 가져옴
+//            Optional<TeamVO> teamVO = teamPostService.getTeamInformation(id);
+//            model.addAttribute("teamVO", teamVO);
+//        } else {
+//            log.info("실패");
+//        }
+//    }
+
+//    @PostMapping("teamrecruitwritePage")
+//    public RedirectView createTeamPost(@ModelAttribute TeamPostDTO teamPostDTO) {
+//        teamPostService.join(teamPostDTO.toVO());
+//        return new RedirectView("/teamRecruitPage/teamrecruitDetailPage?id=" + teamPostDTO.getTeamId());
+//    }
+
     @GetMapping("teamrecruitwritePage")
-    public void getTeamPage(@RequestParam(value = "id", required = false) Long id, Model model) {
-        if (id != null) {
-            // TEAM 테이블에서 teamId에 맞는 팀 정보를 가져옴
-            Optional<TeamVO> teamVO = teamPostService.getTeamInformation(id);
-            model.addAttribute("teamVO", teamVO);
-        } else {
-            log.info("실패");
-        }
+    public void goToWriteForm(Model model){
+//        MemberVO memberVO = (MemberVO)session.getAttribute("member");
+//        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
+        model.addAttribute("team", teamService.getTeam(2L).get());
+
     }
 
     @PostMapping("teamrecruitwritePage")
-    public RedirectView createTeamPost(@ModelAttribute TeamPostDTO teamPostDTO) {
+    public void write(TeamPostDTO teamPostDTO){
         teamPostService.join(teamPostDTO.toVO());
-        return new RedirectView("/teamRecruitPage/teamrecruitDetailPage" + teamPostDTO.getTeamId());
     }
 }

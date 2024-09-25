@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.yanawatest.mapper.team.TeamPostMapper">
+<mapper namespace="com.app.yanawa.mapper.team.TeamPostMapper">
 
-    <select id="selectUserById" resultType="UserVO">
-        SELECT ID, USER_NAME, USER_EMAIL, USER_PHONE FROM TBL_USER
+    <select id="selectMemberById" resultType="MemberVO">
+        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE FROM TBL_MEMBER
         WHERE ID = #{id}
     </select>
 
-    <select id="selectTeamById" resultType="TeamVO">
-        SELECT ID, TEAM_NAME, DETAILED_AREA, TEAM_ACTIVITY_TIME, AGE_RANGE
-             , CITY, LOCAL_CITY, SPORT_KIND_RADIO_VALUE FROM TBL_TEAM
+    <select id="selectTeamById" resultType="teamVO">
+        SELECT ID, TEAM_NAME, SPORTS_KIND_RADIO_VALUE, CITY, LOCAL_CITY
+             , DETAILED_AREA, TEAM_ACTIVITY_TIME, AGE_RANGE, MEMBER_ID FROM TBL_TEAM
         WHERE ID = #{id}
     </select>
 
-    <insert id="insertTeamPost" parameterType="TeamPostVO">
+    <insert id="insert" parameterType="teamPostVO">
         INSERT INTO TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION)
         VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information})
     </insert>
 
     <!--   selectById (상세 페이지, read) -->
 
-<!--   팀명,      모집 시작일,     스포츠 종목,         활동 가능 시간,         활동 위치,                모집 종료일,
-    teamName    CREATEDATE  SPORTS_KIND_RADIO_ID    teamActivityTime    localCityId/detailedArea    endDate
+    <!--   팀명,      모집 시작일,     스포츠 종목,         활동 가능 시간,         활동 위치,                모집 종료일,
+        teamName    CREATEDATE  SPORTS_KIND_RADIO_ID    teamActivityTime    localCityId/detailedArea    endDate
 
-           팀장 이메일,              추가정보(회비, 모집 선호 포지션, 준비물, 기타 준비용품)
-           TEAM_LEADER_EMAIL        information
+               팀장 이메일,              추가정보(회비, 모집 선호 포지션, 준비물, 기타 준비용품)
+               TEAM_LEADER_EMAIL        information
 
-           팀장 이름,           팀장 소개,      팀원 수,       경기 횟수
-           teamLeaderName       ??              ??          ??
+               팀장 이름,           팀장 소개,      팀원 수,       경기 횟수
+               teamLeaderName       ??              ??          ??
 
-           로그인한 회원의 이름
-                ?? -->
+               로그인한 회원의 이름
+                    ?? -->
 
 
     <!--   selectAll (전체 목록, list) -->
@@ -41,6 +41,5 @@
 
 
             지원자 수, 현재 팀원 수, 모집 글 수, 모집글(추가 내용) -->
-<!--    페이징 처리-->
-
+    <!--    페이징 처리-->
 </mapper>

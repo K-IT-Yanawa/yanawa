@@ -4,7 +4,7 @@ package com.app.yanawa.controller.freewrite;
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.Attachment;
 import com.app.yanawa.domain.freewrite.Pagination;
-import com.app.yanawa.domain.user.UserVO;
+import com.app.yanawa.domain.member.UserVO;
 import com.app.yanawa.service.freewrite.FreewriteService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
