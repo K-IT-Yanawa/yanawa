@@ -1,4 +1,4 @@
-package com.app.yanawa.mapper.user;
+package com.app.yanawa.mapper.member;
 
 public interface ProfileImageMapper {
 }

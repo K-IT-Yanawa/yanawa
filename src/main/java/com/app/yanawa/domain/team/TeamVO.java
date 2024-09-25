@@ -13,13 +13,12 @@ public class TeamVO {
     private Long id;
     private Long memberId;
     private String teamName;
-    private int memberCount;
-    private Long localCityId;
+    private int sportsKindRadioValue;
+    private String city;
+    private String localCity;
     private String detailedArea;
+    private String teamActivityTime;
     private String ageRange;
-    private int applicantNumber;
-    private String information;
-    private Long sportsKindRadioId;
     private String createdDate;
     private String updatedDate;
 }
