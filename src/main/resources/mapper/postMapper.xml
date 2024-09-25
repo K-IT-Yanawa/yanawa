@@ -6,7 +6,7 @@
             SELECT SEQ_POST.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, POST_TYPE)
-        VALUES (#{id}, #{postTitle, jdbcType=VARCHAR}, #{postContent, jdbcType=VARCHAR}, #{postType})
+        VALUES (#{id}, #{postTitle}, #{postContent}, #{postType})
     </insert>
 
 </mapper>

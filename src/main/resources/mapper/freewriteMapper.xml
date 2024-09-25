@@ -5,8 +5,8 @@
 
 
     <insert id="insert">
-        INSERT INTO TBL_FREEWRITE(POST_ID, POST_TITLE, POST_CONTENT, FREEWRITE_READ_COUNT, REPLY_COUNT, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
-        VALUES (#{id}, #{postTitle, jdbcType=VARCHAR}, #{postContent, jdbcType=VARCHAR}, #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO TBL_FREEWRITE(ID, FREEWRITE_READ_COUNT, REPLY_COUNT, MEMBER_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES (#{id}, #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
 

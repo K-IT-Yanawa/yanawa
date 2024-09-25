@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
+
 
 public class FreewriteDTO {
 
@@ -25,10 +25,7 @@ public class FreewriteDTO {
     private String memberNickname;
     private int postType;
 
-    public PostVO toPostVO() {
-        return new PostVO(id, postTitle, postContent, createdDate, updatedDate, postType);
-    }
-
+    public PostVO toPostVO() {return new PostVO(id, postTitle, postContent, createdDate, updatedDate, postType);}
 
     public FreewriteVO toVO() {
         return new FreewriteVO(id, postTitle, postContent, memberId, createdDate, updatedDate, freewriteReadCount, replyCount, memberNickname);

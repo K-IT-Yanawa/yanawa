@@ -11,18 +11,18 @@ import java.io.Serializable;
 public class MemberVO implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
-    private String userName;
-    private String userEmail;
-    private String userNickName;
-    private String userPhone;
-    private String userPassword;
-    private String userGender;
-    private int userPoint;
-    private String userIntroduce;
-    private String userSportKind;
-    private String userPositionKind;
-    private String userSportHistory;
-    private String userBirth;
+    private String memberName;
+    private String memberEmail;
+    private String memberNickName;
+    private String memberPhone;
+    private String memberPassword;
+    private String memberGender;
+    private int memberPoint;
+    private String memberIntroduce;
+    private String memberSportKind;
+    private String memberPositionKind;
+    private String memberSportHistory;
+    private String memberBirth;
     private String createdDate;
     private String updatedDate;
 }

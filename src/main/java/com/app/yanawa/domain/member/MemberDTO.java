@@ -11,25 +11,25 @@ import java.io.Serializable;
 public class MemberDTO implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
-    private String userName;
-    private String userEmail;
-    private String userNickName;
-    private String userPhone;
-    private String userPassword;
-    private String userGender;
-    private int userPoint;
-    private String userIntroduce;
-    private String userSportKind;
-    private String userPositionKind;
-    private String userSportHistory;
-    private String userBirth;
+    private String memberName;
+    private String memberEmail;
+    private String memberNickName;
+    private String memberPhone;
+    private String memberPassword;
+    private String memberGender;
+    private int memberPoint;
+    private String memberIntroduce;
+    private String memberSportKind;
+    private String memberPositionKind;
+    private String memberSportHistory;
+    private String memberBirth;
     private String createdDate;
     private String updatedDate;
 
     public MemberVO toVO() {
-        return new MemberVO(id, userName,userEmail,userNickName,
-                userPhone,userPassword,userGender,userPoint,userIntroduce,
-                userSportKind,userPositionKind,userSportHistory,userBirth,
+        return new MemberVO(id, memberName,memberEmail,memberNickName,
+                memberPhone,memberPassword,memberGender,memberPoint,memberIntroduce,
+                memberSportKind,memberPositionKind,memberSportHistory,memberBirth,
                 createdDate,updatedDate);
     }
 }

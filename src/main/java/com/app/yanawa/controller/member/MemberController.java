@@ -38,7 +38,7 @@ public class MemberController {
     @PostMapping("signup")
     public RedirectView signup(MemberDTO memberDTO) {
         userService.join(memberDTO.toVO());
-        log.info("회원가입 성공: {}", memberDTO.getUserEmail());
+        log.info("회원가입 성공: {}", memberDTO.getMemberEmail());
         return new RedirectView("/yanawa/login");
     }
 }

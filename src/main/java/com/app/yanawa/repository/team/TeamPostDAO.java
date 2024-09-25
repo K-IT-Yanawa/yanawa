@@ -1,5 +1,6 @@
 package com.app.yanawa.repository.team;
 
+import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.domain.team.TeamPostVO;
 import com.app.yanawa.domain.team.TeamVO;
 import com.app.yanawa.mapper.team.TeamPostMapper;
