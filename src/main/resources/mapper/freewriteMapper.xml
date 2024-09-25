@@ -12,8 +12,10 @@
 
 
     <select id="selectAll" resultType="freewriteDTO">
+        SELECT *
+        FROM (
         SELECT
-        F.POST_ID,
+        F.ID,
         U.MEMBER_NICKNAME,
         F.FREEWRITE_READ_COUNT,
         F.REPLY_COUNT,
@@ -24,20 +26,17 @@
         P.POST_CONTENT,
         ROWNUM AS rnum
         FROM
-        TBL_MEMBER U  <!-- TBL_MEMBER로 조정 -->
-        JOIN
-        TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
-        JOIN
-        TBL_POST P ON F.POST_ID = P.ID
+        TBL_MEMBER U
+        JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
+        JOIN TBL_POST P ON F.ID = P.ID
         WHERE
-        F.POST_ID IS NOT NULL
-
+        F.ID IS NOT NULL
         ORDER BY
         <choose>
-            <when test="order == 'recent'.toString()">F.POST_ID</when>
+            <when test="order == 'recent'.toString()">F.ID</when>
             <otherwise>F.FREEWRITE_READ_COUNT</otherwise>
         </choose> DESC
-        )
+        ) -- 여기에 괄호가 필요합니다.
         WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
     </select>
 
@@ -54,7 +53,7 @@
         FROM
             TBL_FREEWRITE f
                 JOIN TBL_POST p ON f.POST_ID = p.ID
-                JOIN TBL_USER u ON f.USER_ID = u.ID
+                JOIN TBL_MEMBER u ON f.MEMBER_ID = u.ID
         WHERE
             f.POST_ID = #{id}
 
