@@ -2,19 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.matching.MatchingMapper">
 
-    <!-- 매칭 게시판 데이터 삽입 -->
-    <insert id="insertMatching">
+
+
+    <insert id="insert">
         INSERT INTO TBL_MATCHING (
-            POST_ID, MATCHING_STATUS, TIME_ID, TEAM_ID, SPORT_KIND_ID,
-            TIME_CORDINATE, DATE_CORDINATE, LOCAL_CITY_ID, LOCAL_CITY_DETAIL,
-            CREATED_DATE, UPDATED_DATE, DATE_NEGOTIABLE, TIME_NEGOTIABLE
+        POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE,
+        TIME_REGIST, DATE_REGIST, TIME_CORDINATE, DATE_CORDINATE,
+        CITY, LOCAL_CITY, LOCAL_CITY_DETAIL
+        ) VALUES (
+        #{postId}, #{matching.matchStatus}, #{matching.teamId}, #{matching.sportKindValue},
+        #{matching.timeRegister}, #{matching.dateRegister}, #{matching.timeCordinate}, #{matching.dateCordinate},
+        #{matching.city}, #{matching.localCity}, #{matching.localCityDetail}
         )
-        VALUES (
-                   SEQ_MATCHING.NEXTVAL, #{matchStatus}, #{timeId}, #{teamId}, #{sportKindId},
-                   #{timeCordinate}, #{dateCordinate}, #{localCityId}, #{localCityDetail},
-                   #{createDate}, #{updateDate}
-               )
     </insert>
+
 
     <!-- 매칭 게시판 데이터 목록 조회 -->
     <select id="selectAllMatching" resultType="matchingDTO">

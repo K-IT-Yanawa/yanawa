@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.post.PostMapper">
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="long">
+            SELECT SEQ_POST.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, POST_TYPE)
+        VALUES (#{id}, #{postTitle}, #{postContent}, #{postType})
+    </insert>
+</mapper>

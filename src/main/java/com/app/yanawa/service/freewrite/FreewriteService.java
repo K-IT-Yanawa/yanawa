@@ -8,7 +8,7 @@ import com.app.yanawa.domain.freewrite.Pagination;
 import java.util.List;
 
 public interface FreewriteService {
-     Long write(FreewriteVO freewriteVO);
+     public void write(FreewriteVO freewriteVO);
     void saveAttachment(Attachment attachment);
     public List<FreewriteDTO> getList(Pagination pagination, String order);
     public int getTotal();

@@ -1,6 +1,6 @@
 package com.app.yanawa.service.member;
 
-import com.app.yanawa.domain.member.UserVO;
+import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.repository.member.UserDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,8 @@ public class UserServiceImpl implements MemberService {
     private final UserDAO userDAO;
 
     @Override
-    public void join(UserVO userVO) {
-        userDAO.save(userVO);
+    public void join(MemberVO memberVO) {
+        userDAO.save(memberVO);
     }
 
     @Override

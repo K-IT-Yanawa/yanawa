@@ -4,7 +4,7 @@ package com.app.yanawa.controller.freewrite;
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.Attachment;
 import com.app.yanawa.domain.freewrite.Pagination;
-import com.app.yanawa.domain.member.UserVO;
+import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.service.freewrite.FreewriteService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -37,10 +37,10 @@ public class FreewriteController {
     @PostMapping("write")
     public String write(FreewriteDTO freewriteDTO, @RequestParam("attachment") MultipartFile file) {
         // 사용자 정보 설정
-        freewriteDTO.setUserId(((UserVO) session.getAttribute("user")).getId());
+        freewriteDTO.setMemberId(((MemberVO) session.getAttribute("member")).getId());
 
         // 글 작성 처리 후 작성된 글의 ID 반환
-        Long postId = freewriteService.write(freewriteDTO.toVO());
+//        Long postId = freewriteService.write(freewriteDTO.toVO());
 
         // 파일 업로드 처리
         if (!file.isEmpty()) {
@@ -48,7 +48,7 @@ public class FreewriteController {
             Attachment attachment = new Attachment();
             attachment.setAttachmentPath(filePath);
             attachment.setAttachmentSize(file.getSize());
-            attachment.setPostId(postId);
+//            attachment.setPostId(postId);
 
             // 첨부파일 정보 저장
             freewriteService.saveAttachment(attachment);

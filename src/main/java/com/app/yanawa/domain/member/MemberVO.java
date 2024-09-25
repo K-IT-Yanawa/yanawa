@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Getter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserVO implements Serializable {
+public class MemberVO implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
     private String userName;

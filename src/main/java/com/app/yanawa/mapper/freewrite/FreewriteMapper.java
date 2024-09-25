@@ -1,6 +1,5 @@
 package com.app.yanawa.mapper.freewrite;
 
-
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.FreewriteVO;
 import com.app.yanawa.domain.freewrite.Pagination;
@@ -11,11 +10,17 @@ import java.util.List;
 
 @Mapper
 public interface FreewriteMapper {
-    public void insert(FreewriteVO freewriteVO);
+    // 게시글 삽입
+    void insert(FreewriteVO freewriteVO);
 
-    public List<FreewriteDTO> selectAll(@Param("pagination") Pagination pagination,@Param("order") String order);
+    // 전체 게시글 조회
+    List<FreewriteDTO> selectAll(@Param("pagination") Pagination pagination, @Param("order") String order);
 
-    public int selectTotal();
+    // 총 게시글 수 조회
+    int selectTotal();
+
+    // 게시글 ID로 게시글 조회
+    FreewriteDTO selectById(@Param("id") Long id);
 
 
 }

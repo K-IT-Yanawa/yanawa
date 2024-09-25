@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Component
 @Getter
 @Setter @ToString @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class UserDTO implements Serializable {
+public class MemberDTO implements Serializable {
     @EqualsAndHashCode.Include
     private Long id;
     private String userName;
@@ -26,8 +26,8 @@ public class UserDTO implements Serializable {
     private String createdDate;
     private String updatedDate;
 
-    public UserVO toVO() {
-        return new UserVO(id, userName,userEmail,userNickName,
+    public MemberVO toVO() {
+        return new MemberVO(id, userName,userEmail,userNickName,
                 userPhone,userPassword,userGender,userPoint,userIntroduce,
                 userSportKind,userPositionKind,userSportHistory,userBirth,
                 createdDate,updatedDate);

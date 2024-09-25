@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FreewriteDAO {
     private final FreewriteMapper freewriteMapper;
-    private final SqlSession sqlSession;
+   private final SqlSession sqlSession;
 
     public void save(FreewriteVO freewriteVO) {
         freewriteMapper.insert(freewriteVO);

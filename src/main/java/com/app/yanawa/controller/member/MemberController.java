@@ -1,6 +1,6 @@
 package com.app.yanawa.controller.member;
 
-import com.app.yanawa.domain.member.UserDTO;
+import com.app.yanawa.domain.member.MemberDTO;
 import com.app.yanawa.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,15 +30,15 @@ public class MemberController {
 
     // 회원가입 페이지로 이동
     @GetMapping("signup")
-    public String goToSignup(UserDTO userDTO) {
+    public String goToSignup(MemberDTO memberDTO) {
         return "login_page/signup";
     }
 
     // 회원가입 완료페이지로 이동
     @PostMapping("signup")
-    public RedirectView signup(UserDTO userDTO) {
-        userService.join(userDTO.toVO());
-        log.info("회원가입 성공: {}", userDTO.getUserEmail());
+    public RedirectView signup(MemberDTO memberDTO) {
+        userService.join(memberDTO.toVO());
+        log.info("회원가입 성공: {}", memberDTO.getUserEmail());
         return new RedirectView("/yanawa/login");
     }
 }
