@@ -1,6 +1,8 @@
 package com.app.yanawa.mapper.member;
 
+import com.app.yanawa.domain.member.MemberDTO;
 import com.app.yanawa.domain.member.MemberVO;
+import com.app.yanawa.domain.team.TeamDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -20,4 +22,7 @@ public interface MemberMapper {
 
 //    로그인
     Optional<MemberVO> selectByMemberEmailAndMemberPassword(@Param("memberEmail") String memberEmail, @Param("memberPassword") String memberPassword);
+
+//    팀 생성 => 회원 이름, 이메일, 전화번호 조회
+    public Optional<MemberDTO> selectMemberByMemberId(Long Id);
 }
