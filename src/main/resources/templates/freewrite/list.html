@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-            rel="stylesheet"
-            href="/css/freewrite/freewrite_list.css"
-    />
+    <link rel="stylesheet" href="/css/freewrite/freewrite_list.css" />
     <title>자유게시판 목록페이지</title>
 </head>
 <body>
@@ -73,10 +70,8 @@
                                         </div>
                                     </div>
 
-
-
                                     <!-- 게시글 출력 -->
-                                    <table id ="post-table">
+                                    <table id="post-table">
                                         <div th:each="freewrite : ${freewrites}">
                                             <div class="flex">
                                                 <div class="ydsfooter_munu_bar section_document" href="#">
@@ -96,32 +91,82 @@
 
                                                     <!-- 글 제목 -->
                                                     <div>
-                                                    <div class="writetitle">
-                                                        <span th:text="${freewrite.postTitle}">글의 제목</span>
-                                                    </div>
+                                                        <div class="writetitle">
+                                                            <span th:text="${freewrite.postTitle}">글의 제목</span>
+                                                        </div>
 
-                                                    <!-- 글 내용 -->
-                                                    <div class="writecontent">
-                                                        <span th:text="${freewrite.postContent}">글의 내용</span>
-                                                    </div>
+                                                        <!-- 글 내용 -->
+                                                        <div class="writecontent">
+                                                            <span th:text="${freewrite.postContent}">글의 내용</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </table>
 
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <ul class="wrap21">
-                    <div id="post-wrap">
-                    </div>
-                </ul>
+            </div>
 
-                <!-- 페이지네이션 -->
+            <ul class="wrap21">
+                <div id="post-wrap" style="display: flex"></div>
+            </ul>
+
+        </div>
+    </div>
+
+    <a href="/freewrite/write">
+        <button class="floating-button">글 작성하기</button>
+    </a>
+</div>
+
+<script th:inline="javascript">
+    const pagination = [[${pagination}]]; // 서버에서 전달된 pagination 객체 사용
+    const currentPage = pagination.currentPage; // 현재 페이지
+    const totalPageCount = pagination.pageCount; // 총 페이지 수
+    const pageWrap = document.getElementById("post-wrap");
+
+    let text = ``;
+
+    // 이전 페이지 버튼 추가 (첫 페이지에서는 비활성화)
+    if (currentPage > 1) {
+        text += `<a href="/freewrite/list?page=${currentPage - 1}" class="prev">이전</a>`;
+    }
+
+    // 페이지 번호 출력
+    for (let i = 1; i <= totalPageCount; i++) {
+        if (i === currentPage) {
+            // 현재 페이지는 강조 표시
+            text += `<a href="/freewrite/list?page=${i}" class="current">${i}</a>`;
+        } else {
+            text += `<a href="/freewrite/list?page=${i}">${i}</a>`;
+        }
+    }
+
+    // 다음 페이지 버튼 추가 (마지막 페이지에서는 비활성화)
+    if (currentPage < totalPageCount) {
+        text += `<a href="/freewrite/list?page=${currentPage + 1}" class="next">다음</a>`;
+    }
+
+    // 페이지 번호를 post-wrap에 추가
+    pageWrap.innerHTML = text;
+</script>
+
+
+
+<script src="/js/freewrite/freewrite_list.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!-- 페이지네이션 -->
 <!--                <ul class="wrap21">-->
 <!--                    <li title="Previous Page" class="content15" aria-disabled="true">-->
 <!--                        <a class="content16">-->
@@ -155,24 +200,3 @@
 <!--                        </a>-->
 <!--                    </li>-->
 <!--                </ul>-->
-            </div>
-        </div>
-    </div>
-    <a href="/freewrite/write">
-        <button class="floating-button">글 작성하기</button>
-    </a>
-</div>
-</body>
-<script th:inline="javascript">
-    const pagination = [[${pagination}]]
-    const pageWrap = document.getElementById("page-wrap");
-    let text = ``;
-    for (let i=0; i<pagination.pageCount; i++){
-        text += `<a href="/freewrite/list?page=${i+1}">${i+1}</a>`
-    }
-    pageWrap.innerHTML = text;
-</script>
-
-
-<script src="/js/freewrite/freewrite_list.js"></script>
-</html>
