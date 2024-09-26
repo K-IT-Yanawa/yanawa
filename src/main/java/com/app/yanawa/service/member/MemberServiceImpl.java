@@ -51,4 +51,9 @@ public class MemberServiceImpl implements MemberService {
     public Optional<MemberVO> login(String email, String password) {
         return memberMapper.selectByMemberEmailAndMemberPassword(email, password);
     }
+
+    @Override
+    public Optional<MemberDTO> getMember(Long id) {
+        return memberDAO.findMemberByMemberId(id);
+    }
 }
