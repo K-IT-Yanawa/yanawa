@@ -330,3 +330,229 @@ citySelect.addEventListener("change", function () {
     }
 });
 
+
+
+// ====================화면과 서버연결 작업 ========================================
+
+// ====================화면과 서버연결 작업 ========================================
+
+// 스포츠 종목 선택 처리
+const sportRadios = document.querySelectorAll("input[name='sport']");
+sportRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        const selectedSport = e.target.value;
+        document.querySelector("input[name='sportKindValue']").value = selectedSport;
+        console.log("선택된 스포츠 종목:", selectedSport);
+    });
+});
+
+const city = document.getElementById("city");
+const local = document.getElementById("localCity");
+
+city.addEventListener("change", (e) => {
+    let text = `<option value="" selected>상세 지역 선택</option>`;
+    districts[city.value].forEach((district) => {
+        text += `<option value="${district}">${district}</option>`;
+    });
+    local.innerHTML = text;
+    document.querySelector("input[name='city']").value = city.value;
+    console.log("선택된 값:", city.value);
+});
+
+local.addEventListener("change", (e) => {
+    document.querySelector("input[name='localCity']").value = local.value;
+    console.log("선택된 값:", local.value);
+});
+
+const choiceAmPm = document.querySelector("select[name='times']");
+choiceAmPm.addEventListener("change", (e) => {
+    document.querySelector("input[name='choiceAmPm']").value = choiceAmPm.value;
+    console.log("선택된 값:", choiceAmPm.value);
+});
+
+const timeCordinateRadios = document.querySelectorAll("input[name='time-coordinate']");
+timeCordinateRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        const selectedTimeCordinate = e.target.value;
+        document.querySelector("input[name='timeCordinate']").value = selectedTimeCordinate;
+        console.log("경기시간 조율 여부 선택된 값:", selectedTimeCordinate);
+    });
+});
+
+const dateCordinateRadios = document.querySelectorAll("input[name='date-coordinate']");
+dateCordinateRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        const selectedDateCordinate = e.target.value;
+        document.querySelector("input[name='dateCordinate']").value = selectedDateCordinate;
+        console.log("경기 날짜 협의 여부 선택된 값:", selectedDateCordinate);
+    });
+});
+
+// ====================유효성 검사 부분 ========================================
+// 유효성 검사 함수들
+function validateField(field, errorField) {
+    if (!field.value) {
+        errorField.style.display = "block";
+        return false;
+    } else {
+        errorField.style.display = "none";
+        return true;
+    }
+}
+
+function validateSelect(selectField, errorField) {
+    if (!selectField || !selectField.value) {
+        errorField.style.display = "block";
+        return false;
+    } else {
+        errorField.style.display = "none";
+        return true;
+    }
+}
+
+function validateRadio(radioName, errorField) {
+    const selected = document.querySelector(`input[name='${radioName}']:checked`);
+    if (!selected) {
+        errorField.style.display = "block";
+        return false;
+    } else {
+        errorField.style.display = "none";
+        return true;
+    }
+}
+
+// 첫 번째 단계 유효성 검사
+function validateStep1() {
+    let isValid = true;
+
+    const sportSelect = document.querySelector("select[name='sport']");
+    const sportError = document.querySelector(".input-explain-error-sport");
+
+    if (!validateSelect(sportSelect, sportError)) isValid = false;
+
+    return isValid;
+}
+
+// 두 번째 단계 유효성 검사
+function validateStep2() {
+    let isValid = true;
+
+    const city = document.querySelector("select[name='place']");
+    const cityError = document.querySelector(".input-explain-error-city");
+    if (!validateSelect(city, cityError)) isValid = false;
+
+    const localCity = document.querySelector("select[name='place-detail']");
+    const localCityError = document.querySelector(".input-explain-error-local");
+    if (!validateSelect(localCity, localCityError)) isValid = false;
+
+    return isValid;
+}
+
+// 다음 단계 버튼 클릭 시
+document.querySelector(".next-button-1").addEventListener("click", function(e) {
+    if (validateStep1()) {
+        document.getElementById("form-1").style.display = "none";
+        document.getElementById("form-2").style.display = "block";
+    } else {
+        e.preventDefault();
+    }
+});
+
+document.querySelector(".next-button-2").addEventListener("click", function(e) {
+    if (validateStep2()) {
+        document.getElementById("form-2").style.display = "none";
+        document.getElementById("form-3").style.display = "block";
+    } else {
+        e.preventDefault();
+    }
+});
+
+// '등록 완료' 버튼 클릭 시 (데이터를 최종 form에 넣고 제출)
+document.querySelector(".finish-button").addEventListener("click", function(e) {
+    const mainForm = document.querySelector("form#join-form"); // 최종 form
+
+    // 스포츠 종목 값 추가
+    const sportKindValue = document.querySelector("input[name='sport']:checked").value;
+    const hiddenSportField = document.createElement("input");
+    hiddenSportField.setAttribute("type", "hidden");
+    hiddenSportField.setAttribute("name", "sportKindValue");
+    hiddenSportField.setAttribute("value", sportKindValue);
+    mainForm.appendChild(hiddenSportField);
+
+    // 매칭 등록 지역 값 추가
+    const placeValue = document.querySelector("select[name='place']").value;
+    const hiddenPlaceField = document.createElement("input");
+    hiddenPlaceField.setAttribute("type", "hidden");
+    hiddenPlaceField.setAttribute("name", "city");
+    hiddenPlaceField.setAttribute("value", placeValue);
+    mainForm.appendChild(hiddenPlaceField);
+
+    // 상세 지역 값 추가
+    const localCityValue = document.querySelector("select[name='place-detail']").value;
+    const hiddenLocalCityField = document.createElement("input");
+    hiddenLocalCityField.setAttribute("type", "hidden");
+    hiddenLocalCityField.setAttribute("name", "localCity");
+    hiddenLocalCityField.setAttribute("value", localCityValue);
+    mainForm.appendChild(hiddenLocalCityField);
+
+    // 매칭 등록 시간 값 추가
+    const choiceAmPmValue = document.querySelector("select[name='times']").value;
+    const hiddenChoiceAmPmField = document.createElement("input");
+    hiddenChoiceAmPmField.setAttribute("type", "hidden");
+    hiddenChoiceAmPmField.setAttribute("name", "choiceAmPm");
+    hiddenChoiceAmPmField.setAttribute("value", choiceAmPmValue);
+    mainForm.appendChild(hiddenChoiceAmPmField);
+
+    // 경기 시간 값 추가
+    const timeRegisterValue = document.querySelector("input[th\\:field='*{timeRegister}']").value;
+    const hiddenTimeRegisterField = document.createElement("input");
+    hiddenTimeRegisterField.setAttribute("type", "hidden");
+    hiddenTimeRegisterField.setAttribute("name", "timeRegister");
+    hiddenTimeRegisterField.setAttribute("value", timeRegisterValue);
+    mainForm.appendChild(hiddenTimeRegisterField);
+
+    // 경기 날짜 값 추가
+    const dateRegisterValue = document.querySelector("input[th\\:field='*{dateRegister}']").value;
+    const hiddenDateRegisterField = document.createElement("input");
+    hiddenDateRegisterField.setAttribute("type", "hidden");
+    hiddenDateRegisterField.setAttribute("name", "dateRegister");
+    hiddenDateRegisterField.setAttribute("value", dateRegisterValue);
+    mainForm.appendChild(hiddenDateRegisterField);
+
+    // 경기 시간 조율 여부 값 추가
+    const timeCordinateValue = document.querySelector("input[name='time-coordinate']:checked").value;
+    const hiddenTimeCordinateField = document.createElement("input");
+    hiddenTimeCordinateField.setAttribute("type", "hidden");
+    hiddenTimeCordinateField.setAttribute("name", "timeCordinate");
+    hiddenTimeCordinateField.setAttribute("value", timeCordinateValue);
+    mainForm.appendChild(hiddenTimeCordinateField);
+
+    // 경기 날짜 협의 여부 값 추가
+    const dateCordinateValue = document.querySelector("input[name='date-coordinate']:checked").value;
+    const hiddenDateCordinateField = document.createElement("input");
+    hiddenDateCordinateField.setAttribute("type", "hidden");
+    hiddenDateCordinateField.setAttribute("name", "dateCordinate");
+    hiddenDateCordinateField.setAttribute("value", dateCordinateValue);
+    mainForm.appendChild(hiddenDateCordinateField);
+
+    // 매칭 제목 값 추가
+    const postTitleValue = document.querySelector("input[name='postTitle']").value;
+    const hiddenPostTitleField = document.createElement("input");
+    hiddenPostTitleField.setAttribute("type", "hidden");
+    hiddenPostTitleField.setAttribute("name", "postTitle");
+    hiddenPostTitleField.setAttribute("value", postTitleValue);
+    mainForm.appendChild(hiddenPostTitleField);
+
+    // 매칭 내용 값 추가
+    const postContentValue = document.querySelector("textarea[th\\:field='*{postContent}']").value;
+    const hiddenPostContentField = document.createElement("input");
+    hiddenPostContentField.setAttribute("type", "hidden");
+    hiddenPostContentField.setAttribute("name", "postContent");
+    hiddenPostContentField.setAttribute("value", postContentValue);
+    mainForm.appendChild(hiddenPostContentField);
+
+    mainForm.submit();  // 폼 제출
+});
+
+
+

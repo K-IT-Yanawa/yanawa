@@ -35,7 +35,7 @@
         POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE, CHOICE_AM_PM,
         TIME_REGIST, DATE_REGIST, TIME_CORDINATE, DATE_CORDINATE,
         CITY, LOCAL_CITY, LOCAL_CITY_DETAIL
-        ) VALUES (#{postId}, #{matchStatus}, #{teamId}, #{sportKindValue}, #{choiceAmPm},
+        ) VALUES (#{postId}, #{matchingStatus}, #{teamId}, #{sportKindValue}, #{choiceAmPm},
                   #{timeRegister}, #{dateRegister}, #{timeCordinate}, #{dateCordinate},
                   #{city}, #{localCity}, #{localCityDetail})
     </insert>

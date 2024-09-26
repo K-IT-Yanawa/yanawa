@@ -16,6 +16,8 @@ public class MatchingDTO {
     private String postContent;
     private int postType;
 
+    private String matchingStatus;
+
     private Long memberId;
     private String memberName;
     private String memberEmail;
@@ -32,12 +34,11 @@ public class MatchingDTO {
     private String timeCordinate;
     private String dateCordinate;
 
-
     private String city;
     private String localCity;
     private String localCityDetail;
 
-    private String matchStatus;
+
     private String createDate;
     private String updateDate;
 
@@ -48,7 +49,7 @@ public class MatchingDTO {
 
     public MatchingVO toVO() {
         return new MatchingVO(
-                postId, matchStatus, teamId, sportKindValue,
+                postId, matchingStatus, teamId, sportKindValue,
                 dateRegister, choiceAmPm, timeRegister, dateCordinate, timeCordinate,
                 city, localCity, localCityDetail, createDate, updateDate);
     }

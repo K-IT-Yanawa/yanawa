@@ -3,7 +3,6 @@ package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
 
-import com.app.yanawa.mapper.matching.MatchingMapper;
 import com.app.yanawa.service.matching.MatchingService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -36,7 +35,7 @@ public class MatchingMapperTests {
         matchingDTO.setCity("서울");
         matchingDTO.setLocalCity("강남구");
         matchingDTO.setLocalCityDetail("역삼역");
-        matchingDTO.setMatchStatus("매칭중");
+        matchingDTO.setMatchingStatus("매칭중");
 
         matchingService.write(matchingDTO);
 

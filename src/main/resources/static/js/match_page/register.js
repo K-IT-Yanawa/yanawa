@@ -1,4 +1,4 @@
-// 상위 목록에 마우스 가져다대면 색변화 때면 원래대로
+// 상위 목록에 마우스를 올리면 색 변화, 떼면 원래대로
 document.querySelectorAll(".span-step").forEach((step) => {
     const stepInfo = step.querySelector(".span-step-1");
 
@@ -12,7 +12,8 @@ document.querySelectorAll(".span-step").forEach((step) => {
         step.style.backgroundColor = "";
     });
 });
-// 다음단계 이전단계 등록완료 버튼 가져오가
+
+// 다음단계 이전단계 등록완료 버튼 가져오기
 const nextButton1 = document.querySelector(".next-button-1");
 const nextButton2 = document.querySelector(".next-button-2");
 const beforeButton1 = document.querySelector(".before-button-1");
@@ -47,12 +48,13 @@ beforeButton2.addEventListener("click", () => {
     form3.style.display = "none";
     form2.style.display = "block";
 });
-// 등록완료 버튼 누를시 alert로 알림뜸
+
+// 등록완료 버튼 누를 시 alert로 알림
 finishButton.addEventListener("click", () => {
     alert("매칭 등록 완료!!");
 });
 
-// 시/도 별로 구/군 데이터를 미리 정의합니다.
+// 시/도 별로 구/군 데이터를 미리 정의
 const districts = {
     서울특별시: [
         "강남구",
@@ -306,20 +308,15 @@ const districts = {
     제주특별자치도: ["제주시", "서귀포시"],
 };
 
-// 첫 번째 셀렉트 요소와 두 번째 셀렉트 요소를 가져옵니다.
+// 첫 번째 셀렉트 요소와 두 번째 셀렉트 요소 가져오기
 const citySelect = document.querySelector('select[name="place"]');
 const districtSelect = document.querySelector('select[name="place-detail"]');
 
-// 첫 번째 셀렉트의 값이 변경될 때 이벤트 리스너 추가
+// 시/도 선택 시 구/군 목록 업데이트
 citySelect.addEventListener("change", function () {
-    // 선택된 시/도 값을 가져옵니다.
     const selectedCity = citySelect.value;
+    districtSelect.innerHTML = '<option value="" disabled selected>상세 지역 선택</option>';
 
-    // 두 번째 셀렉트를 초기화합니다.
-    districtSelect.innerHTML =
-        '<option value="" disabled selected>상세 지역 선택</option>';
-
-    // 선택된 시/도의 구/군 데이터를 추가합니다.
     if (districts[selectedCity]) {
         districts[selectedCity].forEach(function (district) {
             const option = document.createElement("option");
@@ -331,17 +328,175 @@ citySelect.addEventListener("change", function () {
 });
 
 
-// 스포츠 종목 선택 처리
-const sportRadios = document.querySelectorAll("input[name='sport']");
 
-sportRadios.forEach(radio => {
-    radio.addEventListener("change", (e) => {
-        // 선택된 스포츠 종목 값을 hidden input 필드에 설정
-        const selectedSport = e.target.value; // 선택된 스포츠 종목 값을 가져옴
-        document.querySelector("input[name='sportKindValue']").value = selectedSport;
 
-        // 선택된 값 콘솔에 출력
-        console.log("선택된 스포츠 종목:", selectedSport);
+
+
+// ==================== 화면과 서버 연결 작업 ====================
+// DOM이 로드된 후 자바스크립트 실행
+document.addEventListener("DOMContentLoaded", function() {
+    // 스포츠 종목 선택 처리
+    const sportRadios = document.querySelectorAll("input[name='sport']");
+    sportRadios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+            const selectedSport = e.target.value;
+            const sportKindValue = document.querySelector("input[name='sportKindValue']");
+            if (sportKindValue) {
+                sportKindValue.value = selectedSport;
+            } else {
+                console.warn("sportKindValue input field not found.");
+            }
+            console.log("선택된 스포츠 종목:", selectedSport);
+        });
+    });
+
+    // 지역 선택 처리
+    const city = document.querySelector("select[name='place']");
+    const local = document.querySelector("select[name='place-detail']");
+
+    city.addEventListener("change", (e) => {
+        const selectedCity = city.value;
+        local.innerHTML = `<option value="" selected>상세 지역 선택</option>`;
+        if (districts[selectedCity]) {
+            districts[selectedCity].forEach((district) => {
+                const option = document.createElement("option");
+                option.value = district;
+                option.textContent = district;
+                local.appendChild(option);
+            });
+        }
+        const cityInput = document.querySelector("input[name='city']");
+        if (cityInput) {
+            cityInput.value = selectedCity;
+        } else {
+            console.warn("City input field not found.");
+        }
+        console.log("선택된 값:", selectedCity);
+    });
+
+    local.addEventListener("change", (e) => {
+        const selectedLocal = local.value;
+        const localCityInput = document.querySelector("input[name='localCity']");
+        if (localCityInput) {
+            localCityInput.value = selectedLocal;
+        } else {
+            console.warn("LocalCity input field not found.");
+        }
+        console.log("선택된 값:", selectedLocal);
+    });
+
+    // 오전/오후 선택 처리
+    const choiceAmPm = document.querySelector("select[name='times']");
+    choiceAmPm.addEventListener("change", (e) => {
+        const selectedAmPm = choiceAmPm.value;
+        const amPmInput = document.querySelector("input[name='choiceAmPm']");
+        if (amPmInput) {
+            amPmInput.value = selectedAmPm;
+        } else {
+            console.warn("ChoiceAmPm input field not found.");
+        }
+        console.log("선택된 값:", selectedAmPm);
+    });
+
+    // 경기 시간 조율 여부 처리
+    const timeCordinateRadios = document.querySelectorAll("input[name='time-coordinate']");
+    timeCordinateRadios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+            const selectedTimeCordinate = e.target.value;
+            const timeCordinateInput = document.querySelector("input[name='timeCordinate']");
+            if (timeCordinateInput) {
+                timeCordinateInput.value = selectedTimeCordinate;
+            } else {
+                console.warn("TimeCordinate input field not found.");
+            }
+            console.log("경기 시간 조율 여부 선택된 값:", selectedTimeCordinate);
+        });
+    });
+
+    // 경기 날짜 협의 여부 처리
+    const dateCordinateRadios = document.querySelectorAll("input[name='date-coordinate']");
+    dateCordinateRadios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+            const selectedDateCordinate = e.target.value;
+            const dateCordinateInput = document.querySelector("input[name='dateCordinate']");
+            if (dateCordinateInput) {
+                dateCordinateInput.value = selectedDateCordinate;
+            } else {
+                console.warn("DateCordinate input field not found.");
+            }
+            console.log("경기 날짜 협의 여부 선택된 값:", selectedDateCordinate);
+        });
+    });
+
+    // 등록완료 버튼 클릭 시 값 전송 처리
+    document.querySelector(".finish-button").addEventListener("click", function(event) {
+        event.preventDefault(); // 기본 submit 동작 방지
+
+        // 사용자가 입력한 값 가져오기
+        const localCityDetail = document.querySelector("input[name='localCityDetail']");
+        const timeRegister = document.querySelector("input[name='timeRegister']");
+        const dateRegister = document.querySelector("input[name='dateRegister']");
+        const postTitle = document.querySelector("input[name='title']");
+        const postContent = document.querySelector("textarea[name='postContent']");
+
+        // POST_TYPE을 2로 설정
+        const postTypeInput = document.querySelector("input[name='postType']");
+        if (postTypeInput) {
+            postTypeInput.value = 2;  // 매칭 글의 POST_TYPE은 항상 2
+        } else {
+            console.warn("PostType input field not found.");
+        }
+
+        // MATCHING_STATUS 값을 기본적으로 '매칭중'으로 설정
+        const matchingStatusInput = document.querySelector("input[name='matchingStatus']");
+        if (matchingStatusInput) {
+            matchingStatusInput.value = '매칭중'; // 기본값 설정
+        } else {
+            console.warn("MatchingStatus input field not found.");
+        }
+
+
+        // 값 확인 및 할당
+        if (localCityDetail) {
+            document.querySelector("input[name='localCityDetail']").value = localCityDetail.value || '';
+        } else {
+            console.warn("LocalCityDetail input field not found.");
+        }
+
+        if (timeRegister) {
+            document.querySelector("input[name='timeRegister']").value = timeRegister.value || '';
+        } else {
+            console.warn("TimeRegister input field not found.");
+        }
+
+        if (dateRegister) {
+            document.querySelector("input[name='dateRegister']").value = dateRegister.value || '';
+        } else {
+            console.warn("DateRegister input field not found.");
+        }
+
+        if (postTitle) {
+            document.querySelector("input[name='postTitle']").value = postTitle.value || '';
+        } else {
+            console.warn("PostTitle input field not found.");
+        }
+
+        if (postContent) {
+            document.querySelector("input[name='postContent']").value = postContent.value || '';
+        } else {
+            console.warn("PostContent input field not found.");
+        }
+
+        // 콘솔로 확인
+        console.log("상세 지역명:", localCityDetail ? localCityDetail.value : 'not found');
+        console.log("매칭 등록 시간:", timeRegister ? timeRegister.value : 'not found');
+        console.log("매칭 희망 날짜:", dateRegister ? dateRegister.value : 'not found');
+        console.log("매칭글 제목:", postTitle ? postTitle.value : 'not found');
+        console.log("매칭글 내용:", postContent ? postContent.value : 'not found');
+        console.log("POST_TYPE:", 2);
+        console.log("POST_TYPE:", postTypeInput ? postTypeInput.value : 'not found');
+        // 모든 값이 들어간 것을 확인 후 제출
+        document.querySelector("form[name='join-form']").submit();
     });
 });
 
@@ -349,72 +504,6 @@ sportRadios.forEach(radio => {
 
 
 
-const city = document.getElementById("city");
-const local = document.getElementById("localCity");
-
-city.addEventListener("change", (e) => {
-    let text = `<option value="" selected>상세 지역 선택</option>`;
-    console.log(districts[city.value]);
-    districts[city.value].forEach((district) => {
-        text += `<option value="${district}">${district}</option>`;
-    });
-    local.innerHTML = text;
-
-    // 선택된 city 값을 hidden input 필드에 설정
-    document.querySelector("input[name='city']").value = city.value;
-    console.log("선택된 값:", city.value);
-});
-
-local.addEventListener("change", (e) => {
-    // 선택된 localCity 값을 hidden input 필드에 설정
-    document.querySelector("input[name='localCity']").value = local.value;
-    console.log("선택된 값:", local.value);
-});
-
-const choiceAmPm = document.querySelector("select[name='times']");
-
-choiceAmPm.addEventListener("change", (e) => {
-    // 선택된 오전/오후 값을 hidden input 필드에 설정
-    document.querySelector("input[name='choiceAmPm']").value = choiceAmPm.value;
-    console.log("선택된 값:", choiceAmPm.value);
-});
 
 
-
-// 경기 시간 조율 여부
-const timeCordinateRadios = document.querySelectorAll("input[name='time-coordinate']");
-
-timeCordinateRadios.forEach(radio => {
-    radio.addEventListener("change", (e) => {
-        // 선택된 경기시간 조율 여부 값을 hidden input 필드에 설정
-        const selectedTimeCordinate = e.target.value; // e.target을 사용하여 선택된 값 가져오기
-        document.querySelector("input[name='timeCordinate']").value = selectedTimeCordinate;
-
-        // 선택된 값 콘솔에 출력
-        console.log("경기시간 조율 여부 선택된 값:", selectedTimeCordinate);
-    });
-});
-
-// 경기 날짜 협의 여부
-const dateCordinateRadios = document.querySelectorAll("input[name='date-coordinate']");
-
-dateCordinateRadios.forEach(radio => {
-    radio.addEventListener("change", (e) => {
-        // 선택된 경기 날짜 협의 여부 값을 hidden input 필드에 설정
-        const selectedDateCordinate = e.target.value; // e.target을 사용하여 선택된 값 가져오기
-        document.querySelector("input[name='dateCordinate']").value = selectedDateCordinate;
-
-        // 선택된 값 콘솔에 출력
-        console.log("경기 날짜 협의 여부 선택된 값:", selectedDateCordinate);
-    });
-});
-
-
-
-
-
-
-
-
-
-
+// ==================== 유효성 검사 함수들 ====================
