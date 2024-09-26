@@ -13,12 +13,29 @@
         WHERE ID = #{id}
     </select>
 
+    <select id="selectMemberId" parameterType="long" resultType="matchingDTO">
+        SELECT
+            M.ID AS memberId,
+            M.MEMBER_NAME AS memberName,
+            M.MEMBER_EMAIL AS memberEmail,
+            M.MEMBER_PHONE AS memberPhone,
+            T.ID AS teamId,
+            T.TEAM_NAME AS teamName
+        FROM
+            TBL_MEMBER M
+                JOIN
+            TBL_TEAM T ON M.ID = T.MEMBER_ID
+        WHERE
+            M.ID = #{memberId}
+    </select>
+
+
     <insert id="insert">
         INSERT INTO TBL_MATCHING (
-        POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE,
+        POST_ID, MATCHING_STATUS, TEAM_ID, SPORT_KIND_VALUE, CHOICE_AM_PM,
         TIME_REGIST, DATE_REGIST, TIME_CORDINATE, DATE_CORDINATE,
         CITY, LOCAL_CITY, LOCAL_CITY_DETAIL
-        ) VALUES (#{postId}, #{matchStatus}, #{teamId}, #{sportKindValue},
+        ) VALUES (#{postId}, #{matchStatus}, #{teamId}, #{sportKindValue}, #{choiceAmPm},
                   #{timeRegister}, #{dateRegister}, #{timeCordinate}, #{dateCordinate},
                   #{city}, #{localCity}, #{localCityDetail})
     </insert>

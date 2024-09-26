@@ -15,6 +15,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class MatchingDAO {
+
     private final MatchingMapper matchingMapper;
 
     //    매칭글 작성
@@ -23,6 +24,10 @@ public class MatchingDAO {
     }
     public Optional<TeamVO> findTeamById(Long id) {
         return matchingMapper.selectTeamId(id);
+    }
+
+    public Optional<MatchingDTO> getMatchingInfoByMemberId(Long memberId) {
+        return matchingMapper.getMatchingInfoByMemberId(memberId);
     }
 
     public void save(MatchingVO matchingVO) {matchingMapper.insert(matchingVO);}

@@ -7,8 +7,8 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"
         />
-        <link rel="stylesheet" th:href="@{/css/match_page/register.css}" />
-        <link rel="icon" th:href="@{/images/match_page/yanawalogo.png}" />
+        <link rel="stylesheet" href="/css/match_page/register.css" />
+        <link rel="icon" href="/images/match_page/yanawalogo.png" />
         <title>매칭등록 페이지</title>
     </head>
     <body>
@@ -91,7 +91,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="memberName"
+                                                                    for="name"
                                                                     class="label-name required"
                                                                 >
                                                                     이름
@@ -110,14 +110,12 @@
                                                                             placeholder="이름을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input"
-                                                                            name="memberName" id="memberName"
                                                                             th:value="*{memberName}" readonly
                                                                         />
                                                                         <input
                                                                             placeholder="이름을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            name="memberName" id="memberName"
                                                                             th:value="*{memberName}" readonly
                                                                             hidden
                                                                         />
@@ -159,7 +157,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="memberEmail"
+                                                                    for="email"
                                                                     class="label-name required"
                                                                 >
                                                                     이메일
@@ -178,7 +176,6 @@
                                                                             placeholder="이메일을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input"
-                                                                            name="memberEmail" id="memberEmail"
                                                                             th:value="*{memberEmail}" readonly
                                                                         />
                                                                         <div
@@ -211,7 +208,6 @@
                                                                             placeholder="이메일을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            name="memberEmail" id="memberEmail"
                                                                             th:value="*{memberEmail}" readonly
                                                                             hidden
                                                                         />
@@ -282,7 +278,6 @@
                                                                             placeholder="ex) 010-1234-5678"
                                                                             type="text"
                                                                             class="form-input"
-                                                                            name="memberPhone" id="memberPhone"
                                                                             th:value="*{memberPhone}" readonly
                                                                         />
                                                                         <div
@@ -315,7 +310,6 @@
                                                                             placeholder="ex) 010-1234-5678"
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            name="memberPhone" id="memberPhone"
                                                                             th:value="*{memberPhone}" readonly
                                                                             hidden
                                                                         />
@@ -498,7 +492,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="teamName"
+                                                                    for="team"
                                                                     class="label-name required"
                                                                 >
                                                                     팀명
@@ -517,14 +511,12 @@
                                                                             placeholder="ex) 신림드래곤즈"
                                                                             type="text"
                                                                             class="form-input"
-                                                                            name="teamName" id="teamName"
                                                                             th:value="teamName" readonly
                                                                         />
                                                                         <input
                                                                             placeholder="ex) 신림드래곤즈"
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            name="teamName" id="teamName"
                                                                             th:value="teamName" readonly
                                                                             hidden
                                                                         />
@@ -656,7 +648,7 @@
                                                                         <select
                                                                             name="place"
                                                                             class="form-input"
-                                                                            id="city"
+
                                                                         >
                                                                             <option
                                                                                 value=""
@@ -770,7 +762,7 @@
                                                                         <select
                                                                             name="place-detail"
                                                                             class="form-input"
-                                                                            id="localCity"
+
                                                                         >
                                                                             <option
                                                                                 value=""
@@ -821,14 +813,12 @@
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
                                                                             type="text"
-                                                                            th:field="*{localCityDetail}"
                                                                             class="form-input"
                                                                         />
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            th:field="*{localCityDetail}"
                                                                             hidden
                                                                         />
                                                                         <div
@@ -918,7 +908,6 @@
                                                                         <input
                                                                             placeholder="ex) 12시 ~ 3시"
                                                                             type="text"
-                                                                            th:field="*{timeRegister}"
                                                                             class="form-input"
                                                                         />
                                                                     </div>
@@ -962,8 +951,6 @@
                                                                             type="radio"
                                                                             name="time-coordinate"
                                                                             class="poss"
-                                                                            value="가능"
-                                                                            th:field="*{timeCordinate}"
                                                                         /><span
                                                                             class="poss-span"
                                                                             >가능</span
@@ -972,8 +959,6 @@
                                                                             type="radio"
                                                                             name="time-coordinate"
                                                                             class="imposs"
-                                                                            value="불가능"
-                                                                            th:field="*{timeCordinate}"
                                                                         /><span
                                                                             class="imposs-span"
                                                                             >불가능</span
@@ -1028,14 +1013,12 @@
                                                                         <input
                                                                             placeholder="ex) 2024-08-14"
                                                                             type="text"
-                                                                            th:field="*{dateRegister}"
                                                                             class="form-input date-img"
                                                                         />
 
                                                                         <input
                                                                             placeholder="ex) 2024-08-14"
                                                                             type="text"
-                                                                            th:field="*{dateRegister}"
                                                                             class="form-input date-img input-error"
                                                                             hidden
                                                                         />
@@ -1079,8 +1062,6 @@
                                                             type="radio"
                                                             name="date-coordinate"
                                                             class="poss"
-                                                            value="협의가능"
-                                                            th:field="*{dateCordinate}"
                                                         /><span
                                                             class="poss-span"
                                                             >협의가능</span
@@ -1089,8 +1070,6 @@
                                                             type="radio"
                                                             name="date-coordinate"
                                                             class="imposs"
-                                                            value="협의불가능"
-                                                            th:field="*{dateCordinate}"
                                                         /><span
                                                             class="imposs-span"
                                                             >협의불가능</span
@@ -1210,14 +1189,11 @@
                                                                             placeholder="ex) 즐겜러 5명 모여있습니다-농구"
                                                                             type="text"
                                                                             class="form-input"
-                                                                            name="title"
-                                                                            th:field="*{postTitle}"
                                                                         />
                                                                         <input
                                                                             placeholder="ex) 즐겜러 5명 모여있습니다-농구"
                                                                             type="text"
                                                                             class="form-input input-error"
-                                                                            th:field="*{postTitle}"
                                                                             hidden
                                                                         />
                                                                         <div
@@ -1281,7 +1257,6 @@
                                                                             <textarea
                                                                                 id="textarea"
                                                                                 class="textarea"
-                                                                                th:field="*{postContent}"
                                                                                 placeholder="ex)&#13;&#10; - 경기 시 주의/유의사항&#13;&#10; - 경기 방식 (전/후반 , 풀타임)&#13;&#10; - 준비물&#13;&#10; - 기타 요구사항 등등"
                                                                             ></textarea>
                                                                         </span>
@@ -1315,20 +1290,17 @@
                 </div>
             </main>
             <form th:action="@{/matchPage/register}" method="post" name="join-form">
-                <input type="hidden" name="matchingStatus" th:value="*{matchingStatus}">
                 <input type="hidden" name="sportKindValue" th:value="*{sportKindValue}">
                 <input type="hidden" name="city" th:value="*{city}">
                 <input type="hidden" name="localCity" th:value="*{localCity}">
                 <input type="hidden" name="localCityDetail" th:value="*{localCityDetail}">
                 <input type="hidden" name="choiceAmPm" th:value="*{choiceAmPm}">
-                <input type="hidden" name="timeRegister" th:value="*{timeRegister}">
-                <input type="hidden" name="dateRegister" th:value="*{dateRegister}">
-                <input type="hidden" name="timeCordinate" th:value="*{timeCordinate}">
-                <input type="hidden" name="dateCordinate" th:value="*{dateCordinate}">
+                <input type="hidden" name="dateRegister" th:value="*{timeRegister}">
+                <input type="hidden" name="timeRegister" th:value="*{dateRegister}">
                 <input type="hidden" name="postTitle" th:value="*{postTitle}">
                 <input type="hidden" name="postContent" th:value="*{postContent}">
             </form>
         </div>
     </body>
-    <script th:src="@{/js/match_page/register.js}"></script>>
+    <script th:src="@{/js/match_page/register.js}"></script>
 </html>

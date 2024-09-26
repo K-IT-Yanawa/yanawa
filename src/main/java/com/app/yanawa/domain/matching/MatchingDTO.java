@@ -21,15 +21,16 @@ public class MatchingDTO {
     private String memberEmail;
     private String memberPhone;
 
-    private int sportKindValue;
+    private String sportKindValue;
 
     private Long teamId;
     private String teamName;
 
+    private String choiceAmPm;
     private String timeRegister;
     private String dateRegister;
-    private int timeCordinate;
-    private int dateCordinate;
+    private String timeCordinate;
+    private String dateCordinate;
 
 
     private String city;
@@ -48,7 +49,7 @@ public class MatchingDTO {
     public MatchingVO toVO() {
         return new MatchingVO(
                 postId, matchStatus, teamId, sportKindValue,
-                dateRegister, timeRegister, dateCordinate, timeCordinate,
+                dateRegister, choiceAmPm, timeRegister, dateCordinate, timeCordinate,
                 city, localCity, localCityDetail, createDate, updateDate);
     }
 }

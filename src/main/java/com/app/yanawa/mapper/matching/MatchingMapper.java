@@ -22,4 +22,6 @@ public interface MatchingMapper {
 
 //    매칭글 전체 개수 조회
     public int selectMatchingTotal();
+
+    public Optional<MatchingDTO> getMatchingInfoByMemberId(Long memberId);
 }

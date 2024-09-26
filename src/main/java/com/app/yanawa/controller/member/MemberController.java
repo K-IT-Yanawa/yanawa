@@ -3,6 +3,7 @@ package com.app.yanawa.controller.member;
 import com.app.yanawa.domain.member.MemberDTO;
 import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.service.member.MemberService;
+import com.app.yanawa.service.member.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 public class MemberController {
-    private final MemberService userService;
+    private final MemberService memberService;
+    private final MemberServiceImpl memberServiceImpl;
 
     // 이메일 중복 체크
     @GetMapping("check-email-duplicate")

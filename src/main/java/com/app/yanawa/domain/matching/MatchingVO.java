@@ -12,11 +12,12 @@ public class MatchingVO {
     private Long postId;
     private String matchStatus;
     private Long teamId;
-    private int sportKindValue;
+    private String sportKindValue;
+    private String choiceAmPm;
     private String timeRegister;
     private String dateRegister;
-    private int timeCordinate;
-    private int dateCordinate;
+    private String timeCordinate;
+    private String dateCordinate;
     private String city;
     private String localCity;
     private String localCityDetail;
@@ -29,6 +30,7 @@ public class MatchingVO {
         matchingDTO.setMatchStatus(matchStatus);
         matchingDTO.setTeamId(teamId);
         matchingDTO.setSportKindValue(sportKindValue);
+        matchingDTO.setChoiceAmPm(choiceAmPm);
         matchingDTO.setTimeRegister(timeRegister);
         matchingDTO.setDateRegister(dateRegister);
         matchingDTO.setTimeCordinate(timeCordinate);

@@ -45,6 +45,11 @@ public class MatchingServiceImpl implements MatchingService {
         return matchingDAO.findTeamById(id);
     }
 
+    @Override
+    public Optional<MatchingDTO> getMatchingInfoByMemberId(Long id){
+        return matchingDAO.getMatchingInfoByMemberId(id);
+    }
+
 
     @Override
     public List<MatchingDTO> getListMatching() {
@@ -55,4 +60,5 @@ public class MatchingServiceImpl implements MatchingService {
     public int getTotalMatching() {
         return 0;
     }
+
 }

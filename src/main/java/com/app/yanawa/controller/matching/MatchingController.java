@@ -1,7 +1,6 @@
 package com.app.yanawa.controller.matching;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
-import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.service.matching.MatchingService;
 import com.app.yanawa.service.team.TeamService;
 import jakarta.servlet.http.HttpSession;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/matchPage/")
 @RequiredArgsConstructor
@@ -24,10 +25,14 @@ public class MatchingController {
     private final HttpSession session;
 
     @GetMapping("register")
-    public void goTowriteForm(Model model) {
+    public void goToWriteForm(Model model) {
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
         model.addAttribute("matching", teamService.getTeam(1L).get());
+        model.addAttribute("matching", matchingService.getMember(1L).get());
+
+//        Optional<MatchingDTO> matchingDTO = matchingService.getMatchingInfoByMemberId(1L); // 예시로 1L 사용
+//        model.addAttribute("matching", matchingDTO);
 
     }
     @PostMapping("register")
