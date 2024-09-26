@@ -21,25 +21,50 @@ togglePassword.addEventListener("click", () => {
     }
 });
 
-// **로그인 버튼 활성화 기능**
-(function () {
-    // 입력 필드의 값을 확인하고 버튼 활성화 여부를 결정하는 함수
-    function updateButtonState() {
-        if (
-            emailInput1.value.trim() !== "" &&
-            passwordInput.value.trim() !== ""
-        ) {
-            // 이메일과 비밀번호가 모두 입력된 경우
-            loginButton.classList.add("active");
-            loginButton.disabled = false; // 버튼 활성화
+//모든 input태그에 값이 입력되면 가입하기 버튼 활성화
+document.addEventListener('DOMContentLoaded', () => {
+    const finalButton = document.getElementById('final-button');
+    const inputFields = document.querySelectorAll('#email-login input');
+    // 로그인 실패시 뜨는 메세지
+    const loginFailedMsg = document.querySelector(".login-failed");
+
+    // 모든 input 필드에 값이 입력되었는지 확인하는 함수
+    function checkInputs() {
+        let allFilled = true;
+
+        inputFields.forEach(input => {
+            if (input.value.trim() === "") {
+                allFilled = false;
+            }
+        });
+
+        if (allFilled) {
+            finalButton.classList.add("active");
+            finalButton.disabled = false; // 버튼 활성화
         } else {
-            // 이메일 또는 비밀번호가 비어있는 경우
-            loginButton.classList.remove("active");
-            loginButton.disabled = true; // 버튼 비활성화
+            finalButton.classList.remove("active");
+            finalButton.disabled = true; // 버튼 비활성화
         }
     }
 
-    // 입력 필드의 변화가 있을 때마다 버튼 상태 업데이트
-    emailInput1.addEventListener("input", updateButtonState);
-    passwordInput.addEventListener("input", updateButtonState);
-})();
+    // 각 input 필드에 입력 이벤트 추가 (input 이벤트)
+    inputFields.forEach(input => {
+        input.addEventListener('input', checkInputs);
+    });
+
+    // 페이지 로드 시 입력 상태를 확인
+    checkInputs();
+
+    // 로그인 실패시 실패메시지 생성
+    if(status){
+        loginFailedMsg.style.display="block";
+    }
+});
+
+//회원가입 페이지로 이동
+const signUpBackButton = document.getElementById("signupBackButton");
+
+signUpBackButton.addEventListener("click",()=>{
+//     yanawa/member/signup 으로 이동
+    window.location.href="/yanawa/member/signup";
+});
