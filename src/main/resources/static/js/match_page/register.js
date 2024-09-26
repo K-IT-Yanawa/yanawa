@@ -333,34 +333,26 @@ citySelect.addEventListener("change", function () {
 
 const city = document.getElementById("city");
 const local = document.getElementById("localCity");
+
 city.addEventListener("change", (e) => {
     let text = `<option value="" selected>상세 지역 선택</option>`;
     console.log(districts[city.value]);
     districts[city.value].forEach((district) => {
-        text += `
-            <option value="${district}">${district}</option>
-        `
+        text += `<option value="${district}">${district}</option>`;
     });
-
     local.innerHTML = text;
-} )
 
-document.addEventListener('DOMContentLoaded',() => {
-    const finishButton = document.getElementById('finish-button');
-    const inputForm = document.querySelectorAll('#join-form input')
+    // 선택된 city 값을 hidden input 필드에 설정
+    document.querySelector("input[name='city']").value = city.value;
+});
 
-    function checkinput() {
-        let allFilled = true;
-
-        nputFields.forEach(input => {
-            if (input.value.trim() === "") {
-                allFilled = false;
-            }
-        });
+local.addEventListener("change", (e) => {
+    // 선택된 localCity 값을 hidden input 필드에 설정
+    document.querySelector("input[name='localCity']").value = local.value;
+});
 
 
-    }
-})
+
 
 
 
