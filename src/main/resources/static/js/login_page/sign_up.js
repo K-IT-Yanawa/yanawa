@@ -207,7 +207,7 @@ document.getElementById('birth').addEventListener('input', function () {
         birthErrorDiv.innerHTML = "<p class='error-message'>성인만 회원가입이 가능합니다.</p>";
     } else {
         // 유효한 입력일 경우 에러 메시지 제거
-        birthErrorDiv.innerHTML = ""; // 에러 메시지 초기화
+        birthErrorDiv.innerHTML = "";
     }
 });
 

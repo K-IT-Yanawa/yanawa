@@ -70,7 +70,7 @@
                     <!-- '이메일로 로그인' text 외 div -->
                     <div class="login-withEmail-div">
                         <!-- '이메일로 로그인' text 외 form -->
-                        <form class="login-withEmail-form" action="@{/yanawa/member/signup}" th:object="${memberDTO}" method="POST">
+                        <form class="login-withEmail-form" id="email-login" th:action="@{/yanawa/member/login}" th:object="${memberDTO}" method="post">
                             <!-- 이메일, 비밀번호, 로그인 div -->
                             <div>
                                 <div class="email">
@@ -84,45 +84,46 @@
                                             >
                                         </div>
                                         <input
-                                                id="email-1"
+                                                id="email"
                                                 type="text"
                                                 placeholder="이메일을 입력해주세요."
                                                 name="email"
                                                 autofocus=""
                                                 autocomplete="on"
                                                 class="input-style"
+                                                required
                                         />
                                     </div>
-                                    <!-- 이메일-2 (오류 시: 오류 메시지) -->
-                                    <div class="email-2">
-                                        <div class="margin-bottom">
-                                            <label
-                                                    for="email"
-                                                    class="label-style"
-                                            >이메일</label
-                                            >
-                                        </div>
-                                        <input
-                                                id="email-2"
-                                                type="text"
-                                                placeholder="이메일을 입력해주세요."
-                                                name="email"
-                                                autofocus=""
-                                                autocomplete="on"
-                                                class="input-style"
-                                        />
-                                    </div>
-                                    <span
-                                            id="email-error"
-                                            class="message"
-                                    >
-                                                올바른 이메일을 입력해주세요.
-                                            </span>
+<!--                                    &lt;!&ndash; 이메일-2 (오류 시: 오류 메시지) &ndash;&gt;-->
+<!--                                    <div class="email-2">-->
+<!--                                        <div class="margin-bottom">-->
+<!--                                            <label-->
+<!--                                                    for="email"-->
+<!--                                                    class="label-style"-->
+<!--                                            >이메일</label-->
+<!--                                            >-->
+<!--                                        </div>-->
+<!--                                        <input-->
+<!--                                                id="email-2"-->
+<!--                                                type="text"-->
+<!--                                                placeholder="이메일을 입력해주세요."-->
+<!--                                                name="email"-->
+<!--                                                autofocus=""-->
+<!--                                                autocomplete="on"-->
+<!--                                                class="input-style"-->
+<!--                                        />-->
+<!--                                    </div>-->
+<!--                                    <span-->
+<!--                                            id="email-error"-->
+<!--                                            class="message"-->
+<!--                                    >-->
+<!--                                                올바른 이메일을 입력해주세요.-->
+<!--                                            </span>-->
                                 </div>
                                 <div class="password">
                                     <div class="margin-bottom">
                                         <label
-                                                for="email"
+                                                for="password"
                                                 class="label-style"
                                         >비밀번호</label
                                         >
@@ -135,6 +136,7 @@
                                             class="input-style"
                                             value=""
                                             id="password"
+                                            required
                                     />
                                     <div class="stay-login">
                                         <input
@@ -150,12 +152,12 @@
                                         </div>
                                     </div>
                                     <!-- 로그인 실패 시 오류메시지 -->
-                                    <p class="login-failed">
+                                    <div class="login-failed">
                                         이메일 또는 비밀번호가 올바르지
                                         않습니다.<br />
                                         입력한 내용을 다시 확인해
                                         주세요.
-                                    </p>
+                                    </div>
                                     <button
                                             type="button"
                                             class="toggle-icon"
@@ -209,6 +211,7 @@
                                     <button
                                             type="button"
                                             class="signup-button"
+                                            id="signupBackButton"
                                     >
                                                 <span class="span-button"
                                                 >이메일로 회원가입</span
@@ -225,5 +228,8 @@
     </main>
 </div>
 </body>
-<script src="/static/js/login_page/email_login.js"></script>
+<script th:inline="javascript">
+    const status = [[${status}]];
+</script>
+<script src="/js/login_page/email_login.js"></script>
 </html>

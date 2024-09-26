@@ -20,5 +20,4 @@ public interface MemberMapper {
 
 //    로그인
     Optional<MemberVO> selectByMemberEmailAndMemberPassword(@Param("memberEmail") String memberEmail, @Param("memberPassword") String memberPassword);
-
 }
