@@ -1,50 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dropdown = document.querySelector(".wrap7");
-    const rotateIcon = document.querySelector(".wrap8 img"); // 드롭다운 아이콘 회전
-    const content23 = document.querySelector(".content23"); // 페이지네이션의 "..."
-    const pageWrap = document.getElementById("page-wrap");
-    const posts = [[${posts}]]; // 게시글 데이터
-    const pagination = [[${pagination}]]; // 페이지네이션 데이터
+    const rotateIcon = document.querySelector(".rotate");
+    const dropdownMenu = document.querySelector(".dropdown-menu"); // 드롭다운 메뉴
+    // const pageWrap = document.getElementById("page-wrap");
+    // let text = ``;
 
+
+    // 드롭다운 클릭 시 class 추가 및 제거
     dropdown.addEventListener("click", function () {
         this.classList.toggle("open");
+        dropdownMenu.classList.toggle("open"); // dropdownMenu의 open 클래스 토글
         rotateIcon.classList.toggle("open");
     });
 
+    // 드롭다운 외부 클릭 시 닫기
     document.addEventListener("click", function (event) {
         if (!dropdown.contains(event.target)) {
             dropdown.classList.remove("open");
+            dropdownMenu.classList.remove("open"); // dropdownMenu의 open 클래스 제거
             rotateIcon.classList.remove("open");
         }
     });
 
-    // 게시글 리스트 렌더링
-    const table = document.getElementById("post-table");
-    let text = ``;
-    posts.forEach((post) => {
-        text += `
-            <tr>
-                <td>${post.id}</td>
-                <td>${post.memberName}</td>
-                <td>${post.postTitle}</td>
-                <td>${post.postReadCount}</td>
-                <td>${post.createdDate}</td>
-            </tr>
-        `;
-    });
-    table.innerHTML += text;
+    // text = ``;
+    // for(let i=0; i<pagination.pageCount; i++)
 
-    // 페이지네이션 렌더링
-    text = ``;
-    for(let i=0; i<pagination.pageCount; i++) {
-        text += `<a href="/post/list?page=${i+1}">${i+1}</a>`;
-    }
-    pageWrap.innerHTML = text;
 
-    // 페이지네이션 및 드롭다운 관련 스타일 적용
-    if (pagination.pageCount > 5) {
-        content23.style.display = "inline-flex"; // 페이지가 5개 이상이면 "..." 표시
-    } else {
-        content23.style.display = "none"; // 5개 이하이면 "..." 숨기기
-    }
 });

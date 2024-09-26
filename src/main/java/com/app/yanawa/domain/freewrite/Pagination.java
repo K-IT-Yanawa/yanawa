@@ -21,7 +21,7 @@ public class Pagination {
     // 페이지 계산 로직
     public void progress() {
         this.page = page == null ? 1 : page;
-        this.rowCount = 30; // 한 페이지에 보여줄 행의 수
+        this.rowCount = 18; // 한 페이지에 보여줄 행의 수
         this.pageCount = 10; // 한 페이지에 보여줄 페이지 번호 개수
         this.pageSize = rowCount; // 페이지 크기를 행의 수와 동일하게 설정
 
