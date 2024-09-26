@@ -16,6 +16,7 @@ public class MemberDTO implements Serializable {
     private String memberNickName;
     private String memberPhone;
     private String memberPassword;
+    private String confirmPassword;
     private String memberGender;
     private int memberPoint;
     private String memberIntroduce;
