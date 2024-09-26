@@ -16,5 +16,8 @@ public interface MemberService {
     public boolean isNickNameDuplicate(String nickname);
 
 //    로그인
-    Optional<MemberVO> selectByMemberEmailAndMemberPassword(String email, String password);
+    Optional<MemberVO> login(String email, String password);
+
+//
+    public Optional<MemberDTO> getMember(Long Id);
 }

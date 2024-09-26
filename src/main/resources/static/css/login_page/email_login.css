@@ -395,6 +395,7 @@ input::placeholder {
     font-size: 13px;
     line-height: 18px;
     font-family: "Pretendard-Regular";
+    display: none;
 }
 
 /* 로그인 */
