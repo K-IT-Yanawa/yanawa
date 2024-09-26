@@ -2,17 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.team.TeamMapper">
 
-    <select id="selectMemberByMemberId" resultType="memberDTO">
-        SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE
-        FROM TBL_MEMBER WHERE ID = #{memberId}
-    </select>
-
-    <select id="selectMemberByMemberId" resultType="teamDTO">
-        SELECT MEMBER_ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE
-        FROM TBL_MEMBER U JOIN TBL_TEAM T
-                               ON U.ID = T.MEMBER_ID AND MEMBER_ID = #{memberId}
-    </select>
-
     <insert id="insert" parameterType="teamVO">
         INSERT INTO TBL_TEAM(ID, MEMBER_ID, TEAM_NAME, SPORTS_KIND_RADIO_VALUE, CITY, LOCAL_CITY, DETAILED_AREA, TEAM_ACTIVITY_TIME, AGE_RANGE)
         VALUES(SEQ_TEAM.NEXTVAL, #{memberId}, #{teamName}, #{sportsKindRadioValue}, #{city}, #{localCity}
