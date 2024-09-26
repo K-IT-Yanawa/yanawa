@@ -16,6 +16,7 @@ public class MemberDTO implements Serializable {
     private String memberNickName;
     private String memberPhone;
     private String memberPassword;
+    private String confirmPassword;
     private String memberGender;
     private int memberPoint;
     private String memberIntroduce;
@@ -28,8 +29,7 @@ public class MemberDTO implements Serializable {
 
     public MemberVO toVO() {
         return new MemberVO(id, memberName,memberEmail,memberNickName,
-                memberPhone,memberPassword,memberGender,memberPoint,memberIntroduce,
-                memberSportKind,memberPositionKind,memberSportHistory,memberBirth,
+                memberPhone,memberPassword,memberGender,memberBirth,
                 createdDate,updatedDate);
     }
 }

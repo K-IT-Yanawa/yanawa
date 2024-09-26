@@ -1,9 +1,20 @@
 package com.app.yanawa.service.member;
 
+import com.app.yanawa.domain.member.MemberDTO;
 import com.app.yanawa.domain.member.MemberVO;
 
-public interface MemberService {
-    public void join(MemberVO user);
+import java.util.Optional;
 
-    boolean isEmailDuplicate(String email);
+public interface MemberService {
+    //    회원가입
+    public void join(MemberDTO memberDTO);
+
+    //    이메일 중복
+    public boolean isEmailDuplicate(String email);
+
+    //    닉네임중복
+    public boolean isNickNameDuplicate(String nickname);
+
+//    로그인
+    Optional<MemberVO> selectByMemberEmailAndMemberPassword(String email, String password);
 }
