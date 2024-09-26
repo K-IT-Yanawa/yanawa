@@ -31,4 +31,5 @@ public class MemberDAO {
     public Optional<MemberVO> findByMemberEmailAndMemberPassword(String email, String password) {
         return memberMapper.selectByMemberEmailAndMemberPassword(email, password);
     }
+
 }
