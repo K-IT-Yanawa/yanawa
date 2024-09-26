@@ -17,7 +17,7 @@ public interface FreewriteMapper {
     List<FreewriteDTO> selectAll(@Param("pagination") Pagination pagination, @Param("order") String order);
 
     // 총 게시글 수 조회
-    int selectTotal();
+    public int selectTotal();
 
     // 게시글 ID로 게시글 조회
     FreewriteDTO selectById(@Param("id") Long id);
