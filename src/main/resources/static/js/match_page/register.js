@@ -331,6 +331,24 @@ citySelect.addEventListener("change", function () {
 });
 
 
+// 스포츠 종목 선택 처리
+const sportRadios = document.querySelectorAll("input[name='sport']");
+
+sportRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        // 선택된 스포츠 종목 값을 hidden input 필드에 설정
+        const selectedSport = e.target.value; // 선택된 스포츠 종목 값을 가져옴
+        document.querySelector("input[name='sportKindValue']").value = selectedSport;
+
+        // 선택된 값 콘솔에 출력
+        console.log("선택된 스포츠 종목:", selectedSport);
+    });
+});
+
+
+
+
+
 const city = document.getElementById("city");
 const local = document.getElementById("localCity");
 
@@ -344,13 +362,52 @@ city.addEventListener("change", (e) => {
 
     // 선택된 city 값을 hidden input 필드에 설정
     document.querySelector("input[name='city']").value = city.value;
+    console.log("선택된 값:", city.value);
 });
 
 local.addEventListener("change", (e) => {
     // 선택된 localCity 값을 hidden input 필드에 설정
     document.querySelector("input[name='localCity']").value = local.value;
+    console.log("선택된 값:", local.value);
 });
 
+const choiceAmPm = document.querySelector("select[name='times']");
+
+choiceAmPm.addEventListener("change", (e) => {
+    // 선택된 오전/오후 값을 hidden input 필드에 설정
+    document.querySelector("input[name='choiceAmPm']").value = choiceAmPm.value;
+    console.log("선택된 값:", choiceAmPm.value);
+});
+
+
+
+// 경기 시간 조율 여부
+const timeCordinateRadios = document.querySelectorAll("input[name='time-coordinate']");
+
+timeCordinateRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        // 선택된 경기시간 조율 여부 값을 hidden input 필드에 설정
+        const selectedTimeCordinate = e.target.value; // e.target을 사용하여 선택된 값 가져오기
+        document.querySelector("input[name='timeCordinate']").value = selectedTimeCordinate;
+
+        // 선택된 값 콘솔에 출력
+        console.log("경기시간 조율 여부 선택된 값:", selectedTimeCordinate);
+    });
+});
+
+// 경기 날짜 협의 여부
+const dateCordinateRadios = document.querySelectorAll("input[name='date-coordinate']");
+
+dateCordinateRadios.forEach(radio => {
+    radio.addEventListener("change", (e) => {
+        // 선택된 경기 날짜 협의 여부 값을 hidden input 필드에 설정
+        const selectedDateCordinate = e.target.value; // e.target을 사용하여 선택된 값 가져오기
+        document.querySelector("input[name='dateCordinate']").value = selectedDateCordinate;
+
+        // 선택된 값 콘솔에 출력
+        console.log("경기 날짜 협의 여부 선택된 값:", selectedDateCordinate);
+    });
+});
 
 
 
