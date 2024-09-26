@@ -116,8 +116,11 @@
                         </div>
                     </div>
                 </div>
+                <ul class="wrap21">
                     <div id="post-wrap">
                     </div>
+                </ul>
+
                 <!-- 페이지네이션 -->
 <!--                <ul class="wrap21">-->
 <!--                    <li title="Previous Page" class="content15" aria-disabled="true">-->
@@ -160,7 +163,16 @@
     </a>
 </div>
 </body>
+<script th:inline="javascript">
+    const pagination = [[${pagination}]]
+    const pageWrap = document.getElementById("page-wrap");
+    let text = ``;
+    for (let i=0; i<pagination.pageCount; i++){
+        text += `<a href="/freewrite/list?page=${i+1}">${i+1}</a>`
+    }
+    pageWrap.innerHTML = text;
+</script>
 
 
-<script th:src="@{/js/freewrite/freewrite_list.js}"></script>
+<script src="/js/freewrite/freewrite_list.js"></script>
 </html>
