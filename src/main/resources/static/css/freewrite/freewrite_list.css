@@ -375,7 +375,7 @@ img.rotate {
     border-radius: 5px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     min-width: 100%;
-    z-index: 9999; /* 드롭다운 메뉴를 항상 맨 위에 보이도록 z-index 설정 */
+    z-index: 9999;
 }
 
 .dropdown-menu a {
@@ -391,9 +391,12 @@ img.rotate {
     background-color: #f5f5f5;
 }
 
+/* open 클래스가 추가되었을 때 dropdown-menu가 보이도록 설정 */
 .wrap7.open .dropdown-menu {
     display: block;
 }
+
+
 
 /* 카드 스타일 */
 .wrap9 {

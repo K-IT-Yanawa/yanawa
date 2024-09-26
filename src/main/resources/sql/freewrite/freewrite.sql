@@ -41,3 +41,19 @@ FROM
 WHERE
     P.POST_TYPE = 1;  -- FREEWRITE와 연관된 POST만 조회하려는 경우
 
+
+SELECT *
+FROM (
+         SELECT ROWNUM R, P1.*
+         FROM (
+                  SELECT F.ID, F.FREEWRITE_READ_COUNT, F.REPLY_COUNT, F.MEMBER_ID, F.CREATED_DATE, F.UPDATED_DATE,
+                         P.POST_TITLE, P.POST_CONTENT
+                  FROM TBL_FREEWRITE F
+                           JOIN TBL_POST P ON F.ID = P.ID
+                  ORDER BY F.FREEWRITE_READ_COUNT DESC
+              ) P1
+         WHERE ROWNUM <= 15
+     ) P2
+WHERE P2.R >= 1;
+
+
