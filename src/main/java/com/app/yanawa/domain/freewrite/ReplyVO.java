@@ -15,7 +15,7 @@ public class ReplyVO {
     @EqualsAndHashCode.Include
     private Long id;
     private String replyContent;
-    private Long userId;
+    private Long memberId;
     private Long postId;
     private String createdDate;
     private String updatedDate;

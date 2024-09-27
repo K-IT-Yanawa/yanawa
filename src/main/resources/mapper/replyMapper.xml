@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.yanawa.mapper.reply.ReplyMapper">
+<mapper namespace="com.app.yanawa.mapper.freewrite.ReplyMapper">
 
     <!-- 댓글 삽입 -->
     <insert id="insertReply">
-        INSERT INTO TBL_REPLY(ID, REPLY_CONTENT, USER_ID, POST_ID, CREATED_DATE, UPDATED_DATE)
-        VALUES(SEQ_REPLY.NEXTVAL, #{replyContent}, #{userId}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO TBL_REPLY(ID, REPLY_CONTENT, MEMBER_ID, POST_ID, CREATED_DATE, UPDATED_DATE)
+        VALUES(SEQ_REPLY.NEXTVAL, #{replyContent}, #{memberId}, #{postId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
+
+
+    <select id="selectById" resultType="replyDTO">
+        SELECT
+            R.ID, R.REPLY_CONTENT, R.MEMBER_ID, U.MEMBER_NICKNAME, R.POST_ID,
+            R.CREATED_DATE, R.UPDATED_DATE
+        FROM
+            TBL_REPLY R
+                JOIN
+            TBL_MEMBER U ON R.MEMBER_ID = U.ID
+        WHERE
+            R.ID = #{id}
+    </select>
+
 
     <!-- 게시물에 대한 모든 댓글 조회 -->
     <select id="selectRepliesByPostId" resultType="replyDTO">
-        SELECT R.ID, R.REPLY_CONTENT, R.USER_ID, U.USER_NICKNAME, R.POST_ID, R.CREATED_DATE, R.UPDATED_DATE
+        SELECT R.ID, R.REPLY_CONTENT, R.MEMBER_ID, U.MEMBER_NICKNAME, R.POST_ID, R.CREATED_DATE, R.UPDATED_DATE
         FROM TBL_REPLY R
-                 JOIN TBL_USER U ON R.USER_ID = U.ID
+                 JOIN TBL_MEMBER U ON R.MEMBER_ID = U.ID
         WHERE R.POST_ID = #{postId}
         ORDER BY R.CREATED_DATE ASC
     </select>

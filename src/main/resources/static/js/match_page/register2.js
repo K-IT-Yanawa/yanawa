@@ -96,22 +96,16 @@ function validateForm2() {
         hideError("placeDetail");
     }
 
-    // 경기 시작시간 유효성 검사 (빈칸일 경우에도)
-    if (!timeRegist.value.trim()) {
-        showError("timeRegist", "경기 시작시간을 입력해 주세요.");
-        isValid = false;
-    } else if (!timeRegist.checkValidity()) {
-        showError("timeRegist", "시간은 '12시' 형식으로 입력해주세요.");
+    // 매칭 등록시간 형식 확인 (시간 필드에 대한 유효성 검사 추가)
+    if (!timeRegist.checkValidity()) {
+        showError("timeRegist", "시간은 '1~12시' 형식으로 입력해주세요.");
         isValid = false;
     } else {
         hideError("timeRegist");
     }
 
-    // 매칭 희망날짜 유효성 검사 (빈칸일 경우에도)
-    if (!dateRegist.value.trim()) {
-        showError("dateRegist", "매칭 희망날짜를 입력해 주세요.");
-        isValid = false;
-    } else if (!dateRegist.checkValidity()) {
+    // 매칭 희망날짜 형식 확인 (날짜 필드에 대한 유효성 검사 추가)
+    if (!dateRegist.checkValidity()) {
         showError("dateRegist", "날짜는 'YYYY-MM-DD' 형식으로 입력해주세요.");
         isValid = false;
     } else {
@@ -153,9 +147,6 @@ function hideError(field) {
         error.hidden = true;  // 에러 메시지 숨기기
     }
 }
-
-
-
 
 
 
@@ -535,12 +526,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 매칭글 제목을 join-form의 hidden 필드로 복사
         const postTitleInput = document.querySelector("input[name='title']");
-
-        // 제목이 비었을 때 경고 메시지 출력
-        if (!postTitleInput || !postTitleInput.value.trim()) {
-            alert("매칭글 제목을 입력해주세요.");
-            return;  // 유효성 검사 실패 시 submit 중지
-        }
         const hiddenPostTitleInput = document.querySelector("input[name='postTitle']");
         if (postTitleInput && hiddenPostTitleInput) {
             hiddenPostTitleInput.value = postTitleInput.value;  // 제목 필드 복사
@@ -548,11 +533,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 매칭글 내용을 join-form의 hidden 필드로 복사
         const postContent = document.querySelector("textarea[name='postContent']");
-        // 주의/요구사항이 비었을 때 경고 메시지 출력
-        if (!postContent || !postContent.value.trim()) {
-            alert("주의/요구사항을 입력해주세요.");
-            return;  // 유효성 검사 실패 시 submit 중지
-        }
         const hiddenPostContentInput = document.querySelector("input[name='postContent']");
         if (postContent && hiddenPostContentInput) {
             hiddenPostContentInput.value = postContent.value;  // 내용 필드 복사
@@ -608,18 +588,14 @@ document.addEventListener("DOMContentLoaded", function() {
             hideError("dateRegist");
         }
 
-
-
-
-
-        // // 제목과 주의사항 확인 후 경고 메시지
-        // if (!postTitleInput.value.trim() || !postContent.value.trim()) {
-        //     alert("제목과 주의사항을 입력해주세요!");
-        //     return;  // 유효성 검사 실패 시 submit 중지
-        // }
+        // 제목과 주의사항 확인 후 경고 메시지
+        if (!postTitleInput.value.trim() || !postContent.value.trim()) {
+            alert("제목과 주의사항을 입력해주세요!");
+            return;  // 유효성 검사 실패 시 submit 중지
+        }
 
         // 모든 값이 유효할 경우 폼 제출
-        // alert("매칭 등록 완료!!");
+        alert("매칭 등록 완료!!");
         document.querySelector("form[name='join-form']").submit();
     });
 });

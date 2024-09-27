@@ -1,6 +1,7 @@
 package com.app.yanawa.service.team;
 
 import com.app.yanawa.domain.team.TeamDTO;
+import com.app.yanawa.domain.team.TeamPostVO;
 import com.app.yanawa.domain.team.TeamVO;
 import com.app.yanawa.repository.team.TeamDAO;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,7 @@ public class TeamServiceImpl implements TeamService {
     public void join(TeamVO teamVO) { teamDAO.save(teamVO); }
 
     @Override
-    public Optional<TeamDTO> getTeam(Long id) {
-
-        return teamDAO.findByMemberId(id);
+    public Optional<TeamDTO> getTeam(Long memberId) {
+        return teamDAO.findByMemberId(memberId);
     }
 }
