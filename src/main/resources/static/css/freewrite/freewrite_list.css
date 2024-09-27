@@ -962,3 +962,19 @@ a {
 a:hover {
     color: red;
 }
+.writetitle span,
+.writecontent span {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.writetitle {
+    max-width: 200px; /* Adjust based on your layout */
+}
+
+.writecontent {
+    max-width: 250px; /* Adjust based on your layout */
+}
