@@ -310,7 +310,7 @@ const districts = {
 
 // 첫 번째 셀렉트 요소와 두 번째 셀렉트 요소 가져오기
 const citySelect = document.querySelector('select[name="place"]');
-const districtSelect = document.querySelector('select[name="place-detail"]');
+const districtSelect = document.querySelector('select[name="localCityDetail"]');
 
 // 시/도 선택 시 구/군 목록 업데이트
 citySelect.addEventListener("change", function () {
@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 지역 선택 처리
     const city = document.querySelector("select[name='place']");
-    const local = document.querySelector("select[name='place-detail']");
+    const local = document.querySelector("select[name='localCityDetail']");
 
     city.addEventListener("change", (e) => {
         const selectedCity = city.value;

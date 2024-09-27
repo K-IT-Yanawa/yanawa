@@ -37,6 +37,7 @@ public class MatchingController {
     }
     @PostMapping("register")
     public RedirectView write(MatchingDTO matchingDTO) {
+        log.info(matchingDTO.toString());
         matchingService.write(matchingDTO);
         return new RedirectView("matchMain");
     }

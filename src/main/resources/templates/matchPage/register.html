@@ -763,7 +763,7 @@
                                                                         class="form-control-input-content"
                                                                     >
                                                                         <select
-                                                                            name="place-detail"
+                                                                            name="localCity"
                                                                             class="form-input"
                                                                             id="localCity"
                                                                         >
@@ -816,7 +816,9 @@
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
                                                                             type="text"
+                                                                            name="localcityDetail"
                                                                             class="form-input"
+                                                                            id="place-detail"
                                                                         />
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
@@ -911,6 +913,7 @@
                                                                         <input
                                                                             placeholder="ex) 12시 ~ 3시"
                                                                             type="text"
+                                                                            name="timeRegister"
                                                                             class="form-input"
                                                                         />
                                                                     </div>
@@ -954,6 +957,7 @@
                                                                             type="radio"
                                                                             name="time-coordinate"
                                                                             class="poss"
+                                                                            id="time-coordinate"
                                                                             value="가능"
                                                                         /><span
                                                                             class="poss-span"
@@ -1018,6 +1022,8 @@
                                                                         <input
                                                                             placeholder="ex) 2024-08-14"
                                                                             type="text"
+                                                                            id="date"
+                                                                            name="dateRegister"
                                                                             class="form-input date-img"
                                                                         />
 
@@ -1197,6 +1203,7 @@
                                                                             type="text"
                                                                             class="form-input"
                                                                             name="title"
+                                                                            id="title"
                                                                         />
                                                                         <input
                                                                             placeholder="ex) 즐겜러 5명 모여있습니다-농구"
@@ -1312,7 +1319,6 @@
                 <input type="hidden" name="postTitle" th:value="*{postTitle}">
                 <input type="hidden" name="postContent" th:value="*{postContent}">
                 <input type="hidden" name="postType" value="2">
-                <input type="hidden" name="matchingStatus" value="매칭중">
             </form>
         </div>
     </body>
