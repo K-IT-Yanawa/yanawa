@@ -448,9 +448,10 @@
                                         id="form"
                                         class="apply-form"
                                         style="margin-top: 0px"
+                                        th:object="${member}"
                                     >
                                         <div class="apply-wrapper">
-                                            <div class="apply-item info">
+                                                <div class="apply-item info">
                                                 <div class="item-wrapper">
                                                     <div
                                                         class="form-item item-container"
@@ -484,39 +485,40 @@
                                                                             placeholder="예)홍길동"
                                                                             type="text"
                                                                             class="item-input"
+                                                                            name="memberName" id="memberName" th:value="*{memberName}" readonly
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <div
-                                                                    class="form-item-explain"
-                                                                >
-                                                                    * 형식에
-                                                                    맞게
-                                                                    입력해주세요.
-                                                                </div>
-                                                                <div
-                                                                    class="error"
-                                                                >
-                                                                    <!-- 오류났을때 -->
-                                                                    <input
-                                                                        placeholder="예)홍길동"
-                                                                        type="text"
-                                                                        class="item-input input-error"
-                                                                    />
-                                                                    <div
-                                                                        class="form-item-explain explain-error"
-                                                                    >
-                                                                        * 형식에
-                                                                        맞게
-                                                                        입력해주세요.
-                                                                    </div>
-                                                                </div>
+<!--                                                                <div-->
+<!--                                                                    class="form-item-explain"-->
+<!--                                                                >-->
+<!--                                                                    * 형식에-->
+<!--                                                                    맞게-->
+<!--                                                                    입력해주세요.-->
+<!--                                                                </div>-->
+<!--                                                                <div-->
+<!--                                                                    class="error"-->
+<!--                                                                >-->
+<!--                                                                    &lt;!&ndash; 오류났을때 &ndash;&gt;-->
+<!--                                                                    <input-->
+<!--                                                                        placeholder="예)홍길동"-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="item-input input-error"-->
+<!--                                                                    />-->
+<!--                                                                    <div-->
+<!--                                                                        class="form-item-explain explain-error"-->
+<!--                                                                    >-->
+<!--                                                                        * 형식에-->
+<!--                                                                        맞게-->
+<!--                                                                        입력해주세요.-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="apply-item email">
+                                                <div class="apply-item email">
                                                 <div class="item-wrapper">
                                                     <div
                                                         class="form-item item-container"
@@ -550,39 +552,40 @@
                                                                             placeholder="예)qwas1234@naver.com"
                                                                             type="text"
                                                                             class="item-input"
+                                                                            name="memberEmail" id="memberEmail" th:value="*{memberEmail}" readonly
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <div
-                                                                    class="form-item-explain"
-                                                                >
-                                                                    * 형식에
-                                                                    맞게
-                                                                    입력해주세요.
-                                                                </div>
-                                                                <div
-                                                                    class="error"
-                                                                >
-                                                                    <!-- 오류났을때 -->
-                                                                    <input
-                                                                        placeholder="예)qwas1234@naver.com"
-                                                                        type="text"
-                                                                        class="item-input input-error"
-                                                                    />
-                                                                    <div
-                                                                        class="form-item-explain explain-error"
-                                                                    >
-                                                                        * 형식에
-                                                                        맞게
-                                                                        입력해주세요.
-                                                                    </div>
-                                                                </div>
+<!--                                                                <div-->
+<!--                                                                    class="form-item-explain"-->
+<!--                                                                >-->
+<!--                                                                    * 형식에-->
+<!--                                                                    맞게-->
+<!--                                                                    입력해주세요.-->
+<!--                                                                </div>-->
+<!--                                                                <div-->
+<!--                                                                    class="error"-->
+<!--                                                                >-->
+<!--                                                                    &lt;!&ndash; 오류났을때 &ndash;&gt;-->
+<!--                                                                    <input-->
+<!--                                                                        placeholder="예)qwas1234@naver.com"-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="item-input input-error"-->
+<!--                                                                    />-->
+<!--                                                                    <div-->
+<!--                                                                        class="form-item-explain explain-error"-->
+<!--                                                                    >-->
+<!--                                                                        * 형식에-->
+<!--                                                                        맞게-->
+<!--                                                                        입력해주세요.-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="apply-item phone">
+                                                <div class="apply-item phone">
                                                 <div class="item-wrapper">
                                                     <div
                                                         class="form-item item-container"
@@ -616,33 +619,34 @@
                                                                             placeholder="예)010-1234-5678"
                                                                             type="text"
                                                                             class="item-input"
+                                                                            name="memberPhone" id="memberPhone" th:value="*{memberPhone}" readonly
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <div
-                                                                    class="form-item-explain"
-                                                                >
-                                                                    * 형식에
-                                                                    맞게
-                                                                    입력해주세요.
-                                                                </div>
-                                                                <div
-                                                                    class="error"
-                                                                >
-                                                                    <!-- 오류났을때 -->
-                                                                    <input
-                                                                        placeholder="예)010-1234-5678"
-                                                                        type="text"
-                                                                        class="item-input input-error"
-                                                                    />
-                                                                    <div
-                                                                        class="form-item-explain explain-error"
-                                                                    >
-                                                                        * 형식에
-                                                                        맞게
-                                                                        입력해주세요.
-                                                                    </div>
-                                                                </div>
+<!--                                                                <div-->
+<!--                                                                    class="form-item-explain"-->
+<!--                                                                >-->
+<!--                                                                    * 형식에-->
+<!--                                                                    맞게-->
+<!--                                                                    입력해주세요.-->
+<!--                                                                </div>-->
+<!--                                                                <div-->
+<!--                                                                    class="error"-->
+<!--                                                                >-->
+<!--                                                                    &lt;!&ndash; 오류났을때 &ndash;&gt;-->
+<!--                                                                    <input-->
+<!--                                                                        placeholder="예)010-1234-5678"-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="item-input input-error"-->
+<!--                                                                    />-->
+<!--                                                                    <div-->
+<!--                                                                        class="form-item-explain explain-error"-->
+<!--                                                                    >-->
+<!--                                                                        * 형식에-->
+<!--                                                                        맞게-->
+<!--                                                                        입력해주세요.-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
                                                             </div>
                                                         </div>
                                                     </div>
