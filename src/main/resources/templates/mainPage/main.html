@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/css/mainPage/maim.css"/>
+        <link rel="stylesheet" th:href="@{/css/mainPage/maim.css}"/>
         <title>야나와 메인 페이지</title>
     </head>
     <body>
@@ -708,15 +708,7 @@
                                                 지역을 선택 해주세요.
                                             </span> -->
                                         </div>
-                                    </div>
-                                </div>
                             </li>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
                             <li class="main_heder_menu_bar">
                                 <a href="">
                                     <span>자유게시판</span>
@@ -730,6 +722,16 @@
                             <li class="main_heder_menu_bar">
                                 <a href="">
                                     <span>문의하기</span>
+                                </a>
+                            </li>
+                            <li class="main_heder_menu_bar">
+                                <a href="">
+                                    <span>장소대여</span>
+                                </a>
+                            </li>
+                            <li class="main_heder_menu_bar">
+                                <a href="">
+                                    <span>충전하기</span>
                                 </a>
                             </li>
                         </ul>
@@ -775,24 +777,25 @@
                                         ></span>
                                     </button>
                                 </li>
-                                <li>
+                                <li class="logout">
                                     <a
-                                        href=""
-                                        class="Button_Button__root__login Button_Button__outlinedSizeSmall_longin Button_Button__outlinedAssistive_gieob"
-                                        type="button"
+                                            href=""
+                                            class="Button_Button__root__login Button_Button__outlinedSizeSmall_longin Button_Button__outlinedAssistive_gieob"
+                                            id="logout"
+                                            type="button"
                                     >
                                         <span
-                                            class="Button_Button__interval__font"
+                                                class="Button_Button__interval__font"
                                         >
                                             <span
-                                                class="geulssi_RdAI1 geulssi__AA Typography_Typography__weightMedium__GXnOM"
+                                                    class="geulssi_RdAI1 geulssi__AA Typography_Typography__weightMedium__GXnOM"
                                             >
-                                                충전하기</span
+                                                로그아웃</span
                                             >
                                         </span>
 
                                         <span
-                                            class="Button_Button__interaction__rounder"
+                                                class="Button_Button__interaction__rounder"
                                         ></span>
                                     </a>
                                 </li>
@@ -815,12 +818,11 @@
                                     src="/images/mainPage_img/main-1.png"
                                     class="main_section_section_1_img"
                                 />
-                                <p
+                                <p style="font-size: 14px"
                                     class="geulssi_RdAI1 Typography_Typography__body2-reading__8RggS .geulssi_font_weightTypography_Typography__alignLeft__AQANH ActionBarArea_ActionBarArea__bar__text__jHshz"
                                 >
-                                    운동하러 갈까요?
-                                    <b>경기, 장소대여</b>
-                                    를 할수 있어요!
+                                    운동하러 갈까요? 원하는 팀과
+                                    <b>경기매칭</b>을 할 수 있어요!
                                 </p>
                                 <span
                                     class="main_svg_root_icon main_categoryIcon ActionBarArea_ActionBarArea__bar__icon__v1b6j"
