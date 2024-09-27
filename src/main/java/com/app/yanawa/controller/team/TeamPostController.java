@@ -26,7 +26,7 @@ public class TeamPostController {
     public void goToWriteForm(Model model){
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
-        model.addAttribute("team", teamService.getTeam(2L).get());
+        model.addAttribute("team", teamService.getTeam(3L).get());
 
     }
 

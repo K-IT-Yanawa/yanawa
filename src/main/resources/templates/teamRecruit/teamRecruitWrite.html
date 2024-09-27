@@ -833,7 +833,7 @@
                                                         >
                                                             <div
                                                                     class="form-control-input-content"
-                                                            >
+                                                            >   <div class="input-textarea-margin">
                                                                         <span
                                                                                 class="input-textarea"
                                                                         >
@@ -844,6 +844,7 @@
 
                                                                             ></textarea>
                                                                         </span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -882,7 +883,7 @@
     </form>
 </div>
 </body>
-<script src="/js/teamrecruit_page/teamrecruitwritePage.js"></script>
+<script src="/js/teamrecruit_page/teamRecruitWrite.js"></script>
 <script th:inline="javascript">
     const getTeamId = [[${team}]];
 
@@ -895,9 +896,25 @@
         // 마감 날짜 입력 필드 값 가져오기
         const endDate = document.getElementById('endDate').value; //마감날짜 입력 필드 값
         const endDateError = document.getElementById('endDate-error');
-        
-        // 날짜 형식 유효성 검사
-        if (!endDate) {
+
+        // 날짜 형식 유효성 검사 (YYYY-MM-DD 형식 및 실제 유효 날짜 여부)
+        const datePattern = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+        const isValidDate = (date) => {
+            // 정규식으로 기본 형식 검사
+            if (!datePattern.test(date)) return false;
+
+            // 날짜 객체로 변환하여 유효한 날짜인지 확인
+            const parsedDate = new Date(date);
+            const [year, month, day] = date.split("-");
+
+            // 입력된 값과 실제로 파싱된 날짜가 일치하는지 확인 (예: 2024-02-30 방지)
+            return parsedDate.getFullYear() == year &&
+                parsedDate.getMonth() + 1 == month &&
+                parsedDate.getDate() == day;
+        };
+
+        if (isValidDate(endDate) == false) {
             // 유효하지 않을 경우
             document.getElementById('endDate').classList.add('input-error'); // 빨간 테두리 추가
             endDateError.style.display = 'block'; // 경고 메시지 보이기
@@ -915,8 +932,9 @@
         document.querySelector('input[name="information"]').value = information;
 
         // 폼 제출
-        if(endDate) {
-        document['join-form'].submit();
+        if(isValidDate(endDate)) {
+            alert("매칭 등록 완료!!");
+            document['join-form'].submit();
         }
     })
 </script>
