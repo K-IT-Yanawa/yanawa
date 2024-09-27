@@ -2,6 +2,7 @@ package com.app.yanawa.service.member;
 
 import com.app.yanawa.domain.member.MemberDTO;
 import com.app.yanawa.domain.member.MemberVO;
+import com.app.yanawa.mapper.member.MemberMapper;
 import com.app.yanawa.repository.member.MemberDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
     private final MemberDAO memberDAO;
+    private final MemberMapper memberMapper;
 
     //   회원가입
     @Override
@@ -39,11 +41,14 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.existsByNickName(nickname);
     }
 
-    //    로그인
+    //     로그인
     @Override
-    public Optional<MemberVO> selectByMemberEmailAndMemberPassword(String email, String password) {
-        return memberDAO.findByMemberEmailAndMemberPassword(email, password);
+    public Optional<MemberVO> login(String email, String password) {
+        return memberMapper.selectByMemberEmailAndMemberPassword(email, password);
     }
 
-
+    @Override
+    public Optional<MemberDTO> getMember(Long id) {
+        return memberDAO.findMemberByMemberId(id);
+    }
 }

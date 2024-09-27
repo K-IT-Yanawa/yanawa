@@ -23,6 +23,7 @@ public class TeamPostDAO {
     }
 
     public void save(TeamPostVO teamPostVO) {
+
         teamPostMapper.insert(teamPostVO);
     }
 }

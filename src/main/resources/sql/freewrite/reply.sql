@@ -6,7 +6,7 @@ CREATE TABLE TBL_REPLY (
                            CREATED_DATE DATE DEFAULT SYSDATE NOT NULL,
                            UPDATED_DATE DATE NOT NULL,
                            CONSTRAINT FK_REPLY_USER FOREIGN KEY(USER_ID)
-                               REFERENCES TBL_USER(ID),
+                               REFERENCES TBL_MEMBER(ID),
                            CONSTRAINT FK_REPLY_POST FOREIGN KEY (POST_ID)
-                               REFERENCES TBL_FREEWRITE(POST_ID)
+                               REFERENCES TBL_FREEWRITE(ID)
 );
