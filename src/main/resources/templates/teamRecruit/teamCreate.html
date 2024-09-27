@@ -344,23 +344,23 @@
                                                             <div class="form-control-input-content sports-options" style="display: flex; gap: 20px; flex-wrap: wrap; border: 1px solid rgb(225, 227, 232); border-radius: 5px; margin-top: 16px; padding-left: 16px; height: 43px;
     align-items: center;">
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="축구" />
-                                                                    <label for="sport" style="display: unset;" >⚽축구</label>
+                                                                    <input type="radio" name="sport" value="축구" id="soccer"/>
+                                                                    <label for="soccer" style="display: unset;" >⚽축구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="농구" />
+                                                                    <input type="radio" name="sport" value="농구" id="basketball"/>
                                                                     <label for="basketball" style="display: unset;">🏀농구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="야구" />
+                                                                    <input type="radio" name="sport" value="야구" id="baseball"/>
                                                                     <label for="baseball" style="display: unset;">⚾야구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="배드민턴" />
+                                                                    <input type="radio" name="sport" value="배드민턴" id="badminton"/>
                                                                     <label for="badminton" style="display: unset;">🏸배드민턴</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="족구" />
+                                                                    <input type="radio" name="sport" value="족구" id="jokgu"/>
                                                                     <label for="jokgu" style="display: unset;">⚽족구</label>
                                                                 </div>
                                                             </div>
@@ -403,6 +403,7 @@
                                                                         placeholder="ex) 전북현대모터스"
                                                                         type="text"
                                                                         class="form-input"
+                                                                        id="teamName"
                                                                 />
                                                                 <input
                                                                         placeholder="ex) 전북현대모터스"
@@ -518,7 +519,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <select name="place" class="form-input">
+                                                                <select name="place" class="form-input" id="city">
                                                                     <option value="" disabled="" selected="">
                                                                         매칭
                                                                         지역
@@ -584,7 +585,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <select name="place-detail" class="form-input">
+                                                                <select name="place-detail" class="form-input" id="localCity">
                                                                     <option value="" disabled="" selected="">
                                                                         상세 지역 선택
                                                                     </option>
@@ -621,7 +622,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input">
+                                                                <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input" id="detailedArea">
                                                                 <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input input-error">
                                                                 <div style="
                                                                                 display: flex;
@@ -645,7 +646,7 @@
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li class="생성시간 left">
+                                    <li class="활동시간 left">
                                         <div class="register-info">
                                             <div
                                                     class="register-info-1"
@@ -676,6 +677,7 @@
                                                                         placeholder="ex) 오후7시 ~ 오후 9시"
                                                                         type="text"
                                                                         class="form-input"
+                                                                        id="teamActivityTime"
                                                                 />
                                                                 <input
                                                                         placeholder="ex) 오후 7시 ~ 오후 9시"
@@ -708,7 +710,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="회비 right">
+                                    <li class="나이대 right">
                                         <div class="register-info">
                                             <div
                                                     class="register-info-1"
@@ -739,6 +741,7 @@
                                                                         placeholder="ex) 20대~30대"
                                                                         type="text"
                                                                         class="form-input date-img"
+                                                                        id="ageRange"
                                                                 />
 
                                                                 <input
@@ -882,7 +885,58 @@
             </div>
         </div>
     </main>
+    <form th:action="@{/teamRecruit/teamCreate}" method="post" name="join-form">
+        <input type="hidden" name="id">
+        <input type="hidden" name="memberId">
+        <input type="hidden" name="teamName">
+        <input type="hidden" name="sportsKindRadioValue">
+        <input type="hidden" name="city">
+        <input type="hidden" name="localCity">
+        <input type="hidden" name="detailedArea">
+        <input type="hidden" name="teamActivityTime">
+        <input type="hidden" name="ageRange">
+    </form>
 </div>
 </body>
 <script src="/js/teamrecruit_page/teamrecruitwritePage.js"></script>
+<script th:inline="javascript">
+    const getMemberId = [[${member}]];
+
+    const button1 = document.querySelector(".next-button-1");
+    const button2 = document.querySelector(".next-button-2");
+    const submitButton = document.querySelector("button[type=submit]");
+
+    submitButton.addEventListener("click", (e) => {
+        e.preventDefault();// 기본 폼 제출을 막음
+
+        // 유효성 검사 진행
+
+        // 마감 날짜 입력 필드 값 가져오기
+        const endDate = document.getElementById('endDate').value; //마감날짜 입력 필드 값
+        const endDateError = document.getElementById('endDate-error');
+
+        // 마감 날짜 유효성 검사
+        if (!endDate) {
+            // 유효하지 않을 경우
+            document.getElementById('endDate').classList.add('input-error'); // 빨간 테두리 추가
+            endDateError.style.display = 'block'; // 경고 메시지 보이기
+        } else {
+            // 유효할 경우
+            document.getElementById('endDate').classList.remove('input-error'); // 빨간 테두리 제거
+            endDateError.style.display = 'none'; // 경고 메시지 숨기기
+        }
+
+        const information = document.getElementById('information').value; //추가정보 입력 필드 값
+
+        // 사용자가 입력한 값을 숨겨진 필드에 할당
+        document.querySelector('input[name="teamId"]').value = getTeamId.id
+        document.querySelector('input[name="endDate"]').value = endDate;
+        document.querySelector('input[name="information"]').value = information;
+
+        // 폼 제출
+        if(endDate) {
+            document['join-form'].submit();
+        }
+    })
+</script>
 </html>
