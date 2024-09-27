@@ -35,4 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
             rotateIcon.classList.remove("open");
         }
     });
+
+
 });
