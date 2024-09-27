@@ -4,13 +4,11 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Component
-@Getter
+@Getter @Setter
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
-@AllArgsConstructor
-public class TeamMemberVO {
-    @EqualsAndHashCode.Include
+public class TeamMemberDTO {
     private Long id;
     private Long memberId;
     private Long teamId;
@@ -18,4 +16,8 @@ public class TeamMemberVO {
     private String introduce;
     private String createdDate;
     private String updatedDate;
+
+    public TeamMemberVO toVO() {
+        return new TeamMemberVO(id, memberId, teamId, pathToContact, introduce, createdDate, updatedDate);
+    }
 }

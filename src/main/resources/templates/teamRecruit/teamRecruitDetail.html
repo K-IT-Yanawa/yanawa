@@ -9,7 +9,7 @@
         />
         <link
             rel="stylesheet"
-            href="/static/css/teamrecruit_page/teamrecruitDetailPage.css"
+            href="/css/teamrecruit_page/teamrecruitDetailPage.css"
         />
         <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
         <title>팀 상세페이지</title>
@@ -691,6 +691,7 @@
                                                                                     type="radio"
                                                                                     name="route"
                                                                                     class="radio-email"
+                                                                                    id="radio-email"
                                                                                 />
                                                                                 <span
                                                                                     >메일</span
@@ -703,6 +704,7 @@
                                                                                     type="radio"
                                                                                     name="route"
                                                                                     class="radio-phone"
+                                                                                    id="radio-phone"
                                                                                 />
                                                                                 전화
                                                                             </label>
@@ -713,6 +715,7 @@
                                                                                     type="radio"
                                                                                     name="route"
                                                                                     class="radio-all"
+                                                                                    id="radio-all"
                                                                                 />
                                                                                 둘다
                                                                                 가능
@@ -765,6 +768,7 @@
                                                                             <!-- textarea안에서는 줄 바꿈이 안된다 -->
                                                                             <textarea
                                                                                 type="text"
+                                                                                id="introduce"
                                                                                 class="item-input addcontent-input"
                                                                                 placeholder="ex) 자신의 추가정보, 요구사항, 포지션 등 어필할 것들을 적어주세요."
                                                                             ></textarea>
@@ -779,7 +783,7 @@
                                             <div class="apply-item">
                                                 <!-- 나중에 submit으로 수정 -->
                                                 <button
-                                                    type="button"
+                                                    type="submit"
                                                     class="apply-complete-btn"
                                                 >
                                                     <span class="apply-span"
@@ -824,7 +828,64 @@
                 </div>
             </main>
             <footer></footer>
+            <form th:action="@{/teamRecruit/teamRecruitDetail}" method="post" name="join-form">
+                <input type="hidden" name="id">
+                <input type="hidden" name="memberId">
+                <input type="hidden" name="teamId">
+                <input type="hidden" name="pathToContact">
+                <input type="hidden" name="introduce">
+            </form>
         </div>
     </body>
-    <script src="/static/js/teamrecruit_page/teamrecruitDetailPage.js"></script>
+    <script th:inline="javascript">
+        const getMemberId = [[${member}]];
+
+        const button = document.querySelector("button[type=submit]");
+
+        // 신청완료 버튼 누를시 신청완료 div나옴 페이지이동 X
+        button.addEventListener("click", (e) => {
+            e.preventDefault();// 기본 폼 제출을 막음
+
+            // 유효성 검사 진행
+            const radioEmail = document.getElementById('radio-email').value; // 이메일 radio 필드 값
+            const radioPhone = document.getElementById('radio-phone').value; // 전화번호 radio 필드 값
+            const radioAll = document.getElementById('radio-all').value; // 모든 radio 필드 값
+            const pathToContactError = document.getElementById('pathToContact-error');
+
+            //추가정보 입력 필드 값
+            const introduce = document.getElementById('introduce').value;
+
+            // 신청하기 신청상세 div
+            const sideDiv2 = document.querySelector(".sider-2");
+
+            // 신청완료시 신청완료 완료 됬다는 div
+            const sideDiv3 = document.querySelector(".sider-3");
+
+
+            if (/*radio가 체크되지 않았을 경우*/) {
+
+                // 유효하지 않을 경우
+                pathToContactError.style.display = 'block'; // 경고 메시지 보이기
+            } else { /*radio가 체크되었을 경우*/
+
+                // 유효할 경우
+                pathToContactError.style.display = 'none'; // 경고 메시지 숨기기
+            }
+
+            // 사용자가 입력한 값을 숨겨진 필드에 할당
+            document.querySelector('input[name="memberId"]').value = getMemberId.id
+            document.querySelector('input[name="endDate"]').value = endDate;
+            document.querySelector('input[name="introduce"]').value = introduce;
+
+            // 폼 제출
+            if(/*radio가 체크 되었다면 */) {
+                // 매칭신청완료시 알림 뜸
+                alert("매칭 신청완료!");
+                sideDiv2.style.display = "none";
+                sideDiv3.style.display = "block";
+                document['join-form'].submit();
+            }
+        });
+    </script>
+    <script src="/js/teamrecruit_page/teamrecruitDetailPage.js"></script>
 </html>

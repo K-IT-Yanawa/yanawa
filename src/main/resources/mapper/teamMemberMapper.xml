@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.yanawa.mapper.team.TeamMemberMapper">
+    <insert id="insert">
+        INSERT INTO TBL_TEAM_MEMBER(ID, MEMBER_ID, TEAM_ID, PATH_TO_CONTACT, INTRODUCE)
+        VALUES(SEQ_TEAM_MEMBER.NEXTVAL, #{memberId}, #{teamId}, #{pathToContact}, #{introduce})
+    </insert>
+</mapper>
