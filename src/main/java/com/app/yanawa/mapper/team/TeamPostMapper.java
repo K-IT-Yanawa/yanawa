@@ -11,5 +11,6 @@ import java.util.Optional;
 @Mapper
 public interface TeamPostMapper {
     public void insert(TeamPostVO teamPostVO);
+
 }
 
