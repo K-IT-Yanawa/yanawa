@@ -145,116 +145,63 @@
                                 </div>
                             </div>
                         </div>
-                        <a
-                            data-testid="Button"
-                            color="assistive"
-                            class="sc-563f0eef-0-a gKqHkQ"
-                        >
-                            <span
-                                data-testid="StartIcon"
-                                class="sc-563f0eef-2 dQJXSq"
-                            >
-                                <img
-                                    src="https://cdn1.iconfinder.com/data/icons/systemui/21/chevron_left-512.png"
-                                    width="5px"
-                                    style="
+                        <a data-testid="Button" color="assistive" class="sc-563f0eef-0-a gKqHkQ" href="/freewrite/list"
+                           style="position: absolute; top: -87px; left: 0px; z-index: 1000;">
+                             <span data-testid="StartIcon" class="sc-563f0eef-2 dQJXSq">
+                                 <img src="https://cdn1.iconfinder.com/data/icons/systemui/21/chevron_left-512.png" width="100px" style="
                                         position: relative;
-                                        top: -1px;
-                                        margin-right: 4px;
-                                    "
-                                /> </span
-                            ><span
-                                data-testid="Typography"
-                                color="gray900"
-                                class="sc-8f16e3f5-0-span fvkzXt"
-                                >자유게시판 목록보기</span
-                            ><span
-                                data-testid="Button-interaction"
-                                color="assistive"
-                                class="sc-563f0eef-1 corjuz"
-                            ></span
-                        ></a>
+                                         top: -1px;
+                                         margin-right: 4px;
+                                            ">
+                                            </span>
+                            <span data-testid="Typography" color="gray900" class="sc-8f16e3f5-0-span fvkzXt">자유게시판 목록보기</span>
+                            <span data-testid="Button-interaction" color="assistive" class="sc-563f0eef-1 corjuz"></span>
+                        </a>
+
+
+
                     </article>
                     <aside class="sc-2ade8168-1 dRTorL">
                         <div class="sc-2e6f0be9-0 cTwgCR">
                             <form
+                                    action="/freewrite/reply" method="post"
                                 data-testid="CustomForm"
                                 class="ant-form ant-form-horizontal css-comment-form"
                                 style="width: 100%; margin-top: -22px"
                             >
-                                <ul
-                                    class="comment-content-list"
-                                    style="padding-left: 0px"
-                                >
-                                    <li class="comment-content-item">
-                                        <div
-                                            class="comment-wrap"
-                                            style="width: 100%"
-                                        >
-                                            <label
-                                                for="commentTextArea"
-                                                class="comment-label"
-                                                style="
-                                                    display: block;
-                                                    width: 100%;
-                                                "
-                                                >댓글 작성<span
-                                                    class="comment-required"
-                                                    >*</span
-                                                ></label
-                                            >
-                                            <div
-                                                class="comment-input-wrap"
-                                                style="width: 100%"
-                                            >
+
+                                    <ul class="comment-content-list" style="padding-left: 0px">
+                                        <li class="comment-content-item">
+                                            <div class="comment-wrap" style="width: 100%">
+                                                <label for="commentTextArea" class="comment-label" style="display: block; width: 100%;">
+                                                    댓글 작성<span class="comment-required">*</span>
+                                                </label>
+                                                <div class="comment-input-wrap" style="width: 100%">
                                                 <textarea
-                                                    id="commentTextArea"
-                                                    placeholder="댓글을 입력해주세요"
-                                                    maxlength="200"
-                                                    class="comment-textarea"
-                                                    style="
-                                                        width: 100%;
-                                                        height: 80px;
-                                                    "
-                                                ></textarea>
-                                                <span
-                                                    class="comment-char-count"
-                                                    id="comment-char-count"
-                                                    style="
-                                                        position: absolute;
-                                                        right: 10px;
-                                                        top: 50%;
-                                                        transform: translateY(
-                                                            -50%
-                                                        );
-                                                    "
-                                                    >0/200</span
-                                                >
+                                                        id="commentTextArea"
+                                                        name="replyContent"
+                                                        placeholder="댓글을 입력해주세요"
+                                                            maxlength="200"
+                                                        class="comment-textarea"
+                                                        style="width: 100%; height: 80px;"
+                                                            ></textarea>
+                                                    <span class="comment-char-count" id="comment-char-count" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                                                        0/200
+                                                     </span>
+                                                </div>
+                                                <!-- 게시글 ID와 사용자 ID를 서버로 함께 전송 -->
+                                                <input type="hidden" name="postId" value="${freewrite.id}">
+                                                <input type="hidden" name="memberId" value="${session.memberId}">
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div
-                                    class="comment-button-wrap"
-                                    style="width: 100%; margin-top: 20px"
-                                >
-                                    <button
-                                        data-testid="Button"
-                                        type="submit"
-                                        class="comment-submit-button"
-                                        style="
-                                            width: 100%;
-                                            background-color: #1890ff;
-                                            color: #ffffff;
-                                            border-radius: 8px;
-                                            height: 40px;
-                                            font-size: 14px;
-                                            font-weight: bold;
-                                        "
-                                    >
-                                        댓글 작성
-                                    </button>
-                                </div>
+                                        </li>
+                                    </ul>
+                                    <div class="comment-button-wrap" style="width: 100%; margin-top: 20px">
+                                        <button type="submit" class="comment-submit-button" style="width: 100%; background-color: #1890ff; color: #ffffff; border-radius: 8px; height: 40px; font-size: 14px; font-weight: bold;">
+                                            댓글 작성
+                                        </button>
+                                    </div>
+
+
                             </form>
                         </div>
                         <div
