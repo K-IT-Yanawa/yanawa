@@ -1,6 +1,7 @@
 
 package com.app.yanawa.repository.matching;
 
+import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.member.MemberVO;
@@ -10,6 +11,7 @@ import com.app.yanawa.mapper.matching.MatchingMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -32,7 +34,11 @@ public class MatchingDAO {
 
     public void save(MatchingVO matchingVO) {matchingMapper.insert(matchingVO);}
 
+//    매칭글 목록
+    public List<MatchingDTO> findMatchingAll(Pagination pagination) {
+        return matchingMapper.selectMatchingAll(pagination);
+    }
 
-
+    public int getTotalMatching() {return matchingMapper.selectMatchingTotal();}
 }
 

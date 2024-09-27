@@ -1,11 +1,13 @@
 
 package com.app.yanawa.service.matching;
 
+import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.domain.post.PostVO;
 import com.app.yanawa.domain.team.TeamVO;
+import com.app.yanawa.mapper.matching.MatchingMapper;
 import com.app.yanawa.repository.matching.MatchingDAO;
 import com.app.yanawa.repository.post.PostDAO;
 import com.app.yanawa.repository.team.TeamDAO;
@@ -26,6 +28,7 @@ public class MatchingServiceImpl implements MatchingService {
     private final PostDAO postDAO;
     private final MatchingVO matchingVO;
     private final TeamDAO teamDAO;
+    private final MatchingMapper matchingMapper;
 
     @Override
     public void write(MatchingDTO matchingDTO) {
@@ -52,13 +55,13 @@ public class MatchingServiceImpl implements MatchingService {
 
 
     @Override
-    public List<MatchingDTO> getListMatching() {
-        return List.of();
+    public List<MatchingDTO> getListMatching(Pagination pagination) {
+        return matchingMapper.selectMatchingAll(pagination);
     }
 
     @Override
     public int getTotalMatching() {
-        return 0;
+        return matchingDAO.getTotalMatching();
     }
 
 }

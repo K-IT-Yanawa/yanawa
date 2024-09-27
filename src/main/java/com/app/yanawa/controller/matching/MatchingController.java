@@ -1,5 +1,6 @@
 package com.app.yanawa.controller.matching;
 
+import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.team.TeamDTO;
 import com.app.yanawa.service.matching.MatchingService;
@@ -25,6 +26,7 @@ public class MatchingController {
     private final TeamService teamService;
     private final HttpSession session;
 
+//    매칭글 작성
     @GetMapping("register")
     public void goToWriteForm(Model model) {
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -57,4 +59,13 @@ public class MatchingController {
         matchingService.write(matchingDTO);
         return new RedirectView("matchMain");
     }
+
+//    매칭글 메인페이지(목록)
+    @GetMapping("matchMain")
+    public void getList(Pagination pagination, Model model) {
+        pagination.setTotal(matchingService.getTotalMatching());
+        pagination.progress();
+        model.addAttribute("match", matchingService.getListMatching(pagination));
+    }
+
 }
