@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:action="@{/yanawa/member/main}" th:object="${memberDTO}">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/mainPage/maim.css"/>
         <title>야나와 메인 페이지</title>
     </head>
-    <body th:action="@{/yanawa/member/main}" th:object="${memberDTO}">
+    <body>
         <div id="_next">
             <div
                 role="presentation"

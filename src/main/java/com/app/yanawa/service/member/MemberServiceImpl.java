@@ -42,11 +42,6 @@ public class MemberServiceImpl implements MemberService {
     }
 
     //     로그인
-//    @Override
-//    public Optional<MemberVO> login(String email, String password) {
-//        return memberDAO.findByMemberEmailAndMemberPassword(email, password);
-//    }
-
     @Override
     public Optional<MemberVO> login(String email, String password) {
         return memberMapper.selectByMemberEmailAndMemberPassword(email, password);

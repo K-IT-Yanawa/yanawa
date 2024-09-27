@@ -142,6 +142,8 @@
                                         <input
                                                 type="checkbox"
                                                 id="login_session"
+                                                name="save"
+                                                value="save"
                                         />
                                         <div class="margin-bottom">
                                             <label
@@ -228,8 +230,34 @@
     </main>
 </div>
 </body>
+<!--status 주입-->
 <script th:inline="javascript">
+    // 로그인 성공/실패 여부
     const status = [[${status}]];
+
+    // 쿠키에 저장된 이메일, 패스워드 확인
+    const cookies = document.cookie.split("; ");
+    const emailCookie = cookies.find(cookie => cookie.startsWith("email="));
+    const passwordCookie = cookies.find(cookie => cookie.startsWith("password="));
+
+    // 이메일 쿠키확인
+    if (emailCookie) {
+        const emailValue = emailCookie.split("=")[1];
+        document.querySelector("input[name=email]").value = emailValue;
+    }
+
+    // 패스워드 쿠키확인
+    if (passwordCookie) {
+        const passwordValue = passwordCookie.split("=")[1];
+        document.querySelector("input[name=password]").value = passwordValue;
+    }
+
+    // 쿠키 저장 확인
+    const save = [[${save}]];
+    const saveInput = document.querySelector("input[name=save]");
+    if (save) {
+        saveInput.checked = true;
+    }
 </script>
 <script src="/js/login_page/email_login.js"></script>
 </html>
