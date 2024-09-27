@@ -3,7 +3,6 @@ package com.app.yanawa.controller.freewrite;
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.domain.member.MemberVO;
-import com.app.yanawa.mapper.freewrite.FreewriteMapper;
 import com.app.yanawa.service.freewrite.FreewriteService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,6 @@ public class FreewriteController {
 
     private final FreewriteService freewriteService;
     private final HttpSession session;
-    private final FreewriteMapper freewriteMapper;
 
     // 글쓰기 화면 이동
     @GetMapping("write")
@@ -57,7 +55,7 @@ public class FreewriteController {
             return "redirect:/freewrite/write";
         }
 
-        return "redirect:/freewrite/list?page=1&order=recent";
+        return "redirect:/freewrite/list";
     }
 
     // 게시글 목록 화면 이동
@@ -69,12 +67,5 @@ public class FreewriteController {
         pagination.setTotal(freewriteService.getTotal());
         pagination.progress();
         model.addAttribute("freewrites", freewriteService.getList(pagination, order));
-    }
-    // 해당 게시글 조회
-    @GetMapping("detail")
-    public void detail(Long id, Model model) {
-        FreewriteDTO freewrite = freewriteMapper.selectById(id);
-        freewriteMapper.increaseReadCount(id);
-        model.addAttribute("freewrite", freewriteMapper.selectById(id));
     }
 }

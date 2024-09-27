@@ -7,15 +7,15 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"
         />
-        <link rel="stylesheet" href="/static/css/match_page/register.css" />
-        <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
+        <link rel="stylesheet" th:href="@{/css/match_page/register.css}" />
+        <link rel="icon" th:href="@{/images/match_page/yanawalogo.png}" />
         <title>매칭등록 페이지</title>
     </head>
     <body>
         <div id="match-page">
             <header></header>
             <div></div>
-            <main class="register-main">
+            <main class="register-main" th:object="${matching}">
                 <div class="register-con">
                     <div class="register-title">
                         <h2>매칭 등록</h2>
@@ -91,7 +91,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="name"
+                                                                    for="memberName"
                                                                     class="label-name required"
                                                                 >
                                                                     이름
@@ -110,12 +110,17 @@
                                                                             placeholder="이름을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input"
+                                                                            name="memberName" id="memberName"
+                                                                            th:value="*{memberName}" readonly
                                                                         />
-                                                                        <input
-                                                                            placeholder="이름을 입력해 주세요."
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="이름을 입력해 주세요."-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            name="memberName" id="memberName"-->
+<!--                                                                            th:value="*{memberName}" readonly-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                     </div>
                                                                 </div>
                                                                 <div
@@ -127,13 +132,14 @@
                                                                     <div
                                                                         class="input-explain"
                                                                     >
-                                                                        <div
-                                                                            class="input-explain-error"
-                                                                        >
-                                                                            이름을
-                                                                            입력해
-                                                                            주세요.
-                                                                        </div>
+<!--                                                                        <div-->
+<!--                                                                            class="input-explain-error"-->
+<!--                                                                            hidden-->
+<!--                                                                        >-->
+<!--                                                                            이름을-->
+<!--                                                                            입력해-->
+<!--                                                                            주세요.-->
+<!--                                                                        </div>-->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -153,7 +159,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="email"
+                                                                    for="memberEmail"
                                                                     class="label-name required"
                                                                 >
                                                                     이메일
@@ -172,6 +178,8 @@
                                                                             placeholder="이메일을 입력해 주세요."
                                                                             type="text"
                                                                             class="form-input"
+                                                                            name="memberEmail" id="memberEmail"
+                                                                            th:value="*{memberEmail}" readonly
                                                                         />
                                                                         <div
                                                                             style="
@@ -199,11 +207,14 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <input
-                                                                            placeholder="이메일을 입력해 주세요."
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="이메일을 입력해 주세요."-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            name="memberEmail" id="memberEmail"-->
+<!--                                                                            th:value="*{memberEmail}" readonly-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                     </div>
                                                                 </div>
                                                                 <div
@@ -217,6 +228,7 @@
                                                                     >
                                                                         <div
                                                                             class="input-explain-error"
+                                                                            hidden
                                                                         >
                                                                             *
                                                                             매칭,
@@ -270,6 +282,8 @@
                                                                             placeholder="ex) 010-1234-5678"
                                                                             type="text"
                                                                             class="form-input"
+                                                                            name="memberPhone" id="memberPhone"
+                                                                            th:value="*{memberPhone}" readonly
                                                                         />
                                                                         <div
                                                                             style="
@@ -297,11 +311,14 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <input
-                                                                            placeholder="ex) 010-1234-5678"
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="ex) 010-1234-5678"-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            name="memberPhone" id="memberPhone"-->
+<!--                                                                            th:value="*{memberPhone}" readonly-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                     </div>
                                                                 </div>
                                                                 <div
@@ -315,6 +332,7 @@
                                                                     >
                                                                         <div
                                                                             class="input-explain-error"
+                                                                            hidden
                                                                         >
                                                                             *
                                                                             매칭,
@@ -383,10 +401,11 @@
                                                                             <input
                                                                                 type="radio"
                                                                                 name="sport"
+                                                                                id="soccer"
                                                                                 value="축구"
                                                                             />
                                                                             <label
-                                                                                for="sport"
+                                                                                for="soccer"
                                                                                 style="
                                                                                     display: unset;
                                                                                 "
@@ -397,6 +416,7 @@
                                                                             <input
                                                                                 type="radio"
                                                                                 name="sport"
+                                                                                id="basketball"
                                                                                 value="농구"
                                                                             />
                                                                             <label
@@ -411,6 +431,7 @@
                                                                             <input
                                                                                 type="radio"
                                                                                 name="sport"
+                                                                                id="baseball"
                                                                                 value="야구"
                                                                             />
                                                                             <label
@@ -425,6 +446,7 @@
                                                                             <input
                                                                                 type="radio"
                                                                                 name="sport"
+                                                                                id="badminton"
                                                                                 value="배드민턴"
                                                                             />
                                                                             <label
@@ -439,6 +461,7 @@
                                                                             <input
                                                                                 type="radio"
                                                                                 name="sport"
+                                                                                id="jokgu"
                                                                                 value="족구"
                                                                             />
                                                                             <label
@@ -449,6 +472,19 @@
                                                                                 >⚽족구</label
                                                                             >
                                                                         </div>
+                                                                    </div>
+
+                                                                    </div>
+                                                                <div
+                                                                        class="input-explain"
+                                                                >
+                                                                    <div
+                                                                            class="input-explain-error"
+                                                                            data-field="sport"
+                                                                            hidden
+                                                                    >
+                                                                        *
+                                                                        종목을 선택해 주세요.
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -470,7 +506,7 @@
                                                                 class="register-info-col form-labal left"
                                                             >
                                                                 <label
-                                                                    for="team"
+                                                                    for="teamName"
                                                                     class="label-name required"
                                                                 >
                                                                     팀명
@@ -489,12 +525,17 @@
                                                                             placeholder="ex) 신림드래곤즈"
                                                                             type="text"
                                                                             class="form-input"
+                                                                            name="teamName" id="teamName"
+                                                                            th:value="teamName" readonly
                                                                         />
-                                                                        <input
-                                                                            placeholder="ex) 신림드래곤즈"
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="ex) 신림드래곤즈"-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            name="teamName" id="teamName"-->
+<!--                                                                            th:value="teamName" readonly-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                         <div
                                                                             style="
                                                                                 display: flex;
@@ -506,6 +547,7 @@
                                                                             >
                                                                                 <div
                                                                                     class="input-explain-error"
+                                                                                    hidden
                                                                                 >
                                                                                     *
                                                                                     팀명을
@@ -622,6 +664,7 @@
                                                                         <select
                                                                             name="place"
                                                                             class="form-input"
+                                                                            id="city"
                                                                         >
                                                                             <option
                                                                                 value=""
@@ -733,8 +776,9 @@
                                                                         class="form-control-input-content"
                                                                     >
                                                                         <select
-                                                                            name="place-detail"
+                                                                            name="localCity"
                                                                             class="form-input"
+                                                                            id="localCity"
                                                                         >
                                                                             <option
                                                                                 value=""
@@ -751,6 +795,18 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div
+                                                                    class="input-explain"
+                                                            >
+                                                                <div
+                                                                        class="input-explain-error"
+                                                                        data-field="place"
+                                                               hidden
+                                                                >
+
+                                                                지역을 선택해주세요.
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -785,13 +841,16 @@
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
                                                                             type="text"
+                                                                            name="placeDetail"
                                                                             class="form-input"
+                                                                            id="place-detail"
                                                                         />
-                                                                        <input
-                                                                            placeholder="ex) 동작구/노들나루공원 축구장"
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="ex) 동작구/노들나루공원 축구장"-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                         <div
                                                                             style="
                                                                                 display: flex;
@@ -803,6 +862,8 @@
                                                                             >
                                                                                 <div
                                                                                     class="input-explain-error"
+                                                                                    data-field="placeDetail"
+                                                                                    hidden
                                                                                 >
                                                                                     *
                                                                                     형식에
@@ -835,8 +896,8 @@
                                                                     for="time"
                                                                     class="label-name required"
                                                                 >
-                                                                    매칭
-                                                                    등록시간
+                                                                    경기
+                                                                    시작시간
                                                                 </label>
                                                             </div>
                                                             <div
@@ -857,8 +918,8 @@
                                                                                 disabled
                                                                                 selected
                                                                             >
-                                                                                매칭
-                                                                                시간
+                                                                                오전
+                                                                                오후
                                                                                 선택
                                                                             </option>
                                                                             <option
@@ -876,11 +937,15 @@
                                                                     </div>
                                                                     <div>
                                                                         <input
-                                                                            placeholder="ex) 12시 ~ 3시"
-                                                                            type="text"
-                                                                            class="form-input"
+                                                                                placeholder="ex) 12시"
+                                                                                type="text"
+                                                                                name="timeRegist"
+                                                                                class="form-input"
+                                                                                pattern="(1[0-2]|[1-9])시"
+                                                                                title="시간은 '12시' 형식으로 입력해주세요."
                                                                         />
                                                                     </div>
+
                                                                 </div>
                                                                 <div
                                                                     style="
@@ -893,11 +958,13 @@
                                                                     >
                                                                         <div
                                                                             class="input-explain-error"
+                                                                            data-field="timeRegist"
+                                                                            hidden
                                                                         >
                                                                             *
                                                                             오전
                                                                             오후를
-                                                                            선택해주세요.
+                                                                            선택하고 형식에맞게 입력해주세요.
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -920,6 +987,8 @@
                                                                             type="radio"
                                                                             name="time-coordinate"
                                                                             class="poss"
+                                                                            id="time-coordinate"
+                                                                            value="가능"
                                                                         /><span
                                                                             class="poss-span"
                                                                             >가능</span
@@ -928,6 +997,7 @@
                                                                             type="radio"
                                                                             name="time-coordinate"
                                                                             class="imposs"
+                                                                            value="불가능"
                                                                         /><span
                                                                             class="imposs-span"
                                                                             >불가능</span
@@ -938,6 +1008,8 @@
                                                                     >
                                                                         <div
                                                                             class="input-explain-error"
+                                                                            data-field="time-coordinate"
+                                                                            hidden
                                                                         >
                                                                             *
                                                                             가능여부를
@@ -979,16 +1051,21 @@
                                                                         class="form-control-input-content"
                                                                     >
                                                                         <input
-                                                                            placeholder="ex) 2024-08-14"
-                                                                            type="text"
-                                                                            class="form-input date-img"
+                                                                                placeholder="ex) 2024-08-14"
+                                                                                type="text"
+                                                                                id="date"
+                                                                                name="dateRegist"
+                                                                                class="form-input date-img"
+                                                                                pattern="\d{4}-\d{2}-\d{2}"
+                                                                                title="날짜는 'YYYY-MM-DD' 형식으로 입력해주세요."
                                                                         />
 
-                                                                        <input
-                                                                            placeholder="ex) 2024-08-14"
-                                                                            type="text"
-                                                                            class="form-input date-img input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="ex) 2024-08-14"-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input date-img input-error"-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                         <div
                                                                             style="
                                                                                 display: flex;
@@ -1000,6 +1077,8 @@
                                                                             >
                                                                                 <div
                                                                                     class="input-explain-error"
+                                                                                    data-field="dateRegist"
+                                                                                    hidden
                                                                                 >
                                                                                     *
                                                                                     매칭희망
@@ -1028,6 +1107,7 @@
                                                             type="radio"
                                                             name="date-coordinate"
                                                             class="poss"
+                                                            value="협의가능"
                                                         /><span
                                                             class="poss-span"
                                                             >협의가능</span
@@ -1036,6 +1116,7 @@
                                                             type="radio"
                                                             name="date-coordinate"
                                                             class="imposs"
+                                                            value="협의불가능"
                                                         /><span
                                                             class="imposs-span"
                                                             >협의불가능</span
@@ -1044,6 +1125,8 @@
                                                     <div class="input-explain">
                                                         <div
                                                             class="input-explain-error"
+                                                            data-field="date-coordinate"
+                                                            hidden
                                                         >
                                                             * 가능여부를
                                                             선택해주세요.
@@ -1154,12 +1237,15 @@
                                                                             placeholder="ex) 즐겜러 5명 모여있습니다-농구"
                                                                             type="text"
                                                                             class="form-input"
+                                                                            name="title"
+                                                                            id="title"
                                                                         />
-                                                                        <input
-                                                                            placeholder="ex) 즐겜러 5명 모여있습니다-농구"
-                                                                            type="text"
-                                                                            class="form-input input-error"
-                                                                        />
+<!--                                                                        <input-->
+<!--                                                                            placeholder="ex) 즐겜러 5명 모여있습니다-농구"-->
+<!--                                                                            type="text"-->
+<!--                                                                            class="form-input input-error"-->
+<!--                                                                            hidden-->
+<!--                                                                        />-->
                                                                         <div
                                                                             style="
                                                                                 display: flex;
@@ -1171,6 +1257,7 @@
                                                                             >
                                                                                 <div
                                                                                     class="input-explain-error"
+                                                                                    hidden
                                                                                 >
                                                                                     *
                                                                                     형식에
@@ -1220,6 +1307,7 @@
                                                                             <textarea
                                                                                 id="textarea"
                                                                                 class="textarea"
+                                                                                name="postContent"
                                                                                 placeholder="ex)&#13;&#10; - 경기 시 주의/유의사항&#13;&#10; - 경기 방식 (전/후반 , 풀타임)&#13;&#10; - 준비물&#13;&#10; - 기타 요구사항 등등"
                                                                             ></textarea>
                                                                         </span>
@@ -1232,12 +1320,7 @@
                                                                 <div
                                                                     class="input-explain div-text"
                                                                 >
-                                                                    * 입력할
-                                                                    사항이
-                                                                    없으면
-                                                                    입력하지
-                                                                    않아도
-                                                                    됩니다
+                                                                    * 주의/요구사항은 필수 입력입니다.
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1252,7 +1335,23 @@
                     </div>
                 </div>
             </main>
+            <form th:action="@{/matchPage/register}" method="post" name="join-form">
+                <input type="hidden" name="teamId" th:value="*{team.Id}">
+                <input type="hidden" name="matchingStatus" th:value="*{matchingStatus}">
+                <input type="hidden" name="sportKindValue" th:value="*{sportKindValue}">
+                <input type="hidden" name="city" th:value="*{city}">
+                <input type="hidden" name="localCity" th:value="*{localCity}">
+                <input type="hidden" name="localCityDetail" th:value="*{localCityDetail}">
+                <input type="hidden" name="choiceAmPm" th:value="*{choiceAmPm}">
+                <input type="hidden" name="timeRegister" th:value="*{timeRegister}">
+                <input type="hidden" name="dateRegister" th:value="*{dateRegister}">
+                <input type="hidden" name="timeCordinate" th:value="*{timeCordinate}">
+                <input type="hidden" name="dateCordinate" th:value="*{dateCordinate}">
+                <input type="hidden" name="postTitle" th:value="*{postTitle}">
+                <input type="hidden" name="postContent" th:value="*{postContent}">
+                <input type="hidden" name="postType" value="2">
+            </form>
         </div>
     </body>
-    <script src="/static/js/match_page/register.js"></script>
+    <script th:src="@{/js/match_page/register.js}"></script>>
 </html>

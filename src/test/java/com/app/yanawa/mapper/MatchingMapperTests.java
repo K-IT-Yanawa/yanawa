@@ -3,7 +3,6 @@ package com.app.yanawa.mapper;
 
 import com.app.yanawa.domain.matching.MatchingDTO;
 
-import com.app.yanawa.mapper.matching.MatchingMapper;
 import com.app.yanawa.service.matching.MatchingService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -25,21 +24,21 @@ public class MatchingMapperTests {
         matchingDTO.setMemberName("tester");
         matchingDTO.setMemberEmail("test@test.com");
         matchingDTO.setMemberPhone("123456789");
-        matchingDTO.setSportKindValue(1);
+        matchingDTO.setSportKindValue("축구");
         matchingDTO.setTeamId(1L);
         matchingDTO.setTeamName("test팀");
         matchingDTO.setDateRegister("2024-09-24");
-        matchingDTO.setTimeRegister("2시");
-        matchingDTO.setTimeCordinate(1);
-        matchingDTO.setDateCordinate(1);
+        matchingDTO.setChoiceAmPm("오전");
+        matchingDTO.setTimeRegister("2시~13시");
+        matchingDTO.setTimeCordinate("가능");
+        matchingDTO.setDateCordinate("가능");
         matchingDTO.setCity("서울");
         matchingDTO.setLocalCity("강남구");
         matchingDTO.setLocalCityDetail("역삼역");
-        matchingDTO.setMatchStatus("매칭중");
+        matchingDTO.setMatchingStatus("매칭중");
 
         matchingService.write(matchingDTO);
 
         log.info("{}","매칭글이 작성되었습니다.");
     }
 }
-
