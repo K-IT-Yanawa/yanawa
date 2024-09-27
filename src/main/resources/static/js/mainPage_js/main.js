@@ -41,8 +41,8 @@ tempButton.style.backgroundColor = "black";
 const firstBanner = document.createElement("div");
 const lastBanner = document.createElement("div");
 
-firstBanner.innerHTML = '<img src="/static/images/mainPage_img/banner_-001.png" class="main_article_banner_img" />';
-lastBanner.innerHTML = '<img src="/static/images/mainPage_img/banner_-006.png" class="main_article_banner_img" />';
+firstBanner.innerHTML = '<img src="/images/mainPage_img/banner_-001.png" class="main_article_banner_img" />';
+lastBanner.innerHTML = '<img src="/images/mainPage_img/banner_-006.png" class="main_article_banner_img" />';
 
 banner.appendChild(firstBanner);
 banner.prepend(lastBanner);
@@ -137,3 +137,4 @@ setupCardBanner(".main_section_container_cardBanner1_banner_1", ".main_section_c
 setupCardBanner(".main_section_container_cardBanner2_banner_2", ".main_section_section_2_img", ".button_left2", ".button_right2");
 setupCardBanner(".main_section_banner_4_banner_1", ".main_section_section_4_img", ".button_left3", ".button_right3");
 setupCardBanner(".main_section_banner_5_banner_1", ".main_section_section_5_img", ".button_left4", ".button_right4");
+
