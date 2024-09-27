@@ -19,7 +19,8 @@ public class TeamServiceImpl implements TeamService {
     public void join(TeamVO teamVO) { teamDAO.save(teamVO); }
 
     @Override
-    public Optional<TeamDTO> getTeam(Long memberId) {
-        return teamDAO.findByMemberId(memberId);
+    public Optional<TeamDTO> getTeam(Long id) {
+
+        return teamDAO.findByMemberId(id);
     }
 }

@@ -8,11 +8,11 @@
               , #{detailedArea}, #{teamActivityTime}, #{ageRange})
     </insert>
 
-    <select id="selectByMemberId" resultType="teamDTO">
+    <select id="selectById" resultType="teamDTO">
         SELECT T.ID, TEAM_NAME, SPORTS_KIND_RADIO_VALUE, CITY, LOCAL_CITY, DETAILED_AREA,
                TEAM_ACTIVITY_TIME, AGE_RANGE, T.CREATED_DATE, T.UPDATED_DATE, MEMBER_ID,
                MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE
         FROM TBL_MEMBER U JOIN TBL_TEAM T
-                               ON U.ID = T.MEMBER_ID AND MEMBER_ID = #{memberId}
+                               ON U.ID = T.MEMBER_ID AND T.ID = #{id}
     </select>
 </mapper>
