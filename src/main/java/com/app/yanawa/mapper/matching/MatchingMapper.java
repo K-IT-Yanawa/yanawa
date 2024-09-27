@@ -1,5 +1,6 @@
 package com.app.yanawa.mapper.matching;
 
+import com.app.yanawa.domain.freewrite.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.member.MemberVO;
@@ -18,7 +19,7 @@ public interface MatchingMapper {
     public Optional<TeamVO> selectTeamId(Long id);
 
 //    매칭글 목록
-    public List<MatchingVO> selectMatchingAll(MatchingVO matchingVO);
+    public List<MatchingDTO> selectMatchingAll(@Param("pagination")Pagination pagination);
 
 //    매칭글 전체 개수 조회
     public int selectMatchingTotal();

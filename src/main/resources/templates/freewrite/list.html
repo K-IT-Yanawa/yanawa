@@ -72,10 +72,9 @@
 
                                     <!-- 게시글 출력 -->
                                     <table id="post-table">
-                                        <div th:each="freewrite : ${freewrites}" style="position: relative;">
-                                            <a th:href="@{/freewrite/detail(id=${freewrite.id})}" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></a>
+                                        <div th:each="freewrite : ${freewrites}">
                                             <div class="flex">
-                                                <div class="ydsfooter_munu_bar section_document">
+                                                <div class="ydsfooter_munu_bar section_document" href="#">
                                                     <div style="margin-top: 10px">
                                                         <div class="sc-73fafee5-0 ejqkLc">
                                                             <img src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg" />
@@ -106,8 +105,6 @@
                                         </div>
                                     </table>
 
-
-
                                 </div>
                             </div>
                         </div>
@@ -127,54 +124,79 @@
     </a>
 </div>
 
-</body>
 <script th:inline="javascript">
-    const pagination = {
-        currentPage: [[${pagination.page}]], // 현재 페이지
-        totalPages: [[${pagination.realEnd}]], // 총 페이지 수
-        startPage: [[${pagination.startPage}]], // 시작 페이지
-        endPage: [[${pagination.endPage}]], // 끝 페이지
-        prev: [[${pagination.prev}]], // 이전 버튼 활성화 여부
-        next: [[${pagination.next}]] // 다음 버튼 활성화 여부
-    };
-
+    const pagination = [[${pagination}]]; // 서버에서 전달된 pagination 객체 사용
+    const currentPage = pagination.currentPage; // 현재 페이지
+    const totalPageCount = pagination.pageCount; // 총 페이지 수
     const pageWrap = document.getElementById("post-wrap");
-    let text = '';
 
-    // 이전 버튼 처리 (시작 페이지가 1보다 크면 이전 버튼 활성화)
-    if (pagination.startPage > 1) {
-        text += `<a href="?page=${pagination.startPage - 10}" class="prev">이전</a>`;
-    } else {
-        text += `<span class="prev disabled">이전</span>`;
+    let text = ``;
+
+    // 이전 페이지 버튼 추가 (첫 페이지에서는 비활성화)
+    if (currentPage > 1) {
+        text += `<a href="/freewrite/list?page=${currentPage - 1}" class="prev">이전</a>`;
     }
 
-    // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
-    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, pagination.totalPages); i++) {
-        if (i === pagination.currentPage) {
-            text += `<a href="?page=${i}" class="current">${i}</a>`;
+    // 페이지 번호 출력
+    for (let i = 1; i <= totalPageCount; i++) {
+        if (i === currentPage) {
+            // 현재 페이지는 강조 표시
+            text += `<a href="/freewrite/list?page=${i}" class="current">${i}</a>`;
         } else {
-            text += `<a href="?page=${i}">${i}</a>`;
+            text += `<a href="/freewrite/list?page=${i}">${i}</a>`;
         }
     }
 
-    // 다음 버튼 처리 (끝 페이지가 총 페이지보다 작으면 다음 버튼 활성화)
-    if (pagination.endPage < pagination.totalPages) {
-        text += `<a href="?page=${pagination.startPage + 10}" class="next">다음</a>`;
-    } else {
-        text += `<span class="next disabled">다음</span>`;
+    // 다음 페이지 버튼 추가 (마지막 페이지에서는 비활성화)
+    if (currentPage < totalPageCount) {
+        text += `<a href="/freewrite/list?page=${currentPage + 1}" class="next">다음</a>`;
     }
 
-    // HTML에 페이지네이션 표시
+    // 페이지 번호를 post-wrap에 추가
     pageWrap.innerHTML = text;
 </script>
 
 
 
-
 <script src="/js/freewrite/freewrite_list.js"></script>
+</body>
 </html>
 
 
 
 
 
+<!-- 페이지네이션 -->
+<!--                <ul class="wrap21">-->
+<!--                    <li title="Previous Page" class="content15" aria-disabled="true">-->
+<!--                        <a class="content16">-->
+<!--                            <svg viewBox="64 64 896 896" focusable="false" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true"></svg>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li title="1" class="content17" tabindex="0">-->
+<!--                        <a rel="nofollow">1</a>-->
+<!--                    </li>-->
+<!--                    <li title="2" class="content18" tabindex="0">-->
+<!--                        <a rel="nofollow">2</a>-->
+<!--                    </li>-->
+<!--                    <li title="3" class="content19" tabindex="0">-->
+<!--                        <a rel="nofollow">3</a>-->
+<!--                    </li>-->
+<!--                    <li title="4" class="content20" tabindex="0">-->
+<!--                        <a rel="nofollow">4</a>-->
+<!--                    </li>-->
+<!--                    <li title="5" class="content21" tabindex="0">-->
+<!--                        <a rel="nofollow">5</a>-->
+<!--                    </li>-->
+<!--                    <li class="content22" aria-disabled="true">-->
+<!--                        <span class="content23">•••</span>-->
+<!--                    </li>-->
+<!--                    <li title="24" class="content24" tabindex="0">-->
+<!--                        <a rel="nofollow">24</a>-->
+<!--                    </li>-->
+<!--                    <li title="Next Page" tabindex="0" class="content25" aria-disabled="false">-->
+<!--                        <a class="content26">-->
+<!--                            <svg viewBox="64 64 896 896" focusable="false" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true"></svg>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->

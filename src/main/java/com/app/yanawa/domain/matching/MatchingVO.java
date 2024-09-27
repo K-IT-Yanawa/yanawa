@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class MatchingVO {
     @EqualsAndHashCode.Include
     private Long postId;
-    private String matchStatus;
+    private String matchingStatus;
     private Long teamId;
     private String sportKindValue;
     private String choiceAmPm;
@@ -27,7 +27,7 @@ public class MatchingVO {
     public MatchingDTO toDTO() {
         MatchingDTO matchingDTO = new MatchingDTO();
         matchingDTO.setPostId(postId);
-        matchingDTO.setMatchStatus(matchStatus);
+        matchingDTO.setMatchingStatus(matchingStatus);
         matchingDTO.setTeamId(teamId);
         matchingDTO.setSportKindValue(sportKindValue);
         matchingDTO.setChoiceAmPm(choiceAmPm);
