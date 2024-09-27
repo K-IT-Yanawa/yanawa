@@ -14,16 +14,5 @@ import java.util.Optional;
 public class TeamPostDAO {
     private final TeamPostMapper teamPostMapper;
 
-    public Optional<MemberVO> findMemberById(Long id) {
-        return teamPostMapper.selectMemberById(id);
-    }
-
-    public Optional<TeamVO> findById(Long id) {
-        return teamPostMapper.selectTeamById(id);
-    }
-
-    public void save(TeamPostVO teamPostVO) {
-
-        teamPostMapper.insert(teamPostVO);
-    }
+    public void save(TeamPostVO teamPostVO) { teamPostMapper.insert(teamPostVO); }
 }

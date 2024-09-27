@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"
-    />
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"/>
     <link
             rel="stylesheet"
-            href="/css/teamrecruit_page/teamrecruitwritePage.css"
-    />
+            href="/css/teamrecruit_page/teamrecruitwritePage.css"/>
     <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
     <title>팀 등록 페이지</title>
 </head>
@@ -18,7 +16,7 @@
 <div id="match-page">
     <header></header>
     <div></div>
-    <main class="register-main" th:object="${team}">
+    <main class="register-main">
         <div class="register-con">
             <div class="register-title">
                 <h2>팀 등록</h2>
@@ -26,7 +24,7 @@
                     정보를 입력 후 원하는 팀원을 구해보세요
                 </div>
             </div>
-            <div class="form-warp">
+            <div class="form-warp" th:object="${team}">
                 <div id="form-1">
                     <form class="registe-form">
                         <div class="register-form-con">
@@ -37,34 +35,19 @@
                                         <h2>팀장 기본 정보</h2>
                                     </div>
                                     <li>
-                                                <span
-                                                        id="span-2"
-                                                        class="span-step"
-                                                >
-                                                    <span class="span-step-1"
-                                                    >등록 상세 정보</span
-                                                    >
-                                                </span>
+                                        <span id="span-2" class="span-step">
+                                            <span class="span-step-1">등록 상세 정보</span>
+                                        </span>
                                     </li>
                                     <li>
-                                                <span
-                                                        id="span-3"
-                                                        class="span-step"
-                                                >
-                                                    <span class="span-step-1"
-                                                    >추가 사항</span
-                                                    >
-                                                </span>
+                                        <span id="span-3" class="span-step">
+                                            <span class="span-step-1">추가 사항</span>
+                                        </span>
                                     </li>
                                 </ul>
                                 <div class="buttton-div">
-                                    <button
-                                            class="next-button-1"
-                                            type="button"
-                                    >
-                                                <span class="button-span"
-                                                >다음 단계</span
-                                                >
+                                    <button class="next-button-1" type="button"\>
+                                        <span class="button-span">다음 단계</span>
                                         <span></span>
                                     </button>
                                 </div>
@@ -75,216 +58,211 @@
                                 </div>
                                 <p
                                         class="register-form-main-title-con"
-                                        style="padding-top: 10px"
-                                >
+                                        style="padding-top: 10px">
                                     • 등록하신 정보는 팀원 구하기 이외의
                                     용도로는 활용되지 않습니다.
                                 </p>
-                                <form action="/teamRecruitPage/teamrecruitwritePage" method="post">
-                                    <ul>
-                                        <li class="이름">
-                                            <div class="register-info">
+                                <ul>
+                                    <li class="이름">
+                                        <div class="register-info">
+                                            <div
+                                                    class="register-info-1"
+                                            >
                                                 <div
-                                                        class="register-info-1"
+                                                        class="register-info-row"
                                                 >
                                                     <div
-                                                            class="register-info-row"
+                                                            class="register-info-col form-labal left"
+                                                    >
+                                                        <label
+                                                                for="memberName"
+                                                                class="label-name required"
+                                                        >이름
+                                                        </label>
+                                                    </div>
+                                                    <div
+                                                            class="register-info-col form-control"
                                                     >
                                                         <div
-                                                                class="register-info-col form-labal left"
-                                                        >
-                                                            <label
-                                                                    for="memberName"
-                                                                    class="label-name required"
-                                                                    th:text="*{memberName}"
-                                                            >
-                                                            </label>
-                                                        </div>
-                                                        <div
-                                                                class="register-info-col form-control"
+                                                                class="form-control-input"
                                                         >
                                                             <div
-                                                                    class="form-control-input"
+                                                                    class="form-control-input-content"
                                                             >
-                                                                <div
-                                                                        class="form-control-input-content"
-                                                                >
-                                                                    <input
-                                                                            placeholder="이름을 입력해 주세요."
-                                                                            type="text"
-                                                                            class="form-input"
-                                                                            name="memberName" id="memberName" th:value="*{memberName}" readonly
+                                                                <input
+                                                                        placeholder="이름을 입력해 주세요."
+                                                                        type="text"
+                                                                        class="form-input"
+                                                                        name="memberName" id="memberName" th:value="*{memberName}" readonly
 
-                                                                    />
-                                                                </div>
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="이메일">
-                                            <div class="register-info">
+                                        </div>
+                                    </li>
+                                    <li class="이메일">
+                                        <div class="register-info">
+                                            <div
+                                                    class="register-info-1"
+                                            >
                                                 <div
-                                                        class="register-info-1"
+                                                        class="register-info-row"
                                                 >
                                                     <div
-                                                            class="register-info-row"
+                                                            class="register-info-col form-labal left"
                                                     >
-                                                        <div
-                                                                class="register-info-col form-labal left"
-                                                        >
-                                                            <label
-                                                                    for="memberEmail"
-                                                                    class="label-name required"
-                                                                    th:text="*{memberEmail}"
-                                                            >
-                                                            </label>
-                                                        </div>
-                                                        <div
-                                                                class="register-info-col form-control"
-                                                        >
-                                                            <div
-                                                                    class="form-control-input"
-                                                            >
-                                                                <div
-                                                                        class="form-control-input-content"
-                                                                >
-                                                                    <input
-                                                                            placeholder="이메일을 입력해 주세요."
-                                                                            type="text"
-                                                                            class="form-input"
-                                                                            name="memberEmail" id="memberEmail" th:value="*{memberEmail}" readonly
-                                                                    />
-                                                                    <div
-                                                                            style="
-                                                                                display: flex;
-                                                                                flex-wrap: nowrap;
-                                                                            "
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain"
-                                                                        >
-                                                                            <div
-                                                                                    class="input-explain-success"
-                                                                            >
-                                                                                *
-                                                                                매칭,
-                                                                                관련
-                                                                                안내가
-                                                                                해당
-                                                                                메일로
-                                                                                전달되오니
-                                                                                사용
-                                                                                중인
-                                                                                메일을
-                                                                                기재해주세요.
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <label
+                                                                for="memberEmail"
+                                                                class="label-name required"
+                                                        >이메일
+                                                        </label>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li class="연락처 right">
-                                            <div class="register-info">
-                                                <div
-                                                        class="register-info-1"
-                                                >
                                                     <div
-                                                            class="register-info-row"
+                                                            class="register-info-col form-control"
                                                     >
                                                         <div
-                                                                class="register-info-col form-labal left"
-                                                        >
-                                                            <label
-                                                                    for="memberPhone"
-                                                                    class="label-name required"
-                                                                    th:text="*{memberPhone}"
-                                                            >
-                                                            </label>
-                                                        </div>
-                                                        <div
-                                                                class="register-info-col form-control"
+                                                                class="form-control-input"
                                                         >
                                                             <div
-                                                                    class="form-control-input"
+                                                                    class="form-control-input-content"
                                                             >
+                                                                <input
+                                                                        placeholder="이메일을 입력해 주세요."
+                                                                        type="text"
+                                                                        class="form-input"
+                                                                        name="memberEmail" id="memberEmail" th:value="*{memberEmail}" readonly
+                                                                />
                                                                 <div
-                                                                        class="form-control-input-content"
-                                                                >
-                                                                    <input
-                                                                            placeholder="ex) 010-1234-5678"
-                                                                            type="text"
-                                                                            class="form-input"
-                                                                            name="memberPhone" id="memberPhone" th:value="*{memberPhone}" readonly
-                                                                    />
-                                                                    <div
-                                                                            style="
-                                                                                display: flex;
-                                                                                flex-wrap: nowrap;
-                                                                            "
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain"
-                                                                        >
-                                                                            <div
-                                                                                    class="input-explain-success"
-                                                                            >
-                                                                                *
-                                                                                매칭,
-                                                                                관련
-                                                                                안내가
-                                                                                해당
-                                                                                연락처로
-                                                                                전달되오니
-                                                                                사용
-                                                                                중인
-                                                                                연락처를
-                                                                                기재해주세요.
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="스포츠종목 left">
-                                            <div class="register-info">
-                                                <div
-                                                        class="register-info-1"
-                                                >
-                                                    <div
-                                                            class="register-info-row"
-                                                    >
-                                                        <div
-                                                                class="register-info-col form-labal left"
-                                                        >
-                                                            <label
-                                                                    for="sports"
-                                                                    class="label-name required"
-                                                            >
-                                                                스포츠종목
-                                                            </label>
-                                                        </div>
-                                                        <div
-                                                                class="register-info-col form-control"
-                                                        >
-                                                            <div
-                                                                    class="form-control-input"
-                                                            >
-                                                                <div
-                                                                        class="form-control-input-content sports-options"
                                                                         style="
+                                                                                display: flex;
+                                                                                flex-wrap: nowrap;
+                                                                            "
+                                                                >
+                                                                    <div
+                                                                            class="input-explain"
+                                                                    >
+                                                                        <div
+                                                                                class="input-explain-success"
+                                                                        >
+                                                                            *
+                                                                            매칭,
+                                                                            관련
+                                                                            안내가
+                                                                            해당
+                                                                            메일로
+                                                                            전달되오니
+                                                                            사용
+                                                                            중인
+                                                                            메일을
+                                                                            기재해주세요.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="연락처 right">
+                                        <div class="register-info">
+                                            <div
+                                                    class="register-info-1"
+                                            >
+                                                <div
+                                                        class="register-info-row"
+                                                >
+                                                    <div
+                                                            class="register-info-col form-labal left"
+                                                    >
+                                                        <label
+                                                                for="memberPhone"
+                                                                class="label-name required"
+                                                        >전화번호
+                                                        </label>
+                                                    </div>
+                                                    <div
+                                                            class="register-info-col form-control"
+                                                    >
+                                                        <div
+                                                                class="form-control-input"
+                                                        >
+                                                            <div
+                                                                    class="form-control-input-content"
+                                                            >
+                                                                <input
+                                                                        placeholder="ex) 010-1234-5678"
+                                                                        type="text"
+                                                                        class="form-input"
+                                                                        name="memberPhone" id="memberPhone" th:value="*{memberPhone}" readonly
+                                                                />
+                                                                <div
+                                                                        style="
+                                                                                display: flex;
+                                                                                flex-wrap: nowrap;
+                                                                            "
+                                                                >
+                                                                    <div
+                                                                            class="input-explain"
+                                                                    >
+                                                                        <div
+                                                                                class="input-explain-success"
+                                                                        >
+                                                                            *
+                                                                            매칭,
+                                                                            관련
+                                                                            안내가
+                                                                            해당
+                                                                            연락처로
+                                                                            전달되오니
+                                                                            사용
+                                                                            중인
+                                                                            연락처를
+                                                                            기재해주세요.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="스포츠종목 left">
+                                        <div class="register-info">
+                                            <div
+                                                    class="register-info-1"
+                                            >
+                                                <div
+                                                        class="register-info-row"
+                                                >
+                                                    <div
+                                                            class="register-info-col form-labal left"
+                                                    >
+                                                        <label
+                                                                for="sports"
+                                                                class="label-name required"
+                                                        >
+                                                            스포츠종목
+                                                        </label>
+                                                    </div>
+                                                    <div
+                                                            class="register-info-col form-control"
+                                                    >
+                                                        <div
+                                                                class="form-control-input"
+                                                        >
+                                                            <div
+                                                                    class="form-control-input-content sports-options"
+                                                                    style="
                                                                             display: flex;
                                                                             gap: 20px;
                                                                             flex-wrap: wrap;
@@ -301,129 +279,132 @@
                                                                             height: 43px;
                                                                             align-items: center;
                                                                         "
-                                                                >
-                                                                    <div>
-                                                                        <input
-                                                                                type="radio"
-                                                                                name="sport"
-                                                                                value="축구"
-                                                                        />
-                                                                        <label
-                                                                                for="sport"
-                                                                                style="
+                                                            >
+                                                                <div>
+                                                                    <input
+                                                                            type="radio"
+                                                                            name="sportsKindRadioValue"
+                                                                            value="1"
+                                                                            id="soccer" th:checked="*{sportsKindRadioValue == 1}" disabled
+                                                                    />
+                                                                    <label
+                                                                            for="sport"
+                                                                            style="
+                                                                            display: unset;
+                                                                                "
+                                                                    >⚽축구</label
+                                                                    >
+                                                                </div>
+                                                                <div>
+                                                                    <input
+                                                                            type="radio"
+                                                                            name="sportsKindRadioValue"
+                                                                            value="2"
+                                                                            id="basketball" th:checked="*{sportsKindRadioValue == 2}" disabled
+                                                                    />
+                                                                    <label
+                                                                            for="basketball"
+                                                                            style="
                                                                                     display: unset;
                                                                                 "
-                                                                        >⚽축구</label
-                                                                        >
-                                                                    </div>
-                                                                    <div>
-                                                                        <input
-                                                                                type="radio"
-                                                                                name="sport"
-                                                                                value="농구"
-                                                                        />
-                                                                        <label
-                                                                                for="basketball"
-                                                                                style="
+                                                                    >🏀농구</label
+                                                                    >
+                                                                </div>
+                                                                <div>
+                                                                    <input
+                                                                            type="radio"
+                                                                            name="sportsKindRadioValue"
+                                                                            value="3"
+                                                                            id="baseball" th:checked="*{sportsKindRadioValue == 3}" disabled
+                                                                    />
+                                                                    <label
+                                                                            for="baseball"
+                                                                            style="
                                                                                     display: unset;
                                                                                 "
-                                                                        >🏀농구</label
-                                                                        >
-                                                                    </div>
-                                                                    <div>
-                                                                        <input
-                                                                                type="radio"
-                                                                                name="sport"
-                                                                                value="야구"
-                                                                        />
-                                                                        <label
-                                                                                for="baseball"
-                                                                                style="
+                                                                    >⚾야구</label
+                                                                    >
+                                                                </div>
+                                                                <div>
+                                                                    <input
+                                                                            type="radio"
+                                                                            name="sportsKindRadioValue"
+                                                                            value="4"
+                                                                            id="badminton" th:checked="*{sportsKindRadioValue == 4}" disabled
+                                                                    />
+                                                                    <label
+                                                                            for="badminton"
+                                                                            style="
                                                                                     display: unset;
                                                                                 "
-                                                                        >⚾야구</label
-                                                                        >
-                                                                    </div>
-                                                                    <div>
-                                                                        <input
-                                                                                type="radio"
-                                                                                name="sport"
-                                                                                value="배드민턴"
-                                                                        />
-                                                                        <label
-                                                                                for="badminton"
-                                                                                style="
+                                                                    >🏸배드민턴</label
+                                                                    >
+                                                                </div>
+                                                                <div>
+                                                                    <input
+                                                                            type="radio"
+                                                                            name="sportsKindRadioValue"
+                                                                            value="5"
+                                                                            id="jokgu" th:checked="*{sportsKindRadioValue == 5}" disabled
+                                                                    />
+                                                                    <label
+                                                                            for="jokgu"
+                                                                            style="
                                                                                     display: unset;
                                                                                 "
-                                                                        >🏸배드민턴</label
-                                                                        >
-                                                                    </div>
-                                                                    <div>
-                                                                        <input
-                                                                                type="radio"
-                                                                                name="sport"
-                                                                                value="족구"
-                                                                        />
-                                                                        <label
-                                                                                for="jokgu"
-                                                                                style="
-                                                                                    display: unset;
-                                                                                "
-                                                                        >⚽족구</label
-                                                                        >
-                                                                    </div>
+                                                                    >⚽족구</label
+                                                                    >
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li class="팀명 right">
-                                            <div class="register-info">
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li class="팀명 right">
+                                        <div class="register-info">
+                                            <div
+                                                    class="register-info-1"
+                                            >
                                                 <div
-                                                        class="register-info-1"
+                                                        class="register-info-row"
                                                 >
                                                     <div
-                                                            class="register-info-row"
+                                                            class="register-info-col form-labal left"
+                                                    >
+                                                        <label
+                                                                for="teamName"
+                                                                class="label-name required"
+                                                        >팀명
+                                                        </label>
+                                                    </div>
+                                                    <div
+                                                            class="register-info-col form-control"
                                                     >
                                                         <div
-                                                                class="register-info-col form-labal left"
-                                                        >
-                                                            <label
-                                                                    for="teamName"
-                                                                    class="label-name required"
-                                                                    th:text="*{teamName}"
-                                                            >
-                                                            </label>
-                                                        </div>
-                                                        <div
-                                                                class="register-info-col form-control"
+                                                                class="form-control-input"
                                                         >
                                                             <div
-                                                                    class="form-control-input"
+                                                                    class="form-control-input-content"
                                                             >
-                                                                <div
-                                                                        class="form-control-input-content"
-                                                                >
-                                                                    <input
-                                                                            placeholder="ex) 전북현대모터스"
-                                                                            type="text"
-                                                                            class="form-input"
-                                                                            id="teamName"
-                                                                            name="teamName" th:value="*{teamName}" readonly
-                                                                    />
-                                                                </div>
+                                                                <input
+                                                                        placeholder="ex) 전북현대모터스"
+                                                                        type="text"
+                                                                        class="form-input"
+                                                                        id="teamName"
+                                                                        name="teamName" th:value="*{teamName}" readonly
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                        </li>
-                                        <li class="left"></li>
-                                    </ul>
-                                </form>
+                                            </div>
+                                    </li>
+                                    <li class="left"></li>
+                                </ul>
                             </div>
                         </div>
                     </form>
@@ -518,108 +499,12 @@
                                                             <div
                                                                     class="form-control-input-content"
                                                             >
-                                                                <select
-                                                                        name="place"
+                                                                <input
+                                                                        type="text"
                                                                         class="form-input"
-                                                                        readonly
-                                                                >
-                                                                    <option
-                                                                            value=""
-                                                                            disabled
-                                                                            selected
-                                                                    >
-                                                                        매칭
-                                                                        지역
-                                                                        선택
-                                                                    </option>
-                                                                    <option
-                                                                            value="서울특별시"
-                                                                    >
-                                                                        서울특별시
-                                                                    </option>
-                                                                    <option
-                                                                            value="부산광역시"
-                                                                    >
-                                                                        부산광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="대구광역시"
-                                                                    >
-                                                                        대구광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="인천광역시"
-                                                                    >
-                                                                        인천광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="광주광역시"
-                                                                    >
-                                                                        광주광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="대전광역시"
-                                                                    >
-                                                                        대전광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="울산광역시"
-                                                                    >
-                                                                        울산광역시
-                                                                    </option>
-                                                                    <option
-                                                                            value="세종특별자치시"
-                                                                    >
-                                                                        세종특별자치시
-                                                                    </option>
-                                                                    <option
-                                                                            value="경기도"
-                                                                    >
-                                                                        경기도
-                                                                    </option>
-                                                                    <option
-                                                                            value="강원특별자치도"
-                                                                    >
-                                                                        강원특별자치도
-                                                                    </option>
-                                                                    <option
-                                                                            value="충청북도"
-                                                                    >
-                                                                        충청북도
-                                                                    </option>
-                                                                    <option
-                                                                            value="충청남도"
-                                                                    >
-                                                                        충청남도
-                                                                    </option>
-                                                                    <option
-                                                                            value="전북특별자치도"
-                                                                    >
-                                                                        전북특별자치도
-                                                                    </option>
-                                                                    <option
-                                                                            value="전라남도"
-                                                                    >
-                                                                        전라남도
-                                                                    </option>
-                                                                    <option
-                                                                            value="경상북도"
-                                                                    >
-                                                                        경상북도
-                                                                    </option>
-                                                                    <option
-                                                                            value="경상남도"
-                                                                    >
-                                                                        경상남도
-                                                                    </option>
-                                                                    <option
-                                                                            value="제주특별자치도"
-                                                                    >
-                                                                        제주특별자치도
-                                                                    </option>
-
-                                                                    <!-- 추가옵션 여기에 -->
-                                                                </select>
+                                                                        id="city"
+                                                                        name="city" th:value="*{city}" readonly
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -632,23 +517,12 @@
                                                             <div
                                                                     class="form-control-input-content"
                                                             >
-                                                                <select
-                                                                        name="place-detail"
+                                                                <input
+                                                                        type="text"
                                                                         class="form-input"
-                                                                        readonly
-                                                                >
-                                                                    <option
-                                                                            value=""
-                                                                            disabled
-                                                                            selected
-                                                                    >
-                                                                        상세
-                                                                        지역
-                                                                        선택
-                                                                    </option>
-
-                                                                    <!-- 추가옵션 여기에 -->
-                                                                </select>
+                                                                        id="localCity"
+                                                                        name="localCity" th:value="*{localCity}" readonly
+                                                                />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -688,11 +562,10 @@
                                                                         placeholder="ex) 노들나루공원 축구장"
                                                                         type="text"
                                                                         class="form-input"
-                                                                />
-                                                                <input
-                                                                        placeholder="ex) 노들나루공원 축구장"
-                                                                        type="text"
-                                                                        class="form-input input-error"
+                                                                        name="detailedArea"
+                                                                        id="detailedArea"
+                                                                        th:value="*{detailedArea}"
+                                                                        readonly
                                                                 />
                                                                 <div
                                                                         style="
@@ -700,18 +573,6 @@
                                                                                 flex-wrap: nowrap;
                                                                             "
                                                                 >
-                                                                    <div
-                                                                            class="input-explain"
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain-error"
-                                                                        >
-                                                                            *
-                                                                            형식에
-                                                                            맞게
-                                                                            입력해주세요
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -736,8 +597,7 @@
                                                         <label
                                                                 for="team-activity-time"
                                                                 class="label-name required"
-                                                                th:text="*{teamActivityTime}"
-                                                        >
+                                                        >활동시간
                                                         </label>
                                                     </div>
                                                     <div
@@ -753,12 +613,8 @@
                                                                         placeholder="ex) 오후7시 ~ 오후 9시"
                                                                         type="text"
                                                                         class="form-input"
-                                                                        id="team-activity-time"
-                                                                />
-                                                                <input
-                                                                        placeholder="ex) 오후 7시 ~ 오후 9시"
-                                                                        type="text"
-                                                                        class="form-input input-error"
+                                                                        name="team-activity-time"
+                                                                        id="team-activity-time" th:value="*{teamActivityTime}" readonly
                                                                 />
                                                                 <div
                                                                         style="
@@ -766,18 +622,6 @@
                                                                                 flex-wrap: nowrap;
                                                                             "
                                                                 >
-                                                                    <div
-                                                                            class="input-explain"
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain-error"
-                                                                        >
-                                                                            *
-                                                                            형식에
-                                                                            맞게
-                                                                            입력해주세요
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -817,31 +661,17 @@
                                                                         placeholder="ex) 20대~30대"
                                                                         type="text"
                                                                         class="form-input date-img"
+                                                                        name="ageRange"
+                                                                        id="ageRange"
+                                                                        th:value="*{ageRange}" readonly
                                                                 />
 
-                                                                <input
-                                                                        placeholder="ex) 20대~30대"
-                                                                        type="text"
-                                                                        class="form-input date-img input-error"
-                                                                />
                                                                 <div
                                                                         style="
                                                                                 display: flex;
                                                                                 flex-wrap: nowrap;
                                                                             "
                                                                 >
-                                                                    <div
-                                                                            class="input-explain"
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain-error"
-                                                                        >
-                                                                            *
-                                                                            원하는
-                                                                            나이대를
-                                                                            입력해주세요
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -918,6 +748,7 @@
                                         팀원을 구하실 수 있습니다.
                                     </div>
                                 </div>
+
                                 <ul>
                                     <li class="모집종료일 left">
                                         <div class="register-info">
@@ -947,27 +778,20 @@
                                                                     class="form-control-input-content"
                                                             >
                                                                 <input
+                                                                        id="endDate"
                                                                         placeholder="ex) 2024-09-10"
                                                                         type="text"
                                                                         class="form-input"
+
                                                                 />
-                                                                <input
-                                                                        placeholder="ex) 2024-09-10"
-                                                                        type="text"
-                                                                        class="form-input input-error"
-                                                                />
-                                                                <div
-                                                                        style="
-                                                                                display: flex;
-                                                                                flex-wrap: nowrap;
-                                                                            "
-                                                                >
-                                                                    <div
-                                                                            class="input-explain"
-                                                                    >
-                                                                        <div
-                                                                                class="input-explain-error"
-                                                                        >
+                                                                <!--                                                                <input-->
+                                                                <!--                                                                        placeholder="ex) 2024-09-10"-->
+                                                                <!--                                                                        type="text"-->
+                                                                <!--                                                                        class="form-input input-error"-->
+                                                                <!--                                                                />-->
+                                                                <div style="display: flex; flex-wrap: nowrap;">
+                                                                    <div class="input-explain">
+                                                                        <div id="endDate-error" class="input-explain-error" style="display:none;">
                                                                             *
                                                                             형식에
                                                                             맞게
@@ -1009,16 +833,18 @@
                                                         >
                                                             <div
                                                                     class="form-control-input-content"
-                                                            >
+                                                            >   <div class="input-textarea-margin">
                                                                         <span
                                                                                 class="input-textarea"
                                                                         >
                                                                             <textarea
-                                                                                    id="textarea"
+                                                                                    id="information"
                                                                                     class="textarea"
                                                                                     placeholder="ex) &#13;&#10;- 회비&#13;&#10;- 모집 선호 포지션&#13;&#10;- 준비물&#13;&#10;- 기타 준비용품"
+
                                                                             ></textarea>
                                                                         </span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1041,6 +867,7 @@
                                         </div>
                                     </li>
                                 </ul>
+
                             </div>
                         </div>
                     </form>
@@ -1048,22 +875,67 @@
             </div>
         </div>
     </main>
-    <form th:action="@{/teamRecruitPage/teamrecruitwritePage}" method="post" name="join-form">
-        <input type="hidden" name="">
-        <input type="hidden" name="">
-        <input type="hidden" name="">
-        <input type="hidden" name="">
-        ID, TEAM_ID, END_DATE, INFORMATION
+    <form th:action="@{/teamRecruit/teamRecruitWrite}" method="post" name="join-form">
+        <input type="hidden" name="id">
+        <input type="hidden" name="teamId">
+        <input type="hidden" name="endDate">
+        <input type="hidden" name="information">
     </form>
 </div>
 </body>
-<script src="/js/teamrecruit_page/teamrecruitwritePage.js"></script>
-<script>
+<script src="/js/teamrecruit_page/teamRecruitWrite.js"></script>
+<script th:inline="javascript">
+    const getTeamId = [[${team}]];
+
     const button = document.querySelector("button[type=submit]");
     button.addEventListener("click", (e) => {
-        e.preventDefault();
-        //     유효성 검사 진행
-        document['join-form'].submit();
+        e.preventDefault();// 기본 폼 제출을 막음
+
+        // 유효성 검사 진행
+
+        // 마감 날짜 입력 필드 값 가져오기
+        const endDate = document.getElementById('endDate').value; //마감날짜 입력 필드 값
+        const endDateError = document.getElementById('endDate-error');
+
+        // 날짜 형식 유효성 검사 (YYYY-MM-DD 형식 및 실제 유효 날짜 여부)
+        const datePattern = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+        const isValidDate = (date) => {
+            // 정규식으로 기본 형식 검사
+            if (!datePattern.test(date)) return false;
+
+            // 날짜 객체로 변환하여 유효한 날짜인지 확인
+            const parsedDate = new Date(date);
+            const [year, month, day] = date.split("-");
+
+            // 입력된 값과 실제로 파싱된 날짜가 일치하는지 확인 (예: 2024-02-30 방지)
+            return parsedDate.getFullYear() == year &&
+                parsedDate.getMonth() + 1 == month &&
+                parsedDate.getDate() == day;
+        };
+
+        if (isValidDate(endDate) == false) {
+            // 유효하지 않을 경우
+            document.getElementById('endDate').classList.add('input-error'); // 빨간 테두리 추가
+            endDateError.style.display = 'block'; // 경고 메시지 보이기
+        } else {
+            // 유효할 경우
+            document.getElementById('endDate').classList.remove('input-error'); // 빨간 테두리 제거
+            endDateError.style.display = 'none'; // 경고 메시지 숨기기
+        }
+
+        const information = document.getElementById('information').value; //추가정보 입력 필드 값
+
+        // 사용자가 입력한 값을 숨겨진 필드에 할당
+        document.querySelector('input[name="teamId"]').value = getTeamId.id
+        document.querySelector('input[name="endDate"]').value = endDate;
+        document.querySelector('input[name="information"]').value = information;
+
+        // 폼 제출
+        if(isValidDate(endDate)) {
+            alert("매칭 등록 완료!!");
+            document['join-form'].submit();
+        }
     })
 </script>
 </html>

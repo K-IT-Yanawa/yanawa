@@ -447,6 +447,11 @@ option[disabled][selected] {
     font-size: 13px;
     color: white !important;
 }
+
+.input-textarea-margin {
+    margin-top: 16px;
+}
+
 .input-textarea {
     padding: 0;
     position: relative;

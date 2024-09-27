@@ -47,10 +47,7 @@ beforeButton2.addEventListener("click", () => {
     form3.style.display = "none";
     form2.style.display = "block";
 });
-// 등록완료 버튼 누를시 alert로 알림뜸
-finishButton.addEventListener("click", () => {
-    alert("매칭 등록 완료!!");
-});
+
 // 시/도 별로 구/군 데이터를 미리 정의합니다.
 const districts = {
     서울특별시: [
