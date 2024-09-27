@@ -27,32 +27,130 @@ const form3 = document.getElementById("form-3");
 
 // 다음 버튼 클릭(Form 1 -> Form 2)
 nextButton1.addEventListener("click", () => {
+    if (!validateForm1()) {
+        return;
+    }
     form1.style.display = "none";
     form2.style.display = "block";
 });
 
 // 다음 버튼 클릭(Form 2 -> Form 3)
 nextButton2.addEventListener("click", () => {
+    if (!validateForm2()) {
+        return;
+    }
     form2.style.display = "none";
     form3.style.display = "block";
 });
 
-// 이전 버튼 클릭(Form 2 -> Form 1)
-beforeButton1.addEventListener("click", () => {
-    form2.style.display = "none";
-    form1.style.display = "block";
-});
+// Form 1 유효성 검사
+function validateForm1() {
+    const sportChecked = document.querySelector("input[name='sport']:checked"); // Radio button 선택 여부 확인
 
-// 이전 버튼 클릭 (Form 3 -> Form 2)
-beforeButton2.addEventListener("click", () => {
-    form3.style.display = "none";
-    form2.style.display = "block";
-});
+    let isValid = true;
 
-// 등록완료 버튼 누를 시 alert로 알림
-finishButton.addEventListener("click", () => {
-    alert("매칭 등록 완료!!");
-});
+    // 스포츠 종목 유효성 검사 (Radio button)
+    if (!sportChecked) {
+        showError("sport", "스포츠 종목을 선택해 주세요.");
+        isValid = false;
+    } else {
+        hideError("sport");
+    }
+
+    return isValid;
+}
+
+// Form 2 유효성 검사 - 시간 및 날짜 형식 포함
+function validateForm2() {
+    const place = document.querySelector("select[name='place']").value;
+    const localCity = document.querySelector("select[name='localCity']").value;
+    const placeDetail = document.querySelector("input[name='placeDetail']").value.trim();
+    const timeRegist = document.querySelector("input[name='timeRegist']");
+    const timeCoordinate = document.querySelector("input[name='time-coordinate']:checked");
+    const dateRegist = document.querySelector("input[name='dateRegist']");
+    const dateCoordinate = document.querySelector("input[name='date-coordinate']:checked");
+
+    let isValid = true;
+
+    // 매칭 등록지역 유효성 검사
+    if (!place) {
+        showError("place", "매칭 등록지역을 선택해 주세요.");
+        isValid = false;
+    } else {
+        hideError("place");
+    }
+
+    // 상세 지역 유효성 검사
+    if (!localCity) {
+        showError("localCity", "상세 지역을 선택해 주세요.");
+        isValid = false;
+    } else {
+        hideError("localCity");
+    }
+
+    // 상세지역/장소명 유효성 검사
+    if (!placeDetail) {
+        showError("placeDetail", "상세지역/장소명을 입력해 주세요.");
+        isValid = false;
+    } else {
+        hideError("placeDetail");
+    }
+
+    // 매칭 등록시간 형식 확인 (시간 필드에 대한 유효성 검사 추가)
+    if (!timeRegist.checkValidity()) {
+        showError("timeRegist", "시간은 '1~12시' 형식으로 입력해주세요.");
+        isValid = false;
+    } else {
+        hideError("timeRegist");
+    }
+
+    // 매칭 희망날짜 형식 확인 (날짜 필드에 대한 유효성 검사 추가)
+    if (!dateRegist.checkValidity()) {
+        showError("dateRegist", "날짜는 'YYYY-MM-DD' 형식으로 입력해주세요.");
+        isValid = false;
+    } else {
+        hideError("dateRegist");
+    }
+
+    // 경기 시간 조율 여부 유효성 검사
+    if (!timeCoordinate) {
+        showError("time-coordinate", "경기 시간 조율 여부를 선택해 주세요.");
+        isValid = false;
+    } else {
+        hideError("time-coordinate");
+    }
+
+    // 경기 날짜 협의 여부 유효성 검사
+    if (!dateCoordinate) {
+        showError("date-coordinate", "경기 날짜 협의 여부를 선택해 주세요.");
+        isValid = false;
+    } else {
+        hideError("date-coordinate");
+    }
+
+    return isValid;
+}
+
+// 오류 메시지 표시 함수
+function showError(field, message) {
+    const error = document.querySelector(`.input-explain-error[data-field='${field}']`);
+    if (error) {
+        error.textContent = message;  // 에러 메시지 설정
+        error.hidden = false;         // 에러 메시지 표시
+    }
+}
+
+// 오류 메시지 숨김 함수
+function hideError(field) {
+    const error = document.querySelector(`.input-explain-error[data-field='${field}']`);
+    if (error) {
+        error.hidden = true;  // 에러 메시지 숨기기
+    }
+}
+
+
+
+
 
 // 시/도 별로 구/군 데이터를 미리 정의
 const districts = {
@@ -220,7 +318,7 @@ const districts = {
         "예산군",
         "태안군",
     ],
-    전라북도: [
+    전북특별자치도: [
         "전주시",
         "군산시",
         "익산시",
@@ -327,12 +425,6 @@ citySelect.addEventListener("change", function () {
     }
 });
 
-
-
-
-
-
-// ==================== 화면과 서버 연결 작업 ====================
 // DOM이 로드된 후 자바스크립트 실행
 document.addEventListener("DOMContentLoaded", function() {
     // 스포츠 종목 선택 처리
@@ -417,7 +509,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // 등록완료 버튼 클릭 시 값 전송 처리
-    // 등록완료 버튼 클릭 시 값 전송 처리
     document.querySelector(".finish-button").addEventListener("click", function(event) {
         event.preventDefault(); // 기본 submit 동작 방지
 
@@ -470,38 +561,41 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 필수 입력 필드 확인
         if (!postTitleInput || !postTitleInput.value.trim()) {
-            alert("매칭글 제목을 입력해주세요.");
+            showError("title", "매칭글 제목을 입력해주세요.");
             return;
+        } else {
+            hideError("title");
         }
 
         if (!postContent || !postContent.value.trim()) {
-            alert("매칭글 내용을 입력해주세요.");
+            showError("postContent", "매칭글 내용을 입력해주세요.");
             return;
+        } else {
+            hideError("postContent");
         }
 
         if (!timeRegister || !timeRegister.value.trim()) {
-            alert("경기 시간을 입력해주세요.");
+            showError("timeRegist", "경기 시간을 입력해주세요.");
             return;
+        } else {
+            hideError("timeRegist");
         }
 
         if (!dateRegister || !dateRegister.value.trim()) {
-            alert("경기 날짜를 입력해주세요.");
+            showError("dateRegist", "경기 날짜를 입력해주세요.");
             return;
+        } else {
+            hideError("dateRegist");
+        }
+
+        // 제목과 주의사항 확인 후 경고 메시지
+        if (!postTitleInput.value.trim() || !postContent.value.trim()) {
+            alert("제목과 주의사항을 입력해주세요!");
+            return;  // 유효성 검사 실패 시 submit 중지
         }
 
         // 모든 값이 유효할 경우 폼 제출
+        alert("매칭 등록 완료!!");
         document.querySelector("form[name='join-form']").submit();
     });
-
-
-
-
 });
-
-
-
-
-
-
-
-// ==================== 유효성 검사 함수들 ====================
