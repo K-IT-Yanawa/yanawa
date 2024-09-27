@@ -155,18 +155,12 @@ public class MemberController {
     public RedirectView logout(HttpSession session) {
         session.invalidate();
         log.info("{}","로그아웃 성공 !");
-        return new RedirectView("/yanawa/member/login");
+        return new RedirectView("/yanawa/member/main");
     }
 
     // 메인 페이지이동
     @GetMapping("/main")
     public String goToMainPage() {
         return "mainPage/main";
-    }
-
-    // 메인 페이지에서 통합로그인으로 넘어가기
-    @GetMapping("/loginHome")
-    public String goToLoginHome() {
-        return "login_page/loginHome";
     }
 }

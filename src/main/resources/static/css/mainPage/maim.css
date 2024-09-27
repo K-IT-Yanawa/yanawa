@@ -518,6 +518,7 @@ ol, ul {
 .logout{
     position: absolute;
     transform: translateX(120px);
+    display: none;
 }
 .main_heder_login_job_login_{
     position: absolute;
