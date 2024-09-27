@@ -55,7 +55,7 @@ public class FreewriteController {
             return "redirect:/freewrite/write";
         }
 
-        return "redirect:/freewrite/list";
+        return "redirect:/freewrite/list?page=1&order=recent";
     }
 
     // 게시글 목록 화면 이동
