@@ -350,6 +350,12 @@ input::placeholder {
     margin: 0px;
 }
 
+/*카카오톡 아이콘*/
+.icon{
+    position: absolute;
+    transform: translate(-27px,0px);
+}
+
 /* 비밀번호 가리기&보이기 */
 .toggle-icon {
     position: absolute;
@@ -494,6 +500,26 @@ input::placeholder {
 }
 
 .signup-button >span {
+    display: inline-block;
+}
+
+.kakao-button {
+    height: 48px;
+    min-height: 48px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FEE500;
+    border: 1px solid #FEE500;
+    width: 100% !important;
+    position: relative;
+}
+
+.kakao-button span {
+    color: #000000 !important;
+}
+
+.kakao-button >span {
     display: inline-block;
 }
 
