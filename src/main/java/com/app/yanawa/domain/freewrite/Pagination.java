@@ -26,7 +26,7 @@ public class Pagination {
         this.pageSize = rowCount; // 페이지 크기를 행의 수와 동일하게 설정
 
         this.endRow = page * rowCount;
-        this.startRow = (endRow - rowCount); // 0부터 시작하도록 변경
+        this.startRow = (endRow - rowCount) + 1; // 1부터 시작하는 방식으로 수정
         this.endPage = (int) (Math.ceil(page / (double) pageCount) * pageCount);
         this.startPage = endPage - pageCount + 1;
         this.realEnd = (int) Math.ceil(total / (double) rowCount);
