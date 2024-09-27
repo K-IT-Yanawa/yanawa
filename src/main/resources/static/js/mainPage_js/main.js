@@ -143,5 +143,10 @@ const logoutButton = document.querySelector(".logout");
 logoutButton.addEventListener("click",()=>{
     window.location.href="/yanawa/member/logout";
     alert("로그아웃 되었습니다.");
+})
 
+const loginHomePageButton = document.querySelector(".main_heder_login_job_login_");
+
+loginHomePageButton.addEventListener("click",()=>{
+    window.location.href="/yanawa/member/login"
 })

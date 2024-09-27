@@ -159,10 +159,14 @@ public class MemberController {
     }
 
     // 메인 페이지이동
-    @GetMapping("main")
-    public String goToMainPage(@ModelAttribute("status") String status) {
+    @GetMapping("/main")
+    public String goToMainPage() {
         return "mainPage/main";
     }
 
-
+    // 메인 페이지에서 통합로그인으로 넘어가기
+    @GetMapping("/loginHome")
+    public String goToLoginHome() {
+        return "login_page/loginHome";
+    }
 }
