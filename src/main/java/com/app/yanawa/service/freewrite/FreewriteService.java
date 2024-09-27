@@ -12,4 +12,6 @@ public interface FreewriteService {
     void saveAttachment(Attachment attachment);
     public List<FreewriteDTO> getList(Pagination pagination, String order);
     public int getTotal();
+    public FreewriteDTO getDetail(Long id);
+    public void increaseReadCount(Long id);
 }

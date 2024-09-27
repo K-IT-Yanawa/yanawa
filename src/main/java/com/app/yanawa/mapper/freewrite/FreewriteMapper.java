@@ -22,5 +22,8 @@ public interface FreewriteMapper {
     // 게시글 ID로 게시글 조회
     FreewriteDTO selectById(@Param("id") Long id);
 
+    // 조회수 증가
+    public void increaseReadCount(Long id);
+
 
 }

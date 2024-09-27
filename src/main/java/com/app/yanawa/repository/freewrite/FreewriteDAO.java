@@ -29,4 +29,12 @@ public class FreewriteDAO {
         return freewriteMapper.selectAll(pagination, order);
     }
     public int getTotal(){return freewriteMapper.selectTotal();}
+
+    public FreewriteDTO findById(Long id) {
+        return freewriteMapper.selectById(id);
+    }
+
+
+    public void increaseReadCount(Long id){freewriteMapper.increaseReadCount(id);}
+
 }

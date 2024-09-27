@@ -1,5 +1,6 @@
 package com.app.yanawa.controller.member;
 
+import com.app.yanawa.exception.LoginFailException;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ui.Model;
 import com.app.yanawa.domain.member.MemberDTO;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -94,12 +96,14 @@ public class MemberController {
 
     //  이메일과 비밀번호로 로그인
     @PostMapping("/login")
-    public RedirectView login(@RequestParam String email, @RequestParam String password, String save,
-                              RedirectAttributes redirectAttributes, HttpSession session, HttpServletResponse response) {
+    public RedirectView login(@RequestParam String email, @RequestParam String password, String save, HttpSession session, HttpServletResponse response) {
         log.info("로그인 요청 데이터: email={}, password={}", email, password);
 
         // 이메일과 비밀번호로 로그인 시도
         Optional<MemberVO> foundMember = memberService.login(email, password);
+
+        MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
+        session.setAttribute("member", memberVO);
 
         if (foundMember.isPresent()) {
             log.info("로그인 성공! 회원 정보: {}", foundMember.get());
@@ -140,17 +144,11 @@ public class MemberController {
                 response.addCookie(emailCookie);
                 response.addCookie(passwordCookie);
             }
-
-            // 로그인 성공 후 메인 페이지로 리다이렉트
-            return new RedirectView("/yanawa/member/main");
-        } else {
-            log.info("로그인 실패! 이메일과 비밀번호를 확인하세요!");
-            redirectAttributes.addFlashAttribute("loginError", "이메일 또는 비밀번호가 올바르지 않습니다.");
-
-            // 로그인 실패 시 status 값을 false로 전달
-            return new RedirectView("/yanawa/member/login?status=false");
         }
+        // 로그인 성공 후 메인 페이지로 리다이렉트
+        return new RedirectView("/yanawa/member/main");
     }
+
 
 //  로그아웃
     @GetMapping("/logout")
@@ -161,8 +159,14 @@ public class MemberController {
     }
 
     // 메인 페이지이동
-    @GetMapping("main")
+    @GetMapping("/main")
     public String goToMainPage() {
         return "mainPage/main";
+    }
+
+    // 메인 페이지에서 통합로그인으로 넘어가기
+    @GetMapping("/loginHome")
+    public String goToLoginHome() {
+        return "login_page/loginHome";
     }
 }

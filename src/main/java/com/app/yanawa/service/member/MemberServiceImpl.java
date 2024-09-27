@@ -47,6 +47,7 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.selectByMemberEmailAndMemberPassword(email, password);
     }
 
+    //    회원 이름, 이메일, 전화번호 조회
     @Override
     public Optional<MemberDTO> getMember(Long id) {
         return memberDAO.findMemberByMemberId(id);
