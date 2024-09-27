@@ -16,41 +16,39 @@ public class MatchingDTO {
     private String postContent;
     private int postType;
 
-    private String matchingStatus;
-
     private Long memberId;
     private String memberName;
     private String memberEmail;
     private String memberPhone;
 
-    private String sportKindValue;
+    private int sportKindValue;
 
     private Long teamId;
     private String teamName;
 
-    private String choiceAmPm;
     private String timeRegister;
     private String dateRegister;
-    private String timeCordinate;
-    private String dateCordinate;
+    private int timeCordinate;
+    private int dateCordinate;
+
 
     private String city;
     private String localCity;
     private String localCityDetail;
 
-
+    private String matchStatus;
     private String createDate;
     private String updateDate;
 
 
     public PostVO toPostVO() {
-        return new PostVO(postId, postTitle, postContent, createDate, updateDate, postType);
+        return new PostVO(postId, postTitle, postContent, createDate,updateDate, postType);
     }
 
     public MatchingVO toVO() {
         return new MatchingVO(
-                postId, matchingStatus, teamId, sportKindValue,
-                choiceAmPm, timeRegister, dateRegister, dateCordinate, timeCordinate,
+                postId, matchStatus, teamId, sportKindValue,
+                dateRegister, timeRegister, dateCordinate, timeCordinate,
                 city, localCity, localCityDetail, createDate, updateDate);
     }
 }

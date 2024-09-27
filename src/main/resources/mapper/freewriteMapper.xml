@@ -12,6 +12,9 @@
         SELECT *
         FROM (
         SELECT
+        ROWNUM AS rnum, temp.*
+        FROM (
+        SELECT
         F.ID,
         U.MEMBER_NICKNAME,
         F.FREEWRITE_READ_COUNT,
@@ -20,23 +23,28 @@
         F.CREATED_DATE,
         F.UPDATED_DATE,
         P.POST_TITLE,
-        P.POST_CONTENT,
-        ROWNUM AS rnum
+        P.POST_CONTENT
         FROM
         TBL_MEMBER U
-        JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
-        JOIN TBL_POST P ON F.ID = P.ID
+        JOIN
+        TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
+        JOIN
+        TBL_POST P ON F.ID = P.ID
         WHERE
         F.ID IS NOT NULL
         ORDER BY
         <choose>
-            <when test="order == 'recent'.toString()">F.ID</when>
-            <otherwise>F.FREEWRITE_READ_COUNT</otherwise>
-        </choose> DESC
+            <when test="order == 'recent'">
+                F.ID DESC  <!-- 최신순으로 정렬 -->
+            </when>
+            <otherwise>
+                F.FREEWRITE_READ_COUNT DESC  <!-- 조회수순으로 정렬 -->
+            </otherwise>
+        </choose>
+        ) temp
         )
         WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
     </select>
-
 
 
     <!-- 총 게시물 수 조회 -->
@@ -46,16 +54,25 @@
 
     <select id="selectById" resultType="freewriteDTO">
         SELECT
-            f.POST_ID, f.FREEWRTIE_READ_COUNT, f.REPLY_COUNT, f.MEMBER_ID, f.CREATED_DATE, f.UPDATED_DATE,
+            f.ID, f.FREEWRITE_READ_COUNT, f.REPLY_COUNT, f.MEMBER_ID, f.CREATED_DATE, f.UPDATED_DATE,
             p.POST_TITLE, p.POST_CONTENT, u.MEMBER_NICKNAME
         FROM
             TBL_FREEWRITE f
-                JOIN TBL_POST p ON f.POST_ID = p.ID
+                JOIN TBL_POST p ON f.ID = p.ID
                 JOIN TBL_MEMBER u ON f.MEMBER_ID = u.ID
         WHERE
-            f.POST_ID = #{id}
-
+            f.ID = #{id}
     </select>
+
+
+    <!--    조회수 증가-->
+    <update id="increaseReadCount" parameterType="Long">
+        UPDATE TBL_FREEWRITE
+        SET FREEWRITE_READ_COUNT = FREEWRITE_READ_COUNT + 1
+        WHERE ID = #{id}
+    </update>
+
+
 
 
 
