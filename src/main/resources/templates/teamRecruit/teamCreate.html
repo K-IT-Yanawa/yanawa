@@ -9,7 +9,7 @@
     />
     <link
             rel="stylesheet"
-            href="/static/css/teamrecruit_page/teamrecruitwritePage.css"
+            href="/css/teamrecruit_page/teamrecruitwritePage.css"
     />
     <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
     <title>팀 생성 페이지</title>
@@ -80,6 +80,7 @@
                                     • 생성하신 정보는 팀원 구하기 이외의
                                     용도로는 활용되지 않습니다.
                                 </p>
+                                <form th:object="${member}">
                                 <ul>
                                     <li class="이름">
                                         <div class="register-info">
@@ -112,12 +113,13 @@
                                                                         placeholder="이름을 입력해 주세요."
                                                                         type="text"
                                                                         class="form-input"
+                                                                        name="memberName" id="memberName" th:value="*{memberName}" readonly
                                                                 />
-                                                                <input
-                                                                        placeholder="이름을 입력해 주세요."
-                                                                        type="text"
-                                                                        class="form-input input-error"
-                                                                />
+<!--                                                                <input-->
+<!--                                                                        placeholder="이름을 입력해 주세요."-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="form-input input-error"-->
+<!--                                                                />-->
                                                             </div>
                                                         </div>
                                                         <div
@@ -126,17 +128,17 @@
                                                                         flex-wrap: nowrap;
                                                                     "
                                                         >
-                                                            <div
-                                                                    class="input-explain"
-                                                            >
-                                                                <div
-                                                                        class="input-explain-error"
-                                                                >
-                                                                    이름을
-                                                                    입력해
-                                                                    주세요.
-                                                                </div>
-                                                            </div>
+<!--                                                            <div-->
+<!--                                                                    class="input-explain"-->
+<!--                                                            >-->
+<!--                                                                <div-->
+<!--                                                                        class="input-explain-error"-->
+<!--                                                                >-->
+<!--                                                                    이름을-->
+<!--                                                                    입력해-->
+<!--                                                                    주세요.-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,6 +176,7 @@
                                                                         placeholder="이메일을 입력해 주세요."
                                                                         type="text"
                                                                         class="form-input"
+                                                                        name="memberEmail" id="memberEmail" th:value="*{memberEmail}" readonly
                                                                 />
                                                                 <div
                                                                         style="
@@ -191,21 +194,16 @@
                                                                             매칭,
                                                                             관련
                                                                             안내가
-                                                                            해당
-                                                                            메일로
-                                                                            전달되오니
-                                                                            사용
-                                                                            중인
-                                                                            메일을
-                                                                            기재해주세요.
+                                                                            회원가입 시 가입한 메일로
+                                                                            전달됩니다.
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <input
-                                                                        placeholder="이메일을 입력해 주세요."
-                                                                        type="text"
-                                                                        class="form-input input-error"
-                                                                />
+<!--                                                                <input-->
+<!--                                                                        placeholder="이메일을 입력해 주세요."-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="form-input input-error"-->
+<!--                                                                />-->
                                                             </div>
                                                         </div>
                                                         <div
@@ -214,25 +212,25 @@
                                                                         flex-wrap: nowrap;
                                                                     "
                                                         >
-                                                            <div
-                                                                    class="input-explain"
-                                                            >
-                                                                <div
-                                                                        class="input-explain-error"
-                                                                >
-                                                                    *
-                                                                    매칭,
-                                                                    관련
-                                                                    안내가
-                                                                    해당
-                                                                    메일로
-                                                                    전달되오니
-                                                                    사용
-                                                                    중인
-                                                                    메일을
-                                                                    기재해주세요.
-                                                                </div>
-                                                            </div>
+<!--                                                            <div-->
+<!--                                                                    class="input-explain"-->
+<!--                                                            >-->
+<!--                                                                <div-->
+<!--                                                                        class="input-explain-error"-->
+<!--                                                                >-->
+<!--                                                                    *-->
+<!--                                                                    매칭,-->
+<!--                                                                    관련-->
+<!--                                                                    안내가-->
+<!--                                                                    해당-->
+<!--                                                                    메일로-->
+<!--                                                                    전달되오니-->
+<!--                                                                    사용-->
+<!--                                                                    중인-->
+<!--                                                                    메일을-->
+<!--                                                                    기재해주세요.-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -272,6 +270,7 @@
                                                                         placeholder="ex) 010-1234-5678"
                                                                         type="text"
                                                                         class="form-input"
+                                                                        name="memberPhone" id="memberPhone" th:value="*{memberPhone}" readonly
                                                                 />
                                                                 <div
                                                                         style="
@@ -289,21 +288,15 @@
                                                                             매칭,
                                                                             관련
                                                                             안내가
-                                                                            해당
-                                                                            연락처로
-                                                                            전달되오니
-                                                                            사용
-                                                                            중인
-                                                                            연락처를
-                                                                            기재해주세요.
+                                                                            회원 정보에 저장된 전화번호로 전달됩니다.
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <input
-                                                                        placeholder="ex) 010-1234-5678"
-                                                                        type="text"
-                                                                        class="form-input input-error"
-                                                                />
+<!--                                                                <input-->
+<!--                                                                        placeholder="ex) 010-1234-5678"-->
+<!--                                                                        type="text"-->
+<!--                                                                        class="form-input input-error"-->
+<!--                                                                />-->
                                                             </div>
                                                         </div>
                                                         <div
@@ -312,25 +305,25 @@
                                                                         flex-wrap: nowrap;
                                                                     "
                                                         >
-                                                            <div
-                                                                    class="input-explain"
-                                                            >
-                                                                <div
-                                                                        class="input-explain-error"
-                                                                >
-                                                                    *
-                                                                    매칭,
-                                                                    관련
-                                                                    안내가
-                                                                    해당
-                                                                    연락처로
-                                                                    전달되오니
-                                                                    사용
-                                                                    중인
-                                                                    연락처를
-                                                                    기재해주세요.
-                                                                </div>
-                                                            </div>
+<!--                                                            <div-->
+<!--                                                                    class="input-explain"-->
+<!--                                                            >-->
+<!--                                                                <div-->
+<!--                                                                        class="input-explain-error"-->
+<!--                                                                >-->
+<!--                                                                    *-->
+<!--                                                                    매칭,-->
+<!--                                                                    관련-->
+<!--                                                                    안내가-->
+<!--                                                                    해당-->
+<!--                                                                    연락처로-->
+<!--                                                                    전달되오니-->
+<!--                                                                    사용-->
+<!--                                                                    중인-->
+<!--                                                                    연락처를-->
+<!--                                                                    기재해주세요.-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -351,23 +344,23 @@
                                                             <div class="form-control-input-content sports-options" style="display: flex; gap: 20px; flex-wrap: wrap; border: 1px solid rgb(225, 227, 232); border-radius: 5px; margin-top: 16px; padding-left: 16px; height: 43px;
     align-items: center;">
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="축구" />
-                                                                    <label for="sport" style="display: unset;" >⚽축구</label>
+                                                                    <input type="radio" name="sport" value="축구" id="soccer"/>
+                                                                    <label for="soccer" style="display: unset;" >⚽축구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="농구" />
+                                                                    <input type="radio" name="sport" value="농구" id="basketball"/>
                                                                     <label for="basketball" style="display: unset;">🏀농구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="야구" />
+                                                                    <input type="radio" name="sport" value="야구" id="baseball"/>
                                                                     <label for="baseball" style="display: unset;">⚾야구</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="배드민턴" />
+                                                                    <input type="radio" name="sport" value="배드민턴" id="badminton"/>
                                                                     <label for="badminton" style="display: unset;">🏸배드민턴</label>
                                                                 </div>
                                                                 <div>
-                                                                    <input type="radio" name="sport" value="족구" />
+                                                                    <input type="radio" name="sport" value="족구" id="jokgu"/>
                                                                     <label for="jokgu" style="display: unset;">⚽족구</label>
                                                                 </div>
                                                             </div>
@@ -377,8 +370,6 @@
                                             </div>
                                         </div>
                                     </li>
-
-
                                 </ul>
                                 <ul>
                                     <li class="팀명 right">
@@ -412,6 +403,7 @@
                                                                         placeholder="ex) 전북현대모터스"
                                                                         type="text"
                                                                         class="form-input"
+                                                                        id="teamName"
                                                                 />
                                                                 <input
                                                                         placeholder="ex) 전북현대모터스"
@@ -446,6 +438,7 @@
                                     </li>
                                     <li class="left"></li>
                                 </ul>
+                                </form>
                             </div>
                         </div>
                     </form>
@@ -526,7 +519,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <select name="place" class="form-input">
+                                                                <select name="place" class="form-input" id="city">
                                                                     <option value="" disabled="" selected="">
                                                                         매칭
                                                                         지역
@@ -592,7 +585,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <select name="place-detail" class="form-input">
+                                                                <select name="place-detail" class="form-input" id="localCity">
                                                                     <option value="" disabled="" selected="">
                                                                         상세 지역 선택
                                                                     </option>
@@ -629,7 +622,7 @@
                                                     <div class="register-info-col form-control">
                                                         <div class="form-control-input">
                                                             <div class="form-control-input-content">
-                                                                <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input">
+                                                                <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input" id="detailedArea">
                                                                 <input placeholder="ex) 노들나루공원 축구장" type="text" class="form-input input-error">
                                                                 <div style="
                                                                                 display: flex;
@@ -653,7 +646,7 @@
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li class="생성시간 left">
+                                    <li class="활동시간 left">
                                         <div class="register-info">
                                             <div
                                                     class="register-info-1"
@@ -684,6 +677,7 @@
                                                                         placeholder="ex) 오후7시 ~ 오후 9시"
                                                                         type="text"
                                                                         class="form-input"
+                                                                        id="teamActivityTime"
                                                                 />
                                                                 <input
                                                                         placeholder="ex) 오후 7시 ~ 오후 9시"
@@ -716,7 +710,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="회비 right">
+                                    <li class="나이대 right">
                                         <div class="register-info">
                                             <div
                                                     class="register-info-1"
@@ -747,6 +741,7 @@
                                                                         placeholder="ex) 20대~30대"
                                                                         type="text"
                                                                         class="form-input date-img"
+                                                                        id="ageRange"
                                                                 />
 
                                                                 <input
@@ -890,7 +885,22 @@
             </div>
         </div>
     </main>
+    <form th:action="@{/teamRecruit/teamCreate}" method="post" name="join-form">
+        <input type="hidden" name="id">
+        <input type="hidden" name="memberId">
+        <input type="hidden" name="teamName">
+        <input type="hidden" name="sportsKindRadioValue">
+        <input type="hidden" name="city">
+        <input type="hidden" name="localCity">
+        <input type="hidden" name="detailedArea">
+        <input type="hidden" name="teamActivityTime">
+        <input type="hidden" name="ageRange">
+    </form>
 </div>
 </body>
-<script src="/static/js/teamrecruit_page/teamrecruitwritePage.js"></script>
+<script src="/js/teamrecruit_page/teamCreate.js.js"></script>
+<script th:inline="javascript">
+    const getMemberId = [[${member}]];
+
+</script>
 </html>
