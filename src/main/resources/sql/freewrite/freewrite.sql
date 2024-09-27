@@ -56,4 +56,3 @@ FROM (
      ) P2
 WHERE P2.R >= 1;
 
-
