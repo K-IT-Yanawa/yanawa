@@ -171,7 +171,7 @@ const districts = {
         "가평군",
         "양평군",
     ],
-    강원도: [
+    강원특별자치도: [
         "춘천시",
         "원주시",
         "강릉시",
@@ -310,7 +310,7 @@ const districts = {
 
 // 첫 번째 셀렉트 요소와 두 번째 셀렉트 요소 가져오기
 const citySelect = document.querySelector('select[name="place"]');
-const districtSelect = document.querySelector('select[name="localCityDetail"]');
+const districtSelect = document.querySelector('select[name="localCity"]');
 
 // 시/도 선택 시 구/군 목록 업데이트
 citySelect.addEventListener("change", function () {
@@ -343,8 +343,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const sportKindValue = document.querySelector("input[name='sportKindValue']");
             if (sportKindValue) {
                 sportKindValue.value = selectedSport;
-            } else {
-                console.warn("sportKindValue input field not found.");
             }
             console.log("선택된 스포츠 종목:", selectedSport);
         });
@@ -352,7 +350,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 지역 선택 처리
     const city = document.querySelector("select[name='place']");
-    const local = document.querySelector("select[name='localCityDetail']");
+    const local = document.querySelector("select[name='localCity']");
 
     city.addEventListener("change", (e) => {
         const selectedCity = city.value;
@@ -368,8 +366,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const cityInput = document.querySelector("input[name='city']");
         if (cityInput) {
             cityInput.value = selectedCity;
-        } else {
-            console.warn("City input field not found.");
         }
         console.log("선택된 값:", selectedCity);
     });
@@ -379,8 +375,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const localCityInput = document.querySelector("input[name='localCity']");
         if (localCityInput) {
             localCityInput.value = selectedLocal;
-        } else {
-            console.warn("LocalCity input field not found.");
         }
         console.log("선택된 값:", selectedLocal);
     });
@@ -392,8 +386,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const amPmInput = document.querySelector("input[name='choiceAmPm']");
         if (amPmInput) {
             amPmInput.value = selectedAmPm;
-        } else {
-            console.warn("ChoiceAmPm input field not found.");
         }
         console.log("선택된 값:", selectedAmPm);
     });
@@ -406,8 +398,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const timeCordinateInput = document.querySelector("input[name='timeCordinate']");
             if (timeCordinateInput) {
                 timeCordinateInput.value = selectedTimeCordinate;
-            } else {
-                console.warn("TimeCordinate input field not found.");
             }
             console.log("경기 시간 조율 여부 선택된 값:", selectedTimeCordinate);
         });
@@ -421,83 +411,118 @@ document.addEventListener("DOMContentLoaded", function() {
             const dateCordinateInput = document.querySelector("input[name='dateCordinate']");
             if (dateCordinateInput) {
                 dateCordinateInput.value = selectedDateCordinate;
-            } else {
-                console.warn("DateCordinate input field not found.");
             }
             console.log("경기 날짜 협의 여부 선택된 값:", selectedDateCordinate);
         });
     });
 
     // 등록완료 버튼 클릭 시 값 전송 처리
+    // 등록완료 버튼 클릭 시 값 전송 처리
     document.querySelector(".finish-button").addEventListener("click", function(event) {
         event.preventDefault(); // 기본 submit 동작 방지
 
-        // 사용자가 입력한 값 가져오기
-        const localCityDetail = document.querySelector("input[name='localCityDetail']");
-        const timeRegister = document.querySelector("input[name='timeRegister']");
-        const dateRegister = document.querySelector("input[name='dateRegister']");
-        const postTitle = document.querySelector("input[name='title']");
-        const postContent = document.querySelector("textarea[name='postContent']");
+        let isValid = true; // 폼의 유효성 여부를 확인하는 변수
+
+        // 유효성 검사를 위한 함수
+        function showError(inputElement, errorElement, message) {
+            inputElement.style.display = 'none'; // 입력 필드를 숨김
+            errorElement.innerText = message; // 에러 메시지 설정
+            errorElement.style.display = 'block'; // 에러 메시지 표시
+            isValid = false; // 유효성 검사를 통과하지 못한 상태
+        }
 
         // POST_TYPE을 2로 설정
         const postTypeInput = document.querySelector("input[name='postType']");
         if (postTypeInput) {
             postTypeInput.value = 2;  // 매칭 글의 POST_TYPE은 항상 2
-        } else {
-            console.warn("PostType input field not found.");
         }
 
         // MATCHING_STATUS 값을 기본적으로 '매칭중'으로 설정
         const matchingStatusInput = document.querySelector("input[name='matchingStatus']");
         if (matchingStatusInput) {
             matchingStatusInput.value = '매칭중'; // 기본값 설정
-        } else {
-            console.warn("MatchingStatus input field not found.");
         }
 
-
-        // 값 확인 및 할당
-        if (localCityDetail) {
-            document.querySelector("input[name='localCityDetail']").value = localCityDetail.value || '';
-        } else {
-            console.warn("LocalCityDetail input field not found.");
+        // 매칭글 제목 복사
+        const postTitleInput = document.querySelector("input[name='title']");
+        const hiddenPostTitleInput = document.querySelector("input[name='postTitle']");
+        const postTitleError = document.querySelector(".postTitle-error");
+        if (postTitleInput && hiddenPostTitleInput) {
+            hiddenPostTitleInput.value = postTitleInput.value;
+            if (!postTitleInput.value.trim()) {
+                showError(postTitleInput, postTitleError, "매칭글 제목을 입력해주세요.");
+            }
         }
 
-        if (timeRegister) {
-            document.querySelector("input[name='timeRegister']").value = timeRegister.value || '';
-        } else {
-            console.warn("TimeRegister input field not found.");
+        // 매칭글 내용 복사
+        const postContent = document.querySelector("textarea[name='postContent']");
+        const hiddenPostContentInput = document.querySelector("input[name='postContent']");
+        const postContentError = document.querySelector(".postContent-error");
+        if (postContent && hiddenPostContentInput) {
+            hiddenPostContentInput.value = postContent.value;
+            if (!postContent.value.trim()) {
+                showError(postContent, postContentError, "매칭글 내용을 입력해주세요.");
+            }
         }
 
-        if (dateRegister) {
-            document.querySelector("input[name='dateRegister']").value = dateRegister.value || '';
-        } else {
-            console.warn("DateRegister input field not found.");
+        // 경기 시간 복사 및 형식 검사
+        const timeRegister = document.querySelector("input[name='timeRegist']");
+        const hiddenTimeRegisterInput = document.querySelector("input[name='timeRegister']");
+        const timeRegisterError = document.querySelector(".timeRegist-error");
+        const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/; // HH:MM 형식
+        if (timeRegister && hiddenTimeRegisterInput) {
+            hiddenTimeRegisterInput.value = timeRegister.value;
+            if (!timeRegister.value.trim() || !timePattern.test(timeRegister.value)) {
+                showError(timeRegister, timeRegisterError, "경기 시간을 형식에 맞게 입력해주세요. (예: 14:30)");
+            }
         }
 
-        if (postTitle) {
-            document.querySelector("input[name='postTitle']").value = postTitle.value || '';
-        } else {
-            console.warn("PostTitle input field not found.");
+        // 경기 날짜 복사 및 형식 검사
+        const dateRegister = document.querySelector("input[name='dateRegist']");
+        const hiddenDateRegisterInput = document.querySelector("input[name='dateRegister']");
+        const dateRegisterError = document.querySelector(".dateRegist-error");
+        const datePattern = /^\d{4}-\d{2}-\d{2}$/; // YYYY-MM-DD 형식
+        if (dateRegister && hiddenDateRegisterInput) {
+            hiddenDateRegisterInput.value = dateRegister.value;
+            if (!dateRegister.value.trim() || !datePattern.test(dateRegister.value)) {
+                showError(dateRegister, dateRegisterError, "경기 날짜를 형식에 맞게 입력해주세요. (예: 2024-12-25)");
+            }
         }
 
-        if (postContent) {
-            document.querySelector("input[name='postContent']").value = postContent.value || '';
-        } else {
-            console.warn("PostContent input field not found.");
+        // 지역 상세 정보 복사
+        const localCityDetail = document.querySelector("input[name='placeDetail']");
+        const hiddenLocalCityDetailInput = document.querySelector("input[name='localCityDetail']");
+        const localCityDetailError = document.querySelector(".localCityDetail-error");
+        if (localCityDetail && hiddenLocalCityDetailInput) {
+            hiddenLocalCityDetailInput.value = localCityDetail.value;
+            if (!localCityDetail.value.trim()) {
+                showError(localCityDetail, localCityDetailError, "상세 지역을 입력해주세요.");
+            }
         }
 
-        // 콘솔로 확인
-        console.log("상세 지역명:", localCityDetail ? localCityDetail.value : 'not found');
-        console.log("매칭 등록 시간:", timeRegister ? timeRegister.value : 'not found');
-        console.log("매칭 희망 날짜:", dateRegister ? dateRegister.value : 'not found');
-        console.log("매칭글 제목:", postTitle ? postTitle.value : 'not found');
-        console.log("매칭글 내용:", postContent ? postContent.value : 'not found');
-        console.log("POST_TYPE:", 2);
-        console.log("POST_TYPE:", postTypeInput ? postTypeInput.value : 'not found');
-        // 모든 값이 들어간 것을 확인 후 제출
-        document.querySelector("form[name='join-form']").submit();
+        // select 태그 선택 여부 확인
+        const sportKindSelect = document.querySelector("select[name='sportKind']");
+        const sportKindError = document.querySelector(".sportKind-error");
+        if (sportKindSelect && !sportKindSelect.value) {
+            showError(sportKindSelect, sportKindError, "스포츠 종류를 선택해주세요.");
+        }
+
+        const amPmSelect = document.querySelector("select[name='choiceAmPm']");
+        const amPmError = document.querySelector(".choiceAmPm-error");
+        if (amPmSelect && !amPmSelect.value) {
+            showError(amPmSelect, amPmError, "오전/오후를 선택해주세요.");
+        }
+
+        // 모든 값이 유효할 경우 폼 제출
+        if (isValid) {
+            document.querySelector("form[name='join-form']").submit();
+        }
     });
+
+
+
+
+
 });
 
 

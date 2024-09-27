@@ -50,7 +50,7 @@ public class MatchingDTO {
     public MatchingVO toVO() {
         return new MatchingVO(
                 postId, matchingStatus, teamId, sportKindValue,
-                dateRegister, choiceAmPm, timeRegister, dateCordinate, timeCordinate,
+                choiceAmPm, timeRegister, dateRegister, dateCordinate, timeCordinate,
                 city, localCity, localCityDetail, createDate, updateDate);
     }
 }

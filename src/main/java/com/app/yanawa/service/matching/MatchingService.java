@@ -14,6 +14,7 @@ public interface MatchingService {
     public Optional<MemberVO> getMember(Long id);
     public Optional<TeamVO> getTeam(Long id);
 
+
     Optional<MatchingDTO> getMatchingInfoByMemberId(Long id);
 
     public List<MatchingDTO> getListMatching();

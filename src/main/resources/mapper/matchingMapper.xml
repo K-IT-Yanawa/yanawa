@@ -13,6 +13,13 @@
         WHERE ID = #{id}
     </select>
 
+    <select id="selectTeamIdByMemberId" resultType="long">
+        SELECT ID
+        FROM TBL_TEAM
+        WHERE MEMBER_ID = #{memberId}
+    </select>
+
+
     <select id="selectMemberId" parameterType="long" resultType="matchingDTO">
         SELECT
             M.ID AS memberId,

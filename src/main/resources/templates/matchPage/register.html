@@ -816,7 +816,7 @@
                                                                         <input
                                                                             placeholder="ex) 동작구/노들나루공원 축구장"
                                                                             type="text"
-                                                                            name="localcityDetail"
+                                                                            name="placeDetail"
                                                                             class="form-input"
                                                                             id="place-detail"
                                                                         />
@@ -913,7 +913,7 @@
                                                                         <input
                                                                             placeholder="ex) 12시 ~ 3시"
                                                                             type="text"
-                                                                            name="timeRegister"
+                                                                            name="timeRegist"
                                                                             class="form-input"
                                                                         />
                                                                     </div>
@@ -1023,7 +1023,7 @@
                                                                             placeholder="ex) 2024-08-14"
                                                                             type="text"
                                                                             id="date"
-                                                                            name="dateRegister"
+                                                                            name="dateRegist"
                                                                             class="form-input date-img"
                                                                         />
 
@@ -1306,6 +1306,7 @@
                 </div>
             </main>
             <form th:action="@{/matchPage/register}" method="post" name="join-form">
+                <input type="hidden" name="teamId" th:value="*{team.Id}">
                 <input type="hidden" name="matchingStatus" th:value="*{matchingStatus}">
                 <input type="hidden" name="sportKindValue" th:value="*{sportKindValue}">
                 <input type="hidden" name="city" th:value="*{city}">
