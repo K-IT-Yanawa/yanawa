@@ -44,4 +44,13 @@ public class FreewriteServiceImpl implements FreewriteService {
 
     @Override
     public int getTotal(){return freewriteDAO.getTotal();}
+    @Override
+    public FreewriteDTO getDetail(Long id) {
+        return freewriteDAO.findById(id);
+    }
+
+    @Override
+    public void increaseReadCount(Long id) {
+        freewriteDAO.increaseReadCount(id);
+    }
 }
