@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" th:action="@{/yanawa/member/main}" th:object="${memberDTO}">
+<html lang="en" th:action="@{/yanawa/member/main}" th:object="${memberDTO}"
+      xmlns:c="http://www.w3.org/1999/XSL/Transform">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -735,68 +736,36 @@
                                 </a>
                             </li>
                         </ul>
-                        <!-- 메뉴바(원티드 마크... 더보기까지) -->
                         <aside class="main_heder_login_job_all">
                             <ul class="main_heder_login_job_al_1">
-                                <!-- <li>
-                                    <button
-                                        type="button"
-                                        class="main_heder_login_job_dodbogi"
-                                    >
-                                        <span
-                                            class="main_svg_root_icon main_categoryIcon"
-                                        >
-                                            <svg
-                                                class="main_heder_login_job_dodbogi"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path
-                                                    fill-rule="evenodd"
-                                                    clip-rule="evenodd"
-                                                    d="M9.99949 2.1001C5.63644 2.1001 2.09949 5.63705 2.09949 10.0001C2.09949 14.3631 5.63644 17.9001 9.99949 17.9001C11.8568 17.9001 13.5644 17.2592 14.9132 16.1864L19.8632 21.1365C20.2147 21.4879 20.7846 21.4879 21.136 21.1365C21.4875 20.785 21.4875 20.2151 21.136 19.8637L16.186 14.9136C17.2586 13.5648 17.8995 11.8573 17.8995 10.0001C17.8995 5.63705 14.3625 2.1001 9.99949 2.1001ZM3.89949 10.0001C3.89949 6.63116 6.63055 3.9001 9.99949 3.9001C13.3684 3.9001 16.0995 6.63116 16.0995 10.0001C16.0995 13.369 13.3684 16.1001 9.99949 16.1001C6.63055 16.1001 3.89949 13.369 3.89949 10.0001Z"
-                                                ></path>
-                                            </svg>
-                                        </span>
-                                    </button>
-                                </li> -->
                                 <li class="main_heder_login_job_login_">
                                     <button
-                                        type="button"
-                                        class="main_heder_login_job_login_button Button_Button__root__login Button_Button__outlined__login Button_Button__outlinedSizeSmall_longin"
+                                            th:if="${session.member == null}"
+                                    type="button"
+                                    class="main_heder_login_job_login_button Button_Button__root__login Button_Button__outlined__login Button_Button__outlinedSizeSmall_longin"
+                                    onclick="location.href='/yanawa/member/login'"
                                     >
-                                        <span
-                                            class="Button_Button__interval__font"
-                                        >
-                                            <span
-                                                class="geulssi_RdAI1 geulssi__AA geulssi_font_weight"
-                                                >회원가입/로그인</span
-                                            >
-                                        </span>
-                                        <span
-                                            class="Button_Button__interaction__rounder"
-                                        ></span>
+                                    <span class="Button_Button__interval__font">
+                    <span class="geulssi_RdAI1 geulssi__AA geulssi_font_weight">
+                        회원가입/로그인
+                    </span>
+                </span>
+                                    <span class="Button_Button__interaction__rounder"></span>
                                     </button>
-                                </li>
-                                <li class="logout">
-                                    <a
-                                            href=""
-                                            class="Button_Button__root__login Button_Button__outlinedSizeSmall_longin Button_Button__outlinedAssistive_gieob"
-                                            id="logout"
-                                            type="button"
-                                    >
-                                        <span
-                                                class="Button_Button__interval__font"
-                                        >
-                                            <span
-                                                    class="geulssi_RdAI1 geulssi__AA Typography_Typography__weightMedium__GXnOM"
-                                            >
-                                                로그아웃</span
-                                            >
-                                        </span>
 
-                                        <span
-                                                class="Button_Button__interaction__rounder"
-                                        ></span>
+                                    <a
+                                            th:if="${session.member != null}"
+                                    href="/yanawa/member/logout"
+                                    class="Button_Button__root__login Button_Button__outlinedSizeSmall_longin Button_Button__outlinedAssistive_gieob"
+                                    id="logout"
+                                    type="button"
+                                    >
+                                    <span class="Button_Button__interval__font">
+                    <span class="geulssi_RdAI1 geulssi__AA Typography_Typography__weightMedium__GXnOM">
+                        로그아웃
+                    </span>
+                </span>
+                                    <span class="Button_Button__interaction__rounder"></span>
                                     </a>
                                 </li>
                             </ul>
