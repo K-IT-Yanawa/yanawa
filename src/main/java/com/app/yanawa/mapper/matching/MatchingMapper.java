@@ -19,7 +19,7 @@ public interface MatchingMapper {
     public Optional<TeamVO> selectTeamId(Long id);
 
 //    매칭글 목록
-    public List<MatchingDTO> selectMatchingAll(@Param("pagination")Pagination pagination);
+    public List<MatchingDTO> selectMatchingAll(@Param("pagination") Pagination pagination, @Param("order") String order);
 
 //    매칭글 전체 개수 조회
     public int selectMatchingTotal();
