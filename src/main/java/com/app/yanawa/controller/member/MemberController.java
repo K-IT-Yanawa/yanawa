@@ -1,5 +1,6 @@
 package com.app.yanawa.controller.member;
 
+import com.app.yanawa.exception.LoginFailException;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.ui.Model;
 import com.app.yanawa.domain.member.MemberDTO;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -101,13 +103,10 @@ public class MemberController {
         // 이메일과 비밀번호로 로그인 시도
         Optional<MemberVO> foundMember = memberService.login(email, password);
 
-<<<<<<< HEAD
         // 로그인 실패시 LoginFailException
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
         session.setAttribute("member", memberVO);
 
-=======
->>>>>>> master
         if (foundMember.isPresent()) {
             log.info("로그인 성공! 회원 정보: {}", foundMember.get());
 
