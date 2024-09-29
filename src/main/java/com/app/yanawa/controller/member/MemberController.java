@@ -102,13 +102,14 @@ public class MemberController {
         // 이메일과 비밀번호로 로그인 시도
         Optional<MemberVO> foundMember = memberService.login(email, password);
 
+        // 로그인 실패시 LoginFailException
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
         session.setAttribute("member", memberVO);
 
         if (foundMember.isPresent()) {
             log.info("로그인 성공! 회원 정보: {}", foundMember.get());
 
-            // 세션에 로그인된 사용자 정보 저장 (필요하다면)
+            // 세션에 로그인된 사용자 정보 저장
             session.setAttribute("member", foundMember.get());
 
             // 로그인 유지버튼이 선택된 경우 쿠키 설정

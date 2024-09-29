@@ -13,7 +13,7 @@
         <!-- Header -->
         <header class="header">
             <div class="header-div">
-                <button type="button">
+                <button class="button">
                             <span class="header-span">
                                 <div class="yanawa-logo">
                                     <img
@@ -271,6 +271,12 @@
     if (save) {
         saveInput.checked = true;
     }
+    // 로고 이미지 누를시 메인화면으로 이동
+    const mainPageLogo =document.querySelector(".yanawa-logo");
+
+    mainPageLogo.addEventListener("click",()=>{
+        window.location.href="/yanawa/member/main"
+    });
 </script>
 <script src="/js/login_page/login.js"></script>
 </html>

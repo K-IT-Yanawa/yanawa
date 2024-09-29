@@ -15,7 +15,7 @@ public interface MemberService {
     //    닉네임중복
     public boolean isNickNameDuplicate(String nickname);
 
-//    로그인
+    //    로그인
     Optional<MemberVO> login(String email, String password);
 
     //    회원 이름, 이메일, 전화번호 조회
