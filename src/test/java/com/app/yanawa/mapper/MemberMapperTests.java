@@ -41,6 +41,7 @@ public class MemberMapperTests {
     //    로그인
     @Test
     public void testSelectByMemberEmailAndMemberPassword() {
+        // TBL_MEMBER 보고 직접조희
         String email = "test5@gmail.com";
         String password = "7677";
 
