@@ -1,11 +1,10 @@
 
 package com.app.yanawa.repository.matching;
 
-import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.matching.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.member.MemberVO;
-import com.app.yanawa.domain.post.PostVO;
 import com.app.yanawa.domain.team.TeamVO;
 import com.app.yanawa.mapper.matching.MatchingMapper;
 import lombok.RequiredArgsConstructor;
@@ -35,10 +34,13 @@ public class MatchingDAO {
     public void save(MatchingVO matchingVO) {matchingMapper.insert(matchingVO);}
 
 //    매칭글 목록
-    public List<MatchingDTO> findMatchingAll(Pagination pagination) {
-        return matchingMapper.selectMatchingAll(pagination);
+    public List<MatchingDTO> findMatchingAll(Pagination pagination, String order, String sport, String place, String time) {
+        return matchingMapper.selectMatchingAll(pagination, order, sport, place, time);
     }
 
-    public int getTotalMatching() {return matchingMapper.selectMatchingTotal();}
+    public int getTotalMatching(String sport, String place, String time) {
+        return matchingMapper.selectMatchingTotal(sport, place, time);}
+
+    public int getMatchingCount() {return matchingMapper.getMatchingCount();}
 }
 

@@ -1,7 +1,7 @@
 
 package com.app.yanawa.service.matching;
 
-import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.matching.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.matching.MatchingVO;
 import com.app.yanawa.domain.member.MemberVO;
@@ -55,13 +55,19 @@ public class MatchingServiceImpl implements MatchingService {
 
 
     @Override
-    public List<MatchingDTO> getListMatching(Pagination pagination) {
-        return matchingMapper.selectMatchingAll(pagination);
+    public List<MatchingDTO> getListMatching(Pagination pagination, String order, String sport, String place, String time) {
+        return matchingMapper.selectMatchingAll(pagination, order, sport, place, time);
     }
 
     @Override
-    public int getTotalMatching() {
-        return matchingDAO.getTotalMatching();
+    public int getTotalMatching(String sport, String place, String time) {
+        return matchingDAO.getTotalMatching(sport, place, time);
     }
+
+    @Override
+    public int getMatchingCount() {
+        return matchingDAO.getMatchingCount();
+    }
+
 
 }

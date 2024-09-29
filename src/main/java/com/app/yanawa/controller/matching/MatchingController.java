@@ -1,6 +1,6 @@
 package com.app.yanawa.controller.matching;
 
-import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.matching.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
 import com.app.yanawa.domain.team.TeamDTO;
 import com.app.yanawa.service.matching.MatchingService;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,7 +27,7 @@ public class MatchingController {
     private final TeamService teamService;
     private final HttpSession session;
 
-//    매칭글 작성
+    //    매칭글 작성
     @GetMapping("register")
     public void goToWriteForm(Model model) {
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
@@ -60,12 +61,38 @@ public class MatchingController {
         return new RedirectView("matchMain");
     }
 
-//    매칭글 메인페이지(목록)
+    //    매칭글 메인페이지(목록)
     @GetMapping("matchMain")
-    public void getList(Pagination pagination, Model model) {
-        pagination.setTotal(matchingService.getTotalMatching());
-        pagination.progress();
-        model.addAttribute("match", matchingService.getListMatching(pagination));
+    public void getList(Pagination pagination, String order, String sport, String place, String time, Model model) {
+        if(order == null) {
+            order = "recent";
+        }
+
+        // 필터링 조건 전달
+        pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
+        pagination.progres();
+
+        // 필터링에 따른 매칭 목록 가져오기
+        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport, place, time));
+        model.addAttribute("pagination", pagination);
+
+        int matchingCount = matchingService.getMatchingCount();
+        model.addAttribute("matchingCount", matchingCount);
+
+        pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
+        pagination.progres();
+        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport , place, time));
+        model.addAttribute("pagination", pagination);
+
+        // 컨트롤러에서 로그 확인
+        List<MatchingDTO> matchings = matchingService.getListMatching(pagination, order, sport , place, time);
+        for (MatchingDTO matching : matchings) {
+            System.out.println("CreatedDate: " + matching.getCreateDate());
+        }
+        model.addAttribute("matchingList", matchings);
+
     }
+
+
 
 }
