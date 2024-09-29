@@ -978,3 +978,19 @@ a:hover {
 .writecontent {
     max-width: 250px; /* Adjust based on your layout */
 }
+.card {
+    background-color: white;
+    border: 1px solid #e0e0e0; /* 기본 border 색상 */
+    transition: all 0.3s ease; /* 트랜지션 효과로 자연스럽게 변화 */
+    border-radius: 8px; /* 둥근 모서리 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 기본 그림자 */
+
+    position: relative;
+}
+
+/* 카드에 마우스를 올렸을 때 효과 */
+.card-container:hover .card {
+    transform: translateY(-5px); /* 마우스를 올리면 살짝 위로 이동 */
+    border-color: #adebeb; /* border 색상을 옅은 민트색으로 변경 */
+    box-shadow: 0 4px 12px rgba(173, 235, 235, 0.5); /* 그림자 효과 변경 */
+}
