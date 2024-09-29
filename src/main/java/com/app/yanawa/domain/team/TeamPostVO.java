@@ -17,4 +17,5 @@ public class TeamPostVO {
     private String information;
     private String createdDate;
     private String updatedDate;
+    private int postReadCount;
 }

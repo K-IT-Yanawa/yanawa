@@ -903,7 +903,7 @@
             </div>
         </div>
     </main>
-<form th:action="@{/teamRecruit/teamCreate}" method="post" name="join-form">
+<form th:action="@{/yanawa/team/teamCreate}" method="post" name="join-form">
         <input type="hidden" name="id">
         <input type="hidden" name="memberId">
         <input type="hidden" name="teamName">
@@ -923,24 +923,17 @@
     const submitButton = document.querySelector(".finish-button");
     console.log(submitButton);
     submitButton.addEventListener("click", (e) => {
-        console.log("들어옴");
-
         // Radio 버튼 중 하나라도 선택되었는지 확인
         if (soccer.checked) {
             selectedValue = soccer.value; // 축구 radio 버튼 선택 시
-            console.log("들어옴1");
         } else if (basketball.checked) {
             selectedValue = basketball.value; // 농구 radio 버튼 선택 시
-            console.log("들어옴2");
         } else if (baseball.checked) {
             selectedValue = baseball.value; // 야구 radio 버튼 선택 시
-            console.log("들어옴3");
         } else if (badminton.checked) {
             selectedValue = badminton.value; // 배드민턴 radio 버튼 선택 시
-            console.log("들어옴4");
         } else if (jokgu.checked) {
             selectedValue = jokgu.value; // 족구 radio 버튼 선택 시
-            console.log("들어옴5");
         }
 
         // 사용자가 입력한 값을 숨겨진 필드에 할당

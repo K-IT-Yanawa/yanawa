@@ -3,8 +3,8 @@
 <mapper namespace="com.app.yanawa.mapper.team.TeamPostMapper">
 
     <insert id="insert" parameterType="teamPostVO">
-        INSERT INTO TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION)
-        VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information})
+        INSERT INTO TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION, POST_READ_COUNT)
+        VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information}, #{postReadCount})
     </insert>
 
     <!--   selectById (상세 페이지, read) -->
@@ -25,28 +25,47 @@
     <!--   selectAll (전체 목록, list) -->
 
     <select id="selectAll" resultType="teamPostDTO">
-        SELECT P2.ID, M.TEAM_NAME, M.CITY, M.LOCAL_CITY, M.MEMBER_ID,
-        MEMBER.EMAIL AS TEAM_LEADER_EMAIL, P2.CREATED_DATE,
-        P2.UPDATED_DATE, P2.POST_READ_COUNT
-        FROM TBL_TEAM M
-        JOIN (
-        SELECT ROWNUM R, ID, TEAM_ID, END_DATE, CREATED_DATE,
-        UPDATED_DATE, POST_READ_COUNT FROM
-        (
-        SELECT ID, TEAM_ID, END_DATE, CREATED_DATE,
-        UPDATED_DATE, POST_READ_COUNT
+        SELECT T.MEMBER_ID, T.TEAM_NAME, T.SPORTS_KIND_RADIO_VALUE, T.CITY, T.LOCAL_CITY, T.CREATED_DATE, T.UPDATED_DATE, P2.ID, P2.TEAM_ID, P2.END_DATE, P2.CREATED_DATE, P2.UPDATED_DATE
+        FROM TBL_TEAM T JOIN
+        ( SELECT ROWNUM R, P1.*
+        FROM (SELECT ID, TEAM_ID, END_DATE, INFORMATION, POST_READ_COUNT, CREATED_DATE, UPDATED_DATE
         FROM TBL_TEAM_POST
-        ORDER BY
-        <choose>
-            <when test="order == 'recent'.toString()">ID</when>
-            <otherwise>POST_READ_COUNT</otherwise>
-        </choose>
-        DESC
-        ) P1
+        ORDER BY POST_READ_COUNT DESC ) P1
         <![CDATA[
-            WHERE ROWNUM <= #{pagination.endRow}) P2
-        ON M.ID = P2.TEAM_ID AND P2.R >= #{pagination.startRow}
-        ]]> JOIN MEMBER ON M.MEMBER_ID = MEMBER.ID
+           WHERE ROWNUM <= #{endRow}) P2
+        ON T.ID = P2.TEAM_ID AND P2.R >= #{startRow}
+        ]]>
+<!--        SELECT P2.ID, M.TEAM_NAME, M.CITY, M.LOCAL_CITY, M.MEMBER_ID,-->
+<!--        MEMBER.EMAIL AS TEAM_LEADER_EMAIL, P2.CREATED_DATE,-->
+<!--        P2.UPDATED_DATE, P2.POST_READ_COUNT-->
+<!--        FROM TBL_TEAM M-->
+<!--        JOIN (-->
+<!--        SELECT ROWNUM R, ID, TEAM_ID, END_DATE, CREATED_DATE,-->
+<!--        UPDATED_DATE, POST_READ_COUNT FROM-->
+<!--        (-->
+<!--        SELECT ID, TEAM_ID, END_DATE, CREATED_DATE,-->
+<!--        UPDATED_DATE, POST_READ_COUNT-->
+<!--        FROM TBL_TEAM_POST-->
+<!--        ORDER BY-->
+<!--        <choose>-->
+<!--            <when test="order == 'recent'.toString()">ID</when>-->
+<!--            <otherwise>POST_READ_COUNT</otherwise>-->
+<!--        </choose>-->
+<!--        DESC-->
+<!--        ) P1-->
+<!--        <![CDATA[-->
+<!--            WHERE ROWNUM <= 10) P2-->
+<!--        ON M.ID = P2.TEAM_ID AND P2.R >= 6-->
+<!--        ]]> JOIN MEMBER ON M.MEMBER_ID = MEMBER.ID-->
+    </select>
+
+<!--  한 페이지 5개씩 뿌리고 싶다.
+      1. 최신순으로 정렬
+      2. 그 중 최신 5개를 가져와야 한다.(행번호: 1~5)
+      -->
+
+    <select id="selectTotal">
+        SELECT COUNT(*) FROM TBL_TEAM_POST
     </select>
 
     <!--
