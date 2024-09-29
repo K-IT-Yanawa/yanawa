@@ -581,12 +581,17 @@ a {
     color: rgb(102, 102, 102);
 }
 /* 여기 부분이 div바뀌는 부분 */
-.sider-2 {
-    display: none;
-}
-.sider-3 {
-    display: none;
-}
+
+/*html에서 script사용*/
+/*.sider-2 {*/
+/*    display: none;*/
+/*}*/
+
+/*html에서 script사용*/
+/*.sider-3 {*/
+/*    display: none;*/
+/*}*/
+
 .team-detail-layout .sider-2 {
     width: 39%;
     margin-left: 2%;
@@ -716,6 +721,16 @@ img {
     line-height: 0;
     margin-inline-end: 8px;
     cursor: pointer;
+}
+.input-explain {
+    font-size: 12px;
+    padding-top: 10px;
+    color: rgb(151, 157, 164);
+}
+.input-explain-error {
+    margin-left: 5px;
+    font-size: 14px;
+    color: rgb(254, 65, 92);
 }
 .apply-item.addcontent {
     padding-top: 40px;
