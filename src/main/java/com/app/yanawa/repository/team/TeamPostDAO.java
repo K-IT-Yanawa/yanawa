@@ -19,3 +19,4 @@ public class TeamPostDAO {
         teamPostMapper.insert(teamPostVO);
     }
 }
+

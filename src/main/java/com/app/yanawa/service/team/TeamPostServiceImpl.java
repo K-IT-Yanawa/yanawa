@@ -21,3 +21,4 @@ public class TeamPostServiceImpl implements TeamPostService {
         teamPostDAO.save(teamPostVO);
     }
 }
+

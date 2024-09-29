@@ -8,3 +8,4 @@ public interface TeamMemberMapper {
     // 팀 신청(지원)
     public void insert(TeamMemberVO teamMemberVO);
 }
+

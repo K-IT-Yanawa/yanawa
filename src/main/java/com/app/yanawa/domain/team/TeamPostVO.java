@@ -18,3 +18,4 @@ public class TeamPostVO {
     private String createdDate;
     private String updatedDate;
 }
+

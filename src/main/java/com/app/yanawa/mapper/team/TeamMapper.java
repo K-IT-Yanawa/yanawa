@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface TeamMapper {
     public void insert(TeamVO teamVO);
 
-    public Optional<TeamDTO> selectByMemberId(Long memberId);
+    public Optional<TeamDTO> selectById(Long id);
 }
