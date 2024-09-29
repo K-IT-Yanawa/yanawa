@@ -15,7 +15,8 @@ public class TeamDAO {
 
     public void save(TeamVO teamVO) { teamMapper.insert(teamVO); }
 
-    public Optional<TeamDTO> findByMemberId(Long id) {
+    public Optional<TeamDTO> findById(Long id) {
         return teamMapper.selectById(id);
     }
 }
+

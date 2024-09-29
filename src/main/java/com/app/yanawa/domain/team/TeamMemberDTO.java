@@ -21,3 +21,4 @@ public class TeamMemberDTO {
         return new TeamMemberVO(id, memberId, teamId, pathToContact, introduce, createdDate, updatedDate);
     }
 }
+

@@ -26,3 +26,4 @@ INSERT INTO TBL_TEAM(ID, MEMBER_ID, TEAM_NAME,
 VALUES (1,1,'TEST TEAM',
         1, '서울', '강남구', '역삼동',
         '오후2~오후6시','20대');
+

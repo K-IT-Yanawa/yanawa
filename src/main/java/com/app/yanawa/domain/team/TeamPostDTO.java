@@ -19,3 +19,4 @@ public class TeamPostDTO {
         return new TeamPostVO(id, teamId, endDate, information, createdDate, updatedDate);
     }
 }
+
