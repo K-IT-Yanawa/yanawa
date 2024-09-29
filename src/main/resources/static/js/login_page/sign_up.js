@@ -273,4 +273,3 @@ const mainPageLogo =document.querySelector(".yanawa-logo");
 mainPageLogo.addEventListener('click',()=>{
     window.location.href="/yanawa/member/main"
 });
-
