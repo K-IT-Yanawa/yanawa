@@ -19,4 +19,3 @@ public class TeamMemberVO {
     private String createdDate;
     private String updatedDate;
 }
-

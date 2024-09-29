@@ -13,4 +13,3 @@ public interface TeamPostMapper {
     public void insert(TeamPostVO teamPostVO);
 }
 
-

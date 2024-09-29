@@ -24,5 +24,3 @@ public class TeamServiceImpl implements TeamService {
         return teamDAO.findById(id);
     }
 }
-
-

@@ -1,9 +1,11 @@
 package com.app.yanawa.controller.team;
 
 
+import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.domain.team.TeamPostDTO;
 import com.app.yanawa.service.team.TeamPostService;
 import com.app.yanawa.service.team.TeamService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -23,11 +25,10 @@ public class TeamPostController {
 //    private final HttpSession session;
 
     @GetMapping("teamRecruitWrite")
-    public void goToWriteForm(Model model){
+    public void goToWriteForm(Model model, HttpSession session){
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
-        model.addAttribute("team", teamService.getTeam(1L).get());
-
+        model.addAttribute("team", teamService.getTeam(10L).get());
     }
 
     @PostMapping("teamRecruitWrite")

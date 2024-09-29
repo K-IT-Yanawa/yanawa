@@ -792,7 +792,7 @@
                                     <div class="apply-item">
                                         <!-- 나중에 submit으로 수정 -->
                                         <button
-                                                type="button"
+                                                type="submit"
                                                 class="apply-complete-btn"
                                         >
                                                     <span class="apply-span"
@@ -820,7 +820,7 @@
                                 </div>
                                 <div class="side-btn-area">
                                     <button
-                                            type="button"
+                                            type="submit"
                                             class="side-match-btn complete"
                                     >
                                                 <span class="span-text"
@@ -847,7 +847,8 @@
 </div>
 </body>
 <script th:inline="javascript">
-    const teamId = [[${team}]]; // 서버에서 전달된 team 객체의 데이터를 가져옴
+
+    const getTeamId = [[${team}]]; // 서버에서 전달된 team 객체의 데이터를 가져옴
     const getMemberId = [[${member}]]; // 서버에서 전달된  member 객체의 데이터를 가져옴
 
     const button = document.querySelector("button[type=submit]"); // 제출 버튼을 선택
@@ -856,171 +857,74 @@
     const radioPhone = document.getElementById('radio-phone'); // 전화번호 radio 버튼 값 가져오기
     const radioAll = document.getElementById('radio-all'); //  모든 연락처 radio 버튼 값 가져오기
 
-    console.log(radioEmail)
-    console.log(radioPhone)
-    console.log(radioAll)
-
-    const radioEmailValue = document.getElementById('radio-email').value; // 이메일 radio 버튼 값 가져오기
-    const radioPhoneValue = document.getElementById('radio-phone').value; // 전화번호 radio 버튼 값 가져오기
-    const radioAllValue = document.getElementById('radio-all').value; //  모든 연락처 radio 버튼 값 가져오기
     const pathToContactError = document.getElementById('pathToContact-error'); // 에러 메시지를 표시할 요소 가져오기
-    const introduce = document.getElementById('introduce').value; // 사용자가 입력한 추가 정보 가져오기
-
-    console.log(radioEmailValue)
-    console.log(radioPhoneValue)
-    console.log(radioAllValue)
-
-    console.log(radioEmail.checked)
-    console.log(radioPhone.checked)
-    console.log(radioAll.checked)
-
-    // console.log(radioEmail.target.checked)
-    // console.log(radioPhone.target.checked)
-    // console.log(radioAll.target.checked)
+    const introduceValue = document.getElementById('introduce').value; // 사용자가 입력한 추가 정보 가져오기
 
     // .sider-1안에 있는 신청하기버튼
     const applyButton = document.querySelector(".side-match-btn");
-
     // .sider-2안에 있는 x 이미지(신청하기 닫기)
     const applyCloseButton = document.querySelector(".apply-close-btn");
-
     // 신청하기와 유사한 추천매칭팀 div
     const sideDiv1 = document.querySelector(".sider-1");
-
     // 신청하기 신청상세 div
     const sideDiv2 = document.querySelector(".sider-2");
     // 신청완료시 신청완료 완료 됬다는 div
     const sideDiv3 = document.querySelector(".sider-3");
 
-    console.log("들어옴 -- 1")
-
     // 신청하기 버튼누르면 신청 div나옴 페이지이동 X
     applyButton.addEventListener("click", () => {
         sideDiv1.style.display = "none";
         sideDiv2.style.display = "block";
-
-        console.log("들어옴 -- 2")
-
-        let selectedValue = "";
-
-        console.log("들어옴 -- 4")
-
-        // Radio 버튼 중 하나라도 선택되었는지 확인
-        if (radioEmail.checked) {
-            selectedValue = radioEmail.value(); // 이메일 radio 버튼 선택 시
-            console.log(radioEmail.checked)
-            console.log("들어옴 -- radioEmail.checked")
-        } else if (radioPhone.checked) {
-            selectedValue = radioPhone.value; // 전화번호 radio 버튼 선택 시
-            console.log(radioPhone.checked)
-            console.log("들어옴 -- radioPhone.checked")
-        } else if (radioAll.checked) {
-            selectedValue = radioAll.value; // 모두 선택 radio 버튼 선택 시
-            console.log("들어옴 -- radioAll.checked")
-            console.log(radioAll.checked)
-            console.log(selectedValue)
-            console.log(radioAll)
-        }
-
-        // 유효성 검사
-        // radio가 체크되지 않았을 경우
-        if (!selectedValue) {
-            pathToContactError.style.display = 'block'; // 경고 메시지 보이기
-            console.log("들어옴 -- !selectedValue")
-            // radio가 체크되었을 경우
-        } else {
-            pathToContactError.style.display = 'none'; // 경고 메시지 숨기
-            console.log("들어옴 -- selectedValue")
-        }
-
-        // 숨겨진 필드에 팀 ID, 회원 ID 할당
-        document.querySelector('input[name="teamId"]').value = teamId.id;
-        document.querySelector('input[name="memberId"]').value = getMemberId.id;
-        // 선택된 radio 버튼 값 숨겨진 필드에 할당
-        document.querySelector('input[name="pathToContact"]').value = selectedValue;
-        // 사용자가 입력한 자기소개 값을 숨겨진 필드에 할당
-        document.querySelector('input[name="introduce"]').value = introduce;
-
-        console.log(document.querySelector('input[name="teamId"]'));
-        console.log(document.querySelector('input[name="memberId"]'));
-        console.log(document.querySelector('input[name="pathToContact"]'));
-        console.log(document.querySelector('input[name="introduce"]'));
-
-        console.log(teamId.id);
-        console.log(getMemberId.id);
-        console.log(selectedValue);
-        console.log(introduce);
-
     });
 
     // x 이미지 누르면 초기화면 나옴 페이지이동 X
     applyCloseButton.addEventListener("click", () => {
         sideDiv1.style.display = "block";
         sideDiv2.style.display = "none";
-
-        console.log("들어옴 -- 3")
     });
 
     // 버튼 누를시 신청완료 div나옴 페이지이동 X
-    // button.addEventListener("click", (e) => {
-    //     let selectedValue = "";
-    //
-    //     console.log("들어옴 -- 4")
-    //
-    //     // Radio 버튼 중 하나라도 선택되었는지 확인
-    //     if (radioEmail.checked) {
-    //         selectedValue = radioEmail.value(); // 이메일 radio 버튼 선택 시
-    //         console.log("들어옴 -- radioEmail.checked")
-    //     } else if (radioPhone.checked) {
-    //         selectedValue = radioPhone.value; // 전화번호 radio 버튼 선택 시
-    //         console.log("들어옴 -- radioPhone.checked")
-    //     } else if (radioAll.checked) {
-    //         selectedValue = radioAll.value; // 모두 선택 radio 버튼 선택 시
-    //         console.log("들어옴 -- radioAll.checked")
-    //         console.log(radioAll.checked)
-    //         console.log(selectedValue)
-    //         console.log(radioAll)
-    //     }
-    //
-    //     // 유효성 검사
-    //     // radio가 체크되지 않았을 경우
-    //     if (!selectedValue) {
-    //         pathToContactError.style.display = 'block'; // 경고 메시지 보이기
-    //         console.log("들어옴 -- !selectedValue")
-    //     // radio가 체크되었을 경우
-    //     } else {
-    //         pathToContactError.style.display = 'none'; // 경고 메시지 숨기
-    //         console.log("들어옴 -- selectedValue")
-    //     }
-    //
-    //     // 숨겨진 필드에 팀 ID, 회원 ID 할당
-    //     document.querySelector('input[name="teamId"]').value = teamId.id;
-    //     document.querySelector('input[name="memberId"]').value = getMemberId.id;
-    //     // 선택된 radio 버튼 값 숨겨진 필드에 할당
-    //     document.querySelector('input[name="pathToContact"]').value = selectedValue;
-    //     // 사용자가 입력한 자기소개 값을 숨겨진 필드에 할당
-    //     document.querySelector('input[name="introduce"]').value = introduce;
-    //
-    //     console.log(document.querySelector('input[name="teamId"]'));
-    //     console.log(document.querySelector('input[name="memberId"]'));
-    //     console.log(document.querySelector('input[name="pathToContact"]'));
-    //     console.log(document.querySelector('input[name="introduce"]'));
-    //
-    //     console.log(teamId.id);
-    //     console.log(getMemberId.id);
-    //     console.log(selectedValue);
-    //     console.log(introduce);
-    //
-    //     // 폼 제출
-    //     if (selectedValue) {
-    //         alert("매칭 신청완료!");
-    //         sideDiv2.style.display = "none"; // 신청 div 숨기기
-    //         sideDiv3.style.display = "block"; // 완료 div 보이기
-    //         document['join-form'].submit();
-    //
-    //         console.log( document['join-form']);
-    //     }
-    // });
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let selectedValue = null;
+
+        // Radio 버튼 중 하나라도 선택되었는지 확인
+        if (radioEmail.checked) {
+            selectedValue = radioEmail.value; // 이메일 radio 버튼 선택 시
+        } else if (radioPhone.checked) {
+            selectedValue = radioPhone.value; // 전화번호 radio 버튼 선택 시
+        } else if (radioAll.checked) {
+            selectedValue = radioAll.value; // 모두 선택 radio 버튼 선택 시
+        }
+
+        // 유효성 검사
+        // radio가 체크되지 않았을 경우
+        if (!selectedValue) {
+            pathToContactError.style.display = 'block'; // 경고 메시지 보이기
+        // radio가 체크되었을 경우
+        } else {
+            pathToContactError.style.display = 'none'; // 경고 메시지 숨기
+        }
+
+        // 숨겨진 필드에 팀 ID, 회원 ID 할당
+        document.querySelector('input[name="teamId"]').value = getTeamId.id;
+        document.querySelector('input[name="memberId"]').value = getMemberId.id;
+        // 선택된 radio 버튼 값 숨겨진 필드에 할당
+        document.querySelector('input[name="pathToContact"]').value = selectedValue;
+        // 사용자가 입력한 자기소개 값을 숨겨진 필드에 할당
+        document.querySelector('input[name="introduce"]').value = introduceValue;
+
+        // 폼 제출
+        if (selectedValue) {
+            alert("신청완료!");
+            document['join-form'].submit();
+            sideDiv2.style.display = "none"; // 신청 div 숨기기
+            sideDiv3.style.display = "block"; // 완료 div 보이기
+        } else {
+            alert("연락받을 경로 체크해주세요!");
+        }
+    });
 </script>
 <script src="/js/teamrecruit_page/teamrecruitDetailPage.js"></script>
 </html>

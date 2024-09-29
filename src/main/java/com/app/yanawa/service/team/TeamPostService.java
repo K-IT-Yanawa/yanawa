@@ -9,4 +9,3 @@ import java.util.Optional;
 public interface TeamPostService {
     public void join(TeamPostVO teamPostVO);
 }
-

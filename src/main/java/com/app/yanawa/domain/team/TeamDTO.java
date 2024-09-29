@@ -35,4 +35,3 @@ public class TeamDTO {
     public TeamVO toVO() {
         return new TeamVO(id, memberId, teamName, sportsKindRadioValue, city, localCity, detailedArea, teamActivityTime, ageRange, createdDate, updatedDate);}
 }
-

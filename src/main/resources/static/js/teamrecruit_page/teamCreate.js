@@ -17,35 +17,74 @@ const nextButton1 = document.querySelector(".next-button-1");
 const nextButton2 = document.querySelector(".next-button-2");
 const beforeButton1 = document.querySelector(".before-button-1");
 const beforeButton2 = document.querySelector(".before-button-2");
-const finishButton = document.querySelector(".finish-button");
 
 // 각 폼들 가져오기
 const form1 = document.getElementById("form-1");
 const form2 = document.getElementById("form-2");
 const form3 = document.getElementById("form-3");
 
-// 다음 버튼 클릭(Form 1 -> Form 2)
-nextButton1.addEventListener("click", () => {
-    form1.style.display = "none";
-    form2.style.display = "block";
-});
+const soccer = document.getElementById('soccer');
+const basketball = document.getElementById('basketball');
+const baseball = document.getElementById('baseball');
+const badminton = document.getElementById('badminton');
+const jokgu = document.getElementById('jokgu');
+const sportsKindRadioValueError = document.getElementById('sportsKindRadioValue-error');
 
-// 다음 버튼 클릭(Form 2 -> Form 3)
-nextButton2.addEventListener("click", () => {
-    form2.style.display = "none";
-    form3.style.display = "block";
+const teamName = document.getElementById('teamName'); //팀명 입력 필드 값;
+const teamNameError = document.getElementById('teamName-error');
+
+// 다음 버튼 클릭(Form 1 -> Form 2) // 유효성 검사 진행 후
+nextButton1.addEventListener("click", (e) => {
+    e.preventDefault();// 기본 폼 제출을 막음
+
+    let selectedValue = null;
+
+    // Radio 버튼 중 하나라도 선택되었는지 확인
+    if (soccer.checked) {
+        selectedValue = soccer.value; // 축구 radio 버튼 선택 시
+    } else if (basketball.checked) {
+        selectedValue = basketball.value; // 농구 radio 버튼 선택 시
+    } else if (baseball.checked) {
+        selectedValue = baseball.value; // 야구 radio 버튼 선택 시
+    } else if (badminton.checked) {
+        selectedValue = badminton.value; // 배드민턴 radio 버튼 선택 시
+    } else if (jokgu.checked) {
+        selectedValue = jokgu.value; // 족구 radio 버튼 선택 시
+    }
+
+    // 스포츠 종목 유효성 검사
+    if (!selectedValue) {
+        // 유효하지 않을 경우
+        sportsKindRadioValueError.style.display = 'block'; // 경고 메시지 보이기
+        // 유효할 경우
+    } else {
+        sportsKindRadioValueError.style.display = 'none'; // 경고 메시지 숨기
+    }
+
+    // 팀명 유효성 검사
+    if (!teamName.value) {
+        // 유효하지 않을 경우
+        teamName.classList.add('input-error'); // 빨간 테두리 추가
+        teamNameError.style.display = 'block'; // 경고 메시지 보이기
+    } else {
+        // 유효할 경우
+        teamName.classList.remove('input-error'); // 빨간 테두리 제거
+        teamNameError.style.display = 'none'; // 경고 메시지 숨기기
+    }
+
+    // 다음 단계로 이동 (Form 1 -> Form 2)
+    if (selectedValue && teamName.value) {
+        form1.style.display = "none";
+        form2.style.display = "block";
+    } else {
+        alert("입력하지 않은 정보가 있습니다.")
+    }
 });
 
 // 이전 버튼 클릭(Form 2 -> Form 1)
 beforeButton1.addEventListener("click", () => {
     form2.style.display = "none";
     form1.style.display = "block";
-});
-
-// 이전 버튼 클릭 (Form 3 -> Form 2)
-beforeButton2.addEventListener("click", () => {
-    form3.style.display = "none";
-    form2.style.display = "block";
 });
 
 // 시/도 별로 구/군 데이터를 미리 정의합니다.
@@ -302,28 +341,90 @@ const districts = {
     제주특별자치도: ["제주시", "서귀포시"],
 };
 
-// 첫 번째 셀렉트 요소와 두 번째 셀렉트 요소를 가져옵니다.
-const citySelect = document.querySelector('select[name="place"]');
-const districtSelect = document.querySelector('select[name="place-detail"]');
+const city = document.getElementById("city");
+const local = document.getElementById("localCity");
+const cityError = document.getElementById('city-error');
+const detailedArea = document.getElementById('detailedArea');
+const detailedAreaError = document.getElementById('detailedArea-error');
+const teamActivityTime = document.getElementById('teamActivityTime');
+const teamActivityTimeError = document.getElementById('teamActivityTime-error');
+const ageRange = document.getElementById('ageRange');
+const ageRangeError = document.getElementById('ageRange-error');
 
-// 첫 번째 셀렉트의 값이 변경될 때 이벤트 리스너 추가
-citySelect.addEventListener("change", function () {
-    // 선택된 시/도 값을 가져옵니다.
-    const selectedCity = citySelect.value;
+city.addEventListener("change", (e) => {
+    let text = `<option value="" selected>상세 지역 선택</option>`;
+    console.log(districts[city.value]);
+    districts[city.value].forEach((district) => {
+        text += `
+            <option value="${district}">${district}</option>
+        `
+    });
+    local.innerHTML = text;
+} )
 
-    // 두 번째 셀렉트를 초기화합니다.
-    districtSelect.innerHTML =
-        '<option value="" disabled selected>상세 지역 선택</option>';
+// 다음 버튼 클릭(Form 2 -> Form 3) // 유효성 검사 진행 후
+nextButton2.addEventListener("click", (e) => {
+    e.preventDefault();// 기본 폼 제출을 막음
 
-    // 선택된 시/도의 구/군 데이터를 추가합니다.
-    if (districts[selectedCity]) {
-        districts[selectedCity].forEach(function (district) {
-            const option = document.createElement("option");
-            option.value = district;
-            option.textContent = district;
-            districtSelect.appendChild(option);
-        });
+    // 상세주소 유효성 검사
+    if (!local.value) {
+        // 유효하지 않을 경우
+        local.classList.add('input-error'); // 빨간 테두리 추가
+        cityError.style.display = 'block'; // 경고 메시지 보이기
+    } else {
+        // 유효할 경우
+        local.classList.remove('input-error'); // 빨간 테두리 제거
+        cityError.style.display = 'none'; // 경고 메시지 숨기기
+    }
+
+    // 상세주소 유효성 검사
+    if (!detailedArea.value) {
+        // 유효하지 않을 경우
+        detailedArea.classList.add('input-error'); // 빨간 테두리 추가
+        detailedAreaError.style.display = 'block'; // 경고 메시지 보이기
+    } else {
+        // 유효할 경우
+        detailedArea.classList.remove('input-error'); // 빨간 테두리 제거
+        detailedAreaError.style.display = 'none'; // 경고 메시지 숨기기
+    }
+
+    // 팀 활동시간 유효성 검사
+    if (!teamActivityTime.value) {
+        // 유효하지 않을 경우
+        teamActivityTime.classList.add('input-error'); // 빨간 테두리 추가
+        teamActivityTimeError.style.display = 'block'; // 경고 메시지 보이기
+    } else {
+        // 유효할 경우
+        teamActivityTime.classList.remove('input-error'); // 빨간 테두리 제거
+        teamActivityTimeError.style.display = 'none'; // 경고 메시지 숨기기
+    }
+
+    // 나이대 유효성 검사
+    if (!ageRange.value) {
+        // 유효하지 않을 경우
+        ageRange.classList.add('input-error'); // 빨간 테두리 추가
+        ageRangeError.style.display = 'block'; // 경고 메시지 보이기
+    } else {
+        // 유효할 경우
+        ageRange.classList.remove('input-error'); // 빨간 테두리 제거
+        ageRangeError.style.display = 'none'; // 경고 메시지 숨기기
+    }
+
+    // 다음 단계로 이동 (Form 1 -> Form 2)
+    if (local.value && detailedArea.value &&
+        teamActivityTime.value && ageRange.value) {
+        form2.style.display = "none";
+        form3.style.display = "block";
+    } else {
+        alert("입력하지 않은 정보가 있습니다.")
     }
 });
+
+// 이전 버튼 클릭 (Form 3 -> Form 2)
+beforeButton2.addEventListener("click", () => {
+    form3.style.display = "none";
+    form2.style.display = "block";
+});
+
 
 

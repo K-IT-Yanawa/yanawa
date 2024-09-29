@@ -13,4 +13,3 @@ public interface TeamMapper {
 
     public Optional<TeamDTO> selectById(Long id);
 }
-

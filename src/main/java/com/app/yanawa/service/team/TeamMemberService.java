@@ -6,4 +6,3 @@ public interface TeamMemberService {
     // 팀 신청(지원)
     public void join(TeamMemberVO teamMemberVO);
 }
-
