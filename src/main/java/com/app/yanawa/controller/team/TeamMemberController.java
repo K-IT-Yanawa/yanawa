@@ -26,9 +26,9 @@ public class TeamMemberController {
     @GetMapping("teamRecruitDetail")
     public void goToWriteFrom(Model model) {
         // 회원 정보
-        model.addAttribute("member", memberService.getMember(2L).get());
+        model.addAttribute("member", memberService.getMember(81L).get());
         // 신청하는 팀 id
-        model.addAttribute("team", teamService.getTeam(10L).get());
+        model.addAttribute("team", teamService.getTeam(1L).get());
         log.info("GetMapping 들어옴");
     }
 

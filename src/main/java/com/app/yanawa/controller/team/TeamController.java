@@ -23,12 +23,14 @@ public class TeamController {
     @GetMapping("teamCreate")
     public void goToWriteFrom(Model model) {
         // 회원 id => (팀장)
-        model.addAttribute("member", memberService.getMember(2L).get());
+        model.addAttribute("member", memberService.getMember(3L).get());
     }
 
     @PostMapping("teamCreate")
     public RedirectView write(TeamDTO teamDTO) {
         teamService.join(teamDTO.toVO());
+        log.info("{}", teamDTO);
+        log.info(teamDTO.toString());
         return new RedirectView("/teamRecruit/teamCreate");
     }
 }
