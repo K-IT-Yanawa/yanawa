@@ -14,4 +14,6 @@ public interface FreewriteService {
     public int getTotal();
     public FreewriteDTO getDetail(Long id);
     public void increaseReadCount(Long id);
+    public void update(FreewriteDTO freewriteDTO);
+    void delete(Long id);
 }

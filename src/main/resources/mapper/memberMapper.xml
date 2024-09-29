@@ -34,7 +34,7 @@
         WHERE MEMBER_EMAIL = #{memberEmail} AND MEMBER_PASSWORD = #{memberPassword}
     </select>
 
-<!-- 회원 이름, 이메일, 전화번호 조회 -->
+<!-- 팀 생성 => 회원 이름, 이메일, 전화번호 조회 -->
     <select id="selectMemberByMemberId" resultType="memberDTO">
         SELECT ID, MEMBER_NAME, MEMBER_EMAIL, MEMBER_PHONE
         FROM TBL_MEMBER WHERE ID = #{memberId}

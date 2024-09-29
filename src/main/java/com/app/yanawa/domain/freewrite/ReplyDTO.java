@@ -15,12 +15,12 @@ public class ReplyDTO {
 
     private Long id;
     private String replyContent;
-    private Long userId;
+    private Long memberId;
     private Long postId;
     private String createdDate;
     private String updatedDate;
 
     public ReplyVO toVO(){
-        return new ReplyVO(id, replyContent, userId, postId, createdDate, updatedDate);
+        return new ReplyVO(id, replyContent, memberId, postId, createdDate, updatedDate);
     }
 }

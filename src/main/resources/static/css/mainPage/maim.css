@@ -463,6 +463,7 @@ ol, ul {
 }
 
 
+
 .main_heder_menu_1_menubar_1_1_1>a{
     color: #171719;
     font-weight: 600;
@@ -485,6 +486,7 @@ ol, ul {
 .main_heder_menu_1_menubar_1_1_1_1_side_1 {
     width: 100%;
     height: 100%;
+    display: column;
     align-items: center;
     justify-content: center;
     color: rgba(55, 56, 60, .61);
@@ -513,18 +515,7 @@ ol, ul {
 
 .main_heder_login_job_all {
     margin-left: auto;
-    position: relative;
 }
-.logout{
-    position: absolute;
-    transform: translateX(120px);
-    display: none;
-}
-.main_heder_login_job_login_{
-    position: absolute;
-    transform: translateX(-40px);
-}
-
 .main_heder_login_job_al_1 {
     display: flex;
     align-items: center;
@@ -751,7 +742,9 @@ p {
     color: var(--button-color);
 }
 
+
 .Button_Button__textSizeMedium__uBHGm {
+    font-size: 16px;
     font-weight: 600;
 }
 .main_section_section_1_banner_1 {

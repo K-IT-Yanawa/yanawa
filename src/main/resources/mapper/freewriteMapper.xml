@@ -72,7 +72,28 @@
         WHERE ID = #{id}
     </update>
 
+    <!-- 게시글 수정 -->
+    <update id="update" parameterType="map">
+        UPDATE TBL_POST
+        SET
+            POST_TITLE = #{postTitle},
+            POST_CONTENT = #{postContent},
+            UPDATED_DATE = CURRENT_TIMESTAMP
+        WHERE
+            ID = #{id}
+    </update>
 
+    <!-- 게시글 삭제 -->
+    <delete id="deleteById" parameterType="Long">
+        DELETE FROM TBL_FREEWRITE
+        WHERE ID = #{id}
+    </delete>
+
+    <!-- TBL_POST 테이블에서도 함께 삭제 -->
+    <delete id="deletePostById" parameterType="Long">
+        DELETE FROM TBL_POST
+        WHERE ID = #{id}
+    </delete>
 
 
 

@@ -25,5 +25,10 @@ public interface FreewriteMapper {
     // 조회수 증가
     public void increaseReadCount(Long id);
 
+    // 게시글 수정
+    public void update(@Param("id") Long id, @Param("postTitle") String postTitle, @Param("postContent") String postContent);
+
+    // 게시글 삭제
+    void deleteById(@Param("id") Long id);
 
 }

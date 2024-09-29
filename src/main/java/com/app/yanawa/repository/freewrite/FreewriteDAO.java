@@ -16,6 +16,7 @@ import java.util.List;
 public class FreewriteDAO {
     private final FreewriteMapper freewriteMapper;
    private final SqlSession sqlSession;
+    private final FreewriteVO freewriteVO;
 
     public void save(FreewriteVO freewriteVO) {
         freewriteMapper.insert(freewriteVO);
@@ -36,5 +37,12 @@ public class FreewriteDAO {
 
 
     public void increaseReadCount(Long id){freewriteMapper.increaseReadCount(id);}
+
+    public void update(FreewriteDTO freewriteDTO) {
+        freewriteMapper.update(freewriteDTO.getId(), freewriteDTO.getPostTitle(), freewriteDTO.getPostContent());
+    }
+    public void delete(Long id) {
+        freewriteMapper.deleteById(id);
+    }
 
 }

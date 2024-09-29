@@ -72,10 +72,10 @@
 
                                     <!-- 게시글 출력 -->
                                     <table id="post-table">
-                                        <div th:each="freewrite : ${freewrites}" style="position: relative;">
+                                        <div th:each="freewrite : ${freewrites}" class="card-container" style="position: relative; margin-bottom: 20px;">
                                             <a th:href="@{/freewrite/detail(id=${freewrite.id})}" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></a>
                                             <div class="flex">
-                                                <div class="ydsfooter_munu_bar section_document">
+                                                <div class="ydsfooter_munu_bar section_document card">
                                                     <div style="margin-top: 10px">
                                                         <div class="sc-73fafee5-0 ejqkLc">
                                                             <img src="https://image.wanted.co.kr/gigs/www/wanted/icon-business-bag.svg" />
@@ -83,8 +83,7 @@
 
                                                         <!-- 사용자 닉네임 -->
                                                         <div class="FAQ_card_title">
-                                                            <div class="font-size-sm font-medium FAQ_card_answers"
-                                                                 style="width: 40px; text-align: center; margin-top: 4px;">
+                                                            <div class="font-size-sm font-medium FAQ_card_answers" style="width: 40px; text-align: center; margin-top: 4px;">
                                                                 <span th:text="${freewrite.memberNickname}">닉네임</span>
                                                             </div>
                                                         </div>
