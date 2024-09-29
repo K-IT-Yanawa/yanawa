@@ -25,7 +25,9 @@ public class TeamMemberController {
 
     @GetMapping("teamRecruitDetail")
     public void goToWriteFrom(Model model) {
+        // 회원 정보
         model.addAttribute("member", memberService.getMember(7L).get());
+        // 신청하는 팀 id
         model.addAttribute("team", teamService.getTeam(8L).get());
         log.info("GetMapping 들어옴");
     }
@@ -33,9 +35,11 @@ public class TeamMemberController {
     @PostMapping("teamRecruitDetail")
     public RedirectView write(TeamMemberDTO teamMemberDTO) {
         log.info("PostMapping 1 들어옴");
+
         // pathToContact를 int로 변환
 //        int pathToContact = Integer.parseInt(teamMemberDTO.getPathToContact()); // String에서 int로 변환
 //        teamMemberDTO.setPathToContact(pathToContact); // 변환한 값을 DTO에 설정
+
         teamMemberService.join(teamMemberDTO.toVO());
         log.info("PostMapping 2 들어옴");
         log.info("{}", teamMemberDTO);
