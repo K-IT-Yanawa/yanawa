@@ -24,9 +24,33 @@
 
     <!--   selectAll (전체 목록, list) -->
 
-    <!--   프로필 이미지, 팀명, CITY/LOCAL CITY, 팀원 평균 연령,
+    <select id="selectAll" resultType="teamPostDTO">
+        SELECT P2.ID, M.TEAM_NAME, M.CITY, M.LOCAL_CITY, M.MEMBER_ID,
+        MEMBER.EMAIL AS TEAM_LEADER_EMAIL, P2.CREATED_DATE,
+        P2.UPDATED_DATE, P2.POST_READ_COUNT
+        FROM TBL_TEAM M
+        JOIN (
+        SELECT ROWNUM R, ID, TEAM_ID, END_DATE, CREATED_DATE,
+        UPDATED_DATE, POST_READ_COUNT FROM
+        (
+        SELECT ID, TEAM_ID, END_DATE, CREATED_DATE,
+        UPDATED_DATE, POST_READ_COUNT
+        FROM TBL_TEAM_POST
+        ORDER BY
+        <choose>
+            <when test="order == 'recent'.toString()">ID</when>
+            <otherwise>POST_READ_COUNT</otherwise>
+        </choose>
+        DESC
+        ) P1
+        <![CDATA[
+            WHERE ROWNUM <= #{pagination.endRow}) P2
+        ON M.ID = P2.TEAM_ID AND P2.R >= #{pagination.startRow}
+        ]]> JOIN MEMBER ON M.MEMBER_ID = MEMBER.ID
+    </select>
 
-    마감 3일 전, 창립일, 팀장 이메일, 남은 시간(종료일)
+    <!--
+    프로필 이미지, 팀명, CITY/LOCAL CITY, 팀원 평균 연령, 마감 3일 전, 창립일, 팀장 이메일, 마감 날짜(종료일)
 
 
             지원자 수, 현재 팀원 수, 모집 글 수, 모집글(추가 내용) -->

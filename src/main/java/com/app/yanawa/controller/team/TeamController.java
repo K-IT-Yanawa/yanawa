@@ -22,7 +22,8 @@ public class TeamController {
 
     @GetMapping("teamCreate")
     public void goToWriteFrom(Model model) {
-        model.addAttribute("member", memberService.getMember(3L).get());
+        // 회원 id => (팀장)
+        model.addAttribute("member", memberService.getMember(1L).get());
     }
 
     @PostMapping("teamCreate")
