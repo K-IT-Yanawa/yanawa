@@ -53,4 +53,16 @@ public class FreewriteServiceImpl implements FreewriteService {
     public void increaseReadCount(Long id) {
         freewriteDAO.increaseReadCount(id);
     }
+
+
+    @Override
+    public void update(FreewriteDTO freewriteDTO) {
+        freewriteDAO.update(freewriteDTO);
+    }
+    @Override
+    public void delete(Long id) {
+        freewriteDAO.delete(id);
+    }
+
+
 }

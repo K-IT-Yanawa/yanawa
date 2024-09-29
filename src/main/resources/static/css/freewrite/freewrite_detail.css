@@ -1339,3 +1339,34 @@ body, html {
     background-color: #ccc; /* 비활성화된 상태의 색상 */
     cursor: not-allowed;
 }
+/* 수정 및 삭제 버튼 스타일 */
+.fixed-button-group .edit-button,
+.fixed-button-group .delete-button {
+    background-color: #1890ff; /* 기본 색상 */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fixed-button-group .edit-button:hover,
+.fixed-button-group .delete-button:hover {
+    background-color: #40a9ff; /* 호버 시 색상 변경 */
+}
+
+/* 버튼을 우측 하단에 고정 */
+.fixed-button-group {
+    position: fixed; /* 우측 하단에 고정 */
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* 다른 요소 위에 배치 */
+    display: flex; /* 버튼 그룹 정렬 */
+    gap: 10px; /* 버튼 간 간격 */
+}
