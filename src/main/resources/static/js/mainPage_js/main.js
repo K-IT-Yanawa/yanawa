@@ -138,6 +138,9 @@ setupCardBanner(".main_section_container_cardBanner2_banner_2", ".main_section_s
 setupCardBanner(".main_section_banner_4_banner_1", ".main_section_section_4_img", ".button_left3", ".button_right3");
 setupCardBanner(".main_section_banner_5_banner_1", ".main_section_section_5_img", ".button_left4", ".button_right4");
 
+//---------------------------------------------------------------------------------------------------------
+//메인페이지 서버작업
+
 const logoutButton = document.querySelector("#logout");
 
 logoutButton.addEventListener("click", () => {
