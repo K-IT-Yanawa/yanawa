@@ -79,8 +79,6 @@
         WHERE R BETWEEN #{pagination.startRow} AND #{pagination.endRow}
     </select>
 
-
-
     <select id="selectMatchingTotal">
         SELECT COUNT(*)
         FROM TBL_MATCHING
