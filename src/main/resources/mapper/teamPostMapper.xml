@@ -3,7 +3,7 @@
 <mapper namespace="com.app.yanawa.mapper.team.TeamPostMapper">
 
     <insert id="insert" parameterType="teamPostVO">
-        INSERT INTO TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION)
+        INSERT INTO SCOTT.TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION)
         VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information})
     </insert>
 
@@ -21,38 +21,29 @@
                로그인한 회원의 이름
                     ?? -->
 
+<!--    <select id="selectAll" resultType="teamPostDTO">-->
+<!--        SELECT T.MEMBER_ID, T.TEAM_NAME, T.SPORTS_KIND_RADIO_VALUE, T.CITY, T.LOCAL_CITY, P2.ID, P2.TEAM_ID, P2.END_DATE, P2.CREATED_DATE, P2.UPDATED_DATE-->
+<!--        FROM TBL_TEAM T JOIN-->
+<!--        ( SELECT ROWNUM R, P1.*-->
+<!--        FROM (SELECT ID, TEAM_ID, END_DATE, INFORMATION, POST_READ_COUNT, CREATED_DATE, UPDATED_DATE-->
+<!--        FROM TBL_TEAM_POST-->
+<!--        ORDER BY POST_READ_COUNT DESC ) P1-->
+<!--        <![CDATA[-->
+<!--           WHERE ROWNUM <= #{endRow}) P2-->
+<!--        ON T.ID = P2.TEAM_ID AND P2.R >= #{startRow}-->
+<!--        ]]>-->
+<!--    </select>-->
 
-    <!--   selectAll (전체 목록, list) -->
+<!--  한 페이지 5개씩 뿌리고 싶다.
+      1. 최신순으로 정렬
+      2. 그 중 최신 5개를 가져와야 한다.(행번호: 1~5)
+      -->
 
-    <select id="selectAll" resultType="teamPostDTO">
-        SELECT P2.ID, M.TEAM_NAME, M.CITY, M.LOCAL_CITY, M.MEMBER_ID,
-        MEMBER.EMAIL AS TEAM_LEADER_EMAIL, P2.CREATED_DATE,
-        P2.UPDATED_DATE, P2.POST_READ_COUNT
-        FROM TBL_TEAM M
-        JOIN (
-        SELECT ROWNUM R, ID, TEAM_ID, END_DATE, CREATED_DATE,
-        UPDATED_DATE, POST_READ_COUNT FROM
-        (
-        SELECT ID, TEAM_ID, END_DATE, CREATED_DATE,
-        UPDATED_DATE, POST_READ_COUNT
-        FROM TBL_TEAM_POST
-        ORDER BY
-        <choose>
-            <when test="order == 'recent'.toString()">ID</when>
-            <otherwise>POST_READ_COUNT</otherwise>
-        </choose>
-        DESC
-        ) P1
-        <![CDATA[
-            WHERE ROWNUM <= #{pagination.endRow}) P2
-        ON M.ID = P2.TEAM_ID AND P2.R >= #{pagination.startRow}
-        ]]> JOIN MEMBER ON M.MEMBER_ID = MEMBER.ID
-    </select>
+<!--    <select id="selectTotal">-->
+<!--        SELECT COUNT(*) FROM TBL_TEAM_POST-->
+<!--    </select>-->
 
-    <!--
-    프로필 이미지, 팀명, CITY/LOCAL CITY, 팀원 평균 연령, 마감 3일 전, 창립일, 팀장 이메일, 마감 날짜(종료일)
-
-
-            지원자 수, 현재 팀원 수, 모집 글 수, 모집글(추가 내용) -->
-    <!--    페이징 처리-->
+    <!-- 프로필 이미지, 팀명, CITY/LOCAL CITY, 팀원 평균 연령, 마감 3일 전, 창립일, 팀장 이메일, 마감 날짜(종료일)
+    지원자 수, 현재 팀원 수, 모집 글 수, 모집글(추가 내용) -->
+    <!--   페이징 처리-->
 </mapper>

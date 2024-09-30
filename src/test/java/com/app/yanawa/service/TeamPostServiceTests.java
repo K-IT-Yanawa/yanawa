@@ -24,6 +24,6 @@ public class TeamPostServiceTests {
         teamPostDTO.setInformation("추가정보test");
 
         log.info(teamPostDTO.toString());
-        teamPostService.join(teamPostDTO.toVO());
+        teamPostService.write(teamPostDTO.toVO());
     }
 }
