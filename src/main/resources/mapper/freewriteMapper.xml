@@ -8,43 +8,6 @@
         VALUES (#{id}, #{freewriteReadCount}, #{replyCount}, #{memberId}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
-    <select id="selectAll" resultType="freewriteDTO">
-        SELECT *
-        FROM (
-        SELECT
-        ROWNUM AS rnum, temp.*
-        FROM (
-        SELECT
-        F.ID,
-        U.MEMBER_NICKNAME,
-        F.FREEWRITE_READ_COUNT,
-        F.REPLY_COUNT,
-        F.MEMBER_ID,
-        F.CREATED_DATE,
-        F.UPDATED_DATE,
-        P.POST_TITLE,
-        P.POST_CONTENT
-        FROM
-        TBL_MEMBER U
-        JOIN
-        TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
-        JOIN
-        TBL_POST P ON F.ID = P.ID
-        WHERE
-        F.ID IS NOT NULL
-        ORDER BY
-        <choose>
-            <when test="order == 'recent'">
-                F.ID DESC  <!-- 최신순으로 정렬 -->
-            </when>
-            <otherwise>
-                F.FREEWRITE_READ_COUNT DESC  <!-- 조회수순으로 정렬 -->
-            </otherwise>
-        </choose>
-        ) temp
-        )
-        WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
-    </select>
 
 
     <!-- 총 게시물 수 조회 -->
@@ -73,7 +36,8 @@
     </update>
 
     <!-- 게시글 수정 -->
-    <update id="update" parameterType="map">
+    <!-- TBL_POST 수정 -->
+    <update id="updatePost" parameterType="freewriteVO">
         UPDATE TBL_POST
         SET
             POST_TITLE = #{postTitle},
@@ -82,6 +46,18 @@
         WHERE
             ID = #{id}
     </update>
+
+    <!-- TBL_FREEWRITE 수정 -->
+    <update id="updateFreewrite" parameterType="freewriteVO">
+        UPDATE TBL_FREEWRITE
+        SET
+            UPDATED_DATE = CURRENT_TIMESTAMP
+        WHERE
+            ID = #{id}
+    </update>
+
+
+
 
     <!-- 게시글 삭제 -->
     <delete id="deleteById" parameterType="Long">
@@ -95,6 +71,58 @@
         WHERE ID = #{id}
     </delete>
 
+    <!-- 통합 검색 쿼리 -->
+    <sql id="search">
+        <if test="search.keyword != null and search.keyword != ''">
+            AND (
+            U.MEMBER_NICKNAME LIKE '%' || #{search.keyword} || '%'
+            OR P.POST_TITLE LIKE '%' || #{search.keyword} || '%'
+            OR P.POST_CONTENT LIKE '%' || #{search.keyword} || '%'
+            )
+        </if>
+    </sql>
+
+
+    <!-- 조회 쿼리 -->
+    <select id="selectAll" resultType="freewriteDTO">
+        SELECT *
+        FROM (
+        SELECT
+        ROWNUM AS rnum, temp.*
+        FROM (
+        SELECT
+        F.ID, U.MEMBER_NICKNAME, F.FREEWRITE_READ_COUNT, F.REPLY_COUNT, F.MEMBER_ID,
+        F.CREATED_DATE, F.UPDATED_DATE, P.POST_TITLE, P.POST_CONTENT
+        FROM
+        TBL_MEMBER U
+        JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
+        JOIN TBL_POST P ON F.ID = P.ID
+        WHERE F.ID IS NOT NULL
+        <include refid="search"/>
+        ORDER BY
+        <choose>
+            <when test="search.order == 'recent'">
+                F.ID DESC
+            </when>
+            <otherwise>
+                F.FREEWRITE_READ_COUNT DESC
+            </otherwise>
+        </choose>
+        ) temp
+        )
+        WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
+    </select>
+
+
+    <!-- 검색 조건이 포함된 총 게시물 수 조회 -->
+    <select id="selectTotalWithSearch">
+        SELECT COUNT(*)
+        FROM TBL_MEMBER U
+        JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
+        JOIN TBL_POST P ON F.ID = P.ID
+        WHERE F.ID IS NOT NULL
+        <include refid="search"/>
+    </select>
 
 
     <!-- 첨부파일 저장 -->
