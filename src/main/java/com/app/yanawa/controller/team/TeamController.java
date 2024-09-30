@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,13 +29,13 @@ public class TeamController {
     private final HttpSession session;
 
     @GetMapping("teamCreate")
-    public String goToWriteFrom(TeamDTO teamDTO, Model model) {
+    public RedirectView goToWriteFrom(TeamDTO teamDTO, Model model) {
         // 세션에서 회원 정보 가져오기
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
 
         if (memberVO == null) {
             // 로그인되지 않은 상태이면 로그인 페이지로 리다이렉트
-            return "redirect:/yanawa/member/login";
+            return new RedirectView ("/yanawa/member/login");
         }
 
         // 데이터베이스에서 사용자 정보 조회
@@ -45,15 +46,15 @@ public class TeamController {
             model.addAttribute("member", optionalMemberDTO.get());
         } else {
             // 만약 조회에 실패한 경우 적절한 처리를 할 수 있습니다.
-            return "redirect:/error";
+            return new RedirectView ("/error");
         }
 
-        return "teamRecruit/teamCreate";
+        return new RedirectView ("teamRecruit/teamCreate");
 
     }
 
     @PostMapping("teamCreate")
-    public RedirectView write(TeamDTO teamDTO) {
+    public RedirectView write(@ModelAttribute TeamDTO teamDTO) {
         log.info("들어옴");
         // 세션에서 멤버 ID를 가져와 teamDTO에 설정
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
@@ -71,4 +72,5 @@ public class TeamController {
         log.info(teamDTO.toString());
         return new RedirectView("/yanawa/member/main");
     }
+
 }
