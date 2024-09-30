@@ -27,6 +27,7 @@ public class MemberDTO implements Serializable {
     private String createdDate;
     private String updatedDate;
 
+//    회원가입, 로그인 화면에 사용되는 정보만 뺴놓은 메소드
     public MemberVO toVO() {
         return new MemberVO(id, memberName,memberEmail,memberNickName,
                 memberPhone,memberPassword,memberGender,memberBirth,
