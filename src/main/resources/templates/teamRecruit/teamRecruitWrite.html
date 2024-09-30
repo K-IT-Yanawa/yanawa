@@ -10,7 +10,7 @@
             rel="stylesheet"
             href="/css/teamrecruit_page/teamrecruitwritePage.css"/>
     <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
-    <title>팀 등록 페이지</title>
+    <title>팀원 모집</title>
 </head>
 <body>
 <div id="match-page">
@@ -19,7 +19,7 @@
     <main class="register-main">
         <div class="register-con">
             <div class="register-title">
-                <h2>팀 등록</h2>
+                <h2>팀원 모집</h2>
                 <div class="register-title-con">
                     정보를 입력 후 원하는 팀원을 구해보세요
                 </div>
@@ -885,6 +885,8 @@
 </body>
 <script src="/js/teamrecruit_page/teamRecruitWrite.js"></script>
 <script th:inline="javascript">
+    console.log("들어왔다!")
+
     const getTeamId = [[${team}]];
 
     const button = document.querySelector("button[type=submit]");
