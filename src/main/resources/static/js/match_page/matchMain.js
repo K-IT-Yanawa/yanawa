@@ -11,26 +11,26 @@ defaultOption.disabled = true;
 // 기본적으로 선택되게 함
 defaultOption.selected = true;
 defaultOption.textContent = "매칭 시간 선택";
-select.appendChild(defaultOption);
+// select.appendChild(defaultOption);
 
-// 오전 시간 추가
-for (let i = 1; i <= 12; i++) {
-    const option = document.createElement("option");
-    option.value = "오전";
-    option.textContent = `오전 ${i}시`;
-    select.appendChild(option);
-}
-
-// 오후 시간 추가
-for (let i = 1; i <= 12; i++) {
-    const option = document.createElement("option");
-    option.value = "오후";
-    option.textContent = `오후 ${i}시`;
-    select.appendChild(option);
-}
+// // 오전 시간 추가
+// for (let i = 1; i <= 12; i++) {
+//     const option = document.createElement("option");
+//     option.value = "오전";
+//     option.textContent = `오전 ${i}시`;
+//     select.appendChild(option);
+// }
+//
+// // 오후 시간 추가
+// for (let i = 1; i <= 12; i++) {
+//     const option = document.createElement("option");
+//     option.value = "오후";
+//     option.textContent = `오후 ${i}시`;
+//     select.appendChild(option);
+// }
 // <div class="label-container time"> 요소 아래에 <select> 추가
-const container = document.querySelector(".label-container.time");
-container.appendChild(select);
+// const container = document.querySelector(".label-container.time");
+// container.appendChild(select);
 
 // 조회하기 div가져오기
 const searchAll = document.querySelector(".search-all");
