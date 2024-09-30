@@ -79,17 +79,24 @@ public class MatchingController {
         int matchingCount = matchingService.getMatchingCount();
         model.addAttribute("matchingCount", matchingCount);
 
-        pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
-        pagination.progres();
-        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport , place, time));
-        model.addAttribute("pagination", pagination);
+//        pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
+//        pagination.progres();
+//        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport , place, time));
+//        model.addAttribute("pagination", pagination);
 
         // 컨트롤러에서 로그 확인
         List<MatchingDTO> matchings = matchingService.getListMatching(pagination, order, sport , place, time);
+//        for (MatchingDTO matching : matchings) {
+//            log.info("CreatedDate: " + matchingService.getListMatching(pagination, order, sport , place, time));
+//        }
+//        model.addAttribute("matchingList", matchings);
         for (MatchingDTO matching : matchings) {
-            System.out.println("CreatedDate: " + matching.getCreateDate());
+            log.info("Matching Post ID: " + matching.getPostId());
+            log.info("Matching Team Name: " + matching.getTeamName());
+            log.info("Matching Sport: " + matching.getSportKindValue());
+            log.info("Matching City: " + matching.getCity());
+            log.info("Matching Created Date: " + matching.getCreateDate());
         }
-        model.addAttribute("matchingList", matchings);
 
     }
 
