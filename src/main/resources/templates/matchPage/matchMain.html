@@ -65,16 +65,17 @@
                                                         value=""
                                                         disabled
                                                         selected
+                                                        th:selected="${sport == null}"
                                                 >
                                                     매칭 종목 선택
                                                 </option>
-                                                <option value="축구">
+                                                <option value="축구" th:selected="${sport == '축구'}">
                                                     축구
                                                 </option>
-                                                <option value="족구">
+                                                <option value="족구" th:selected="${sport == '족구'}">
                                                     족구
                                                 </option>
-                                                <option value="농구">
+                                                <option value="농구" th:selected="${sport == '농구'}">
                                                     농구
                                                 </option>
                                                 <option value="야구">
@@ -326,47 +327,42 @@
 <script th:inline="javascript">
     const pagination = [[${pagination}]]; // 서버에서 전달된 pagination 객체 사용
     const currentPage = pagination.page; // 현재 페이지
-    const totalPageCount = pagination.pageCount; // 총 페이지 수
+    const totalPageCount = pagination.realEnd; // 실제 마지막 페이지 수
     const paginationWrap = document.getElementById("pagination-wrap");
+
+    // 필터링된 값들 가져오기
+    const sportFilter = document.querySelector('select[name="sport"]').value ||'';
+    const placeFilter = document.querySelector('select[name="place"]').value ||'';
+    const timeFilter = document.querySelector('select[name="time"]').value ||'';
+
+    let queryParams = `sport=${sportFilter}&place=${placeFilter}&time=${timeFilter}`;
 
     let text = ``;
 
-    // 이전 페이지 버튼 추가 (첫 페이지에서는 비활성화)
+    // '이전' 버튼 추가 (첫 페이지에서는 비활성화)
     if (currentPage > 1) {
-        text += `<li><a href="?page=${currentPage - 1}" class="prev">이전</a></li>`;
-    } else {
-        text += `<span class="prev disabled">이전</span>`;
+        text += `<li><a href="?page=${Math.max(currentPage - pagination.pageCount, 1)}&${queryParams}" class="prev">이전</a></li>`;
     }
-
 
     // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
-    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, pagination.totalPages); i++) {
-        if (i === pagination.currentPage) {
-            text += `<li><a href="?page=${i}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, totalPageCount); i++) {
+        if (i === currentPage) {
+            text += `<li><a href="?page=${i}&${queryParams}" class="current" style="background-color: #ddd;">${i}</a></li>`;
         } else {
-            text += `<li><a href="?page=${i}">${i}</a></li>`;
+            text += `<li><a href="?page=${i}&${queryParams}">${i}</a></li>`;
         }
     }
-    // // 페이지 번호 출력
-    // for (let i = pagination.startPage; i <= pagination.endPage; i++) {
-    //     if (i === currentPage) {
-    //         // 현재 페이지는 강조 표시
-    //         text += `<li><a href="/matchPage/matchMain?page=${i}" class="current" style="background-color: #ddd;">${i}</a></li>`;
-    //     } else {
-    //         text += `<li><a href="/matchPage/matchMain?page=${i}">${i}</a></li>`;
-    //     }
-    // }
 
-    // 다음 페이지 버튼 추가 (마지막 페이지에서는 비활성화)
+    // '다음' 버튼 추가 (마지막 페이지에서는 비활성화)
     if (currentPage < totalPageCount) {
-        text += `<li><a href="?page=${pagination.startPage + 10}" class="next">다음</a></li>`;
-    } else {
-        text += `<span class="next disabled">다음</span>`;
+        text += `<li><a href="?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}&${queryParams}" class="next">다음</a></li>`;
     }
 
     // 페이지 번호를 pagination-wrap에 추가
     paginationWrap.innerHTML = text;
 </script>
+
+
 
 
 </html>
