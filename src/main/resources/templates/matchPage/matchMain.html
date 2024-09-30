@@ -333,22 +333,35 @@
 
     // 이전 페이지 버튼 추가 (첫 페이지에서는 비활성화)
     if (currentPage > 1) {
-        text += `<li><a href="/matchPage/matchMain?page=${currentPage - 1}" class="prev">이전</a></li>`;
+        text += `<li><a href="?page=${currentPage - 1}" class="prev">이전</a></li>`;
+    } else {
+        text += `<span class="prev disabled">이전</span>`;
     }
 
-    // 페이지 번호 출력
-    for (let i = pagination.startPage; i <= pagination.endPage; i++) {
-        if (i === currentPage) {
-            // 현재 페이지는 강조 표시
-            text += `<li><a href="/matchPage/matchMain?page=${i}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+
+    // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
+    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, pagination.totalPages); i++) {
+        if (i === pagination.currentPage) {
+            text += `<li><a href="?page=${i}" class="current" style="background-color: #ddd;">${i}</a></li>`;
         } else {
-            text += `<li><a href="/matchPage/matchMain?page=${i}">${i}</a></li>`;
+            text += `<li><a href="?page=${i}">${i}</a></li>`;
         }
     }
+    // // 페이지 번호 출력
+    // for (let i = pagination.startPage; i <= pagination.endPage; i++) {
+    //     if (i === currentPage) {
+    //         // 현재 페이지는 강조 표시
+    //         text += `<li><a href="/matchPage/matchMain?page=${i}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+    //     } else {
+    //         text += `<li><a href="/matchPage/matchMain?page=${i}">${i}</a></li>`;
+    //     }
+    // }
 
     // 다음 페이지 버튼 추가 (마지막 페이지에서는 비활성화)
     if (currentPage < totalPageCount) {
-        text += `<li><a href="/matchPage/matchMain?page=${currentPage + 1}" class="next">다음</a></li>`;
+        text += `<li><a href="?page=${pagination.startPage + 10}" class="next">다음</a></li>`;
+    } else {
+        text += `<span class="next disabled">다음</span>`;
     }
 
     // 페이지 번호를 pagination-wrap에 추가
