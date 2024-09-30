@@ -90,7 +90,7 @@ body {
     padding: 12px 20px;
 }
 
-.header-div >button {
+.button {
     height: 35px;
     width: 210px;
     background-color: transparent;

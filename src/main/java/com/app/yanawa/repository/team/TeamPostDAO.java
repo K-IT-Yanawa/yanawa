@@ -14,8 +14,5 @@ import java.util.Optional;
 public class TeamPostDAO {
     private final TeamPostMapper teamPostMapper;
 
-    public void save(TeamPostVO teamPostVO) {
-
-        teamPostMapper.insert(teamPostVO);
-    }
+    public void save(TeamPostVO teamPostVO) { teamPostMapper.insert(teamPostVO); }
 }

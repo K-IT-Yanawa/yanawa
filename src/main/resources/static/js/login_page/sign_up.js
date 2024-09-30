@@ -267,8 +267,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
     checkInputs();
 });
 
+// 로고 이미지 누를시 메인화면으로 이동
 const mainPageLogo =document.querySelector(".yanawa-logo");
 
 mainPageLogo.addEventListener('click',()=>{
     window.location.href="/yanawa/member/main"
-})
+});

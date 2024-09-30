@@ -14,4 +14,8 @@ public class TeamMemberVO {
     private Long id;
     private Long memberId;
     private Long teamId;
+    private int pathToContact;
+    private String introduce;
+    private String createdDate;
+    private String updatedDate;
 }

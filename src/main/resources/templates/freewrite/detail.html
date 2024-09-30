@@ -157,10 +157,19 @@
                             <span data-testid="Typography" color="gray900" class="sc-8f16e3f5-0-span fvkzXt">자유게시판 목록보기</span>
                             <span data-testid="Button-interaction" color="assistive" class="sc-563f0eef-1 corjuz"></span>
                         </a>
-
-
-
                     </article>
+                    <!-- 수정 및 삭제 버튼 추가 -->
+                    <div class="fixed-button-group" th:if="${session.member.id == freewrite.memberId}">
+                    <a class="button edit-button" th:href="@{/freewrite/write(id=${freewrite.id})}" style="margin-right: 10px;">
+                            <span>수정하기</span>
+                        </a>
+                        <a class="button delete-button" th:href="@{/freewrite/delete(id=${freewrite.id})}">
+                            <span>삭제하기</span>
+                        </a>
+                    </div>
+
+
+
                     <aside class="sc-2ade8168-1 dRTorL">
                         <div class="sc-2e6f0be9-0 cTwgCR">
                             <form
@@ -289,6 +298,7 @@
                 </div>
             </div>
         </div>
+
 
         <script src="/js/freewrite/freewrite_detail.js"></script>
     </body>

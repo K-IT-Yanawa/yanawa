@@ -18,6 +18,7 @@
         <typeAlias type="com.app.yanawa.domain.team.TeamDTO" alias="teamDTO"/>
         <typeAlias type="com.app.yanawa.domain.team.TeamPostVO" alias="teamPostVO"/>
         <typeAlias type="com.app.yanawa.domain.team.TeamPostDTO" alias="teamPostDTO"/>
+        <typeAlias type="com.app.yanawa.domain.team.TeamMemberVO" alias="teamMemberVO"/>
         <typeAlias type="com.app.yanawa.domain.post.PostVO" alias="postVO"/>
     </typeAliases>
 
