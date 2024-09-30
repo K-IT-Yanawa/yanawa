@@ -1,10 +1,8 @@
 package com.app.yanawa.service.freewrite;
 
-import com.app.yanawa.domain.freewrite.FreewriteDTO;
-import com.app.yanawa.domain.freewrite.FreewriteVO;
-import com.app.yanawa.domain.freewrite.Attachment;
-import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.freewrite.*;
 import com.app.yanawa.domain.post.PostVO;
+import com.app.yanawa.mapper.freewrite.FreewriteMapper;
 import com.app.yanawa.repository.freewrite.FreewriteDAO;
 import com.app.yanawa.repository.post.PostDAO;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +19,8 @@ import java.util.List;
 public class FreewriteServiceImpl implements FreewriteService {
     private final FreewriteDAO freewriteDAO;
     private final PostDAO postDAO;
+    private final FreewriteMapper freewriteMapper;
+    private final FreewriteVO freewriteVO;
 
     @Override
     public void write(FreewriteDTO freewriteDTO) {
@@ -38,9 +38,10 @@ public class FreewriteServiceImpl implements FreewriteService {
     }
 
     @Override
-    public List<FreewriteDTO> getList(Pagination pagination, String order){
-        return freewriteDAO.findAll(pagination, order);
+    public List<FreewriteDTO> getList(Pagination pagination, Search search) {
+        return freewriteDAO.findAll(pagination, search);
     }
+
 
     @Override
     public int getTotal(){return freewriteDAO.getTotal();}
@@ -56,12 +57,24 @@ public class FreewriteServiceImpl implements FreewriteService {
 
 
     @Override
-    public void update(FreewriteDTO freewriteDTO) {
-        freewriteDAO.update(freewriteDTO);
+    public void updatePost(FreewriteDTO freewriteDTO) {
+        FreewriteVO freewriteVO = freewriteDTO.toVO();
+        freewriteDAO.updatePost(freewriteVO);  // TBL_POST 수정
     }
+
+    @Override
+    public void updateFreewrite(FreewriteDTO freewriteDTO) {
+        FreewriteVO freewriteVO = freewriteDTO.toVO();
+        freewriteDAO.updateFreewrite(freewriteVO);  // TBL_FREEWRITE 수정
+    }
+
     @Override
     public void delete(Long id) {
         freewriteDAO.delete(id);
+    }
+    @Override
+    public int getTotalWithSearch(Search search){
+        return freewriteDAO.getTotalWithSearch(search);
     }
 
 

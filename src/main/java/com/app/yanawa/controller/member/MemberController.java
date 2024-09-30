@@ -39,8 +39,15 @@ public class MemberController {
     @ResponseBody
     public Map<String, Boolean> checkEmailDuplicate(@RequestParam String email) {
         boolean isDuplicate = memberService.isEmailDuplicate(email);
+//        memberService 객체를 이용해 이메일 중복 여부를 확인한다
+//        이때 isEmailDuplicate(email) 메서드는 전달받은 이메일이 이미 데이터베이스에 존재하는지 확인하고,
+//        true (중복됨) 또는 false (중복되지 않음)를 반환한다.
         Map<String, Boolean> response = new HashMap<>();
+//        응답 데이터를 저장할 Map 객체를 생성
+//        이 맵에 중복 여부를 담아 응답으로 보낼 준비를 한다
         response.put("duplicate", isDuplicate);
+//        마지막으로, 중복 여부를 담은 맵을 반환한다.
+//        이 데이터는 JSON 형식으로 클라이언트에게 전달됩니다.
         return response;
     }
 
@@ -49,8 +56,15 @@ public class MemberController {
     @ResponseBody
     public Map<String, Boolean> checkNickNameDuplicate(@RequestParam String nickname) {
         boolean isDuplicate = memberService.isNickNameDuplicate(nickname);
+//        memberService 객체를 이용해 닉네임 중복 여부를 확인한다
+//        이때 isNickNameDuplicate(nickname) 메서드는 전달받은 닉네임이 이미 데이터베이스에 존재하는지 확인하고,
+//        true (중복됨) 또는 false (중복되지 않음)를 반환한다.
         Map<String, Boolean> response = new HashMap<>();
+//        응답 데이터를 저장할 Map 객체를 생성
+//        이 맵에 중복 여부를 담아 응답으로 보낼 준비를 한다
         response.put("duplicate", isDuplicate);
+//        마지막으로, 중복 여부를 담은 맵을 반환한다.
+//        이 데이터는 JSON 형식으로 클라이언트에게 전달됩니다.
         return response;
     }
 
@@ -61,8 +75,9 @@ public class MemberController {
 
         // 데이터베이스에 저장
         memberService.join(memberDTO);
+//        회원가입성공시 회원 이름을 출력
         log.info("회원가입 성공 : {}", memberDTO.getMemberName());
-
+//      그후로 로그인 페이지로 Redirect
         return new RedirectView("/yanawa/member/login");
     }
 
@@ -91,7 +106,8 @@ public class MemberController {
                 memberDTO.setMemberPassword(cookies[i].getValue());
             }
         }
-        return "login_page/login"; // 로그인 페이지
+        // 로그인 페이지
+        return "login_page/login";
     }
 
     //  이메일과 비밀번호로 로그인
@@ -107,6 +123,9 @@ public class MemberController {
         MemberVO memberVO = foundMember.orElseThrow(() -> {throw new LoginFailException("(" + LocalTime.now() + ")로그인 실패");});
         session.setAttribute("member", memberVO);
 
+        // isPresent() 객체가 NULL이 아니면 해당객체 사용하여 쿼리실행, NULL 이면 NPE
+        // ifPresent() OPtional 객체가 NULL이 아닐때만 람다식 실행, null 체크와 쿼리 실행을 한번에 처리가능
+        // ifPresent() 는 리턴값을 갖지 않기때문에 리턴값을 사용해야할때는 ifPresent()사용
         if (foundMember.isPresent()) {
             log.info("로그인 성공! 회원 정보: {}", foundMember.get());
 
@@ -151,9 +170,10 @@ public class MemberController {
             return new RedirectView("/yanawa/member/main");
         } else {
             log.info("로그인 실패! 이메일과 비밀번호를 확인하세요!");
+            // addFlashAttribute는 일회성으로 한번 사용하면 Redirect후 값이 소멸
             redirectAttributes.addFlashAttribute("loginError", "이메일 또는 비밀번호가 올바르지 않습니다.");
 
-            // 로그인 실패 시 status 값을 false로 전달
+            // 로그인 실패 시 status 값을 false로 전달 (status defalut값은 true)
             return new RedirectView("/yanawa/member/login?status=false");
         }
     }
@@ -161,6 +181,7 @@ public class MemberController {
 //  로그아웃
     @GetMapping("/logout")
     public RedirectView logout(HttpSession session) {
+        //세션 완전제거
         session.invalidate();
         log.info("{}","로그아웃 성공 !");
         return new RedirectView("/yanawa/member/login");
