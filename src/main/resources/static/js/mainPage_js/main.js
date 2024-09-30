@@ -171,4 +171,5 @@ const loginHomePageButton = document.querySelector(".main_heder_login_job_login_
 // 위의 버튼 누를시 로그인페이지로 이동
 loginHomePageButton.addEventListener("click",()=>{
     window.location.href="/yanawa/member/login"
-})
+});
+

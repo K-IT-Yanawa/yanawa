@@ -18,6 +18,6 @@ public interface MemberService {
     //    로그인
     Optional<MemberVO> login(String email, String password);
 
-//
+    //
     public Optional<MemberDTO> getMember(Long Id);
 }
