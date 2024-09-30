@@ -27,13 +27,15 @@
                                 <div class="wrap6">
                                     <div class="content6">
                                         <input
+                                                id="search-keyword"
                                                 placeholder="게시글제목, 닉네임 검색"
                                                 class="content7"
                                                 type="text"
                                                 value=""
                                                 style="background-color: white;"
                                         />
-                                        <button type="button"></button>
+                                        <!-- 검색 버튼 -->
+                                        <button type="button" id="search-button"></button>
                                     </div>
                                 </div>
                             </div>
@@ -131,44 +133,69 @@
     const pagination = {
         currentPage: [[${pagination.page}]], // 현재 페이지
         totalPages: [[${pagination.realEnd}]], // 총 페이지 수
-        startPage: [[${pagination.startPage}]], // 시작 페이지
-        endPage: [[${pagination.endPage}]], // 끝 페이지
+        startPage: [[${pagination.startPage}]], // 시작 페이지 (예: 1, 11, 21...)
+        endPage: [[${pagination.endPage}]], // 끝 페이지 (예: 10, 20, 30...)
         prev: [[${pagination.prev}]], // 이전 버튼 활성화 여부
         next: [[${pagination.next}]] // 다음 버튼 활성화 여부
     };
 
+    const keyword = [[${keyword}]] || "";  // 검색어 값 유지
+    const order = [[${order}]] || "recent";  // 정렬 값 유지
+
     const pageWrap = document.getElementById("post-wrap");
     let text = '';
 
-    // 이전 버튼 처리 (시작 페이지가 1보다 크면 이전 버튼 활성화)
-    if (pagination.startPage > 1) {
-        text += `<a href="?page=${pagination.startPage - 10}" class="prev">이전</a>`;
+    // **이전** 버튼을 출력
+    if (pagination.prev && pagination.startPage > 1) {
+        // 이전 그룹의 첫 페이지로 이동 (예: 11에서 -> 1)
+        text += `<a href="?page=${pagination.startPage - 10}&keyword=${keyword}&order=${order}" class="prev">이전</a>`;
     } else {
         text += `<span class="prev disabled">이전</span>`;
     }
 
-    // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
+    // 페이지 번호 출력 (검색어와 정렬 조건 유지)
     for (let i = pagination.startPage; i <= Math.min(pagination.endPage, pagination.totalPages); i++) {
         if (i === pagination.currentPage) {
-            text += `<a href="?page=${i}" class="current">${i}</a>`;
+            text += `<a href="?page=${i}&keyword=${keyword}&order=${order}" class="current">${i}</a>`;
         } else {
-            text += `<a href="?page=${i}">${i}</a>`;
+            text += `<a href="?page=${i}&keyword=${keyword}&order=${order}">${i}</a>`;
         }
     }
 
-    // 다음 버튼 처리 (끝 페이지가 총 페이지보다 작으면 다음 버튼 활성화)
-    if (pagination.endPage < pagination.totalPages) {
-        text += `<a href="?page=${pagination.startPage + 10}" class="next">다음</a>`;
+    // **다음** 버튼을 마지막에 출력
+    if (pagination.next && pagination.endPage < pagination.totalPages) {
+        // 다음 그룹의 첫 페이지로 이동 (예: 10에서 -> 11)
+        text += `<a href="?page=${pagination.endPage + 1}&keyword=${keyword}&order=${order}" class="next">다음</a>`;
     } else {
         text += `<span class="next disabled">다음</span>`;
     }
 
-    // HTML에 페이지네이션 표시
     pageWrap.innerHTML = text;
 </script>
 
+</script>
+<script>
+    const searchButton = document.getElementById("search-button");
+    const searchInput = document.getElementById("search-keyword");
 
+    searchButton.addEventListener("click", function() {
+        // 검색어 가져오기
+        let keyword = searchInput.value.trim();
+        // 검색어가 비어 있으면 빈 문자열로 설정
+        if (!keyword) {
+            keyword = "";
+        }
+        // 검색 수행
+        window.location.href = `/freewrite/list?keyword=${keyword}&order=recent`;
+    });
 
+    searchInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            searchButton.click();
+        }
+    });
+
+</script>
 
 <script src="/js/freewrite/freewrite_list.js"></script>
 </html>
