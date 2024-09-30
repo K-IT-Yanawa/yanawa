@@ -1,19 +1,22 @@
 package com.app.yanawa.service.freewrite;
 
-import com.app.yanawa.domain.freewrite.FreewriteDTO;
-import com.app.yanawa.domain.freewrite.FreewriteVO;
-import com.app.yanawa.domain.freewrite.Attachment;
-import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.freewrite.*;
 
 import java.util.List;
 
 public interface FreewriteService {
      public void write(FreewriteDTO freewriteDTO);
     void saveAttachment(Attachment attachment);
-    public List<FreewriteDTO> getList(Pagination pagination, String order);
+    List<FreewriteDTO> getList(Pagination pagination, Search search);
+
     public int getTotal();
     public FreewriteDTO getDetail(Long id);
     public void increaseReadCount(Long id);
-    public void update(FreewriteDTO freewriteDTO);
+    // 게시글 제목 및 내용 수정 (TBL_POST)
+    void updatePost(FreewriteDTO freewriteDTO);
+
+    // 게시글 기타 정보 수정 (TBL_FREEWRITE)
+    void updateFreewrite(FreewriteDTO freewriteDTO);
     void delete(Long id);
+    public int getTotalWithSearch(Search search);
 }
