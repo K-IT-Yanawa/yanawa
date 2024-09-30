@@ -12,6 +12,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(LoginFailException.class)
     protected RedirectView handleLoginFailException(LoginFailException e) {
         log.info("로그인 실패! 이메일과 비밀번호를 확인하세요!");
+//        로그인 실패시 status=false 를 줘서 로그인 실패를 알림
         return new RedirectView("/yanawa/member/login?status=false");
     }
 
