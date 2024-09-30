@@ -2,6 +2,7 @@ package com.app.yanawa.controller.freewrite;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
 import com.app.yanawa.domain.freewrite.Pagination;
+import com.app.yanawa.domain.freewrite.Search;
 import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.mapper.freewrite.FreewriteMapper;
 import com.app.yanawa.service.freewrite.FreewriteService;
@@ -9,11 +10,10 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -63,12 +63,14 @@ public class FreewriteController {
 
         if (member != null) {
             freewriteDTO.setMemberId(member.getId());
+
             if (freewriteDTO.getId() == null) {
                 // 새 글 작성
                 freewriteService.write(freewriteDTO);
             } else {
-                // 기존 글 수정
-                freewriteService.update(freewriteDTO);
+                // 기존 글 수정 - 두 개의 서비스 메서드로 분리 호출
+                freewriteService.updatePost(freewriteDTO);  // TBL_POST 수정
+                freewriteService.updateFreewrite(freewriteDTO);  // TBL_FREEWRITE 수정
             }
         } else {
             log.error("세션에 사용자 정보가 없습니다.");
@@ -78,17 +80,34 @@ public class FreewriteController {
         return "redirect:/freewrite/list?page=1&order=recent";
     }
 
+
+
     // 게시글 목록 화면 이동
     @GetMapping("list")
-    public void getList(Pagination pagination, String order, Model model) {
-        log.info("세션에 설정된 memberId: " + ((MemberVO) session.getAttribute("member")).getId());
+    public String list(Pagination pagination, @RequestParam(value = "keyword", required = false) String keyword,
+                       @RequestParam(value = "order", required = false) String order, Model model) {
         if (order == null) {
-            order = "recent";
+            order = "recent"; // 기본값 설정
         }
-        pagination.setTotal(freewriteService.getTotal());
+
+        Search search = new Search();
+        search.setKeyword(keyword);
+        search.setOrder(order);
+
+        pagination.setTotal(freewriteService.getTotalWithSearch(search));
         pagination.progress();
-        model.addAttribute("freewrites", freewriteService.getList(pagination, order));
+
+        List<FreewriteDTO> freewrites = freewriteService.getList(pagination, search);
+
+        model.addAttribute("freewrites", freewrites);
+        model.addAttribute("pagination", pagination);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("order", order); // 정렬 기준 유지
+
+        return "freewrite/list";
     }
+
+
 
     // 게시글 상세 조회
     @GetMapping("detail")
