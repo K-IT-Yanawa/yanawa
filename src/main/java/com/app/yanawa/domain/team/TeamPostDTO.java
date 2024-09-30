@@ -25,6 +25,9 @@ public class TeamPostDTO {
     private String ageRange;
 
     public TeamPostVO toVO() {
-        return new TeamPostVO(id, teamId, endDate, information, createdDate, updatedDate, postReadCount);
+        return new TeamPostVO(id, teamId, endDate
+                , information, createdDate
+                , updatedDate, postReadCount, memberId, teamName
+                , sportsKindRadioValue, city, localCity, detailedArea, teamActivityTime, ageRange);
     }
 }

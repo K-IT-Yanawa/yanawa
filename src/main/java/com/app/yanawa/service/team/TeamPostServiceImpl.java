@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +19,9 @@ public class TeamPostServiceImpl implements TeamPostService {
     private final TeamPostDAO teamPostDAO;
 
     @Override
-    public void write(TeamPostVO teamPostVO) {
+    public TeamPostVO write(TeamPostVO teamPostVO) {
         teamPostDAO.save(teamPostVO);
+        return teamPostVO;
     }
 
     @Override

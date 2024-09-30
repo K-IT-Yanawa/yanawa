@@ -29,7 +29,7 @@ public class TeamController {
 
     @GetMapping("teamCreate")
     public String goToWriteFrom(TeamDTO teamDTO, Model model) {
-        // 세션에서 사용자 ID 가져오기
+        // 세션에서 회원 정보 가져오기
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
 
         if (memberVO == null) {
@@ -61,11 +61,14 @@ public class TeamController {
             teamDTO.setMemberId(memberVO.getId());
         }
 
-//        teamDTO.setMemberId(((TeamVO) session.getAttribute("member")).getId());
+        // 팀 등록 처리
+        TeamVO foundTeam = teamService.join(teamDTO.toVO());
 
-        teamService.join(teamDTO.toVO());
-        log.info("{}", teamDTO);
+        // 팀 정보를 세션에 저장
+        session.setAttribute("team", foundTeam);
+
+        log.info("팀 정보: {}", foundTeam);
         log.info(teamDTO.toString());
-        return new RedirectView("/yanawa/team/teamRecruitList");
+        return new RedirectView("/yanawa/member/main");
     }
 }

@@ -18,4 +18,12 @@ public class TeamPostVO {
     private String createdDate;
     private String updatedDate;
     private int postReadCount;
+    private Long memberId;
+    private String teamName;
+    private int sportsKindRadioValue;
+    private String city;
+    private String localCity;
+    private String detailedArea;
+    private String teamActivityTime;
+    private String ageRange;
 }
