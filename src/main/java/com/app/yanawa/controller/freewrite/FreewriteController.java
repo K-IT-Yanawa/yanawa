@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/freewrite/*")
+@RequestMapping("/yanawa/freewrite/*")
 @Slf4j
 public class FreewriteController {
 
@@ -43,7 +43,6 @@ public class FreewriteController {
             ));
         }
     }
-
     // 글쓰기 화면 이동
     @GetMapping("write")
     public String goToWriteForm(Long id, Model model) {
@@ -53,7 +52,7 @@ public class FreewriteController {
             FreewriteDTO freewriteDTO = freewriteMapper.selectById(id);
             model.addAttribute("freewrite", freewriteDTO);
         }
-        return "freewrite/write";
+        return "/freewrite/write";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
 
     // 글 작성 후 처리
@@ -65,29 +64,25 @@ public class FreewriteController {
             freewriteDTO.setMemberId(member.getId());
 
             if (freewriteDTO.getId() == null) {
-                // 새 글 작성
                 freewriteService.write(freewriteDTO);
             } else {
-                // 기존 글 수정 - 두 개의 서비스 메서드로 분리 호출
-                freewriteService.updatePost(freewriteDTO);  // TBL_POST 수정
-                freewriteService.updateFreewrite(freewriteDTO);  // TBL_FREEWRITE 수정
+                freewriteService.updatePost(freewriteDTO);
+                freewriteService.updateFreewrite(freewriteDTO);
             }
         } else {
             log.error("세션에 사용자 정보가 없습니다.");
-            return "redirect:/freewrite/write";
+            return "redirect:/yanawa/freewrite/write";
         }
 
-        return "redirect:/freewrite/list?page=1&order=recent";
+        return "redirect:/yanawa/freewrite/list?page=1&order=recent";
     }
-
-
 
     // 게시글 목록 화면 이동
     @GetMapping("list")
     public String list(Pagination pagination, @RequestParam(value = "keyword", required = false) String keyword,
                        @RequestParam(value = "order", required = false) String order, Model model) {
         if (order == null) {
-            order = "recent"; // 기본값 설정
+            order = "recent";
         }
 
         Search search = new Search();
@@ -102,29 +97,28 @@ public class FreewriteController {
         model.addAttribute("freewrites", freewrites);
         model.addAttribute("pagination", pagination);
         model.addAttribute("keyword", keyword);
-        model.addAttribute("order", order); // 정렬 기준 유지
+        model.addAttribute("order", order);
 
-        return "freewrite/list";
+        return "/freewrite/list";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
-
-
 
     // 게시글 상세 조회
     @GetMapping("detail")
-    public void detail(Long id, Model model) {
+    public String detail(Long id, Model model) {
         log.info("세션에 설정된 memberId: " + ((MemberVO) session.getAttribute("member")).getId());
         FreewriteDTO freewrite = freewriteMapper.selectById(id);
         freewriteMapper.increaseReadCount(id);
 
-        // 세션의 memberId와 글 작성자의 memberId가 일치하는지 확인
         MemberVO member = (MemberVO) session.getAttribute("member");
         if (member != null && freewrite.getMemberId().equals(member.getId())) {
-            model.addAttribute("isOwner", true); // 글 작성자와 세션 사용자 ID가 같다면 수정, 삭제 버튼 활성화
+            model.addAttribute("isOwner", true);
         } else {
             model.addAttribute("isOwner", false);
         }
 
         model.addAttribute("freewrite", freewrite);
+
+        return "/freewrite/detail";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
 
     // 게시글 삭제
@@ -133,14 +127,12 @@ public class FreewriteController {
         MemberVO member = (MemberVO) session.getAttribute("member");
         FreewriteDTO freewrite = freewriteMapper.selectById(id);
 
-        // 세션의 memberId와 글 작성자의 memberId가 일치할 때만 삭제 가능
         if (member != null && freewrite.getMemberId().equals(member.getId())) {
             freewriteService.delete(id);
-            return "redirect:/freewrite/list?page=1&order=recent";
+            return "redirect:/yanawa/freewrite/list?page=1&order=recent";
         } else {
             log.error("권한이 없는 사용자입니다.");
-            return "redirect:/freewrite/detail?id=" + id;
+            return "redirect:/yanawa/freewrite/detail?id=" + id;
         }
     }
-
 }
