@@ -49,7 +49,7 @@
 
     <sql id="search">
         <if test="search.keyword != null and search.keyword != ''">
-            AND T.TEAM_NAME LIKE % || #{search.keyword} || '%'
+            AND T.TEAM_NAME LIKE '%' || #{search.keyword} || '%'
         </if>
     </sql>
 
@@ -88,7 +88,8 @@
     <!-- 매칭 게시물 수 조회 -->
     <select id="selectMatchingTotal">
         SELECT COUNT(*)
-        FROM TBL_MATCHING
+        FROM TBL_MATCHING M
+        JOIN TBL_TEAM T ON M.TEAM_ID = T.ID
         WHERE POST_ID IS NOT NULL
         <if test="sport != null and sport != ''">
             AND SPORT_KIND_VALUE = #{sport}
