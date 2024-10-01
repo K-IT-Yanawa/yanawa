@@ -331,53 +331,62 @@
     const totalPageCount = pagination.realEnd; // 실제 마지막 페이지 수
     const paginationWrap = document.getElementById("pagination-wrap");
 
-    // 필터링된 값들 가져오기
-    // const sportFilter = document.querySelector('select[name="sport"]').value;
-    // const placeFilter = document.querySelector('select[name="place"]').value;
-    // const timeFilter = document.querySelector('select[name="time"]').value;
-
-    const sportFilter = [[${sport}]] || "";
-    const placeFilter = [[${place}]] || "";
-    const timeFilter = [[${time}]] || "";
-
-    if (sportFilter.value === null){
-        sportFilter.value = '';
-    }
-    if (placeFilter.value === null){
-        placeFilter.value = '';
-    }
-    if (timeFilter.value === null){
-        timeFilter.value = '';
+    // URL에서 쿼리 파라미터 값을 가져오는 함수
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
     }
 
-    let queryParams = `sport=${sportFilter}&place=${placeFilter}&time=${timeFilter}`;
+    // 페이지 로드 시 필터링된 값들을 쿼리 파라미터에서 가져와서 <select> 요소의 값을 설정
+    document.querySelector('select[name="sport"]').value = getQueryParam('sport') || "";
+    document.querySelector('select[name="place"]').value = getQueryParam('place') || "";
+    document.querySelector('select[name="time"]').value = getQueryParam('time') || "";
+
+    // 필터링된 값들 가져오기 (HTML의 select 태그에서 직접 값을 가져옴)
+    const sportFilter = document.querySelector('select[name="sport"]').value || "";
+    const placeFilter = document.querySelector('select[name="place"]').value || "";
+    const timeFilter = document.querySelector('select[name="time"]').value || "";
+
+    // queryParams에 필터링된 값을 추가하여 빈 값이 아닌 경우에만 URL에 포함
+    let queryParams = [];
+
+    if (sportFilter) {
+        queryParams.push(`sport=${sportFilter}`);
+    }
+    if (placeFilter) {
+        queryParams.push(`place=${placeFilter}`);
+    }
+    if (timeFilter) {
+        queryParams.push(`time=${timeFilter}`);
+    }
+
+    // 쿼리 파라미터 문자열 생성
+    let queryString = queryParams.length > 0 ? `&${queryParams.join('&')}` : "";
 
     let text = ``;
 
     // '이전' 버튼 추가 (첫 페이지에서는 비활성화)
     if (currentPage > 1) {
-        text += `<li><a href="/match/list?page=${Math.max(currentPage - pagination.pageCount, 1)}&${queryParams}" class="prev">이전</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.max(currentPage - pagination.pageCount, 1)}${queryString}" class="prev">이전</a></li>`;
     }
 
     // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
     for (let i = pagination.startPage; i <= Math.min(pagination.endPage, totalPageCount); i++) {
-        if (i === currentPage) {
-            text += `<li><a href="/match/list?page=${i}&${queryParams}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+        if (i === pagination.currentPage) {
+            text += `<li><a href="/match/list?page=${i}${queryString}" class="current" style="background-color: #ddd;">${i}</a></li>`;
         } else {
-            text += `<li><a href="/match/list?page=${i}&${queryParams}">${i}</a></li>`;
+            text += `<li><a href="/match/list?page=${i}${queryString}">${i}</a></li>`;
         }
     }
 
     // '다음' 버튼 추가 (마지막 페이지에서는 비활성화)
     if (currentPage < totalPageCount) {
-        text += `<li><a href="/match/list?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}&${queryParams}" class="next">다음</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}${queryString}" class="next">다음</a></li>`;
     }
 
     // 페이지 번호를 pagination-wrap에 추가
     paginationWrap.innerHTML = text;
+
+
 </script>
-
-
-
-
 </html>
