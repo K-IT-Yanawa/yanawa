@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert('글 작성이 성공적으로 완료되었습니다.');
 
                 // 성공 시 /freewrite/list 페이지로 리다이렉션
-                window.location.href = '/yanawa/freewrite/list';
+                window.location.href = '/freewrite_page/list';
             })
             .catch((error) => {
                 console.error('Error:', error);

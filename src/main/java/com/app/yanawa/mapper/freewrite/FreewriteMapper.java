@@ -1,9 +1,9 @@
 package com.app.yanawa.mapper.freewrite;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
+import com.app.yanawa.domain.freewrite.FreewriteSearch;
 import com.app.yanawa.domain.freewrite.FreewriteVO;
-import com.app.yanawa.domain.freewrite.Pagination;
-import com.app.yanawa.domain.freewrite.Search;
+import com.app.yanawa.domain.freewrite.FreewritePagination;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,11 +15,11 @@ public interface FreewriteMapper {
     void insert(FreewriteVO freewriteVO);
 
     // 전체 게시글 조회 (검색 포함)
-    List<FreewriteDTO> selectAll(@Param("pagination") Pagination pagination, @Param("search") Search search);
+    List<FreewriteDTO> selectAll(@Param("freewritePagination") FreewritePagination freewritePagination, @Param("freewriteSearch") FreewriteSearch freewriteSearch);
 
 
     // 검색어가 포함된 총 게시물 수 조회
-    int selectTotalWithSearch(@Param("search") Search search);
+    int selectTotalWithSearch(@Param("freewriteSearch") FreewriteSearch freewriteSearch);
 
     // 전체 게시물 수 조회
     int selectTotal();
@@ -38,5 +38,5 @@ public interface FreewriteMapper {
     void deleteById(@Param("id") Long id);
 
     // 통합 검색 메서드
-    List<FreewriteDTO> searchPosts(@Param("search") Search search);
+    List<FreewriteDTO> searchPosts(@Param("freewriteSearch") FreewriteSearch freewriteSearch);
 }

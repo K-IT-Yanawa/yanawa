@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.yanawa.mapper.team.TeamPostMapper">
 
-    <sql id="search">
-        <if test="search.keyword != null and search.keyword != 'null'.toString()">
+    <sql id="freewriteSearch">
+        <if test="freewriteSearch.keyword != null and freewriteSearch.keyword != 'null'.toString()">
             <choose>
-                <when test="search.types != null">
-                    <foreach item="type" collection="search.types">
+                <when test="freewriteSearch.types != null">
+                    <foreach item="type" collection="freewriteSearch.types">
                         <if test="type == 'team-name'.toString()">
-                            AND MEMBER_NAME LIKE '%' || #{search.keyword} || '%'
+                            AND MEMBER_NAME LIKE '%' || #{freewriteSearch.keyword} || '%'
                         </if>
                     </foreach>
                 </when>
                 <otherwise>
-                    TEAM_NAME LIKE '%' || #{search.keyword} || '%'
+                    TEAM_NAME LIKE '%' || #{freewriteSearch.keyword} || '%'
                 </otherwise>
             </choose>
         </if>
@@ -34,16 +34,16 @@
                 SELECT P.ID, TEAM_ID, T.TEAM_NAME, T.CITY, T.LOCAL_CITY, T.CREATED_DATE, P.END_DATE, P.POST_READ_COUNT, P.CREATED_DATE, P.UPDATED_DATE
                 FROM TBL_TEAM T JOIN TBL_TEAM_POST P
                 ON T.ID = P.TEAM_ID
-                <include refid="search"/>
+                <include refid="freewriteSearch"/>
                 ORDER BY
                 <choose>
-                    <when test="pagination.order == 'recent'.toString()">ID</when>
+                    <when test="freewritePagination.order == 'recent'.toString()">ID</when>
                     <otherwise>POST_READ_COUNT</otherwise>
                 </choose>
             ) P1
         <![CDATA[
-           WHERE ROWNUM <= #{pagination.endRow}) P2
-        ON P2.R >= #{pagination.startRow}
+           WHERE ROWNUM <= #{freewritePagination.endRow}) P2
+        ON P2.R >= #{freewritePagination.startRow}
         ]]>
     </select>
 
@@ -54,6 +54,6 @@
     <select id="selectTotalWithSearch">
         SELECT COUNT(*) FROM TBL_TEAM T JOIN TBL_TEAM_POST P
         ON T.ID = P.MEMBER_ID
-        <include refid="search"/>
+        <include refid="freewriteSearch"/>
     </select>
 </mapper>

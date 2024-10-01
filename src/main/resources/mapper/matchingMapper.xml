@@ -76,7 +76,7 @@
         ORDER BY M.POST_ID DESC
         ) X
         )
-        WHERE R BETWEEN #{pagination.startRow} AND #{pagination.endRow}
+        WHERE R BETWEEN #{freewritePagination.startRow} AND #{freewritePagination.endRow}
     </select>
 
     <select id="selectMatchingTotal">

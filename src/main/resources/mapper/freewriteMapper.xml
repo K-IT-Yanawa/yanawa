@@ -72,12 +72,12 @@
     </delete>
 
     <!-- 통합 검색 쿼리 -->
-    <sql id="search">
-        <if test="search.keyword != null and search.keyword != ''">
+    <sql id="freewriteSearch">
+        <if test="freewriteSearch.keyword != null and freewriteSearch.keyword != ''">
             AND (
-            U.MEMBER_NICKNAME LIKE '%' || #{search.keyword} || '%'
-            OR P.POST_TITLE LIKE '%' || #{search.keyword} || '%'
-            OR P.POST_CONTENT LIKE '%' || #{search.keyword} || '%'
+            U.MEMBER_NICKNAME LIKE '%' || #{freewriteSearch.keyword} || '%'
+            OR P.POST_TITLE LIKE '%' || #{freewriteSearch.keyword} || '%'
+            OR P.POST_CONTENT LIKE '%' || #{freewriteSearch.keyword} || '%'
             )
         </if>
     </sql>
@@ -98,10 +98,10 @@
         JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
         JOIN TBL_POST P ON F.ID = P.ID
         WHERE F.ID IS NOT NULL
-        <include refid="search"/>
+        <include refid="freewriteSearch"/>
         ORDER BY
         <choose>
-            <when test="search.order == 'recent'">
+            <when test="freewriteSearch.order == 'recent'">
                 F.ID DESC
             </when>
             <otherwise>
@@ -110,7 +110,7 @@
         </choose>
         ) temp
         )
-        WHERE rnum BETWEEN #{pagination.startRow} AND #{pagination.endRow}
+        WHERE rnum BETWEEN #{freewritePagination.startRow} AND #{freewritePagination.endRow}
     </select>
 
 
@@ -121,7 +121,7 @@
         JOIN TBL_FREEWRITE F ON U.ID = F.MEMBER_ID
         JOIN TBL_POST P ON F.ID = P.ID
         WHERE F.ID IS NOT NULL
-        <include refid="search"/>
+        <include refid="freewriteSearch"/>
     </select>
 
 

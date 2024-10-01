@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/freewrite/freewrite_list.css" />
+    <link rel="stylesheet" href="/css/freewrite_page/freewrite_list.css" />
     <title>자유게시판 목록페이지</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
                                 <div class="wrap6">
                                     <div class="content6">
                                         <input
-                                                id="search-keyword"
+                                                id="freewriteSearch-keyword"
                                                 placeholder="게시글제목, 닉네임 검색"
                                                 class="content7"
                                                 type="text"
@@ -35,7 +35,7 @@
                                                 style="background-color: white;"
                                         />
                                         <!-- 검색 버튼 -->
-                                        <button type="button" id="search-button"></button>
+                                        <button type="button" id="freewriteSearch-button"></button>
                                     </div>
                                 </div>
                             </div>
@@ -67,15 +67,15 @@
                                             </div>
                                         </div>
                                         <div class="dropdown-menu">
-                                            <a href="/yanawa/freewrite/list?order=recent">최신 업데이트 순</a>
-                                            <a href="/yanawa/freewrite/list?order=popular">조회수 높은 순</a>
+                                            <a href="/freewrite_page/list?order=recent">최신 업데이트 순</a>
+                                            <a href="/freewrite_page/list?order=popular">조회수 높은 순</a>
                                         </div>
                                     </div>
 
                                     <!-- 게시글 출력 -->
                                     <table id="post-table">
                                         <div th:each="freewrite : ${freewrites}" class="card-container" style="position: relative; margin-bottom: 20px;">
-                                            <a th:href="@{/yanawa/freewrite/detail(id=${freewrite.id})}" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></a>
+                                            <a th:href="@{/freewrite_page/detail(id=${freewrite.id})}" style="text-decoration: none; color: inherit; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;"></a>
                                             <div class="flex">
                                                 <div class="ydsfooter_munu_bar section_document card">
                                                     <div style="margin-top: 10px">
@@ -123,20 +123,20 @@
         </div>
     </div>
 
-    <a href="/yanawa/freewrite/write">
+    <a href="/freewrite_page/write">
         <button class="floating-button">글 작성하기</button>
     </a>
 </div>
 
 </body>
 <script th:inline="javascript">
-    const pagination = {
-        currentPage: [[${pagination.page}]], // 현재 페이지
-        totalPages: [[${pagination.realEnd}]], // 총 페이지 수
-        startPage: [[${pagination.startPage}]], // 시작 페이지 (예: 1, 11, 21...)
-        endPage: [[${pagination.endPage}]], // 끝 페이지 (예: 10, 20, 30...)
-        prev: [[${pagination.prev}]], // 이전 버튼 활성화 여부
-        next: [[${pagination.next}]] // 다음 버튼 활성화 여부
+    const freewritePagination = {
+        currentPage: [[${freewritePagination.page}]], // 현재 페이지
+        totalPages: [[${freewritePagination.realEnd}]], // 총 페이지 수
+        startPage: [[${freewritePagination.startPage}]], // 시작 페이지 (예: 1, 11, 21...)
+        endPage: [[${freewritePagination.endPage}]], // 끝 페이지 (예: 10, 20, 30...)
+        prev: [[${freewritePagination.prev}]], // 이전 버튼 활성화 여부
+        next: [[${freewritePagination.next}]] // 다음 버튼 활성화 여부
     };
 
     const keyword = [[${keyword}]] || "";  // 검색어 값 유지
@@ -146,16 +146,16 @@
     let text = '';
 
     // **이전** 버튼을 출력
-    if (pagination.prev && pagination.startPage > 1) {
+    if (freewritePagination.prev && freewritePagination.startPage > 1) {
         // 이전 그룹의 첫 페이지로 이동 (예: 11에서 -> 1)
-        text += `<a href="?page=${pagination.startPage - 10}&keyword=${keyword}&order=${order}" class="prev">이전</a>`;
+        text += `<a href="?page=${freewritePagination.startPage - 10}&keyword=${keyword}&order=${order}" class="prev">이전</a>`;
     } else {
         text += `<span class="prev disabled">이전</span>`;
     }
 
     // 페이지 번호 출력 (검색어와 정렬 조건 유지)
-    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, pagination.totalPages); i++) {
-        if (i === pagination.currentPage) {
+    for (let i = freewritePagination.startPage; i <= Math.min(freewritePagination.endPage, freewritePagination.totalPages); i++) {
+        if (i === freewritePagination.currentPage) {
             text += `<a href="?page=${i}&keyword=${keyword}&order=${order}" class="current">${i}</a>`;
         } else {
             text += `<a href="?page=${i}&keyword=${keyword}&order=${order}">${i}</a>`;
@@ -163,9 +163,9 @@
     }
 
     // **다음** 버튼을 마지막에 출력
-    if (pagination.next && pagination.endPage < pagination.totalPages) {
+    if (freewritePagination.next && freewritePagination.endPage < freewritePagination.totalPages) {
         // 다음 그룹의 첫 페이지로 이동 (예: 10에서 -> 11)
-        text += `<a href="?page=${pagination.endPage + 1}&keyword=${keyword}&order=${order}" class="next">다음</a>`;
+        text += `<a href="?page=${freewritePagination.endPage + 1}&keyword=${keyword}&order=${order}" class="next">다음</a>`;
     } else {
         text += `<span class="next disabled">다음</span>`;
     }
@@ -175,8 +175,8 @@
 
 </script>
 <script>
-    const searchButton = document.getElementById("search-button");
-    const searchInput = document.getElementById("search-keyword");
+    const searchButton = document.getElementById("freewriteSearch-button");
+    const searchInput = document.getElementById("freewriteSearch-keyword");
 
     searchButton.addEventListener("click", function() {
         // 검색어 가져오기
@@ -186,7 +186,7 @@
             keyword = "";
         }
         // 검색 수행
-        window.location.href = `/yanawa/freewrite/list?keyword=${keyword}&order=recent`;
+        window.location.href = `/freewrite_page/list?keyword=${keyword}&order=recent`;
     });
 
     searchInput.addEventListener("keyup", function(event) {
@@ -197,7 +197,7 @@
 
 </script>
 
-<script src="/js/freewrite/freewrite_list.js"></script>
+<script src="/js/freewrite_page/freewrite_list.js"></script>
 </html>
 
 

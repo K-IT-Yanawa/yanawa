@@ -38,8 +38,8 @@ public class FreewriteServiceImpl implements FreewriteService {
     }
 
     @Override
-    public List<FreewriteDTO> getList(Pagination pagination, Search search) {
-        return freewriteDAO.findAll(pagination, search);
+    public List<FreewriteDTO> getList(FreewritePagination freewritePagination, FreewriteSearch freewriteSearch) {
+        return freewriteDAO.findAll(freewritePagination, freewriteSearch);
     }
 
 
@@ -73,8 +73,8 @@ public class FreewriteServiceImpl implements FreewriteService {
         freewriteDAO.delete(id);
     }
     @Override
-    public int getTotalWithSearch(Search search){
-        return freewriteDAO.getTotalWithSearch(search);
+    public int getTotalWithSearch(FreewriteSearch freewriteSearch){
+        return freewriteDAO.getTotalWithSearch(freewriteSearch);
     }
 
 

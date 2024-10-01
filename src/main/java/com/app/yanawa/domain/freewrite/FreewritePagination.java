@@ -1,11 +1,12 @@
 package com.app.yanawa.domain.freewrite;
 
+import com.app.yanawa.pagination.Pagination;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 @Data
 @Slf4j
-public class Pagination {
+public class FreewritePagination extends Pagination {
     private Integer page;
     private int startRow;
     private int endRow;

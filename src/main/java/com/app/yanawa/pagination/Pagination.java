@@ -1,20 +1,22 @@
-package com.app.yanawa.domain.team;
+package com.app.yanawa.pagination;
 
 
-import com.app.yanawa.pagination.Pagination;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+public class Pagination {
+    protected Integer page;
+    protected int startRow;
+    protected int endRow;
+    protected int rowCount;
+    protected int pageCount;
+    protected int startPage;
+    protected int endPage;
+    protected int realEnd;
+    protected boolean prev, next;
+    protected int total;
 
-@Data
-@Slf4j
-public class TeamPostPagination extends Pagination {
-    private String order;
-
-    @Override
     public void progress() {
         this.page = page == null ? 1 : page;
-        this.rowCount = 5;
-        this.pageCount = 5;
+        this.rowCount = 10;
+        this.pageCount = 10;
         this.endRow = page * rowCount;
         this.startRow = endRow - rowCount + 1;
         this.endPage = (int)(Math.ceil(page / (double)pageCount) * pageCount);
@@ -25,6 +27,5 @@ public class TeamPostPagination extends Pagination {
         }
         this.prev = startPage > 1;
         this.next = endPage < realEnd;
-
     }
 }
