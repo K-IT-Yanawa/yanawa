@@ -632,7 +632,7 @@ iframe, img, video {
 }
 
 /* search */
-/* Search Input */
+/* FreewriteSearch Input */
 #searchInput {
     margin-right: auto; /* Pushes the input to the left */
     padding: 5px;

@@ -22,9 +22,9 @@ public class FreewriteDAO {
         sqlSession.insert("com.app.yanawa.mapper.freewrite.FreewriteMapper.insertAttachment", attachment);
     }
 
-    // 전체 게시글 조회 메서드 - order 제거하고 Search 객체로 수정
-    public List<FreewriteDTO> findAll(Pagination pagination, Search search) {
-        return freewriteMapper.selectAll(pagination, search);
+    // 전체 게시글 조회 메서드 - order 제거하고 FreewriteSearch 객체로 수정
+    public List<FreewriteDTO> findAll(FreewritePagination freewritePagination, FreewriteSearch freewriteSearch) {
+        return freewriteMapper.selectAll(freewritePagination, freewriteSearch);
     }
 
 
@@ -58,7 +58,7 @@ public class FreewriteDAO {
     }
 
     // 검색어가 포함된 전체 게시물 수 조회
-    public int getTotalWithSearch(Search search) {
-        return freewriteMapper.selectTotalWithSearch(search);
+    public int getTotalWithSearch(FreewriteSearch freewriteSearch) {
+        return freewriteMapper.selectTotalWithSearch(freewriteSearch);
     }
 }
