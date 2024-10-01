@@ -23,6 +23,10 @@ public interface MemberMapper {
 //    로그인
     Optional<MemberVO> selectByMemberEmailAndMemberPassword(@Param("memberEmail") String memberEmail, @Param("memberPassword") String memberPassword);
 
+//    카카오 이메일로 회원조희
+    public Optional<MemberVO> selectByMemberKakaoEmail(String memberKakaoEmail);
+
+
 //    팀 생성 => 회원 이름, 이메일, 전화번호 조회
     public Optional<MemberDTO> selectMemberByMemberId(Long Id);
 }
