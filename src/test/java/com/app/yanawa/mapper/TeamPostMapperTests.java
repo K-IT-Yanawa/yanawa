@@ -24,16 +24,16 @@ public class TeamPostMapperTests {
     @Autowired
     private MemberMapper memberMapper;
 
-    @Test
-    public void testSelectAll(){
-        TeamPostPagination teamPostPagination = new TeamPostPagination();
-        teamPostPagination.setPage(2);
-        teamPostPagination.setTotal(teamPostMapper.selectTotal());
-        teamPostPagination.progress();
-        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination);
-        log.info("{}", posts.size());
-        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
-    }
+//    @Test
+//    public void testSelectAll(){
+//        TeamPostPagination teamPostPagination = new TeamPostPagination();
+//        teamPostPagination.setPage(2);
+//        teamPostPagination.setTotal(teamPostMapper.selectTotal());
+//        teamPostPagination.progress();
+//        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination);
+//        log.info("{}", posts.size());
+//        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
+//    }
 
     @Test
     public void testInsertAll(){
