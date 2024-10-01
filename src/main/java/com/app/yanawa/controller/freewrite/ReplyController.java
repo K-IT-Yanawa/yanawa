@@ -25,7 +25,7 @@ public class ReplyController {
     public String writeReply(@ModelAttribute ReplyVO replyVO) {
         replyService.write(replyVO);
         // 댓글 작성 후, 해당 게시글의 상세 페이지로 리다이렉트
-        return "redirect:/freewrite/detail?id=" + replyVO.getPostId();
+        return "redirect:/freewrite_page/detail?id=" + replyVO.getPostId();
     }
 
 

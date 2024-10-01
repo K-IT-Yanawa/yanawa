@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/yanawa/charginghomepage/*")
+@RequestMapping("/charginghomepage/*")
 public class ChargingController {
     // 모든 요청 전 세션에 테스트용 사용자 정보 설정
     @ModelAttribute

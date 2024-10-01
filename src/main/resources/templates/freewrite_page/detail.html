@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
-            href="/css/freewrite/freewrite_detail.css"
+            href="/css/freewrite_page/freewrite_detail.css"
         />
 
         <title>게시글 상세페이지</title>
@@ -145,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a data-testid="Button" color="assistive" class="sc-563f0eef-0-a gKqHkQ" href="/yanawa/freewrite/list"
+                        <a data-testid="Button" color="assistive" class="sc-563f0eef-0-a gKqHkQ" href="/freewrite_page/list"
                            style="position: absolute; top: -87px; left: 0px; z-index: 1000;">
                              <span data-testid="StartIcon" class="sc-563f0eef-2 dQJXSq">
                                  <img src="https://cdn1.iconfinder.com/data/icons/systemui/21/chevron_left-512.png" width="100px" style="
@@ -160,10 +160,10 @@
                     </article>
                     <!-- 수정 및 삭제 버튼 추가 -->
                     <div class="fixed-button-group" th:if="${session.member.id == freewrite.memberId}">
-                    <a class="button edit-button" th:href="@{/yanawa/freewrite/write(id=${freewrite.id})}" style="margin-right: 10px;">
+                    <a class="button edit-button" th:href="@{/freewrite_page/write(id=${freewrite.id})}" style="margin-right: 10px;">
                             <span>수정하기</span>
                         </a>
-                        <a class="button delete-button" th:href="@{/yanawa/freewrite/delete(id=${freewrite.id})}">
+                        <a class="button delete-button" th:href="@{/freewrite_page/delete(id=${freewrite.id})}">
                             <span>삭제하기</span>
                         </a>
                     </div>
@@ -173,7 +173,7 @@
                     <aside class="sc-2ade8168-1 dRTorL">
                         <div class="sc-2e6f0be9-0 cTwgCR">
                             <form
-                                    action="/yanawa/freewrite/reply" method="post"
+                                    action="/freewrite_page/reply" method="post"
                                 data-testid="CustomForm"
                                 class="ant-form ant-form-horizontal css-comment-form"
                                 style="width: 100%; margin-top: -22px"
@@ -300,6 +300,6 @@
         </div>
 
 
-        <script src="/js/freewrite/freewrite_detail.js"></script>
+        <script src="/js/freewrite_page/freewrite_detail.js"></script>
     </body>
 </html>

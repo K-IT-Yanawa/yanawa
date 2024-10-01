@@ -1,6 +1,5 @@
 package com.app.yanawa.search;
 
 public class Search {
-    private String keyword;
-    private String order;
+    protected String keyword;
 }

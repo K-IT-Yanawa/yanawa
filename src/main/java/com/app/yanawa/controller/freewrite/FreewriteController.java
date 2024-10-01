@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/yanawa/freewrite/*")
+@RequestMapping("/freewrite_page/*")
 @Slf4j
 public class FreewriteController {
 
@@ -56,7 +56,7 @@ public class FreewriteController {
             FreewriteDTO freewriteDTO = freewriteMapper.selectById(id);
             model.addAttribute("freewrite", freewriteDTO);
         }
-        return "/freewrite/write";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
+        return "/freewrite_page/write";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
 
     // 글 작성 후 처리
@@ -75,10 +75,10 @@ public class FreewriteController {
             }
         } else {
             log.error("세션에 사용자 정보가 없습니다.");
-            return "redirect:/yanawa/freewrite/write";
+            return "redirect:/freewrite_page/write";
         }
 
-        return "redirect:/yanawa/freewrite/list?page=1&order=recent";
+        return "redirect:/freewrite_page/list?page=1&order=recent";
     }
 
     // 게시글 목록 화면 이동
@@ -103,7 +103,7 @@ public class FreewriteController {
         model.addAttribute("keyword", keyword);
         model.addAttribute("order", order);
 
-        return "/freewrite/list";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
+        return "/freewrite_page/list";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
 
     // 게시글 상세 조회
@@ -122,7 +122,7 @@ public class FreewriteController {
 
         model.addAttribute("freewrite", freewrite);
 
-        return "/freewrite/detail";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
+        return "/freewrite_page/detail";  // 절대 경로로 설정하여 템플릿 위치 강제 지정
     }
 
     // 게시글 삭제
@@ -133,10 +133,10 @@ public class FreewriteController {
 
         if (member != null && freewrite.getMemberId().equals(member.getId())) {
             freewriteService.delete(id);
-            return "redirect:/yanawa/freewrite/list?page=1&order=recent";
+            return "redirect:/freewrite_page/list?page=1&order=recent";
         } else {
             log.error("권한이 없는 사용자입니다.");
-            return "redirect:/yanawa/freewrite/detail?id=" + id;
+            return "redirect:/freewrite_page/detail?id=" + id;
         }
     }
 }
