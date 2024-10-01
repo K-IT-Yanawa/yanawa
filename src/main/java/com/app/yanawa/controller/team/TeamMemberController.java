@@ -1,6 +1,5 @@
 package com.app.yanawa.controller.team;
 
-import com.app.yanawa.domain.team.TeamDTO;
 import com.app.yanawa.domain.team.TeamMemberDTO;
 import com.app.yanawa.service.member.MemberService;
 import com.app.yanawa.service.team.TeamMemberService;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/teamRecruit/*")
+@RequestMapping("/team/*")
 @RequiredArgsConstructor
 @Slf4j
 public class TeamMemberController {
@@ -23,23 +22,20 @@ public class TeamMemberController {
     private final MemberService memberService;
     private final TeamService teamService;
 
-    @GetMapping("teamRecruitDetail")
-    public void goToWriteFrom(Model model) {
+    @GetMapping("recruit-detail")
+    public void  goToWriteFrom(Model model) {
         // 회원 정보
-        model.addAttribute("member", memberService.getMember(81L).get());
+        model.addAttribute("member", memberService.getMember(3L).get());
         // 신청하는 팀 id
-        model.addAttribute("team", teamService.getTeam(1L).get());
-        log.info("GetMapping 들어옴");
+        model.addAttribute("team", teamService.getTeam(8L).get());
     }
 
-    @PostMapping("teamRecruitDetail")
+    @PostMapping("recruit-detail")
     public RedirectView write(TeamMemberDTO teamMemberDTO) {
-        log.info("PostMapping 1 들어옴");
 
         teamMemberService.join(teamMemberDTO.toVO());
-        log.info("PostMapping 2 들어옴");
         log.info("{}", teamMemberDTO);
         log.info(teamMemberDTO.toString());
-        return new RedirectView("/teamRecruit/teamRecruitDetail");
+        return new RedirectView("/team/recruit-detail");
     }
 }

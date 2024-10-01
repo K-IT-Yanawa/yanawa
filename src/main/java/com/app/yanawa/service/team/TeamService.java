@@ -6,7 +6,7 @@ import com.app.yanawa.domain.team.TeamVO;
 import java.util.Optional;
 
 public interface TeamService {
-    public void join(TeamVO teamVO);
+    public TeamVO join(TeamVO teamVO);
 
     public Optional<TeamDTO> getTeam(Long id);
 }
