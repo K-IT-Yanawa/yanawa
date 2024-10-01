@@ -146,7 +146,7 @@ document.getElementById('duplicate-check-button-email').addEventListener('click'
     }
 
     // 이메일 형식이 올바를 때 중복 검사 진행
-    fetch(`/yanawa/member/check-email-duplicate?email=${email}`)
+    fetch(`/member/check-email-duplicate?email=${email}`)
         .then(response => response.json())
         .then(data => {
             if (data.duplicate) {
@@ -176,7 +176,7 @@ document.getElementById('duplicate-check-button-nickname').addEventListener('cli
     }
 
     // 닉네임 형식이 올바를 때 중복 검사 진행
-    fetch(`/yanawa/member/check-nickname-duplicate?nickname=${nickname}`)
+    fetch(`/member/check-nickname-duplicate?nickname=${nickname}`)
         .then(response => response.json())
         .then(data => {
             if (data.duplicate) {
@@ -271,5 +271,5 @@ document.addEventListener('DOMContentLoaded', ()=> {
 const mainPageLogo =document.querySelector(".yanawa-logo");
 
 mainPageLogo.addEventListener('click',()=>{
-    window.location.href="/yanawa/member/main"
+    window.location.href="/member/main"
 });

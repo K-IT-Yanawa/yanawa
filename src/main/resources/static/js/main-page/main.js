@@ -146,19 +146,19 @@ const logoutButton = document.querySelector("#logout");
 
 logoutButton.addEventListener("click", () => {
     // 로그아웃 요청 및 알림 (fetch 사용)
-    fetch("/yanawa/member/logout")
-        .then(() => {
-            alert("로그아웃 되었습니다.");
-            window.location.href = "/yanawa/member/main"; // 메인 페이지로 이동
-        })
-        .catch((error) => {
-            console.error("로그아웃 중 오류 발생:", error);
-        });
+    // fetch("/member/logout")
+    //     .then(() => {
+    //         alert("로그아웃 되었습니다.");
+    //         window.location.href = "/member/main"; // 메인 페이지로 이동
+    //     })
+    //     .catch((error) => {
+    //         console.error("로그아웃 중 오류 발생:", error);
+    //     });
 
 
-    // // 로그아웃 요청 및 페이지 이동 (location.href 사용)
-    // alert("로그아웃 되었습니다."); // 알림 표시
-    // window.location.href = "/yanawa/member/main"; // 메인페이지로 이동
+    // 로그아웃 요청 및 페이지 이동 (location.href 사용)
+    alert("로그아웃 되었습니다."); // 알림 표시
+    window.location.href = "/member/main"; // 메인페이지로 이동
 });
 
 // 회원가입/로그인버튼
@@ -166,6 +166,6 @@ const loginHomePageButton = document.querySelector(".main_heder_login_job_login_
 
 // 위의 버튼 누를시 로그인페이지로 이동
 loginHomePageButton.addEventListener("click",()=>{
-    window.location.href="/yanawa/member/login"
+    window.location.href="/member/login"
 });
 

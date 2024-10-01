@@ -70,6 +70,7 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.findByMemberKakaoEmail(memberKakaoEmail);
     }
 
+
     @Override
     public Optional<MemberDTO> getMember(Long id) {
         return memberDAO.findMemberByMemberId(id);

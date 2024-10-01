@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/login_page/sign_up.css}" />
+    <link rel="stylesheet" th:href="@{/css/member/sign-up.css}" />
     <title>Yanawa Login</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="header-loginPageName">
                                     <span class="header-loginPageName-1"
-                                    > 통합 로그인</span
+                                    > 회원가입</span
                                     >
                                 </div>
                             </span>
@@ -41,7 +41,7 @@
                 </div>
                 <!-- 회원가입 title 아래 모든 것 -->
                 <div class="sign-up-wrapper">
-                    <form class="sign-up-form" th:action="@{/yanawa/member/signup}" id="signupForm" th:object="${memberDTO}" method="POST">
+                    <form class="sign-up-form" th:action="@{/member/signup}" id="signupForm" th:object="${memberDTO}" method="POST">
                         <div>
                             <div class="email">
                                 <label for="email" class="label-style">이메일</label>
@@ -1214,5 +1214,5 @@
     </main>
 </div>
 </body>
-<script th:src="@{/js/login_page/sign_up.js}"></script>
+<script th:src="@{/js/member/sign-up.js}"></script>
 </html>

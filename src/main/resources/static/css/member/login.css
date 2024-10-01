@@ -560,3 +560,10 @@ input::placeholder {
 .footer {
     padding-top: 32px;
 }
+.kakaoImg{
+    width: 400px;
+    height: 52px;
+}
+#kakaoLoginButton{
+    cursor: pointer;
+}
