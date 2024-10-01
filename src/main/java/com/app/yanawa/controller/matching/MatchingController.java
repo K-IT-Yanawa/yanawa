@@ -62,10 +62,14 @@ public class MatchingController {
     }
 
     //    매칭글 메인페이지(목록)
-    @GetMapping("match")
+    @GetMapping("list")
     public void getList(Pagination pagination, String order, String sport, String place, String time, Model model) {
         if(order == null) {
             order = "recent";
+        }if(sport != null || place != null || time != null) {
+            pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
+        }else{
+            pagination.setTotal(matchingService.getMatchingCount());
         }
 
         // 필터링 조건 전달

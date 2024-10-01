@@ -51,7 +51,7 @@
                     </form>
                 </div>
                 <div class="mobile-overflow">
-                    <form id="searchForm" action="/matchPage/matchMain" method="get">
+                    <form id="searchForm" action="/match/list" method="get">
                         <ul class="filters">
                             <li>
                                 <div>
@@ -332,9 +332,23 @@
     const paginationWrap = document.getElementById("pagination-wrap");
 
     // 필터링된 값들 가져오기
-    const sportFilter = document.querySelector('select[name="sport"]').value ||'';
-    const placeFilter = document.querySelector('select[name="place"]').value ||'';
-    const timeFilter = document.querySelector('select[name="time"]').value ||'';
+    // const sportFilter = document.querySelector('select[name="sport"]').value;
+    // const placeFilter = document.querySelector('select[name="place"]').value;
+    // const timeFilter = document.querySelector('select[name="time"]').value;
+
+    const sportFilter = [[${sport}]] || "";
+    const placeFilter = [[${place}]] || "";
+    const timeFilter = [[${time}]] || "";
+
+    if (sportFilter.value === null){
+        sportFilter.value = '';
+    }
+    if (placeFilter.value === null){
+        placeFilter.value = '';
+    }
+    if (timeFilter.value === null){
+        timeFilter.value = '';
+    }
 
     let queryParams = `sport=${sportFilter}&place=${placeFilter}&time=${timeFilter}`;
 
@@ -342,21 +356,21 @@
 
     // '이전' 버튼 추가 (첫 페이지에서는 비활성화)
     if (currentPage > 1) {
-        text += `<li><a href="?page=${Math.max(currentPage - pagination.pageCount, 1)}&${queryParams}" class="prev">이전</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.max(currentPage - pagination.pageCount, 1)}&${queryParams}" class="prev">이전</a></li>`;
     }
 
     // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
     for (let i = pagination.startPage; i <= Math.min(pagination.endPage, totalPageCount); i++) {
         if (i === currentPage) {
-            text += `<li><a href="?page=${i}&${queryParams}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+            text += `<li><a href="/match/list?page=${i}&${queryParams}" class="current" style="background-color: #ddd;">${i}</a></li>`;
         } else {
-            text += `<li><a href="?page=${i}&${queryParams}">${i}</a></li>`;
+            text += `<li><a href="/match/list?page=${i}&${queryParams}">${i}</a></li>`;
         }
     }
 
     // '다음' 버튼 추가 (마지막 페이지에서는 비활성화)
     if (currentPage < totalPageCount) {
-        text += `<li><a href="?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}&${queryParams}" class="next">다음</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}&${queryParams}" class="next">다음</a></li>`;
     }
 
     // 페이지 번호를 pagination-wrap에 추가
