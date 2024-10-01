@@ -24,19 +24,19 @@ public class TeamPostController {
     private final TeamService teamService;
 //    private final HttpSession session;
 
-    @GetMapping("team-recruit-write")
+    @GetMapping("recruit-write")
     public void goToWriteForm(Model model, HttpSession session) {
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
         model.addAttribute("team", teamService.getTeam(8L).get());
     }
 
-    @PostMapping("team-recruit-write")
+    @PostMapping("recruit-write")
     public RedirectView write(TeamPostDTO teamPostDTO) {
         teamPostService.write(teamPostDTO.toVO());
         // 팀모집 목록 페이지로 이동하기(작업 필요)
         log.info("{}", teamPostDTO);
         log.info(teamPostDTO.toString());
-        return new RedirectView("/team/team-recruit-list");
+        return new RedirectView("/team/recruit-list");
     }
 }

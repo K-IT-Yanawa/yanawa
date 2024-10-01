@@ -20,8 +20,8 @@
     </sql>
 
     <insert id="insert" parameterType="teamPostVO">
-        INSERT INTO SCOTT.TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION, CREATED_DATE, UPDATED_DATE)
-        VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+        INSERT INTO SCOTT.TBL_TEAM_POST(ID, TEAM_ID, END_DATE, INFORMATION, POST_READ_COUNT ,CREATED_DATE, UPDATED_DATE)
+        VALUES (SEQ_TEAM_POST.NEXTVAL, #{teamId}, #{endDate}, #{information}, #{postReadCount} ,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
     <select id="selectAll" resultType="teamPostDTO">

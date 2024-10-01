@@ -22,7 +22,7 @@ public class TeamMemberController {
     private final MemberService memberService;
     private final TeamService teamService;
 
-    @GetMapping("team-recruit-detail")
+    @GetMapping("recruit-detail")
     public void  goToWriteFrom(Model model) {
         // 회원 정보
         model.addAttribute("member", memberService.getMember(3L).get());
@@ -30,12 +30,12 @@ public class TeamMemberController {
         model.addAttribute("team", teamService.getTeam(8L).get());
     }
 
-    @PostMapping("team-recruit-detail")
+    @PostMapping("recruit-detail")
     public RedirectView write(TeamMemberDTO teamMemberDTO) {
 
         teamMemberService.join(teamMemberDTO.toVO());
         log.info("{}", teamMemberDTO);
         log.info(teamMemberDTO.toString());
-        return new RedirectView("/team/team-recruit-detail");
+        return new RedirectView("/team/recruit-detail");
     }
 }

@@ -28,7 +28,7 @@ public class TeamController {
     private final MemberService memberService;
     private final HttpSession session;
 
-    @GetMapping("team-create")
+    @GetMapping("create")
     public RedirectView goToWriteFrom(TeamDTO teamDTO, Model model) {
         // 세션에서 회원 정보 가져오기
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
@@ -49,11 +49,11 @@ public class TeamController {
             return new RedirectView ("/error");
         }
 
-        return new RedirectView ("/team/team-create");
+        return new RedirectView ("/team/create");
 
     }
 
-    @PostMapping("team-create")
+    @PostMapping("create")
     public RedirectView write(@ModelAttribute TeamDTO teamDTO) {
         log.info("들어옴");
         // 세션에서 멤버 ID를 가져와 teamDTO에 설정

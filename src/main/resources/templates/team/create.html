@@ -9,7 +9,7 @@
     />
     <link
             rel="stylesheet"
-            href="/css/team/team-recruit-write.css"
+            href="/css/team/recruit-write.css"
     />
     <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
     <title>팀 등록</title>
@@ -900,7 +900,7 @@
             </div>
         </div>
     </main>
-<form th:action="@{/team/team-create}" method="post" name="join-form">
+<form th:action="@{/team/create}" method="post" name="join-form">
         <input type="hidden" name="id">
         <input type="hidden" name="memberId">
         <input type="hidden" name="teamName">
@@ -913,7 +913,7 @@
     </form>
 </div>
 </body>
-<script src="/js/team/team-create.js"></script>
+<script src="/js/team/create.js"></script>
 <script th:inline="javascript">
     const getMemberId = [[${member}]];
 
