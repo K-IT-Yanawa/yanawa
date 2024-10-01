@@ -30,7 +30,6 @@ public class TeamPostMapperTests {
         teamPostPagination.setPage(2);
         teamPostPagination.setTotal(teamPostMapper.selectTotal());
         teamPostPagination.progress();
-        String order = new String();
         List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination);
         log.info("{}", posts.size());
         posts.stream().map(TeamPostDTO::toString).forEach(log::info);
@@ -43,7 +42,7 @@ public class TeamPostMapperTests {
         int randidx = 0;
         List<TeamVO> teams = teamMapper.selectAll();
 
-        for(int i = 0; i < 15; i++){
+        for(int i = 0; i < 5; i++){
             randidx = random.nextInt(teams.size());
             teamPostDTO = new TeamPostDTO();
             teamPostDTO.setEndDate("2024-10-10");
@@ -55,16 +54,16 @@ public class TeamPostMapperTests {
         }
     }
 
-    @Test
-    public void testSelectAllTeamPost(){
-        TeamPostPagination teamPostPagination = new TeamPostPagination();
-        teamPostPagination.setPage(1);
-        teamPostPagination.setTotal(teamPostMapper.selectTotal());
-        teamPostPagination.progress();
-        List<TeamPostDTO> teamPosts = teamPostMapper.selectAll(teamPostPagination);
-        log.info("{}", teamPosts.size());
-        teamPosts.stream().map(TeamPostDTO::toString).forEach(log::info);
-    }
+//    @Test
+//    public void testSelectAllTeamPost(){
+//        TeamPostPagination teamPostPagination = new TeamPostPagination();
+//        teamPostPagination.setPage(1);
+//        teamPostPagination.setTotal(teamPostMapper.selectTotal());
+//        teamPostPagination.progress();
+//        List<TeamPostDTO> teamPosts = teamPostMapper.selectAll(teamPostPagination);
+//        log.info("{}", teamPosts.size());
+//        teamPosts.stream().map(TeamPostDTO::toString).forEach(log::info);
+//    }
 }
 
 
