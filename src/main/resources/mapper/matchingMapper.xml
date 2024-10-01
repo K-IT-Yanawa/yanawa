@@ -47,6 +47,11 @@
                   #{city}, #{localCity}, #{localCityDetail})
     </insert>
 
+    <sql id="search">
+        <if test="search.keyword != null and search.keyword != ''">
+            AND T.TEAM_NAME LIKE '%' || #{search.keyword} || '%'
+        </if>
+    </sql>
 
     <!-- 매칭 게시판 데이터 목록 조회 -->
     <select id="selectMatchingAll" resultType="matchingDTO">
@@ -64,34 +69,38 @@
         JOIN TBL_MATCHING M ON T.ID = M.TEAM_ID
         JOIN TBL_POST P ON P.ID = M.POST_ID
         WHERE M.POST_ID IS NOT NULL
-        <if test="sport != null">
+        <if test="sport != null and sport != ''">
             AND M.SPORT_KIND_VALUE = #{sport}
         </if>
-        <if test="place != null">
+        <if test="place != null and place != ''">
             AND M.CITY = #{place}
         </if>
-        <if test="time != null">
+        <if test="time != null and time != ''">
             AND M.CHOICE_AM_PM = #{time}
         </if>
+        <include refid="search"/>
         ORDER BY M.POST_ID DESC
         ) X
         )
         WHERE R BETWEEN #{freewritePagination.startRow} AND #{freewritePagination.endRow}
     </select>
 
+    <!-- 매칭 게시물 수 조회 -->
     <select id="selectMatchingTotal">
         SELECT COUNT(*)
-        FROM TBL_MATCHING
+        FROM TBL_MATCHING M
+        JOIN TBL_TEAM T ON M.TEAM_ID = T.ID
         WHERE POST_ID IS NOT NULL
-        <if test="sport != null">
+        <if test="sport != null and sport != ''">
             AND SPORT_KIND_VALUE = #{sport}
         </if>
-        <if test="place != null">
+        <if test="place != null and place != ''">
             AND CITY = #{place}
         </if>
-        <if test="time != null">
+        <if test="time != null and time != ''">
             AND CHOICE_AM_PM = #{time}
         </if>
+        <include refid="search"/>
     </select>
 
 

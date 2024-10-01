@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Getter @Setter
 @ToString
 public class Search {
-    String keyword;
-    String[] types;
+    private String keyword;
+
 }
