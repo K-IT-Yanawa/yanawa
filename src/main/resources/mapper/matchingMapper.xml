@@ -47,6 +47,11 @@
                   #{city}, #{localCity}, #{localCityDetail})
     </insert>
 
+    <sql id="search">
+        <if test="search.keyword != null and search.keyword != ''">
+            AND T.TEAM_NAME LIKE % || #{search.keyword} || '%'
+        </if>
+    </sql>
 
     <!-- 매칭 게시판 데이터 목록 조회 -->
     <select id="selectMatchingAll" resultType="matchingDTO">
@@ -73,6 +78,7 @@
         <if test="time != null and time != ''">
             AND M.CHOICE_AM_PM = #{time}
         </if>
+        <include refid="search"/>
         ORDER BY M.POST_ID DESC
         ) X
         )
@@ -93,8 +99,8 @@
         <if test="time != null and time != ''">
             AND CHOICE_AM_PM = #{time}
         </if>
+        <include refid="search"/>
     </select>
-
 
 
     <select id="getMatchingCount" resultType="int">
