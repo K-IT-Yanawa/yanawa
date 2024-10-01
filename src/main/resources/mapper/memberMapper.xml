@@ -27,6 +27,7 @@
         </choose>
     </insert>
 
+
     <!--이메일중복조회-->
     <select id="countByEmail" resultType="int" parameterType="String">
         SELECT COUNT(*) FROM TBL_MEMBER WHERE MEMBER_EMAIL = #{email}

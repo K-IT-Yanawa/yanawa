@@ -13,8 +13,14 @@ public class GlobalExceptionHandler {
     protected RedirectView handleLoginFailException(LoginFailException e) {
         log.info("로그인 실패! 이메일과 비밀번호를 확인하세요!");
 //        로그인 실패시 status=false 를 줘서 로그인 실패를 알림
-        return new RedirectView("/yanawa/member/login?status=false");
+        return new RedirectView("/member/login?status=false");
     }
 
-//   추가 ExceptionHandler 여기에 적기
+    @ExceptionHandler(KakaoLoginFailException.class)
+    protected RedirectView handleKaKaoLoginFailException(KakaoLoginFailException e) {
+        log.info("카카오톡 로그인 실패! 회원정보가 없습니다.");
+        return new RedirectView("/member/login");
+    }
+
+    //   추가 ExceptionHandler 여기에 적기
 }
