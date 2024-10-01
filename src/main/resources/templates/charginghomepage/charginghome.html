@@ -3,11 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="/static/css/charging_home_page/charging_home.css"
-        />
+        <link rel="stylesheet" href="/css/charging_home_page/charging_home.css">
         <title>충전 홈</title>
+        <script src="https://js.bootpay.co.kr/bootpay-5.0.1.min.js" type="application/javascript"></script>
+
     </head>
     <body>
         <div id="__next">
@@ -17,7 +16,7 @@
                     <div class="charging-home-logo-wrapper">
                         <div class="charging-home-logo">
                             <img
-                                src="/static/images/charging_home/charging_home_logo.png"
+                                src="/images/charging_home/charging_home_logo.png"
                                 alt="logo"
                             />
                         </div>
@@ -181,7 +180,7 @@
                                             >
                                         </li>
                                     </ul>
-                                    <button class="charging-button">
+                                    <button class="charging-button" id="btn-charge">
                                         <span class="charging-button-name"
                                             >충전하기</span
                                         >
@@ -195,5 +194,21 @@
             </div>
         </div>
     </body>
-    <script src="/static/js/charging_home/charging_home.js"></script>
+<!--    <script>-->
+<!--        const sessionUserId = "${member.id}";-->
+<!--        const sessionUsername = "${member.memberName}";-->
+<!--        const sessionUserPhone = "${member.memberPhone}";-->
+<!--        const sessionUserEmail = "${member.memberEmail}";-->
+<!--    </script>-->
+    <script>
+        const sessionUserId = "user123";  // 예시 ID
+        const sessionUsername = "사용자이름"; // 사용자 이름
+        const sessionUserPhone = "01012345678"; // 사용자 전화번호
+        const sessionUserEmail = "test@domain.com"; // 올바른 이메일 형식 설정
+    </script>
+
+
+    <script src="/js/charging_home/charging_home.js"></script>
+
+
 </html>
