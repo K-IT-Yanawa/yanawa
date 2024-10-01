@@ -22,6 +22,10 @@ public class ChargingController {
                     "",          // memberPhone
                     "",      // memberPassword
                     "",      // memberGender
+                    "",
+                    "",
+                    "",
+                    true,
                     "",      // memberBirth
                     "",      // createdDate
                     ""       // updatedDate
