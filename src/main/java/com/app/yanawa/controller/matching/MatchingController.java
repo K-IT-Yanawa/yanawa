@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/matchPage/")
+@RequestMapping("/match/")
 @RequiredArgsConstructor
 @Slf4j
 public class MatchingController {
@@ -58,11 +58,11 @@ public class MatchingController {
     public RedirectView write(MatchingDTO matchingDTO) {
         log.info(matchingDTO.toString());
         matchingService.write(matchingDTO);
-        return new RedirectView("matchMain");
+        return new RedirectView("match");
     }
 
     //    매칭글 메인페이지(목록)
-    @GetMapping("matchMain")
+    @GetMapping("match")
     public void getList(Pagination pagination, String order, String sport, String place, String time, Model model) {
         if(order == null) {
             order = "recent";
