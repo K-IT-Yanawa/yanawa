@@ -34,7 +34,6 @@ public class MemberDAO {
         return memberMapper.selectByMemberKakaoEmail(memberKakaoEmail);
     }
 
-
 //    팀 생성 => 회원 이름, 이메일, 전화번호 조회
     public Optional<MemberDTO> findMemberByMemberId(Long Id) {
         return memberMapper.selectMemberByMemberId(Id);
