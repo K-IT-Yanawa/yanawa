@@ -68,3 +68,10 @@ signUpBackButton.addEventListener("click",()=>{
 //     yanawa/member/signup 으로 이동
     window.location.href="/yanawa/member/signup";
 });
+
+// 카카오 로그인
+const kakaoLoginButton = document.getElementById("kakaoLoginButton");
+
+kakaoLoginButton.addEventListener("click",()=>{
+
+})
