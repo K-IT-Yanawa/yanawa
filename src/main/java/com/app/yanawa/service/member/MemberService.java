@@ -24,6 +24,6 @@ public interface MemberService {
     //    카카오 회원조희
     public Optional<MemberVO> getKakaoMember(String memberKakaoEmail);
 
-    //
+
     public Optional<MemberDTO> getMember(Long Id);
 }

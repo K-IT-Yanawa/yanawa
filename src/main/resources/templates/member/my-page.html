@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Page</title>
+    <link rel="stylesheet" href="/css/member/my-page.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-div">
+        <button type="button">
+            <span class="header-span">
+                <div class="yanawa-logo">
+                    <img class="yanawa-logo-img"
+                         src="/images/yanawa_logo/yanawa_logo.jpg" alt="Yanawa Logo"/>
+                </div>
+                <div class="header-loginPageName">
+                    <span class="header-loginPageName-1">마이 페이지</span>
+                </div>
+            </span>
+        </button>
+    </div>
+</header>
+<main class="container">
+    <button id="logout-button">로그아웃</button>
+    <div class="user-info">
+        <h1 th:text="${session.member.memberKakaoEmail}"></h1>
+        <h2 th:text="${session.member.memberName}"></h2>
+        <img th:src="${session.member.memberKakaoProfileUrl}" class="profile-image" alt="Profile Image">
+    </div>
+</main>
+<script>
+    // 로그아웃 버튼 누를 시 이벤트
+    const kakaoLogoutButton = document.getElementById("logout-button");
+    kakaoLogoutButton.addEventListener("click", () => {
+        alert("카카오 로그아웃 완료 !");
+        window.location.href = "/kakao/logout";
+    });
+
+    // 로고 이미지 누를시 메인화면으로 이동
+    const mainPageLogo =document.querySelector(".yanawa-logo");
+
+    mainPageLogo.addEventListener('click',()=>{
+        window.location.href="/member/main"
+    });
+</script>
+</body>
+</html>

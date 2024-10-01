@@ -65,6 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
 const signUpBackButton = document.getElementById("signupBackButton");
 
 signUpBackButton.addEventListener("click",()=>{
-//     yanawa/member/signup 으로 이동
-    window.location.href="/yanawa/member/signup";
+//     /member/signup 으로 이동
+    window.location.href="/member/signup";
 });
+
+// 카카오 로그인
+function kakaoLogin() {
+    //개인 clientId 로 수정
+    const clientId = '4759c67a8c35dab21cbdb77f0bb159ad';
+    //개인 redirectUri 로 수정
+    const redirectUri = 'http://localhost:10000/kakao/login';
+    //kakaoService.getKakaoAccessToken에서 받아온것
+    const responseType = 'code';
+
+    const afterKakaoLoginMyPage = `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}`;
+
+    // 카카오 로그인후에 마이페이지로 이동
+    window.location.href = afterKakaoLoginMyPage;
+}
+
+
+

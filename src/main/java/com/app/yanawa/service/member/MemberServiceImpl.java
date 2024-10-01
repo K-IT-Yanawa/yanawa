@@ -46,7 +46,6 @@ public class MemberServiceImpl implements MemberService {
         }
     }
 
-
     //    이메일 중복
     @Override
     public boolean isEmailDuplicate(String email) {
@@ -70,6 +69,7 @@ public class MemberServiceImpl implements MemberService {
     public Optional<MemberVO> getKakaoMember(String memberKakaoEmail){
         return memberDAO.findByMemberKakaoEmail(memberKakaoEmail);
     }
+
 
     @Override
     public Optional<MemberDTO> getMember(Long id) {

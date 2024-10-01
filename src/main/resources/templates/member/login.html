@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/login_page/login.css}" />
+    <link rel="stylesheet" th:href="@{/css/member/login.css}" />
     <title>Yanawa Login</title>
 </head>
 <body>
@@ -70,7 +70,7 @@
                     <!-- '이메일로 로그인' text 외 div -->
                     <div class="login-withEmail-div">
                         <!-- '이메일로 로그인' text 외 form -->
-                        <form class="login-withEmail-form" id="email-login" th:action="@{/yanawa/member/login}" th:object="${memberDTO}" method="post">
+                        <form class="login-withEmail-form" id="email-login" th:action="@{/member/login}" th:object="${memberDTO}" method="post">
                             <!-- 이메일, 비밀번호, 로그인 div -->
                             <div>
                                 <div class="email">
@@ -220,8 +220,8 @@
                                                 >
                                     </button>
                                 </div>
-                                <div>
-                                    <a href="https://kauth.kakao.com/oauth/authorize"><img src="/images/login-page/kakao_login_large_wide.png"></a>
+                                <div id="kakaoLoginButton">
+                                    <img src="/images/login-page/kakao_login_medium_wide.png" class="kakaoImg" onclick="kakaoLogin()">
                                 </div>
                             </div>
                         </form>
@@ -265,8 +265,8 @@
     // 로고 이미지 누를시 메인화면으로 이동
     const mainPageLogo =document.querySelector(".yanawa-logo");
     mainPageLogo.addEventListener("click",()=>{
-        window.location.href="/yanawa/member/main"
+        window.location.href="/member/main"
     });
 </script>
-<script src="/js/login_page/login.js"></script>
+<script src="/js/member/login.js"></script>
 </html>

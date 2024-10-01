@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" th:action="@{/yanawa/member/main}" th:object="${memberDTO}"
+<html lang="en" th:action="@{/templates/member/main}" th:object="${memberDTO}"
       xmlns:c="http://www.w3.org/1999/XSL/Transform">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" th:href="@{/css/mainPage/maim.css}"/>
+        <link rel="stylesheet" th:href="@{/css/main-page/main.css}"/>
         <title>야나와 메인 페이지</title>
     </head>
     <body>
@@ -563,7 +563,7 @@
                                             th:if="${session.member == null}"
                                     type="button"
                                     class="main_heder_login_job_login_button Button_Button__root__login Button_Button__outlined__login Button_Button__outlinedSizeSmall_longin"
-                                    onclick="location.href='/yanawa/member/login'"
+                                    onclick="location.href='/member/login'"
                                     >
                                     <span class="Button_Button__interval__font">
                     <span class="geulssi_RdAI1 geulssi__AA geulssi_font_weight">
@@ -575,7 +575,7 @@
 
                                     <a
                                             th:if="${session.member != null}"
-                                    href="/yanawa/member/logout"
+                                    href="/member/logout"
                                     class="Button_Button__root__login Button_Button__outlinedSizeSmall_longin Button_Button__outlinedAssistive_gieob"
                                     id="logout"
                                     type="button"
@@ -1524,5 +1524,5 @@
             </main>
         </div>
     </body>
-    <script src="/js/mainPage_js/main.js"></script>
+    <script src="/js/main-page/main.js"></script>
 </html>
