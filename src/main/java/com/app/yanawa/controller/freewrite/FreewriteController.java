@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/yanawa/freewrite/*")
+@RequestMapping("/freewrite/*")
 @Slf4j
 public class FreewriteController {
 
@@ -75,10 +75,10 @@ public class FreewriteController {
             }
         } else {
             log.error("세션에 사용자 정보가 없습니다.");
-            return "redirect:/yanawa/freewrite/write";
+            return "redirect:/freewrite/write";
         }
 
-        return "redirect:/yanawa/freewrite/list?page=1&order=recent";
+        return "redirect:/freewrite/list?page=1&order=recent";
     }
 
     // 게시글 목록 화면 이동
@@ -133,10 +133,10 @@ public class FreewriteController {
 
         if (member != null && freewrite.getMemberId().equals(member.getId())) {
             freewriteService.delete(id);
-            return "redirect:/yanawa/freewrite/list?page=1&order=recent";
+            return "redirect:/freewrite/list?page=1&order=recent";
         } else {
             log.error("권한이 없는 사용자입니다.");
-            return "redirect:/yanawa/freewrite/detail?id=" + id;
+            return "redirect:/freewrite/detail?id=" + id;
         }
     }
 }
