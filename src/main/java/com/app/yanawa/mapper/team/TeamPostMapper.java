@@ -1,6 +1,6 @@
 package com.app.yanawa.mapper.team;
 
-import com.app.yanawa.domain.freewrite.Search;
+import com.app.yanawa.domain.freewrite.FreewriteSearch;
 import com.app.yanawa.domain.team.TeamPostDTO;
 import com.app.yanawa.domain.team.TeamPostPagination;
 import com.app.yanawa.domain.team.TeamPostVO;
@@ -22,6 +22,6 @@ public interface TeamPostMapper {
     public int selectTotal();
 
 //    검색 결과 개수 조회
-    public int selectTotalWithSearch(@Param("search") Search search);
+    public int selectTotalWithSearch(@Param("freewriteSearch") FreewriteSearch freewriteSearch);
 }
 

@@ -1,8 +1,8 @@
 package com.app.yanawa.controller.freewrite;
 
 import com.app.yanawa.domain.freewrite.FreewriteDTO;
-import com.app.yanawa.domain.freewrite.Pagination;
-import com.app.yanawa.domain.freewrite.Search;
+import com.app.yanawa.domain.freewrite.FreewritePagination;
+import com.app.yanawa.domain.freewrite.FreewriteSearch;
 import com.app.yanawa.domain.member.MemberVO;
 import com.app.yanawa.mapper.freewrite.FreewriteMapper;
 import com.app.yanawa.service.freewrite.FreewriteService;
@@ -83,23 +83,23 @@ public class FreewriteController {
 
     // 게시글 목록 화면 이동
     @GetMapping("list")
-    public String list(Pagination pagination, @RequestParam(value = "keyword", required = false) String keyword,
+    public String list(FreewritePagination freewritePagination, @RequestParam(value = "keyword", required = false) String keyword,
                        @RequestParam(value = "order", required = false) String order, Model model) {
         if (order == null) {
             order = "recent";
         }
 
-        Search search = new Search();
-        search.setKeyword(keyword);
-        search.setOrder(order);
+        FreewriteSearch freewriteSearch = new FreewriteSearch();
+        freewriteSearch.setKeyword(keyword);
+        freewriteSearch.setOrder(order);
 
-        pagination.setTotal(freewriteService.getTotalWithSearch(search));
-        pagination.progress();
+        freewritePagination.setTotal(freewriteService.getTotalWithSearch(freewriteSearch));
+        freewritePagination.progress();
 
-        List<FreewriteDTO> freewrites = freewriteService.getList(pagination, search);
+        List<FreewriteDTO> freewrites = freewriteService.getList(freewritePagination, freewriteSearch);
 
         model.addAttribute("freewrites", freewrites);
-        model.addAttribute("pagination", pagination);
+        model.addAttribute("pagination", freewritePagination);
         model.addAttribute("keyword", keyword);
         model.addAttribute("order", order);
 

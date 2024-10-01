@@ -7,7 +7,7 @@ import java.util.List;
 public interface FreewriteService {
      public void write(FreewriteDTO freewriteDTO);
     void saveAttachment(Attachment attachment);
-    List<FreewriteDTO> getList(Pagination pagination, Search search);
+    List<FreewriteDTO> getList(FreewritePagination freewritePagination, FreewriteSearch freewriteSearch);
 
     public int getTotal();
     public FreewriteDTO getDetail(Long id);
@@ -18,5 +18,5 @@ public interface FreewriteService {
     // 게시글 기타 정보 수정 (TBL_FREEWRITE)
     void updateFreewrite(FreewriteDTO freewriteDTO);
     void delete(Long id);
-    public int getTotalWithSearch(Search search);
+    public int getTotalWithSearch(FreewriteSearch freewriteSearch);
 }
