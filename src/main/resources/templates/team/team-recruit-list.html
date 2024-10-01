@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" th:action="@{/teamRecruit/teamRecruitList}" th:object="${teamPostDTO}">
+<html lang="en" th:action="@{/team/team-recruit-list}" th:object="${teamPostDTO}">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
             rel="stylesheet"
-            href="/css/teamrecruit_page/teamrecruitList.css"
+            href="/css/team/team-recruit-list.css"
     />
     <title>팀 목록(팀원구함)</title>
 </head>
@@ -399,7 +399,7 @@
     </svg>
 </button>
 </body>
-<script src="/js/teamrecruit_page/teamrecruitList.js"></script>
+<script src="/js/team/team-recruit-list.js"></script>
 <script th:inline="javascript">
     const  teamPosts = [[${teamPosts}]]
 

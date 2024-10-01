@@ -20,7 +20,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/yanawa/team")
+@RequestMapping("/team/*")
 @RequiredArgsConstructor
 @Slf4j
 public class TeamController {
@@ -28,14 +28,14 @@ public class TeamController {
     private final MemberService memberService;
     private final HttpSession session;
 
-    @GetMapping("teamCreate")
+    @GetMapping("team-create")
     public RedirectView goToWriteFrom(TeamDTO teamDTO, Model model) {
         // 세션에서 회원 정보 가져오기
         MemberVO memberVO = (MemberVO) session.getAttribute("member");
 
         if (memberVO == null) {
             // 로그인되지 않은 상태이면 로그인 페이지로 리다이렉트
-            return new RedirectView ("/yanawa/member/login");
+            return new RedirectView ("/member/login");
         }
 
         // 데이터베이스에서 사용자 정보 조회
@@ -49,11 +49,11 @@ public class TeamController {
             return new RedirectView ("/error");
         }
 
-        return new RedirectView ("teamRecruit/teamCreate");
+        return new RedirectView ("/team/team-create");
 
     }
 
-    @PostMapping("teamCreate")
+    @PostMapping("team-create")
     public RedirectView write(@ModelAttribute TeamDTO teamDTO) {
         log.info("들어옴");
         // 세션에서 멤버 ID를 가져와 teamDTO에 설정
@@ -70,7 +70,7 @@ public class TeamController {
 
         log.info("팀 정보: {}", foundTeam);
         log.info(teamDTO.toString());
-        return new RedirectView("/yanawa/member/main");
+        return new RedirectView("/member/main");
     }
 
 }

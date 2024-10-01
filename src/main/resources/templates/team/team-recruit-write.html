@@ -8,7 +8,7 @@
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.3/dist/web/static/pretendard-dynamic-subset.css"/>
     <link
             rel="stylesheet"
-            href="/css/teamrecruit_page/teamrecruitwritePage.css"/>
+            href="/css/team/team-recruit-write.css"/>
     <link rel="icon" href="/static/images/match_page/yanawalogo.png" />
     <title>팀원 모집</title>
 </head>
@@ -875,7 +875,7 @@
             </div>
         </div>
     </main>
-    <form th:action="@{/yanawa/team/teamRecruitWrite}" method="post" name="join-form">
+    <form th:action="@{/team/team-recruit-write}" method="post" name="join-form">
         <input type="hidden" name="id">
         <input type="hidden" name="teamId">
         <input type="hidden" name="endDate">
@@ -883,7 +883,7 @@
     </form>
 </div>
 </body>
-<script src="/js/teamrecruit_page/teamRecruitWrite.js"></script>
+<script src="/js/team/team-recruit-write.js"></script>
 <script th:inline="javascript">
     console.log("들어왔다!")
 
