@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/yanawa/charginghomepage/payment")
+@RequestMapping("/charginghomepage/payment")
 public class PaymentController {
 
     // 부트페이 결제 완료 후 콜백을 처리하는 엔드포인트
