@@ -29,10 +29,11 @@ public class MemberDAO {
         return memberMapper.countByNickname(nickname) > 0; // 0보다 크면 중복
     }
 
-//    로그인
-    public Optional<MemberVO> findByMemberEmailAndMemberPassword(String email, String password) {
-        return memberMapper.selectByMemberEmailAndMemberPassword(email, password);
+//    카카오 이메일로 회원조회
+    public Optional<MemberVO> findByMemberKakaoEmail(String memberKakaoEmail){
+        return memberMapper.selectByMemberKakaoEmail(memberKakaoEmail);
     }
+
 
 //    팀 생성 => 회원 이름, 이메일, 전화번호 조회
     public Optional<MemberDTO> findMemberByMemberId(Long Id) {
