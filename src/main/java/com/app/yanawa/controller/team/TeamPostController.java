@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
-@RequestMapping("/teamRecruit/*")
+@RequestMapping("/team/*")
 @RequiredArgsConstructor
 @Slf4j
 public class TeamPostController {
@@ -24,19 +24,19 @@ public class TeamPostController {
     private final TeamService teamService;
 //    private final HttpSession session;
 
-    @GetMapping("teamRecruitWrite")
-    public void goToWriteForm(Model model, HttpSession session){
+    @GetMapping("recruit-write")
+    public void goToWriteForm(Model model, HttpSession session) {
 //        MemberVO memberVO = (MemberVO)session.getAttribute("member");
 //        model.addAttribute("team", teamService.getTeam(memberVO.getId()));
-        model.addAttribute("team", teamService.getTeam(3L).get());
+        model.addAttribute("team", teamService.getTeam(8L).get());
     }
 
-    @PostMapping("teamRecruitWrite")
-    public RedirectView write(TeamPostDTO teamPostDTO){
-        teamPostService.join(teamPostDTO.toVO());
+    @PostMapping("recruit-write")
+    public RedirectView write(TeamPostDTO teamPostDTO) {
+        teamPostService.write(teamPostDTO.toVO());
         // 팀모집 목록 페이지로 이동하기(작업 필요)
         log.info("{}", teamPostDTO);
         log.info(teamPostDTO.toString());
-        return new RedirectView("/teamRecruit/teamRecruitList");
+        return new RedirectView("/team/recruit-list");
     }
 }

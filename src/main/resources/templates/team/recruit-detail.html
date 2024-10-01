@@ -9,10 +9,10 @@
     />
     <link
             rel="stylesheet"
-            href="/css/teamrecruit_page/teamrecruitDetailPage.css"
+            href="/css/team/recruit-detail.css"
     />
     <link rel="icon" href="/images/match_page/yanawalogo.png" />
-    <title>팀 상세페이지</title>
+    <title>팀 모집 상세</title>
 </head>
 <body>
 <div id="match-team-info">
@@ -837,7 +837,7 @@
         </div>
     </main>
     <footer></footer>
-    <form th:action="@{/teamRecruit/teamRecruitDetail}" method="post" name="join-form">
+    <form th:action="@{/team/recruit-detail}" method="post" name="join-form">
         <input type="hidden" name="id"> <!-- 신청 ID ( = 팀원 아이디 ) -->
         <input type="hidden" name="memberId"> <!-- 신청하는 회원의 ID -->
         <input type="hidden" name="teamId"> <!-- 신청할 팀의 ID -->
@@ -926,5 +926,5 @@
         }
     });
 </script>
-<script src="/js/teamrecruit_page/teamrecruitDetailPage.js"></script>
+<script src="/js/team/recruit-detail.js"></script>
 </html>
