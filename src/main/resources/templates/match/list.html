@@ -19,9 +19,9 @@
         <article></article>
         <div class="main-1">
             <div class="filter-container">
-                <div class="freewriteSearch-area">
-                    <form id="teamForm" action="">
-                        <div class="freewriteSearch-div">
+                <div class="search-area">
+<!--                    <form id="teamForm" action="" >-->
+                        <div class="search-div">
                             <div class="ant-form-item">
                                 <div class="ant-row ant-form-item-row">
                                     <div
@@ -37,6 +37,8 @@
                                                         placeholder="팀명 검색"
                                                         class="ant-input css-1qhpsh8 ant-input-outlined"
                                                         type="text"
+                                                        id="search-keyword"
+                                                        value=""
                                                 />
                                             </div>
                                         </div>
@@ -45,13 +47,13 @@
                             </div>
                             <button
                                     type="button"
-                                    class="team-freewriteSearch"
+                                    class="team-search"
                             ></button>
                         </div>
-                    </form>
+<!--                    </form>-->
                 </div>
                 <div class="mobile-overflow">
-                    <form id="searchForm" action="/matchPage/matchMain" method="get">
+                    <form id="searchForm" action="/match/list" method="get">
                         <ul class="filters">
                             <li>
                                 <div>
@@ -225,10 +227,10 @@
                             <li>
                                 <div>
                                     <div
-                                            class="area-div combobox-item freewriteSearch"
+                                            class="area-div combobox-item search"
                                     >
                                         <div class="label-container">
-                                            <button type="submit" class="freewriteSearch-all">조회하기</button>
+                                            <button type="submit" class="search-all">조회하기</button>
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +304,7 @@
             </article>
             <div class="register">
                 <div class="go-register">
-                    <a href="/matchPage/register"
+                    <a href="/match/register"
                     >🏃 원하시는 매칭팀이 없나요? <br />팀을 등록
                         해보세요 :)</a
                     >
@@ -310,15 +312,15 @@
                 <div class="register-div combobox-item register">
                     <div class="label-container">
                         <div class="team-register">
-                            <a href="/matchPage/register">팀 등록하기</a>
+                            <a href="/match/register">팀 등록하기</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="freewritePagination">
-        <ul id="freewritePagination-wrap" style="display: block"></ul>
+    <div class="pagination">
+        <ul id="pagination-wrap" style="display: block"></ul>
     </div>
     <footer></footer>
     <div></div>
@@ -326,44 +328,122 @@
 </body>
 <script src="/js/match_page/matchMain.js"></script>
 <script th:inline="javascript">
-    const freewritePagination = [[${freewritePagination}]]; // 서버에서 전달된 freewritePagination 객체 사용
-    const currentPage = freewritePagination.page; // 현재 페이지
-    const totalPageCount = freewritePagination.realEnd; // 실제 마지막 페이지 수
-    const paginationWrap = document.getElementById("freewritePagination-wrap");
+    const pagination = [[${pagination}]]; // 서버에서 전달된 pagination 객체 사용
+    const currentPage = pagination.page; // 현재 페이지
+    const totalPageCount = pagination.realEnd; // 실제 마지막 페이지 수
+    const paginationWrap = document.getElementById("pagination-wrap");
 
-    // 필터링된 값들 가져오기
-    const sportFilter = document.querySelector('select[name="sport"]').value ||'';
-    const placeFilter = document.querySelector('select[name="place"]').value ||'';
-    const timeFilter = document.querySelector('select[name="time"]').value ||'';
+    // URL에서 쿼리 파라미터 값을 가져오는 함수
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
 
-    let queryParams = `sport=${sportFilter}&place=${placeFilter}&time=${timeFilter}`;
+    // 페이지 로드 시 필터링된 값들을 쿼리 파라미터에서 가져와서 <select> 요소의 값을 설정
+    document.querySelector('select[name="sport"]').value = getQueryParam('sport') || "";
+    document.querySelector('select[name="place"]').value = getQueryParam('place') || "";
+    document.querySelector('select[name="time"]').value = getQueryParam('time') || "";
+    document.getElementById("search-keyword").value = getQueryParam('keyword') || "";
+
+    // 필터링된 값들 가져오기 (HTML의 select 태그에서 직접 값을 가져옴)
+    const sportFilter = document.querySelector('select[name="sport"]').value || "";
+    const placeFilter = document.querySelector('select[name="place"]').value || "";
+    const timeFilter = document.querySelector('select[name="time"]').value || "";
+    const keyword = document.getElementById("search-keyword").value || "";
+
+    // queryParams에 필터링된 값을 추가하여 빈 값이 아닌 경우에만 URL에 포함
+    let queryParams = [];
+
+    if (sportFilter) {
+        queryParams.push(`sport=${sportFilter}`);
+    }
+    if (placeFilter) {
+        queryParams.push(`place=${placeFilter}`);
+    }
+    if (timeFilter) {
+        queryParams.push(`time=${timeFilter}`);
+    }
+    if (keyword) {
+        queryParams.push(`keyword=${keyword}`);
+    }
+
+    // 쿼리 파라미터 문자열 생성
+    let queryString = queryParams.length > 0 ? `&${queryParams.join('&')}` : "";
 
     let text = ``;
 
     // '이전' 버튼 추가 (첫 페이지에서는 비활성화)
     if (currentPage > 1) {
-        text += `<li><a href="?page=${Math.max(currentPage - freewritePagination.pageCount, 1)}&${queryParams}" class="prev">이전</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.max(currentPage - pagination.pageCount, 1)}${queryString}" class="prev">이전</a></li>`;
     }
 
     // 페이지 번호 출력 (시작 페이지부터 끝 페이지까지)
-    for (let i = freewritePagination.startPage; i <= Math.min(freewritePagination.endPage, totalPageCount); i++) {
-        if (i === currentPage) {
-            text += `<li><a href="?page=${i}&${queryParams}" class="current" style="background-color: #ddd;">${i}</a></li>`;
+    for (let i = pagination.startPage; i <= Math.min(pagination.endPage, totalPageCount); i++) {
+        if (i === pagination.currentPage) {
+            text += `<li><a href="/match/list?page=${i}${queryString}" class="current" style="background-color: #ddd;">${i}</a></li>`;
         } else {
-            text += `<li><a href="?page=${i}&${queryParams}">${i}</a></li>`;
+            text += `<li><a href="/match/list?page=${i}${queryString}">${i}</a></li>`;
         }
     }
 
     // '다음' 버튼 추가 (마지막 페이지에서는 비활성화)
     if (currentPage < totalPageCount) {
-        text += `<li><a href="?page=${Math.min(freewritePagination.startPage + freewritePagination.pageCount, totalPageCount)}&${queryParams}" class="next">다음</a></li>`;
+        text += `<li><a href="/match/list?page=${Math.min(pagination.startPage + pagination.pageCount, totalPageCount)}${queryString}" class="next">다음</a></li>`;
     }
 
-    // 페이지 번호를 freewritePagination-wrap에 추가
+    // 페이지 번호를 pagination-wrap에 추가
     paginationWrap.innerHTML = text;
+
+    // 팀명 검색 버튼 클릭 시 동작
+    document.querySelector('.team-search').addEventListener('click', function() {
+        const keyword = document.getElementById("search-keyword").value || "";
+
+        // 팀명 검색어가 있을 경우에만 처리
+        if (keyword) {
+            window.location.href = `/match/list?keyword=${keyword}`;
+        } else {
+            alert("검색어를 입력하세요."); // 검색어가 없을 경우 알림
+        }
+    });
+
+    // 필터링 조회 버튼 클릭 시 동작
+    document.querySelector('.search-all').addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 폼 제출 방지
+
+        const sportFilter = document.querySelector('select[name="sport"]').value || "";
+        const placeFilter = document.querySelector('select[name="place"]').value || "";
+        const timeFilter = document.querySelector('select[name="time"]').value || "";
+        const keyword = document.getElementById("search-keyword").value || "";
+
+        // 필터링된 값들을 URL에 추가
+        let queryParams = [];
+
+        if (sportFilter) {
+            queryParams.push(`sport=${sportFilter}`);
+        }
+        if (placeFilter) {
+            queryParams.push(`place=${placeFilter}`);
+        }
+        if (timeFilter) {
+            queryParams.push(`time=${timeFilter}`);
+        }
+        if (keyword) {
+            queryParams.push(`keyword=${keyword}`);
+        }
+
+        // 필터링된 값들이 있을 경우에만 페이지 이동
+        if (queryParams.length > 0) {
+            let queryString = `?${queryParams.join('&')}`;
+            window.location.href = `/match/list${queryString}`;
+        } else {
+            alert("필터링 조건을 선택하세요."); // 조건이 없을 경우 알림
+        }
+    });
+
+
+    // 페이지 번호를 pagination-wrap에 추가
+    paginationWrap.innerHTML = text;
+
+
 </script>
-
-
-
-
 </html>

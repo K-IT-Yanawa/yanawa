@@ -2,6 +2,7 @@ package com.app.yanawa.controller.matching;
 
 import com.app.yanawa.domain.matching.Pagination;
 import com.app.yanawa.domain.matching.MatchingDTO;
+import com.app.yanawa.domain.matching.Search;
 import com.app.yanawa.domain.team.TeamDTO;
 import com.app.yanawa.service.matching.MatchingService;
 import com.app.yanawa.service.team.TeamService;
@@ -62,18 +63,22 @@ public class MatchingController {
     }
 
     //    매칭글 메인페이지(목록)
-    @GetMapping("match")
-    public void getList(Pagination pagination, String order, String sport, String place, String time, Model model) {
+    @GetMapping("list")
+    public void getList(Pagination pagination, String order, String sport, String place, String time, Search search, Model model) {
         if(order == null) {
             order = "recent";
+        }if(sport != null || place != null || time != null || search != null) {
+            pagination.setTotal(matchingService.getTotalMatching(sport, place, time, search));
+        }else{
+            pagination.setTotal(matchingService.getMatchingCount());
         }
 
         // 필터링 조건 전달
-        pagination.setTotal(matchingService.getTotalMatching(sport, place, time));
+        pagination.setTotal(matchingService.getTotalMatching(sport, place, time, search));
         pagination.progres();
 
         // 필터링에 따른 매칭 목록 가져오기
-        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport, place, time));
+        model.addAttribute("matchingList", matchingService.getListMatching(pagination, order, sport, place, time, search));
         model.addAttribute("pagination", pagination);
 
         int matchingCount = matchingService.getMatchingCount();
@@ -85,7 +90,7 @@ public class MatchingController {
 //        model.addAttribute("pagination", pagination);
 
         // 컨트롤러에서 로그 확인
-        List<MatchingDTO> matchings = matchingService.getListMatching(pagination, order, sport , place, time);
+        List<MatchingDTO> matchings = matchingService.getListMatching(pagination, order, sport , place, time, search);
 //        for (MatchingDTO matching : matchings) {
 //            log.info("CreatedDate: " + matchingService.getListMatching(pagination, order, sport , place, time));
 //        }
