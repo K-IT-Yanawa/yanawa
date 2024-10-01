@@ -2,16 +2,16 @@ package com.app.yanawa.pagination;
 
 
 public class Pagination {
-    private Integer page;
-    private int startRow;
-    private int endRow;
-    private int rowCount;
-    private int pageCount;
-    private int startPage;
-    private int endPage;
-    private int realEnd;
-    private boolean prev, next;
-    private int total;
+    protected Integer page;
+    protected int startRow;
+    protected int endRow;
+    protected int rowCount;
+    protected int pageCount;
+    protected int startPage;
+    protected int endPage;
+    protected int realEnd;
+    protected boolean prev, next;
+    protected int total;
 
     public void progress() {
         this.page = page == null ? 1 : page;
