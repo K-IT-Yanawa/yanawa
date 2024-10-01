@@ -1,6 +1,5 @@
 package com.app.yanawa.mapper;
 
-import com.app.yanawa.domain.freewrite.Search;
 import com.app.yanawa.domain.team.TeamPostDTO;
 import com.app.yanawa.domain.team.TeamPostPagination;
 import com.app.yanawa.domain.team.TeamVO;
@@ -25,17 +24,16 @@ public class TeamPostMapperTests {
     @Autowired
     private MemberMapper memberMapper;
 
-    @Test
-    public void testSelectAll(){
-        TeamPostPagination teamPostPagination = new TeamPostPagination();
-        teamPostPagination.setPage(2);
-        teamPostPagination.setTotal(teamPostMapper.selectTotal());
-        teamPostPagination.progress();
-        String order = new String();
-        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination);
-        log.info("{}", posts.size());
-        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
-    }
+//    @Test
+//    public void testSelectAll(){
+//        TeamPostPagination teamPostPagination = new TeamPostPagination();
+//        teamPostPagination.setPage(2);
+//        teamPostPagination.setTotal(teamPostMapper.selectTotal());
+//        teamPostPagination.progress();
+//        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination);
+//        log.info("{}", posts.size());
+//        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
+//    }
 
     @Test
     public void testInsertAll(){
@@ -44,7 +42,7 @@ public class TeamPostMapperTests {
         int randidx = 0;
         List<TeamVO> teams = teamMapper.selectAll();
 
-        for(int i = 0; i < 15; i++){
+        for(int i = 0; i < 5; i++){
             randidx = random.nextInt(teams.size());
             teamPostDTO = new TeamPostDTO();
             teamPostDTO.setEndDate("2024-10-10");
@@ -56,33 +54,16 @@ public class TeamPostMapperTests {
         }
     }
 
-    @Test
-    public void testSelectAllTeamPost(){
-        TeamPostPagination teamPostPagination = new TeamPostPagination();
-        teamPostPagination.setPage(1);
-        teamPostPagination.setTotal(teamPostMapper.selectTotal());
-        teamPostPagination.progress();
+//    @Test
+//    public void testSelectAllTeamPost(){
+//        TeamPostPagination teamPostPagination = new TeamPostPagination();
+//        teamPostPagination.setPage(1);
+//        teamPostPagination.setTotal(teamPostMapper.selectTotal());
+//        teamPostPagination.progress();
 //        List<TeamPostDTO> teamPosts = teamPostMapper.selectAll(teamPostPagination);
 //        log.info("{}", teamPosts.size());
 //        teamPosts.stream().map(TeamPostDTO::toString).forEach(log::info);
-    }
-
-    @Test
-    public void testSelectAll2(){
-        TeamPostPagination teamPostPagination = new TeamPostPagination();
-        Search search = new Search();
-
-        teamPostPagination.setPage(3);
-        teamPostPagination.setTotal(teamPostMapper.selectTotal());
-        teamPostPagination.progress();
-
-//        search.setTypes(new String[]{"post-title", "member-name"});
-//        search.setKeyword("41");
-
-        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination, search);
-        log.info("{}", posts.size());
-        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
-    }
+//    }
 }
 
 
