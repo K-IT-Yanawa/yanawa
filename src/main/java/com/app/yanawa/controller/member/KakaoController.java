@@ -30,7 +30,7 @@ public class KakaoController {
 
         session.setAttribute("member", memberService.getKakaoMember(kakaoInfo.get().getMemberKakaoEmail()).get());
 
-        return new RedirectView("/member/my-page");
+        return new RedirectView("/mainPage/main");
     }
 }
 
