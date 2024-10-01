@@ -1,5 +1,6 @@
 package com.app.yanawa.mapper;
 
+import com.app.yanawa.domain.freewrite.Search;
 import com.app.yanawa.domain.team.TeamPostDTO;
 import com.app.yanawa.domain.team.TeamPostPagination;
 import com.app.yanawa.domain.team.TeamVO;
@@ -61,9 +62,26 @@ public class TeamPostMapperTests {
         teamPostPagination.setPage(1);
         teamPostPagination.setTotal(teamPostMapper.selectTotal());
         teamPostPagination.progress();
-        List<TeamPostDTO> teamPosts = teamPostMapper.selectAll(teamPostPagination);
-        log.info("{}", teamPosts.size());
-        teamPosts.stream().map(TeamPostDTO::toString).forEach(log::info);
+//        List<TeamPostDTO> teamPosts = teamPostMapper.selectAll(teamPostPagination);
+//        log.info("{}", teamPosts.size());
+//        teamPosts.stream().map(TeamPostDTO::toString).forEach(log::info);
+    }
+
+    @Test
+    public void testSelectAll2(){
+        TeamPostPagination teamPostPagination = new TeamPostPagination();
+        Search search = new Search();
+
+        teamPostPagination.setPage(3);
+        teamPostPagination.setTotal(teamPostMapper.selectTotal());
+        teamPostPagination.progress();
+
+//        search.setTypes(new String[]{"post-title", "member-name"});
+//        search.setKeyword("41");
+
+        List<TeamPostDTO> posts = teamPostMapper.selectAll(teamPostPagination, search);
+        log.info("{}", posts.size());
+        posts.stream().map(TeamPostDTO::toString).forEach(log::info);
     }
 }
 

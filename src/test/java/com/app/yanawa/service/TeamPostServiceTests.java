@@ -1,5 +1,6 @@
 package com.app.yanawa.service;
 
+import com.app.yanawa.domain.freewrite.Search;
 import com.app.yanawa.domain.team.TeamDTO;
 import com.app.yanawa.domain.team.TeamPostDTO;
 import com.app.yanawa.domain.team.TeamPostPagination;
@@ -29,21 +30,4 @@ public class TeamPostServiceTests {
         log.info(teamPostDTO.toString());
         teamPostService.write(teamPostDTO.toVO());
     }
-
-//    @Test
-//    public void testSelectAll(){
-//        TeamPostPagination teamPostPagination = new TeamPostPagination();
-//        Search search = new Search();
-//
-//        pagination.setPage(3);
-//        pagination.setTotal(postMapper.selectTotal());
-//        pagination.progress();
-//
-////        search.setTypes(new String[]{"post-title", "member-name"});
-////        search.setKeyword("41");
-//
-//        List<PostDTO> posts = postMapper.selectAll(pagination, search);
-//        log.info("{}", posts.size());
-//        posts.stream().map(PostDTO::toString).forEach(log::info);
-//    }
 }
