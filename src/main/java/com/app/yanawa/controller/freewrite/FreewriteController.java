@@ -38,6 +38,10 @@ public class FreewriteController {
                     "",      // memberPassword
                     "",      // memberGender
                     "",      // memberBirth
+                    "",
+                    "",
+                    true,
+                    "",
                     "",      // createdDate
                     ""       // updatedDate
             ));
