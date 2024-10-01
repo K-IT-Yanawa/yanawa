@@ -46,7 +46,6 @@ public class MemberServiceImpl implements MemberService {
         }
     }
 
-
     //    이메일 중복
     @Override
     public boolean isEmailDuplicate(String email) {
