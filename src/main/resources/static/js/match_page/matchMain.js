@@ -37,7 +37,6 @@ const searchAll = document.querySelector(".search-all");
 
 // 조회하기 눌렀을때 알림 + form 제출로 조회결과 제출
 searchAll.addEventListener("click", () => {
-    alert("조회가 완료되었습니다!");
     document.getElementById("searchForm").submit();
 });
 
@@ -46,7 +45,6 @@ const button = document.querySelector("button");
 
 // 돋보기 눌렀을때 팀명 조회결과 나옴
 button.addEventListener("click", () => {
-    alert("팀명 검색이 완료되었습니다!");
     document.getElementById("teamForm").submit();
 });
 
